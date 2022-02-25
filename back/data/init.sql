@@ -19,7 +19,7 @@ CREATE TABLE "itinary" (
     "description" TEXT NOT NULL,
     "duration" INTERVAL,
     "highway" BOOLEAN,
-    "kilometers" INT NOT NULL,
+    "kilometer" INT NOT NULL,
     "curve" INT NOT NULL,
 
     "user_id" int REFERENCES "user"("id"),
