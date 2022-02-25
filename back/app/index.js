@@ -1,5 +1,9 @@
 const express = require('express');
-const router = require('./routers');
+
+const userRouter = require('./user');
+const pictureRouter = require('./picture');
+const itinaryRouter = require('./itinary');
+const motorbikeRouter = require('./motorbike');
 
 const app = express();
 
@@ -7,6 +11,14 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+const router = express.Router();
+
+router.use('/', userRouter);
+
+router.use('/', itinaryRouter);
+
+router.use('/', motorbikeRouter);
+
+router.use('/', pictureRouter);
 
 module.exports = app;
