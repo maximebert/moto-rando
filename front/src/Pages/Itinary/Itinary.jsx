@@ -1,15 +1,13 @@
 // import react
 import React from 'react'
-import PropTypes from "prop-types";
-// import style
-import '../Itinary/itinary'
+import '../Itinary/itinary.scss';
 
 // page d'un itinéraire
 
-const Itinary =()=>{
-
-    return ()
+const Itinary = () => {
+    return (
+        <h1>page itineraires</h1>
+    )
 }
-Itinary.PropTypes={}
 
 export default React.memo (Itinary);
