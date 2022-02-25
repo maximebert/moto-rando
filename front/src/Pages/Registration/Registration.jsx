@@ -1,15 +1,15 @@
 // import react
 import React from 'react'
-import PropTypes from "prop-types";
 // import style
-import '../Registration/registration'
+import '../Registration/registration.scss'
 
 // page d'un itinéraire
 
 const Registration =()=>{
-
-    return ()
+    return (
+        <h1>page inscription</h1>
+    )
 }
-Registration.PropTypes={}
+
 
 export default React.memo (Registration);
