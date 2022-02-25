@@ -1,0 +1,41 @@
+### page d'accueil du site (doit renvoyer 6 itinéraires "random")
+GET http://localhost:3000
+
+
+### liste de tout les itinéraires
+GET http://localhost:3000/itinary
+
+### ajout itinéraire
+POST http://localhost:3000/itinary
+content-type: application/json
+
+{
+    "title": "Baux de Provence",
+    "description": "venez aux baux de provence c'est splendide",
+    "duration": ,
+    "highway": false,
+    "kilometer": 20,
+    "curve": 3,
+    "user_id": 1
+
+}
+
+### rechercher un itinéraire avec son id
+GET http://localhost:3000/itinary/1
+
+
+
+### page introuvable de l'API
+GET http://localhost:3000/sqjqshhqsq
+
+
+
+
+
+
+
+
+### test
+GET http://localhost:3000/
+
+
