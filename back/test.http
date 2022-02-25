@@ -12,7 +12,7 @@ content-type: application/json
 {
     "title": "Baux de Provence",
     "description": "venez aux baux de provence c'est splendide",
-    "duration": ,
+    "duration": "voir karine",
     "highway": false,
     "kilometer": 20,
     "curve": 3,
