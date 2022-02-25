@@ -1,9 +1,8 @@
 const express = require('express');
 
-const userRouter = require('./user');
-const pictureRouter = require('./picture');
-const itinaryRouter = require('./itinary');
-const motorbikeRouter = require('./motorbike');
+const {
+  userRouter, pictureRouter, itinaryRouter, motorbikeRouter,
+} = require('./routers');
 
 const app = express();
 
