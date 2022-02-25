@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.use('/itinary')
   .get(itinaryController.findAll)
-  .post(itinaryController.create);
+  .post(itinaryController.new);
 
 router.use('/itinary/:id')
-  .get(itinaryController.findByPk)
-  .patch(itinaryController.patch)
+  .get(itinaryController.findOne)
+  .patch(itinaryController.update)
   .delete(itinaryController.delete);
 
 router.use('/', itinaryController.findSix);
