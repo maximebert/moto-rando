@@ -1,7 +1,6 @@
--- Revert ocolis:initdb from pg
 
 BEGIN;
 
--- XXX Add DDLs here.
+DROP TABLE IF EXISTS "picture", "motorbike", "itinary", "user";
 
 COMMIT;
