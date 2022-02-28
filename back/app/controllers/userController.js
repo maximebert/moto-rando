@@ -1,4 +1,5 @@
 const userMapper = require('../models/user');
+const { ApiError } = require('../helpers/errorHandler');
 
 const userController = {
 
@@ -15,6 +16,11 @@ const userController = {
   async findOne(req, res) {
     const { id } = req.params;
     const user = await userMapper.findByPk(id);
+
+    if (!user) {
+      throw new ApiError(404, 'User not found');
+    }
+
     return res.json(user).status(200);
   },
 

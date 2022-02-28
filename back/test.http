@@ -6,6 +6,9 @@ GET http://localhost:3000
 ### liste de tout les itinéraires
 GET http://localhost:3000/itineraires
 
+### affiche un itinéraire
+GET http://localhost:3000/itineraires/1
+
 ### ajout itinéraire
 POST http://localhost:3000/itineraires
 content-type: application/json
@@ -55,6 +58,7 @@ DELETE http://localhost:3000/profil/11
 
 ### voir liste des motos
 GET http://localhost:3000/motos
+
 ### voir une moto
 GET http://localhost:3000/motos/1
 
@@ -96,3 +100,10 @@ content-type: application/json
 DELETE http://localhost:3000/images/10
 
 ###################################################################################################################
+
+### profil inexistant
+GET http://localhost:3000/profil/60
+
+### itineraire inexistant
+GET http://localhost:3000/itineraires/60
+
