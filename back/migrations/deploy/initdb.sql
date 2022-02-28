@@ -1,6 +1,6 @@
 BEGIN;
 
-
+DROP TABLE IF EXISTS "user", "itinary", "motorbike", "picture";
 
 CREATE TABLE "user" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
