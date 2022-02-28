@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS "user", "itinary", "motorbike", "picture";
+
 
 CREATE TABLE "user" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -46,9 +46,9 @@ CREATE TABLE "picture" (
   "description" TEXT,
   "link" TEXT NOT NULL,
 
-  "user_id" int REFERENCES "visitor"("id"),
-  "motorbike_id" int REFERENCES "attraction"("id"),
-  "itinary_id" int REFERENCES "attraction"("id"),
+  "user_id" int REFERENCES "user"("id"),
+  "motorbike_id" int REFERENCES "motorbike"("id"),
+  "itinary_id" int REFERENCES "itinary"("id"),
 
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
   "updated_at" TIMESTAMPTZ
