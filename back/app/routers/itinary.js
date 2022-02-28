@@ -1,13 +1,13 @@
 const express = require('express');
-const { itinaryController } = require('../controllers');
+const itinaryController = require('../controllers/itinaryController');
 
 const router = express.Router();
 
-router.use('/')
+router.route('/')
   .get(itinaryController.findAll)
   .post(itinaryController.new);
 
-router.use('/:id')
+router.route('/:id')
   .get(itinaryController.findOne)
   .patch(itinaryController.update)
   .delete(itinaryController.delete);
