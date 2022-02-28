@@ -13,6 +13,7 @@ VALUES
 (2, 'le litoral de Cassis', 'Une petite balade le long du litoral, pour profiter du bon air marin', '01:30:00', FALSE, 120, 2),
 (3, 'la corniche des Cévennes', 'au milieu de la verdure cevenole, ce trajet vous permettra de découvrir de jolies routes et de rider entre potes', '02:00:00', TRUE, 164, 5);
 
+
 INSERT INTO  "motorbike" ("id", "brand", "model", "description", "user_id")
 VALUES
 (1, 'KTM', '790 Duke', 'Full origine, ma moto est la version noir et orange, avec un ajout de liseret orange sur les jantes', 1),
