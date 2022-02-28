@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../LegalNotice/legalNotice.scss'
+
 const LegalNotice = () => {
     return (
         <>
