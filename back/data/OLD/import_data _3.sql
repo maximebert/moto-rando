@@ -3,21 +3,21 @@ BEGIN;
 
 INSERT INTO "user" ("alias", "email", "password", "presentation")
 VALUES
-(7'yann', 'yann01@yahoo.com', "secret1234", 'personne timide a la recherche de biker'),
-(8'celestin', 'celestin01@yahoo.com', "secret4567", 'personne etravagante a la recherche de biker'),
-(9'luc', 'luc01@yahoo.com', "secret89", 'personne amourex de la vitesse a la recherche de biker');
+('yann', 'yann01@yahoo.com', "secret1234", 'personne timide a la recherche de biker'),
+('celestin', 'celestin01@yahoo.com', "secret4567", 'personne etravagante a la recherche de biker'),
+('luc', 'luc01@yahoo.com', "secret89", 'personne amourex de la vitesse a la recherche de biker');
 
 INSERT INTO "itinary" ("title", "description", "duration", "highway", "kilometer", "curve", "user_id")
 VALUES
-(7'frot','balade le long du canal','05:10:00',"false",'300',"2",7),
-(8'blamont','balade en montagne','01:32:00',"true",'80',"5",8),
-(9'couché de soleil','balade en bord de mer','02:16:30',"true",'80',"1",9);
+('frot','balade le long du canal','05:10:00',"false",'300',"2",7),
+('blamont','balade en montagne','01:32:00',"true",'80',"5",8),
+('couché de soleil','balade en bord de mer','02:16:30',"true",'80',"1",9);
 
 INSERT INTO  "motorbike" ("brand", "model", "description", "user_id")
 VALUES
-(7'Yamaha','R1M','model de course', 9),
-(8'Harley Davidson','road king','un petit bijou couleur métallique', 7),
-(9'ducati','monster','pour un plaisir de performance', 8);
+('Yamaha','R1M','model de course', 9),
+('Harley Davidson','road king','un petit bijou couleur métallique', 7),
+('ducati','monster','pour un plaisir de performance', 8);
 
 INSERT INTO "picture" ("title", "description", "link", "user_id", "motorbike_id", "itinary_id")
 VALUES

@@ -1,4 +1,4 @@
 %syntax-version=1.0.0
-%project=ocolis
+%project=motorando
 
 initdb 2022-02-25T07:51:54Z maximebert <maximebertinelli@gmail.com> # creation des tables
