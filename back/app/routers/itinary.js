@@ -3,6 +3,13 @@ const { itinaryController } = require('../controllers');
 
 const router = express.Router();
 
-router.get('/', itinaryController.findAll);
+router.use('/')
+  .get(itinaryController.findAll)
+  .post(itinaryController.new);
+
+router.use('/:id')
+  .get(itinaryController.findOne)
+  .patch(itinaryController.update)
+  .delete(itinaryController.delete);
 
 module.exports = router;
