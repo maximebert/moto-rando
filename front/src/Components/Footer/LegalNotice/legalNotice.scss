@@ -1,0 +1,17 @@
+@use 'src/Styles/vars';
+
+.legalNotices{
+    display: flex;
+    justify-content: left;
+&-title{
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid vars$blue;
+    color: white;
+    background-color: vars$blue;
+}
+
+}
+p{
+    margin-bottom: 1em;
+}

@@ -7,10 +7,12 @@ import Registration from '../../Pages/Registration/Registration';
 import Profil from "../../Pages/Profil/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
+import Footer from "../Footer/Footer";
 
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
+import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 
 function App() {
@@ -23,7 +25,9 @@ function App() {
             <Route path="/profil" element={<Profil />} />
             <Route path="/equipe" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/mentions-legales" element={<LegalNotice />} />
         </Routes>
+        <Footer/>
     </div>
   );
 }

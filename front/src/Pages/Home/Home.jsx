@@ -1,6 +1,6 @@
 // import react
 import React from 'react'
-import PropTypes from "prop-types";
+
 // import style
 import '../Home/home.scss'
 
@@ -11,6 +11,6 @@ const Home =()=>{
     )
 }
 
-Home.propType={}
+
 
 export default React.memo(Home)
