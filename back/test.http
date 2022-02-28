@@ -5,6 +5,13 @@ GET http://localhost:3000
 ### liste de tout les itinéraires
 GET http://localhost:3000/itineraires
 
+### affiche un itinéraire
+GET http://localhost:3000/itineraires/1
+
+### itineraire inexistant
+GET http://localhost:3000/itineraires/60
+
+
 ### ajout itinéraire
 POST http://localhost:3000/itineraires
 content-type: application/json
@@ -20,8 +27,11 @@ content-type: application/json
 
 }
 
-### rechercher un itinéraire avec son id
-GET http://localhost:3000/profil/1
+### rechercher un profil avec son id
+GET http://localhost:3000/profil/6
+
+### profil inexistant
+GET http://localhost:3000/profil/60
 
 
 

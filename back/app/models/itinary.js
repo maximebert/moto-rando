@@ -14,7 +14,7 @@ const itinaryMapper = {
     const result = await database.query(`SELECT * FROM "itinary" WHERE id = ${itinaryId}`);
 
     if (result.rowCount === 0) {
-      return null;
+      return undefined;
     }
 
     return result.rows[0];

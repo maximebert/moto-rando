@@ -1,3 +1,4 @@
+const { ApiError } = require('../helpers/errorHandler');
 const itinaryMapper = require('../models/itinary');
 
 const itinaryController = {
@@ -16,7 +17,12 @@ const itinaryController = {
   async findOne(req, res) {
     const { id } = req.params;
     const itinary = await itinaryMapper.findByPk(id);
-    return res.json(itinary).status(200);
+
+    if (!itinary) {
+      throw new ApiError(404, 'Itinary not found');
+    }
+
+    return res.json(itinary);
   },
 
   async update(req, res) {
@@ -29,7 +35,7 @@ const itinaryController = {
   async delete(req, res) {
     const { id } = req.params;
     const itinary = await itinaryMapper.delete(id);
-    return res.json(itinary).status(200);
+    return res.json(itinary).status(204);
   },
 
 };
