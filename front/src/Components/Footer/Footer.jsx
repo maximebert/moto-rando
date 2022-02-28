@@ -1,9 +1,20 @@
+// import react
 import React from 'react';
-import '../Footer/footer';
+import { Link } from 'react-router-dom';
+
+// import style
+import '../Footer/footer.scss';
+
+//import pages
+import SocialLink from './SocialLink/SocialLink';
+
 
 const Footer = () => {
     return (
-        <h1>Page contact</h1>
+        <div className='footer'>
+        <Link to={"/mentions-legales"} >Mentions légales</Link>
+        <SocialLink/>
+        </div>
     )
 }
 
