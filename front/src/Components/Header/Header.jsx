@@ -64,10 +64,8 @@ const Header = () => {
                             Inscription
                         </NavLink>
                     </li>
-                </ul>
-                <button>
                     <Login />
-                </button>
+                </ul>
             </nav>
                 <div className='header__content__toggle'>
                     { !menuOpen ? <BiMenuAltRight onClick={menuToggleHandler} /> : <AiOutlineClose onClick={menuToggleHandler} />}

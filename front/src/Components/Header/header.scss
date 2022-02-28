@@ -59,18 +59,13 @@
                 }
                 li{
                     padding: 0.75rem 1.25rem;
+                    font-size: 1rem;
                     border-radius: $borderRadius;
                     transition: 0.3s ease all;
                 }
             }
         }
-        button{
-            cursor: pointer;
-            border: none;
-            padding: 0.7rem 1.25rem;
-            border-radius: $borderRadius;
-            font-family: 'Poppins', sans-serif;
-        }
+
         .isMenu{
             transform: translate(100%);
 

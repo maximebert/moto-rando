@@ -5,7 +5,7 @@ import {GiMountainRoad, GiPathDistance} from "react-icons/gi";
 import {AiOutlineFieldTime} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 
-const Itinerary = () => {
+const Itinerary = ({map, title, road, time}) => {
     return (
         <>
             <div className='container__card'>
