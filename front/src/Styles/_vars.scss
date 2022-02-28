@@ -4,3 +4,17 @@ $blueLight: #bee3ed;
 $greyLight: #e5e5e5;
 $grey: #3b4249;
 $hoverBlue: #37bacd;
+
+
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$borderRadius: 12px;
+$headerHeight: 100px;
+
+@mixin breakpoint($point) {
+    @if $point == md  {
+        @media (min-width: 55em) {
+            @content
+        }
+    }
+}
