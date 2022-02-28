@@ -6,7 +6,9 @@ import '../Home/home.scss'
 
 // page d'accueil du site
 const Home =()=>{
-return ()
+    return (
+        <h1>page home</h1>
+    )
 }
 
 Home.propType={}
