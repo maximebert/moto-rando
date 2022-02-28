@@ -1,5 +1,6 @@
 import { Routes , Route } from "react-router-dom";
-
+//components
+import Header from '../Header/Header';
 // pages
 import Home from "../../Pages/Home/Home";
 import Itinary from "../../Pages/Itinary/Itinary";
@@ -16,6 +17,7 @@ import './app.scss';
 function App() {
   return (
     <div className="App">
+        <Header />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/itineraires" element={<Itinary />} />
