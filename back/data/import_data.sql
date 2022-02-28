@@ -19,11 +19,10 @@ VALUES
 (5, 'ducati', 'monster', 'va vite en ligne droite...', 5),
 (6, 'yamaha', 'chappy', 'jé mi 1 po bidalo ele pren 52 kilometreur facil', 6);
 
-INSERT INTO "picture" ("id","title", "description", "link", "user_id", "motorbike_id")
+INSERT INTO "picture" ("id","title", "description", "link", "user_id", "motorbike_id", "itinary_id")
 VALUES
-(4, 'abaye de frigolet', 'frigolet', 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Abbaye_de_Frigolet%2C_vue_int%C3%A9rieure_%281%29.jpg', 4, 4),
-(5, 'stade velodrome', 'allez lom', 'https://upload.wikimedia.org/wikipedia/commons/4/44/Stade_V%C3%A9lodrome_OM-ManUTD_57957spectateurs.jpg', 5, 5),
-(6, 'saintes maries de la mer', 'flamant rose', 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg', 6, 6);
-
+(4, 'abaye de frigolet', 'frigolet', 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Abbaye_de_Frigolet%2C_vue_int%C3%A9rieure_%281%29.jpg', 4, null, 4),
+(5, 'stade velodrome', 'allez lom', 'https://upload.wikimedia.org/wikipedia/commons/4/44/Stade_V%C3%A9lodrome_OM-ManUTD_57957spectateurs.jpg', 5, null, 5),
+(6, 'saintes maries de la mer', 'flamant rose', 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg', 6, null, 6);
 
 COMMIT;
