@@ -5,7 +5,7 @@ const itinaryMapper = {
     const result = await database.query('SELECT * FROM "itinary"');
 
     if (!result.rows) {
-      throw new Error('No record available in table "user"');
+      throw new Error('No record available in table "itinary"');
     }
     return result.rows;
   },

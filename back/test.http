@@ -1,6 +1,7 @@
 ### page d'accueil du site (doit renvoyer 6 itinéraires "random")
 GET http://localhost:3000
 
+###################################################################################################################
 
 ### liste de tout les itinéraires
 GET http://localhost:3000/itineraires
@@ -11,24 +12,87 @@ content-type: application/json
 
 {
     "title": "Baux de Provence",
-    "description": "venez aux baux de provence c'est splendide",
-    "duration": "voir karine",
+    "description": "venez aux baux de provence cest splendide",
+    "duration": "20:00:30",
     "highway": false,
     "kilometer": 20,
     "curve": 3,
     "user_id": 1
-
 }
 
-### rechercher un itinéraire avec son id
+### supprimer un itinéraire
+DELETE http://localhost:3000/itineraires/10
+
+### modif itinéraire (ne fonctionne pas)
+PATCH  http://localhost:3000/itineraires/11
+content-type: application/json
+
+{
+    "duration": "20:10:30"
+}
+
+###################################################################################################################
+
+### rechercher un profil avec son id
 GET http://localhost:3000/profil/1
 
+### ajout d'un profil
+POST http://localhost:3000/profil/inscription
+content-type: application/json
+
+{
+    "alias": "alban",
+    "email": "albanouPHP@gmail.com",
+    "password": "php4life",
+    "presentation": "bonjour, je suis alban je suis en formation js mais je prefere en fait le php!"
+}
+
+### supprimer un profil avec son id
+DELETE http://localhost:3000/profil/11
 
 
-### page introuvable de l'API
-GET http://localhost:3000/sqjqshhqsq
+###################################################################################################################
 
-### test
-GET http://localhost:3000/
+### voir liste des motos
+GET http://localhost:3000/motos
+### voir une moto
+GET http://localhost:3000/motos/1
 
+### ajout moto
+POST http://localhost:3000/motos
+content-type: application/json
 
+{
+    "brand": "suzuki",
+    "model": "gsx1000",
+    "description": "vroom vroom",
+    "user_id": 1
+}
+
+### supprimer une moto
+DELETE http://localhost:3000/motos/10
+
+###################################################################################################################
+
+### voir toutes les photos
+GET http://localhost:3000/images
+### voir une photo
+GET http://localhost:3000/images/1
+
+### ajout photo
+POST http://localhost:3000/images
+content-type: application/json
+
+{
+    "title": "suzuki",
+    "description": "gsx1000",
+    "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
+    "user_id": 1,
+    "motorbike_id": 1,
+    "itinary_id": 1
+}
+
+### supprimer une image
+DELETE http://localhost:3000/images/10
+
+###################################################################################################################

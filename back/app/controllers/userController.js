@@ -8,7 +8,7 @@ const userController = {
 
   async inscription(req, res) {
     const newUser = req.body;
-    const user = await userMapper.insert(newUser);
+    const user = await userMapper.create(newUser);
     return res.json(user).status(200);
   },
 
