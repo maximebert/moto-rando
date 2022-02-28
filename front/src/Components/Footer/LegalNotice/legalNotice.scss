@@ -3,12 +3,13 @@
 .legalNotices{
     display: flex;
     justify-content: left;
-&-title{
+
+    &-title{
     font-size: 1.5em;
     text-align: center;
-    border: 1px solid vars$blue;
+    border: 1px solid vars.$blue;
     color: white;
-    background-color: vars$blue;
+    background-color: vars.$blue;
 }
 
 }

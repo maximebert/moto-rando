@@ -1,0 +1,11 @@
+.user{
+    display: flex;
+
+   &-photo{
+    width: 10rem;
+    height: 8rem;
+   }
+   &-container{
+       flex-wrap: wrap;
+   }
+}

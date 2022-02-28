@@ -1,1 +1,38 @@
 @use 'src/Styles/vars';
+
+.btn-createItinerary{
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid vars.$blue;
+    width: 50%;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 50px;
+        &:hover{
+            background-color: vars.$blue;
+            color: #fff;
+            transition: 0.3s ease all;
+        }
+}
+.home__content{
+    background-color: vars.$blue;
+    color: #fff;
+    padding: 100px 0;
+    margin: 100px 0;
+    transform: skewY(-5deg) ;
+    &-text{
+        transform: skewY(5deg);
+        margin: 30px;
+
+        h3{
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        p{
+            line-height: 1.5rem;
+        }
+    }
+}
