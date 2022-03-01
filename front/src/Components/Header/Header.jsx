@@ -35,6 +35,10 @@ const Header = () => {
         setMenuOpen((menu) => !menu);
     }
 
+    const closeMenu = () => {
+        setMenuOpen(false)
+    }
+
     return (
         <header className='header'>
             <div className='header__content'>
@@ -45,22 +49,22 @@ const Header = () => {
             <nav className={`header__content__nav ${menuOpen ? 'isMenu' : ''}` }>
                 <ul className='header_list'>
                     <li>
-                        <NavLink className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
                             Accueil
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
                             Listes des itinéraires
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
                             L'equipe
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/inscription'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/inscription'>
                             Inscription
                         </NavLink>
                     </li>

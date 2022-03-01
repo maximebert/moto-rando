@@ -10,7 +10,7 @@ const Itinerary = ({map, title, road, time}) => {
         <>
             <div className='container__card'>
                 <div className='card'>
-                    <img className='card__img' src={imgItinerary} />
+                    <img className='card__img' src={imgItinerary} alt={title} />
                     <div className='card__title'>BRETAGNE NORD J3</div>
                     <div className='card__description'>
                         <div className='card__description-icon'>
@@ -33,7 +33,7 @@ const Itinerary = ({map, title, road, time}) => {
                 </div>
 
                 <div className='card'>
-                    <img className='card__img' src={imgItinerary} />
+                    <img className='card__img' src={imgItinerary} alt={title}/>
                     <div className='card__title'>BRETAGNE NORD J3</div>
                     <div className='card__description'>
                         <div className='card__description-icon'>
@@ -56,7 +56,7 @@ const Itinerary = ({map, title, road, time}) => {
                 </div>
 
                 <div className='card'>
-                    <img className='card__img' src={imgItinerary} />
+                    <img className='card__img' src={imgItinerary} alt={title}/>
                     <div className='card__title'>BRETAGNE NORD J3</div>
                     <div className='card__description'>
                         <div className='card__description-icon'>
