@@ -13,7 +13,7 @@ CREATE TABLE "user" (
     "updated_at" TIMESTAMPTZ
 );
 
-CREATE TABLE "itinary" (
+CREATE TABLE "itinerary" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE "picture" (
 
   "user_id" int REFERENCES "user"("id"),
   "motorbike_id" int REFERENCES "motorbike"("id"),
-  "itinary_id" int REFERENCES "itinary"("id"),
+  "itinerary_id" int REFERENCES "itinerary"("id"),
 
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
   "updated_at" TIMESTAMPTZ

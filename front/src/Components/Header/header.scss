@@ -35,9 +35,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: $blue;
+            background: $grey;
             transform: translate(0);
             transition: 0.3s ease transform;
+
 
             @include breakpoint(md){
                 transform: none;
@@ -56,12 +57,17 @@
                     align-items: center;
                     margin-bottom: 0;
                     margin-right: calc(0.5rem + #{$spacing-md});
+
                 }
                 li{
-                    padding: 0.75rem 1.25rem;
+                    padding: 1rem 1.25rem;
                     font-size: 1rem;
                     border-radius: $borderRadius;
                     transition: 0.3s ease all;
+
+                    .active{
+                        border-bottom: 2px solid $yellow;
+                    }
                 }
             }
         }

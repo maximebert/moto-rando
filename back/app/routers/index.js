@@ -1,7 +1,7 @@
 const express = require('express');
 
 const userRouter = require('./user');
-const itinaryRouter = require('./itinary');
+const itinaryRouter = require('./itinerary');
 
 const { errorHandler } = require('../helpers/errorHandler');
 
