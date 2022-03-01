@@ -2,7 +2,9 @@ const database = require('./database');
 
 const pictureMapper = {
   async findAll() {
-    const result = await database.query('SELECT * FROM "picture"');
+    const result = await database.query(
+      'SELECT * FROM "picture"',
+    );
 
     if (!result.rows) {
       throw new Error('No record available in table "picture"');
@@ -11,7 +13,13 @@ const pictureMapper = {
   },
   async findByPk(id) {
     const pictureId = Number(id);
-    const result = await database.query(`SELECT * FROM "picture" WHERE id = ${pictureId}`);
+    const result = await database.query(
+      `SELECT
+        "picture"."title" AS "picture_title",
+        "picture"."link" AS "picture_link"
+        FROM "picture"
+        WHERE "picture"."id" = ${pictureId}`,
+    );
 
     if (result.rowCount === 0) {
       return null;
@@ -30,10 +38,13 @@ const pictureMapper = {
     const motorbikeId = body.motorbike_id;
     const itineraryId = body.itinerary_id;
 
-    const result = await database.query(`INSERT INTO "picture"
-            ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
+    const result = await database.query(
+      `INSERT INTO "picture"
+        ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
         VALUES
-            ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}', '${itineraryId}') RETURNING *;`);
+        ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}', '${itineraryId}')
+        RETURNING *;`,
+    );
     if (result.rowCount === 0) {
       return null;
     }
@@ -51,7 +62,17 @@ const pictureMapper = {
     const motorbikeId = body.motorbike_id;
     const itineraryId = body.itinary_id;
 
-    const result = await database.query(`UPDATE "picture" SET title= '${title}', description= '${description}', link= '${link}' , user_id= '${userId}', motorbike_id= '${motorbikeId}', itinerary_id= '${itineraryId}'  WHERE id = ${pictureId} RETURNING *;`);
+    const result = await database.query(
+      `UPDATE "picture"
+        SET "title" = '${title}',
+        "description" = '${description}',
+        "link" = '${link}',
+        "user_id" = '${userId}',
+        "motorbike_id" = '${motorbikeId}',
+        "itinerary_id" = '${itineraryId}'
+        WHERE "picture"."id" = ${pictureId}
+        RETURNING *;`,
+    );
     if (result.rowCount === 0) {
       return null;
     }
@@ -60,7 +81,9 @@ const pictureMapper = {
 
   async delete(id) {
     const pictureId = Number(id);
-    const result = await database.query(`DELETE FROM "picture" WHERE id = '${pictureId}'`);
+    const result = await database.query(
+      `DELETE FROM "picture" WHERE "picture"."id" = '${pictureId}'`,
+    );
 
     if (result.rowCount === 0) {
       return null;
