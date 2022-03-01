@@ -11,10 +11,13 @@ import '../Registration/registration.scss'
 
 const Registration =()=>{
     return (
-        <div>
+        <>
+        <h2>Incription</h2>
+        <div className='registration'>
             <RegistrationUser/>
             <RegistrationBike/>
         </div>
+        </>
     )
 }
 
