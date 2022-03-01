@@ -4,7 +4,7 @@
  * en cas de passage d'erreur à la function next()
  */
 const ApiError = require('../errors/apiError');
-const WebsiteError = require('../errors/websiteError');
+// const WebsiteError = require('../errors/websiteError');
 
 const errorHandler = (err, res) => {
   let { statusCode, message } = err;
@@ -31,5 +31,5 @@ const errorHandler = (err, res) => {
 module.exports = {
   errorHandler,
   ApiError,
-  WebsiteError,
+//   WebsiteError,
 };
