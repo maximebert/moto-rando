@@ -1,6 +1,5 @@
 // import react
 import React from 'react'
-import RegistrationBike from '../../Components/Registration/RegistrationBike';
 
 //component
 import RegistrationUser from '../../Components/Registration/RegistrationUser';
@@ -12,10 +11,10 @@ import '../Registration/registration.scss'
 const Registration =()=>{
     return (
         <>
-        <h2>Incription</h2>
+        <h2>Inscription</h2>
         <div className='registration'>
             <RegistrationUser/>
-            <RegistrationBike/>
+
         </div>
         </>
     )
