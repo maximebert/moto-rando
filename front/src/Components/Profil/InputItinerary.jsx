@@ -1,10 +1,10 @@
 import React from "react"
 
-const InputItinary =()=>{
+const InputItinerary =()=>{
 
     return (
         <button>Créer un itinéraire</button>
     )
 }
 
-export default (InputItinary)
+export default (InputItinerary)
