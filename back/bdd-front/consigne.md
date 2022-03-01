@@ -12,10 +12,9 @@
 
 Pour sortir : `exit` (x2)
 
--`psql -U omoto -d omoto -f bdd-front/create_db.sql;`
+-`psql -U omoto -d omoto -f data/create_db.sql;`
 
--`psql -U omoto -d omoto -f bdd-front/import_data.sql;`
-
+-`psql -U omoto -d omoto -f data/import_data.sql;`
 
 ### modif du .env dans le dossier back
 

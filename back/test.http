@@ -3,13 +3,12 @@ GET http://localhost:3000
 
 
 ### connection
-POST http://localhost:3000/profil/connection
+POST http://localhost:3000/profil/connexion
 content-type: application/json
 
 {
-    "alias": "alban1",
-    "password": "php4life"
-
+    "alias": "max",
+    "password": "js4life"
 }
 ###################################################################################################################
 
@@ -54,11 +53,11 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "alban1",
-    "email": "albanouPHP4@gmail.com",
-    "password": "php4life",
-    "confirmPassword": "php4life",
-    "presentation": "bonjour, je suis alban je suis en formation js mais je prefere en fait le php!"
+    "alias": "max",
+    "email": "maxime@gmail.com",
+    "password": "js4life",
+    "confirmPassword": "js4life",
+    "presentation": "bonjour je suis maxime"
 }
 
 ### supprimer un profil avec son id

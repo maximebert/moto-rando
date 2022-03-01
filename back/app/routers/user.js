@@ -6,7 +6,7 @@ const controllerHandler = require('../helpers/controllerHandler');
 
 const router = express.Router();
 
-router.post('/connection', connectController.connection);
+router.post('/connexion', connectController.connexion);
 
 router.route('/:id')
   .get(controllerHandler(userController.findOne))

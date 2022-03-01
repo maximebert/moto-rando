@@ -3,7 +3,7 @@ const userMapper = require('../models/user');
 
 const connectController = {
 
-  async connection(req, res) {
+  async connexion(req, res) {
     const userAlias = req.body.alias;
     try {
       // on tente de récupérer l'utilisateur qui possède l'id
