@@ -17,4 +17,4 @@ const ProfilItinary = () => {
     )
 }
 
-export default React.memo (ProfilItinary);
+export default React.memo(ProfilItinary);

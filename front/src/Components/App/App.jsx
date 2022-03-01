@@ -9,11 +9,11 @@ import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
 import Footer from "../Footer/Footer";
 import ProfilItinary from "../../Pages/ProfilItinary/ProfilItinary";
+import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
-import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 
 

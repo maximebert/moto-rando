@@ -1,18 +1,22 @@
 // import react
 import React from 'react'
 import Content from "../../Components/ContentHome/Content";
-// import style
-import '../Home/home.scss'
 import ContentItinerary from "../../Components/ContentItinerary/ContentItinerary";
 import {Link} from "react-router-dom";
+// import style
+import '../Home/home.scss'
 
 const Home = () =>{
     return (
         <>
             <Content />
+
             <h2 className='home__title'>Des balades motos à couper le souffle</h2>
+
             <ContentItinerary />
+
             <Link to="#" className='btn-createItinerary'>Créer votre itineraire</Link>
+
             <div className='home__content'>
                 <div className='home__content-text'>
                     <h3>DÉCOUVREZ DE NOUVELLES ROUTES</h3>
@@ -27,6 +31,7 @@ const Home = () =>{
                     </p>
                 </div>
             </div>
+
         </>
     )
 }

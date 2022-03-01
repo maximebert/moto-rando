@@ -16,7 +16,9 @@
         }
 }
 .home__content{
-    background-color: vars.$blue;
+    background: linear-gradient(rgba(26, 26, 26, 0.63), rgba(99, 99, 99, 0.42)), url("../../assets/images/photo1.jpg");
+    background-size:cover;
+    background-position:center;
     color: #fff;
     padding: 100px 0;
     margin: 100px 0;
@@ -33,6 +35,15 @@
         }
         p{
             line-height: 1.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .home__content{
+        transform: skewY(0);
+        &-text{
+            transform: skewY(0);
         }
     }
 }
