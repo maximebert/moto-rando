@@ -6,7 +6,7 @@ const connectController = {
   async connexion(req, res) {
     const userAlias = req.body.alias;
     try {
-      // on tente de récupérer l'utilisateur qui possède l'id
+      // on tente de récupérer l'utilisateur qui possède l'alias
       const user = await userMapper.findByAlias(userAlias);
       if (!user) {
         return res.json("Cet user n'existe pas.");
