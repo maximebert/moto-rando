@@ -2,11 +2,8 @@
 
 
 .registration{
-
-
-
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 700px;
     margin: 20px auto;
 
@@ -16,7 +13,6 @@
     width: 300px;
     padding: 20px;
     }
-
     & form input{
         margin: 2px 0 20px 0;
     }
