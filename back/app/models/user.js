@@ -14,7 +14,28 @@ const userMapper = {
   },
   async findByPk(id) {
     const userId = Number(id);
-    const result = await database.query(`SELECT * FROM "user" WHERE id = ${userId}`);
+    const result = await database.query(
+      // Requete en attente d'aide pour afficher la photo de la moto
+      `SELECT
+      "user"."id" AS "user_id",
+      "user"."alias" AS "user_alias",
+      "user"."email" AS "user_email",
+      "user"."presentation" AS "user_presentation",
+      "itinerary"."title" AS "itinerary_title",
+      json_agg(DISTINCT "motorbike"."id") AS "motorbike_id",
+      json_agg(DISTINCT "motorbike"."brand") AS "motrobike_brand",
+      json_agg(DISTINCT "motorbike"."model") AS "motrobike_model",
+
+      json_agg(DISTINCT "picture"."title") AS "picture_title"
+
+      FROM "user"
+      LEFT JOIN "itinerary" ON "user_id" = "user"."id"
+      LEFT JOIN "picture" ON "itinerary_id" = "itinerary"."id"
+      LEFT JOIN "motorbike" ON "motorbike"."user_id" = "user"."id" OR "motorbike_id" = "motorbike"."id"
+
+      GROUP BY "user"."id", "itinerary"."title"
+      WHERE "user"."id" = ${userId}`,
+    );
 
     if (result.rowCount === 0) {
       return null;
