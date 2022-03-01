@@ -8,7 +8,9 @@ import Profil from "../../Pages/Profil/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
 import Footer from "../Footer/Footer";
+
 import Itinerary from "../../Pages/Itinerary/Itinerary";
+
 import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 // styles
