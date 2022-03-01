@@ -15,7 +15,7 @@ const connectController = {
       const validPwd = await bcrypt.compare(req.body.password, user.password);
       if (!validPwd) {
         return res.json("Ce n'est pas le bon mot de passe.");
-      } return res.satus(200).json(user);
+      } return res.status(200).json(user);
     } catch (err) {
       return res.status(500).send(err.message);
     }

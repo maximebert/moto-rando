@@ -1,6 +1,16 @@
 ### page d'accueil du site (doit renvoyer 6 itinéraires "random")
 GET http://localhost:3000
 
+
+### connection
+POST http://localhost:3000/profil/connection
+content-type: application/json
+
+{
+    "alias": "alban1",
+    "password": "php4life"
+
+}
 ###################################################################################################################
 
 ### liste de tout les itinéraires
