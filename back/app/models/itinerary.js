@@ -1,17 +1,17 @@
 const database = require('./database');
 
-const itinaryMapper = {
+const itineraryMapper = {
   async findAll() {
-    const result = await database.query('SELECT * FROM "itinary"');
+    const result = await database.query('SELECT * FROM "itinerary"');
 
     if (!result.rows) {
-      throw new Error('No record available in table "itinary"');
+      throw new Error('No record available in table "itinerary"');
     }
     return result.rows;
   },
   async findByPk(id) {
-    const itinaryId = Number(id);
-    const result = await database.query(`SELECT * FROM "itinary" WHERE id = ${itinaryId}`);
+    const itineraryId = Number(id);
+    const result = await database.query(`SELECT * FROM "itinerary" WHERE id = ${itineraryId}`);
 
     if (result.rowCount === 0) {
       return undefined;
@@ -31,7 +31,7 @@ const itinaryMapper = {
     } = body;
     const userId = body.user_id;
 
-    const result = await database.query(`INSERT INTO "itinary"
+    const result = await database.query(`INSERT INTO "itinerary"
             ("title", "description", "duration", "highway", "kilometer", "curve", "user_id")
         VALUES
             ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${userId}') RETURNING *;`);
@@ -42,7 +42,7 @@ const itinaryMapper = {
   },
 
   async update(id, body) {
-    const itinaryId = Number(id);
+    const itineraryId = Number(id);
     const {
       title,
       description,
@@ -53,7 +53,7 @@ const itinaryMapper = {
     } = body;
     const userId = body.user_id;
 
-    const result = await database.query(`UPDATE "itinary" SET title= '${title}', description= '${description}', duration= '${duration}' , highway= '${highway}' , kilometer= '${kilometer}', curve= '${curve}' , user_id= '${userId}'  WHERE id = ${itinaryId} RETURNING *;`);
+    const result = await database.query(`UPDATE "itinerary" SET title= '${title}', description= '${description}', duration= '${duration}' , highway= '${highway}' , kilometer= '${kilometer}', curve= '${curve}' , user_id= '${userId}'  WHERE id = ${itineraryId} RETURNING *;`);
     if (result.rowCount === 0) {
       return null;
     }
@@ -61,8 +61,8 @@ const itinaryMapper = {
   },
 
   async delete(id) {
-    const itinaryId = Number(id);
-    const result = await database.query(`DELETE FROM "itinary" WHERE id = '${itinaryId}'`);
+    const itineraryId = Number(id);
+    const result = await database.query(`DELETE FROM "itinerary" WHERE id = '${itineraryId}'`);
 
     if (result.rowCount === 0) {
       return null;
@@ -72,4 +72,4 @@ const itinaryMapper = {
   },
 };
 
-module.exports = itinaryMapper;
+module.exports = itineraryMapper;

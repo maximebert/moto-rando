@@ -28,12 +28,12 @@ const pictureMapper = {
     } = body;
     const userId = body.user_id;
     const motorbikeId = body.motorbike_id;
-    const itinaryId = body.itinary_id;
+    const itineraryId = body.itinerary_id;
 
     const result = await database.query(`INSERT INTO "picture"
-            ("title", "description", "link", "user_id", "motorbike_id", "itinary_id")
+            ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
         VALUES
-            ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}', '${itinaryId}') RETURNING *;`);
+            ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}', '${itineraryId}') RETURNING *;`);
     if (result.rowCount === 0) {
       return null;
     }
@@ -49,9 +49,9 @@ const pictureMapper = {
     } = body;
     const userId = body.user_id;
     const motorbikeId = body.motorbike_id;
-    const itinaryId = body.itinary_id;
+    const itineraryId = body.itinary_id;
 
-    const result = await database.query(`UPDATE "picture" SET title= '${title}', description= '${description}', link= '${link}' , user_id= '${userId}', motorbike_id= '${motorbikeId}', itinary_id= '${itinaryId}'  WHERE id = ${pictureId} RETURNING *;`);
+    const result = await database.query(`UPDATE "picture" SET title= '${title}', description= '${description}', link= '${link}' , user_id= '${userId}', motorbike_id= '${motorbikeId}', itinerary_id= '${itineraryId}'  WHERE id = ${pictureId} RETURNING *;`);
     if (result.rowCount === 0) {
       return null;
     }

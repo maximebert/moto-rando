@@ -16,7 +16,7 @@ VALUES
 
 
 
-INSERT INTO "itinary" ("title", "description", "duration", "highway", "kilometer", "curve", "user_id")
+INSERT INTO "itinerary" ("title", "description", "duration", "highway", "kilometer", "curve", "user_id")
 VALUES
 ('les gorges du Verdon par Vinon', 'Profitez de cet itinéraire pour vous bamader le long du lac de Ste Croix et y découvrir un merveilleux paysage', '02:30:00', FALSE, 206, 4, 1),
 ('le litoral de Cassis', 'Une petite balade le long du litoral, pour profiter du bon air marin', '01:30:00', FALSE, 120, 2, 3),
@@ -44,7 +44,7 @@ VALUES
 ('ducati','monster','pour un plaisir de performance', 8);
 
 
-INSERT INTO "picture" ("title", "description", "link", "user_id", "motorbike_id", "itinary_id")
+INSERT INTO "picture" ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
 VALUES
 ('Le lac de Ste Croix', 'Vue du lac de Ste Croix depuis le point sublime', 'https://www.onesteptotheworld.com/europe/france/provence/les-gorges-du-verdon/', 2, null, 1),
 ('Cassis', 'Vue sur mer depuis Cassis', 'https://www.terre.tv/wp-content/uploads/2020/01/Cassis-%C2%A9-iStock.jpg', 6, null, 3),
