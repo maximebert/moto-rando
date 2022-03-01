@@ -14,11 +14,10 @@ const Profil = () => {
 
     return (
         <div>
-        <h1>Page Profil</h1>
-        <User/>
-        <Bike/>
-        <InputItinerary/>
-
+          <h1>Page Profil</h1>
+          <User/>
+          <Bike/>
+          <InputItinerary/>
         </div>
     )
 }
