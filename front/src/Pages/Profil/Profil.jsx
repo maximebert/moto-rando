@@ -18,7 +18,6 @@ const Profil = () => {
         <User/>
         <Bike/>
         <InputItinary/>
-
         </div>
     )
 }

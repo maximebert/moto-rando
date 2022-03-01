@@ -8,7 +8,7 @@ import Profil from "../../Pages/Profil/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
 import Footer from "../Footer/Footer";
-import ProfilItinary from "../../Pages/ProfilItinary/ProfilItinary";
+import Itinerary from "../../Pages/Itinerary/Itinerary";
 import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 // styles
@@ -23,7 +23,7 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/itineraires" element={<ProfilItinary/>} />
+            <Route path="/itineraires" element={<Itinerary/>} />
             <Route path="/inscription" element={<Registration />} />
             <Route path="/profil" element={<Profil />} />
             <Route path="/equipe" element={<Team />} />
