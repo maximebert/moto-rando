@@ -44,9 +44,10 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "alban",
-    "email": "albanouPHP@gmail.com",
+    "alias": "alban1",
+    "email": "albanouPHP4@gmail.com",
     "password": "php4life",
+    "confirmPassword": "php4life",
     "presentation": "bonjour, je suis alban je suis en formation js mais je prefere en fait le php!"
 }
 
