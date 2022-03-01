@@ -5,9 +5,15 @@ const RegistrationBike=()=>{
     return(
 
     <form>
-        <input type="text" placeholder='marque de la moto'>Marque</input>
-        <input type="text" placeholder='modèle'>modèle</input>
-        <input type="text" placeholder='description'>description</input>
+        <label for="brand" >Quelle est la marque de votre moto</label>
+            <input id="brand" type="text" placeholder='marque de la moto'/>
+
+        <label for="model" >Quel est le modèle de votre moto</label>
+            <input id="model" type="text" placeholder='modèle'/>
+
+        <label for="description" >Description de votre moto </label>
+            <input id="description" type="text" placeholder='description'/>
+
         <button>valider</button>
     </form>)
 }

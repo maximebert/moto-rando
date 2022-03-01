@@ -1,7 +1,7 @@
 // import react
 import React from 'react'
+import Itinerary from '../../Components/Itinerary/Itinerary';
 //composant
-import Itinerary from '../../Components/Profil/Itinerary';
 
 //style
 import './profilItinerary.scss';

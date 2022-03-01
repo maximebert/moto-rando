@@ -11,7 +11,7 @@ import '../Registration/registration.scss'
 
 const Registration =()=>{
     return (
-        <div>
+        <div className='registration'>
             <RegistrationUser/>
             <RegistrationBike/>
         </div>
