@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const RegistrationUser = ({})=>{
+
     const [pseudo, setPseudo]=useState("");
     const [mail, setMail]=useState("");
     const [password, setPassword]=useState("");
