@@ -1,6 +1,15 @@
 @use 'src/Styles/vars';
 
+
 .registration{
+
+
+
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin: 20px auto;
+
     & form{
     display: flex;
     flex-direction: column;
