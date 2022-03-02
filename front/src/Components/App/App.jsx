@@ -1,6 +1,7 @@
 import { Routes , Route } from "react-router-dom";
 //components
 import Header from '../Header/Header';
+import RegistrationItinerary from "../Registration/RegistrationItinerary";
 // pages
 import Home from "../../Pages/Home/Home";
 import Registration from '../../Pages/Registration/Registration';
@@ -17,6 +18,7 @@ import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 import '../../Styles/index.scss';
 import './app.scss';
 
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/itineraires" element={<Itinerary/>} />
             <Route path="/inscription" element={<Registration />} />
+            <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil" element={<Profil />} />
             <Route path="/equipe" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
