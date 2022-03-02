@@ -53,19 +53,13 @@ const userMapper = {
       return null;
     }
 
-  async create(body) {
-    const {
-      alias,
-      email,
-      password,
-      presentation,
-    } = body;
-
+  async create(alias, email, hashedPassword, presentation) {
     const result = await database.query(
       `INSERT INTO "user"
-        ("alias", "email", "password", "presentation")
-        VALUES
-        ('${alias}', '${email}', '${password}', '${presentation}') RETURNING *;`,
+         ("alias", "email", "password", "presentation")
+     VALUES
+         ('${alias}', '${email}', '${hashedPassword}', '${presentation}')
+         RETURNING *;`,
     );
 
     if (result.rowCount === 0) {
