@@ -2,6 +2,7 @@ const database = require('./database');
 
 const pictureMapper = {
   async findAll() {
+    // Route non utilisée
     const result = await database.query(
       'SELECT * FROM "picture"',
     );

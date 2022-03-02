@@ -1,6 +1,7 @@
 const database = require('./database');
 
 const motorbikeMapper = {
+  // Route non utilisée
   async findAll() {
     const result = await database.query(
       'SELECT * FROM "motorbike"',
@@ -11,6 +12,7 @@ const motorbikeMapper = {
     }
     return result.rows;
   },
+
   async findByPk(id) {
     const motorbikeId = Number(id);
     const result = await database.query(
@@ -19,10 +21,13 @@ const motorbikeMapper = {
         "motorbike"."brand" AS "motorbike_brand",
         "motorbike"."model" AS "motorbike_model",
         "user"."id" AS "user_id",
-        "user"."alias" AS "user_alias"
-        FROM "motorbike"
-        JOIN "user" ON "user_id" = "user"."id"
-        WHERE "motorbike"."id" = ${motorbikeId}`,
+        "user"."alias" AS "user_alias",
+        json_agg(json_build_object('pic_title', p.title, 'pic_link', p.link)) AS "motopic"
+        FROM "user"
+        LEFT JOIN "motorbike" ON "user"."id" = "user_id"
+        LEFT JOIN "picture" p ON "motorbike"."id" = "motorbike_id"
+        WHERE "motorbike"."id" = ${motorbikeId}
+        GROUP BY "motorbike"."id", "user"."id"`,
     );
 
     if (result.rowCount === 0) {

@@ -7,10 +7,11 @@ const itineraryMapper = {
         "itinerary"."id" AS "itinerary_id",
         "itinerary"."title" AS "itinerary_title",
         "itinerary"."description" AS "itinerary_description",
-        "picture"."title" AS "picture_title",
-        "picture"."link" AS "picture_link"
+        "itinerary"."trace" AS "itinerary_trace",
+        json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
         FROM "itinerary"
-        JOIN "picture" ON "itinerary"."id" = "itinerary_id"`,
+        LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
+        GROUP BY "itinerary"."id"`,
     );
 
     if (!result.rows) {
@@ -30,13 +31,13 @@ const itineraryMapper = {
         "itinerary"."kilometer" AS "itinerary_kilometer",
         "itinerary"."curve" AS "itinerary_curve",
         "user"."alias" AS "user_alias",
-        "picture"."title" AS "picture_title",
-        "picture"."link" AS "picture_link"
+        json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
         FROM "user"
-        JOIN "picture" ON "user_id" = "user"."id"
+        JOIN "picture" p ON "user_id" = "user"."id"
         JOIN "itinerary" ON "itinerary_id" = "itinerary"."id"
-        WHERE "itinerary"."id" = ${itineraryId}`,
-    ); // modifier la requete pour grouper les images d'un meme itinéraire
+        WHERE "itinerary"."id" = ${itineraryId}
+        GROUP BY "itinerary"."id", "user"."alias"`,
+    );
 
     if (result.rowCount === 0) {
       return undefined;
@@ -57,10 +58,13 @@ const itineraryMapper = {
     } = body;
     const userId = body.user_id;
 
-    const result = await database.query(`INSERT INTO "itinerary"
-            ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
-        VALUES
-            ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}') RETURNING *;`);
+    const result = await database.query(
+      `INSERT INTO "itinerary"
+        ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
+      VALUES
+        ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}')
+        RETURNING *;`,
+    );
 
     if (result.rowCount === 0) {
       return null;
@@ -81,7 +85,19 @@ const itineraryMapper = {
     } = body;
     const userId = body.user_id;
 
-    const result = await database.query(`UPDATE "itinerary" SET title= '${title}', description= '${description}', duration= '${duration}' , highway= '${highway}' , kilometer= '${kilometer}', curve= '${curve}' , trace= '${trace}', user_id= '${userId}'  WHERE id = ${itineraryId} RETURNING *;`);
+    const result = await database.query(
+      `UPDATE "itinerary"
+        SET title = '${title}',
+        description = '${description}',
+        duration = '${duration}',
+        highway = '${highway}',
+        kilometer = '${kilometer}',
+        curve = '${curve}',
+        trace = '${trace}',
+        user_id = '${userId}'
+        WHERE "itinerary"."id" = ${itineraryId}
+        RETURNING *;`,
+    );
 
     if (result.rowCount === 0) {
       return null;

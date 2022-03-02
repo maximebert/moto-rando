@@ -27,7 +27,7 @@ const userMapper = {
       p1.title AS "motopic_title",
       p1.link AS "motopic_link",
 
-      json_agg(json_build_object('pic_title',p.title, 'pic_link', p.link)) AS "itipic"
+      json_agg(json_build_object('pic_title', p.title, 'pic_link', p.link)) AS "itipic"
 
       FROM "user" u
       LEFT JOIN "itinerary" i ON i.user_id = u.id
