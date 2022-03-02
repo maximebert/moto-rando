@@ -71,7 +71,7 @@ const userMapper = {
          ("alias", "email", "password", "presentation")
      VALUES
          ('${alias}', '${email}', '${hashedPassword}', '${presentation}')
-         RETURNING *;`
+         RETURNING *;`,
     );
 
     if (result.rowCount === 0) {
