@@ -1,5 +1,9 @@
-@use 'src/Styles/vars';
+@import 'src/Styles/vars';
 
-.socialLink{
-    justify-content: right;
+.link{
+    a{
+      color: $yellow;
+      font-size: 1.5rem;
+      margin: 0 10px;
+    }
 }
