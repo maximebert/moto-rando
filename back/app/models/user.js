@@ -50,8 +50,11 @@ const userMapper = {
     const result = await database.query(`SELECT * FROM "user" WHERE email = '${email}'`);
 
     if (result.rowCount === 0) {
-      return null;
+      return undefined;
     }
+
+    return result.rows[0];
+  },
 
   async create(alias, email, hashedPassword, presentation) {
     const result = await database.query(
