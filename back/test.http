@@ -58,8 +58,8 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "max",
-    "email": "maxime@gmail.com",
+    "alias": "maxou",
+    "email": "maxouuuuuu@gmail.com",
     "password": "js4life",
     "confirmPassword": "js4life",
     "presentation": "bonjour je suis maxime"
