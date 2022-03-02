@@ -4,7 +4,7 @@ import Login from "../Login/Login";
 import logo from '../../assets/images/logo-white.png';
 import './header.scss';
 import {BiMenuAltRight} from 'react-icons/bi'
-import {AiOutlineClose} from "react-icons/ai";
+import {IoCloseCircleOutline} from "react-icons/io5";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -35,6 +35,10 @@ const Header = () => {
         setMenuOpen((menu) => !menu);
     }
 
+    const closeMenu = () => {
+        setMenuOpen(false)
+    }
+
     return (
         <header className='header'>
             <div className='header__content'>
@@ -45,22 +49,22 @@ const Header = () => {
             <nav className={`header__content__nav ${menuOpen ? 'isMenu' : ''}` }>
                 <ul className='header_list'>
                     <li>
-                        <NavLink className={(isActive) => `header_link ${isActive ? 'header__nav-link--active' : '' }`} to='/itineraires'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
+                            Accueil
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
                             Listes des itinéraires
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={(isActive) => `header_link ${isActive ? 'header__nav-link--active' : '' }`} to='/equipe'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
                             L'equipe
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={(isActive) => `header_link ${isActive ? 'header__nav-link--active' : '' }`} to='/contact'>
-                            Contact
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={(isActive) => `header_link ${isActive ? 'header__nav-link--active' : '' }`} to='/inscription'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/inscription'>
                             Inscription
                         </NavLink>
                     </li>
@@ -68,7 +72,7 @@ const Header = () => {
                 </ul>
             </nav>
                 <div className='header__content__toggle'>
-                    { !menuOpen ? <BiMenuAltRight onClick={menuToggleHandler} /> : <AiOutlineClose onClick={menuToggleHandler} />}
+                    { !menuOpen ? <BiMenuAltRight onClick={menuToggleHandler} /> : <IoCloseCircleOutline onClick={menuToggleHandler} />}
                 </div>
             </div>
         </header>

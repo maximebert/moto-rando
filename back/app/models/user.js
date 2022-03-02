@@ -2,6 +2,15 @@ const database = require('./database');
 
 const userMapper = {
 
+  async connect(alias, hashedPassword) {
+    // select * from "user" WHERE "alias" = 'maurice' AND "password" = 'popeye';
+    const result = await database.query(`SELECT * from "user" WHERE "alias" = '${alias}' AND "password" = '${hashedPassword}'`);
+    if (result.rowCount === 0) {
+      return null;
+    }
+    return result.rows[0];
+  },
+
   async findAll() {
     const result = await database.query(
       'SELECT * FROM "user"',
@@ -46,20 +55,23 @@ const userMapper = {
 
     return result.rows;
   },
+  async findByAlias(alias) {
+    const result = await database.query(`SELECT * FROM "user" WHERE alias = '${alias}'`);
 
-  async create(body) {
-    const {
-      alias,
-      email,
-      password,
-      presentation,
-    } = body;
+    if (result.rowCount === 0) {
+      return null;
+    }
 
+    return result.rows[0];
+  },
+
+  async create(alias, email, hashedPassword, presentation) {
     const result = await database.query(
       `INSERT INTO "user"
-        ("alias", "email", "password", "presentation")
-        VALUES
-        ('${alias}', '${email}', '${password}', '${presentation}') RETURNING *;`,
+         ("alias", "email", "password", "presentation")
+     VALUES
+         ('${alias}', '${email}', '${hashedPassword}', '${presentation}')
+         RETURNING *;`
     );
 
     if (result.rowCount === 0) {

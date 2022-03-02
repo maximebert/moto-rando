@@ -1,6 +1,7 @@
 import { Routes , Route } from "react-router-dom";
 //components
 import Header from '../Header/Header';
+import RegistrationItinerary from "../Registration/RegistrationItinerary";
 // pages
 import Home from "../../Pages/Home/Home";
 import Registration from '../../Pages/Registration/Registration';
@@ -8,13 +9,14 @@ import Profil from "../../Pages/Profil/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
 import Footer from "../Footer/Footer";
-import ProfilItinary from "../../Pages/ProfilItinary/ProfilItinary";
+
+import Itinerary from "../../Pages/Itinerary/Itinerary";
+
+import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
-import LegalNotice from "../Footer/LegalNotice/LegalNotice";
-
 
 
 function App() {
@@ -23,8 +25,9 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/itineraires" element={<ProfilItinary/>} />
+            <Route path="/itineraires" element={<Itinerary/>} />
             <Route path="/inscription" element={<Registration />} />
+            <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil" element={<Profil />} />
             <Route path="/equipe" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
