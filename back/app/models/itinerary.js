@@ -28,13 +28,14 @@ const itineraryMapper = {
       highway,
       kilometer,
       curve,
+      trace,
     } = body;
     const userId = body.user_id;
 
     const result = await database.query(`INSERT INTO "itinerary"
-            ("title", "description", "duration", "highway", "kilometer", "curve", "user_id")
+            ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
         VALUES
-            ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${userId}') RETURNING *;`);
+            ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}') RETURNING *;`);
     if (result.rowCount === 0) {
       return null;
     }
@@ -50,10 +51,11 @@ const itineraryMapper = {
       highway,
       kilometer,
       curve,
+      trace,
     } = body;
     const userId = body.user_id;
 
-    const result = await database.query(`UPDATE "itinerary" SET title= '${title}', description= '${description}', duration= '${duration}' , highway= '${highway}' , kilometer= '${kilometer}', curve= '${curve}' , user_id= '${userId}'  WHERE id = ${itineraryId} RETURNING *;`);
+    const result = await database.query(`UPDATE "itinerary" SET title= '${title}', description= '${description}', duration= '${duration}' , highway= '${highway}' , kilometer= '${kilometer}', curve= '${curve}' , trace= '${trace}', user_id= '${userId}'  WHERE id = ${itineraryId} RETURNING *;`);
     if (result.rowCount === 0) {
       return null;
     }
