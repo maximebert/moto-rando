@@ -4,13 +4,14 @@ import { FaFacebookF,FaInstagram } from "react-icons/fa";
 
 // import style
 import '../SocialLink/socialLink.scss';
+import {Link} from "@mui/material";
 
 
 const SocialLink = () => {
     return (
         <div className='socialLink'>
-        <redirect to="#"><FaFacebookF/></redirect>
-        <redirect to="#"><FaInstagram/></redirect>
+        <Link to="#"><FaFacebookF/></Link>
+        <Link to="#"><FaInstagram/></Link>
         </div>
     )
 }

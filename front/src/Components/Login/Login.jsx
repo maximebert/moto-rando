@@ -1,47 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './input/Input'
-
 import './login.scss';
-import {AiFillCloseCircle} from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({email, password, changeField, handleLogin, handleLogout, isLogged,pseudo}) => {
-    const [buttonDisable, setButtonDisable] = useState(false)
-    const onToggleBtn = () => {
-        setButtonDisable((a) => !a)
-    }
-    const closeLoginForm = () => {
-        setButtonDisable(false)
-    }
 
+const Login = ({email, password, changeField, handleLogin}) => {
+  // Redirect to pageHome
+  const navigate = useNavigate()
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         handleLogin();
+        navigate('/')
     }
 
     return (
         <div className='login'>
-            {isLogged && (
-                <div>
-                    <p>{pseudo}</p>
-                    <button onClick={handleLogout}>Deconnexion</button>
-                </div>
-            )}
-            {!isLogged && (
-              <>
-                <button className='form__btn' onClick={onToggleBtn}>Connexion</button>
-
+          <h2>Se connecter</h2>
                 <form className='form' autoComplete='off' onSubmit={handleSubmit}>
-                  <AiFillCloseCircle className='close-modal' onClick={closeLoginForm} />
-                  <h2>Se connecter</h2>
-
                   <div className='form__modal'>
+                    <label>Veuillez saisir votre email</label>
                     <Input
                       name='email'
                       placeholder='adresse email'
                       onChange={changeField}
                       value={email}
                     />
+                    <label>Veuillez saisir votre mot de passe</label>
                     <Input
                       placeholder='mot de passe'
                       name='password'
@@ -52,8 +37,6 @@ const Login = ({email, password, changeField, handleLogin, handleLogout, isLogge
                   </div>
                   <button type="submit" className='form__btn-submit'>Valider</button>
                 </form>
-              </>
-            )}
         </div>
     )
 }
@@ -63,14 +46,8 @@ Login.propTypes = {
     password: PropTypes.string.isRequired,
     changeField: PropTypes.func.isRequired,
     handleLogin: PropTypes.func.isRequired,
-    handleLogout: PropTypes.func.isRequired,
-    isLogged: PropTypes.bool,
-    pseudo: PropTypes.string,
 }
-
 Login.defaultProps = {
-    isLogged: false,
-    pseudo: "connecté",
+  isLogged: false
 }
-
 export default React.memo(Login);
