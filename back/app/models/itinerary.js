@@ -57,7 +57,6 @@ const itineraryMapper = {
     } = body;
     const userId = body.user_id;
 
-
     const result = await database.query(`INSERT INTO "itinerary"
             ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
         VALUES
