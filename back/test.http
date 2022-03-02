@@ -7,7 +7,7 @@ POST http://localhost:3000/profil/connexion
 content-type: application/json
 
 {
-    "alias": "max",
+    "email": "maxime@gmail.com",
     "password": "js4life"
 }
 ###################################################################################################################
