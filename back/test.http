@@ -30,7 +30,10 @@ content-type: application/json
     "highway": false,
     "kilometer": 20,
     "curve": 3,
+    "trace": null,
     "user_id": 1
+
+
 }
 
 ### supprimer un itinéraire

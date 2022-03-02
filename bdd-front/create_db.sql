@@ -19,6 +19,7 @@ CREATE TABLE "itinerary" (
     "highway" BOOLEAN,
     "kilometer" INT NOT NULL,
     "curve" INT NOT NULL,
+    "trace" JSON,
 
     "user_id" int REFERENCES "user"("id"),
 
