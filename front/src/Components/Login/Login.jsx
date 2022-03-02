@@ -27,33 +27,33 @@ const Login = ({email, password, changeField, handleLogin, isLogged}) => {
                     <button>Deconnexion</button>
                 </div>
             )}
-            <button className='form__btn' onClick={onToggleBtn}>Connexion</button>
-            { buttonDisable && !isLogged && (
-                    <form className='form' autoComplete='off' onSubmit={handleSubmit}>
-                        <AiFillCloseCircle className='close-modal' onClick={closeLoginForm} />
-                        <h2>Se connecter</h2>
+            {!isLogged && (
+              <>
+                <button className='form__btn' onClick={onToggleBtn}>Connexion</button>
 
-                        <div className='form__modal'>
-                            <Input
-                                name='email'
-                                placeholder='adresse email'
-                                onChange={changeField}
-                                value={email}
-                            />
-                            <Input
-                                placeholder='mot de passe'
-                                name='password'
-                                type='password'
-                                onChange={changeField}
-                                value={password}
-                            />
-                        </div>
-                        <button type="submit" className='form__btn-submit'>Valider</button>
-                    </form>
-                )
+                <form className='form' autoComplete='off' onSubmit={handleSubmit}>
+                  <AiFillCloseCircle className='close-modal' onClick={closeLoginForm} />
+                  <h2>Se connecter</h2>
 
-            }
-
+                  <div className='form__modal'>
+                    <Input
+                      name='email'
+                      placeholder='adresse email'
+                      onChange={changeField}
+                      value={email}
+                    />
+                    <Input
+                      placeholder='mot de passe'
+                      name='password'
+                      type='password'
+                      onChange={changeField}
+                      value={password}
+                    />
+                  </div>
+                  <button type="submit" className='form__btn-submit'>Valider</button>
+                </form>
+              </>
+            )}
         </div>
     )
 }
