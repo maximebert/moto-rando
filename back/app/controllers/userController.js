@@ -46,11 +46,8 @@ const userController = {
 
     const itinerariesInfos = [];
 
-    userDatas.forEach(element => {
+    userDatas.forEach((element) => {
       itinerariesInfos.push({ title: element.itinerary_title, pics: element.itipic });
-      // element.itipic.forEach(el => {
-      //   itinerariesPic.push(el);
-      // });
     });
 
     const userInfos = {
