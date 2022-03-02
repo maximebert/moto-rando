@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
-import Login from "../Login/Login";
 import logo from '../../assets/images/logo-white.png';
 import './header.scss';
 import {BiMenuAltRight} from 'react-icons/bi'
 import {IoCloseCircleOutline} from "react-icons/io5";
+import LoginContainer from "../../containers/Login";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -68,7 +68,7 @@ const Header = () => {
                             Inscription
                         </NavLink>
                     </li>
-                    <Login />
+                    <LoginContainer />
                 </ul>
             </nav>
                 <div className='header__content__toggle'>

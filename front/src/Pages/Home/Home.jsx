@@ -5,14 +5,17 @@ import ContentItinerary from "../../Components/ContentItinerary/ContentItinerary
 import {Link} from "react-router-dom";
 // import style
 import '../Home/home.scss'
-import {getAllList} from "../../request/ListItinerary";
+import {getAllList} from "../../request/itineraryRequest";
 
 const Home = () => {
     const [itinerary, setItinerary] = useState([])
 
-    useEffect(async () => {
-        const response = await getAllList();
-        setItinerary(response.data)
+    useEffect( () => {
+        async function fetchData() {
+            const response = await getAllList();
+            setItinerary(response.data)
+        }
+        fetchData();
     }, []);
 
     return (
