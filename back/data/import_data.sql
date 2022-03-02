@@ -54,7 +54,10 @@ VALUES
 ('saintes maries de la mer', 'flamant rose', 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Portrait_de_flamant_rose_dans_la_r%C3%A9serve_nationale_de_Camargue.jpg', 6, null, 6),
 ('photo1', 'description 1', 'https://www.vtrmotoren.nl/uploads/listings/ICON_A564B3-0C258E-600142-B31151-E262CE-4A7469.png', 9, 9, null),
 ('photo2', 'desciption 2','https://motorcycles-for-sale.biz/img/motorcyclephotos/full/motorbike37888.jpg', 7, 7, null ),
-('photo3', 'description 3', 'https://park.shifting-gears.com/wp-content/uploads/2019/04/Monster-797.jpg', 8, 8, null );
+('photo3', 'description 3', 'https://park.shifting-gears.com/wp-content/uploads/2019/04/Monster-797.jpg', 8, 8, null ),
+('test1', 'test desc 1', 'test link 1', 2, null, 1),
+('test2', 'test desc 2', 'test link 2', 2, null, 1),
+('test3', 'test desc 3', 'test link 3', 2, null, 1);
 
 
 COMMIT;
