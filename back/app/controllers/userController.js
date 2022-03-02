@@ -44,30 +44,13 @@ const userController = {
       throw new ApiError(404, 'User not found');
     }
 
-    let itinerariesInfos;
-    const itinerariesPicTitles = [];
-    const itinerariesPicLinks = [];
+    const itinerariesInfos = [];
 
     userDatas.forEach(element => {
-      element.itipic_title.forEach(el => {
-        itinerariesPicTitles.push(el);
-      });
-    });
-
-    userDatas.forEach(element => {
-      element.itipic_link.forEach(el => {
-        itinerariesPicLinks.push(el);
-      });
-    });
-
-    userDatas.forEach(element => {
-      itinerariesInfos = {
-        itinerary_title: element.itinerary_title,
-        itipic: {
-          itipic_title: itinerariesPicTitles,
-          itipic_link: itinerariesPicLinks,
-        },
-      };
+      itinerariesInfos.push({ title: element.itinerary_title, pics: element.itipic });
+      // element.itipic.forEach(el => {
+      //   itinerariesPic.push(el);
+      // });
     });
 
     const userInfos = {
@@ -96,6 +79,7 @@ const userController = {
   async delete(req, res) {
     const { id } = req.params;
     const user = await userMapper.delete(id);
+    console.log('user deleted with success');
     return res.json(user).status(200);
   },
 
