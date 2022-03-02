@@ -6,9 +6,9 @@ const loginMiddleware = (store) => (next) => async (action) => {
         case SUBMIT_LOGIN: {
 
             const { user } = store.getState();
-            const response = await requestLogin(user.email, user.password, user.confirmPassword);
+            const response = await requestLogin(user.email, user.password);
 
-            if(response.status === 200 && response.data.logged) {
+            if (response.status === 200) {
                 store.dispatch(actionSetLogged(true))
             } else {
                 store.dispatch(actionSetLogged(false))

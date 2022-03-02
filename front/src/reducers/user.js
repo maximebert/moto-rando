@@ -1,7 +1,7 @@
 import {SET_LOGGED, UPDATE_LOGIN_INPUT} from "../action/user";
 
 export const initialState = {
-    email: '',
+    email: 'maxime@gmail.com',
     password: '',
     pseudo: '',
     logged: false,
