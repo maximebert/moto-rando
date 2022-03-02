@@ -5,7 +5,7 @@ import Input from './input/Input'
 import './login.scss';
 import {AiFillCloseCircle} from "react-icons/ai";
 
-const Login = ({email, password, changeField, handleLogin, isLogged}) => {
+const Login = ({email, password, changeField, handleLogin, handleLogout, isLogged,pseudo}) => {
     const [buttonDisable, setButtonDisable] = useState(false)
     const onToggleBtn = () => {
         setButtonDisable((a) => !a)
@@ -23,8 +23,8 @@ const Login = ({email, password, changeField, handleLogin, isLogged}) => {
         <div className='login'>
             {isLogged && (
                 <div>
-                    <p>Bonjour</p>
-                    <button>Deconnexion</button>
+                    <p>{pseudo}</p>
+                    <button onClick={handleLogout}>Deconnexion</button>
                 </div>
             )}
             {!isLogged && (
@@ -63,11 +63,14 @@ Login.propTypes = {
     password: PropTypes.string.isRequired,
     changeField: PropTypes.func.isRequired,
     handleLogin: PropTypes.func.isRequired,
+    handleLogout: PropTypes.func.isRequired,
     isLogged: PropTypes.bool,
+    pseudo: PropTypes.string,
 }
 
 Login.defaultProps = {
     isLogged: false,
+    pseudo: "connecté",
 }
 
 export default React.memo(Login);
