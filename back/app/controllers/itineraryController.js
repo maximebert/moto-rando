@@ -19,7 +19,7 @@ const itineraryController = {
     const itinerary = await itineraryMapper.findByPk(id);
 
     if (!itinerary) {
-      throw new ApiError(404, 'Itinary not found');
+      throw new ApiError(404, 'Itinerary not found');
     }
 
     return res.json(itinerary);

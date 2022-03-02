@@ -1,7 +1,17 @@
 ### page d'accueil du site (doit renvoyer 6 itinéraires "random")
 GET http://localhost:3000
 
+
+### connection
+POST http://localhost:3000/profil/connexion
+content-type: application/json
+
+{
+    "alias": "max",
+    "password": "js4life"
+}
 ###################################################################################################################
+### ITINERAIRES
 
 ### liste de tout les itinéraires
 GET http://localhost:3000/itineraires
@@ -38,6 +48,7 @@ content-type: application/json
 }
 
 ###################################################################################################################
+### USERS
 
 ### rechercher un profil avec son id
 GET http://localhost:3000/profil/1
@@ -47,10 +58,11 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "alban",
-    "email": "albanouPHP@gmail.com",
-    "password": "php4life",
-    "presentation": "bonjour, je suis alban je suis en formation js mais je prefere en fait le php!"
+    "alias": "max",
+    "email": "maxime@gmail.com",
+    "password": "js4life",
+    "confirmPassword": "js4life",
+    "presentation": "bonjour je suis maxime"
 }
 
 ### supprimer un profil avec son id
@@ -58,6 +70,7 @@ DELETE http://localhost:3000/profil/11
 
 
 ###################################################################################################################
+### MOTOS
 
 ### voir liste des motos
 GET http://localhost:3000/motos
@@ -80,9 +93,11 @@ content-type: application/json
 DELETE http://localhost:3000/motos/10
 
 ###################################################################################################################
+### PHOTOS
 
 ### voir toutes les photos
 GET http://localhost:3000/images
+
 ### voir une photo
 GET http://localhost:3000/images/1
 
@@ -103,6 +118,7 @@ content-type: application/json
 DELETE http://localhost:3000/images/10
 
 ###################################################################################################################
+### ERREURS
 
 ### profil inexistant
 GET http://localhost:3000/profil/60
