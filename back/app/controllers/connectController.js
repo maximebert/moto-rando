@@ -4,10 +4,10 @@ const userMapper = require('../models/user');
 const connectController = {
 
   async connexion(req, res) {
-    const userAlias = req.body.alias;
+    const userMail = req.body.email;
     try {
-      // on tente de récupérer l'utilisateur qui possède l'alias
-      const user = await userMapper.findByAlias(userAlias);
+      // on tente de récupérer l'utilisateur qui possède l'email
+      const user = await userMapper.findByMail(userMail);
       if (!user) {
         return res.json("Cet user n'existe pas.");
       }

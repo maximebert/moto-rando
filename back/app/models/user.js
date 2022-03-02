@@ -55,8 +55,8 @@ const userMapper = {
 
     return result.rows;
   },
-  async findByAlias(alias) {
-    const result = await database.query(`SELECT * FROM "user" WHERE alias = '${alias}'`);
+  async findByMail(email) {
+    const result = await database.query(`SELECT * FROM "user" WHERE email = '${email}'`);
 
     if (result.rowCount === 0) {
       return null;
