@@ -15,7 +15,7 @@ const loginMiddleware = (store) => (next) => async (action) => {
       // si le status de la reponse est bien = à 200 alors l'utilisateur est connecté et on affiche son pseudo
       if (response.status === 200) {
         store.dispatch(actionSetLogged(true));
-        store.dispatch(actionsSetPseudo(response.alias));
+        store.dispatch(actionsSetPseudo(response.data.alias));
       } else {
         store.dispatch(actionSetLogged(false));
       }

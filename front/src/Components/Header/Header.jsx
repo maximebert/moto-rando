@@ -91,11 +91,18 @@ const Header = ({isLogged, handleLogout, pseudo}) => {
                         </NavLink>
                       </li>
                       <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/nouveau-itineraire'>
+                          Créer un itineraire
+                        </NavLink>
+                      </li>
+                      <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
                           L'equipe
                         </NavLink>
                       </li>
-                      <p className='pseudo'>{pseudo}</p>
+                      <NavLink onClick={closeMenu} to="/profil">
+                        <p className='pseudo'>{pseudo}</p>
+                      </NavLink>
                       <div className='btn__logout' onClick={handleLogout}><FiLogOut /></div>
                     </>
                   )}

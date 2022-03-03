@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/Itinerary/Itinerary'
-// page d'un itinéraire
+
 
 const OneItinerary = () => {
     const [itineraryID, setItineraryID] = useState([]);
@@ -12,17 +12,22 @@ const OneItinerary = () => {
 
     useEffect( () => {
         async function fetchData(){
-            const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
-            setItineraryID(response.data)
+            try{
+                const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
+                setItineraryID(response.data)
+            }catch(err){
+                return err.response
+            }
         }
-        fetchData();
+        fetchData()
     }, []);
 
+    console.log(itineraryID);
     return (
         <div> 
             <Itinerary 
                 title={itineraryID.itinerary_title} 
-                description={itineraryID.itinerary_description} 
+                description={itineraryID.itinerary_description}
             />
         </div>
     )

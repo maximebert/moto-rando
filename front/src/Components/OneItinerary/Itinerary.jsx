@@ -7,10 +7,11 @@ import {AiOutlineFieldTime} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 
 
-const OneItinerary = ({title, description}) => {
+const OneItinerary = ({title, description, map}) => {
     return (
 
         <div className='card'>
+            <img className='card__img' src={map} alt={title} />
             <div className='card__title'>{title}</div>
             <div className='card__description'>
                 <div className='card__description-icon'>
@@ -38,6 +39,8 @@ const OneItinerary = ({title, description}) => {
 OneItinerary.prototype = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+}
+OneItinerary.defaultProps = {
 }
 
 export default React.memo(OneItinerary);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './itineraryForm.scss';
 
 const RegistrationItinerary = ()=>{
     const [title, setTitle]=useState("");
@@ -14,7 +15,8 @@ const RegistrationItinerary = ()=>{
 
 
     return (
-        <div className=''>
+        <div className='form'>
+            <h2>Créer un itineraire</h2>
             <form className='itinerary-form'>
                 <label for="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" onChange={(e)=>setTitle(e.target.value)}/>
@@ -33,13 +35,13 @@ const RegistrationItinerary = ()=>{
                 <input type="checkbox" id="highway" value="autoroute" onChange={(e)=>setHighway(e.target.value)}/>
 
                 <label for="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
-                <input id="description" type="text" placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
+                <textarea id="description" type="text" placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
 
-                <button onClick={handleOnSubmit} disabled={title === ""} >Valider l'itinéraire</button>
+                <button className='form__btn-submit' onClick={handleOnSubmit} disabled={title === ""} >Valider l'itinéraire</button>
 
             </form>
         </div>
     )
 }
 
-export default React.memo (RegistrationItinerary)
+export default React.memo(RegistrationItinerary)
