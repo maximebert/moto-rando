@@ -1,5 +1,7 @@
 BEGIN;
 
+--setting up the structure
+
 CREATE TABLE "user" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "alias" TEXT NOT NULL UNIQUE,

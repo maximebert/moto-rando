@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/Itinerary/Itinerary'
-// page d'un itinéraire
+
 
 const OneItinerary = () => {
     const [itineraryID, setItineraryID] = useState([]);
@@ -15,14 +15,18 @@ const OneItinerary = () => {
 
     useEffect( () => {
         async function fetchData(){
+
             const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
             setItineraryID(response.data);
             setIsLoading(false);
+
         }
-        fetchData();
+        fetchData()
     }, []);
 
+    console.log(itineraryID);
     return (
+
 
         <div>
           {!isLoading && (
@@ -37,6 +41,7 @@ const OneItinerary = () => {
                 // user={itineraryID.user_alias}
 
             />)}
+
         </div>
     )
 }

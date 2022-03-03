@@ -46,3 +46,4 @@ module.exports = {
     return this.originalClient.query(...params);
   },
 };
+

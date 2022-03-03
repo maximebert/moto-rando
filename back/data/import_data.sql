@@ -1,3 +1,9 @@
+-- Afin de s'assurer de la cohérence de la structure de notre BDD, on utilise ce que l'on appelle une transaction (c'est une sorte de contrat, il peut être rempli ou non, mais pas entre les 2).
+-- Si jamais au moins une erreur intervient lors de l'exécution des commandes SQL à l'intérieur de cette transaction, alors la BDD effectue ce qu'on appelle un ROLLBACK.
+-- Il revient en arrière et annule les modifications qui étaient t'intervenues entre le début de la transaction courante et l'erreur.
+-- Par contre il y a un effet secondaire : Toute les séquences qui ont été créées suite à la sortie de champs générés automatiquement, ne seront pas supprimées, les ids futurs repartiront donc d'une base plus élevée que 1
+
+
 BEGIN;
 
 
@@ -64,4 +70,4 @@ VALUES
 UPDATE "picture" SET "link" = 'https://lesgorgesduverdon.fr/wp-content/uploads/2021/02/photo-mailingbis.jpg' WHERE "id" = 1;
 
 
-COMMIT;
+COMMIT;  -- validation de la transaction
