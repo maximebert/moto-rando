@@ -1,19 +1,44 @@
-@use 'src/Styles/vars';
+@import 'src/Styles/vars';
 
-
+.registration-title{
+  margin: 50px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
 .registration{
-    display: flex;
-    justify-content: center;
-    width: 700px;
-    margin: 20px auto;
-
     & form{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    padding: 20px;
+      display: flex;
+      flex-direction: column;
+      margin: 50px auto;
+      max-width: 500px;
+      padding: 0 20px;
+
+      label{
+        margin: 10px;
+      }
     }
     & form input{
-        margin: 2px 0 20px 0;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      border: 1px solid $blue;
+      font-family: 'Poppins', sans-serif;
     }
+
+  .form__btn-submit{
+    display: block;
+    margin: 20px auto 100px auto;
+    border: 1px solid $blue;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-family: 'Poppins', sans-serif;
+    color: $grey;
+    text-transform: uppercase;
+    &:hover{
+      background-color: $blue;
+      color: #fff;
+      transition: 0.3s;
+    }
+  }
 }
