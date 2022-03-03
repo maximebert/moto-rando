@@ -44,7 +44,14 @@ PATCH  http://localhost:3000/itineraires/11
 content-type: application/json
 
 {
-    "duration": "20:10:30"
+    "title": "Baux de Provence",
+    "description": "venez au baux de provence cest splendide",
+    "duration": "20:00:30",
+    "highway": true,
+    "kilometer": 10,
+    "curve": 3,
+    "trace": null,
+    "user_id": 1
 }
 
 ###################################################################################################################

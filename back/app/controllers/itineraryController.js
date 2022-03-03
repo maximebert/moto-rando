@@ -29,6 +29,7 @@ const itineraryController = {
     const { id } = req.params;
     const savedItinerary = req.body;
     const itinerary = await itineraryMapper.update(id, savedItinerary);
+    // const updatedItinerary = await itineraryMapper.findByPk(id);
     return res.json(itinerary).status(200);
   },
 
