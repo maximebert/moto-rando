@@ -52,32 +52,38 @@ const pictureMapper = {
     return result.rows[0];
   },
 
-  async update(id, body) {
-    const pictureId = Number(id);
+  async update(id, picture) {
+    const result = await database.query('SELECT * FROM "picture" WHERE id = $1', [id]);
+
+    if (result.rowCount === 0) {
+      throw result.status(400);
+    }
+
+    const oldPicture = result.rows[0];
+    const newPicture = {
+      ...oldPicture,
+      ...picture,
+    };
     const {
       title,
-      description,
       link,
-    } = body;
-    const userId = body.user_id;
-    const motorbikeId = body.motorbike_id;
-    const itineraryId = body.itinary_id;
+      description,
+    } = newPicture;
+    const userId = newPicture.user_id;
+    const motorbikeId = newPicture.motorbike_id;
+    const itineraryId = newPicture.itinary_id;
 
-    const result = await database.query(
-      `UPDATE "picture"
-        SET "title" = '${title}',
-        "description" = '${description}',
-        "link" = '${link}',
-        "user_id" = '${userId}',
-        "motorbike_id" = '${motorbikeId}',
-        "itinerary_id" = '${itineraryId}'
-        WHERE "picture"."id" = ${pictureId}
-        RETURNING *;`,
-    );
-    if (result.rowCount === 0) {
-      return null;
-    }
-    return result.rows[0];
+    const savedItinerary = await database.query(`UPDATE "picture"
+           SET "title" = '${title}',
+           "description" = '${description}',
+           "link" = '${link}',
+           "user_id" = '${userId}',
+           "motorbike_id" = '${motorbikeId}',
+           "itinerary_id" = '${itineraryId}'
+           WHERE "picture"."id" = ${id}
+           RETURNING *;`);
+
+    return savedItinerary.rows[0];
   },
 
   async delete(id) {

@@ -72,37 +72,44 @@ const itineraryMapper = {
     return result.rows[0];
   },
 
-  async update(id, body) {
-    const itineraryId = Number(id);
+  async update(id, itinerary) {
+    const result = await database.query('SELECT * FROM itinerary WHERE id = $1', [id]);
+
+    if (result.rowCount === 0) {
+      throw result.status(400);
+    }
+
+    const oldItinerary = result.rows[0];
+    const newItinerary = {
+      ...oldItinerary,
+      ...itinerary,
+    };
     const {
       title,
       description,
-      duration,
       highway,
       kilometer,
       curve,
       trace,
-    } = body;
-    const userId = body.user_id;
+    } = newItinerary;
+    const userId = newItinerary.user_id;
+    const newDuration = newItinerary.duration;
 
-    const result = await database.query(
-      `UPDATE "itinerary"
-        SET title = '${title}',
-        description = '${description}',
-        duration = '${duration}',
-        highway = '${highway}',
-        kilometer = '${kilometer}',
-        curve = '${curve}',
-        trace = '${trace}',
-        user_id = '${userId}'
-        WHERE "itinerary"."id" = ${itineraryId}
-        RETURNING *;`,
-    );
+    console.log(newDuration);
 
-    if (result.rowCount === 0) {
-      return null;
-    }
-    return result.rows[0];
+    const savedItinerary = await database.query(`UPDATE "itinerary"
+           SET title = '${title}',
+          description = '${description}',
+           duration = '${newDuration}',
+           highway = '${highway}',
+          kilometer = '${kilometer}',
+          curve = '${curve}',
+          trace = '${trace}',
+          user_id = '${userId}'
+           WHERE "itinerary"."id" = ${id}
+          RETURNING *;`);
+
+    return savedItinerary.rows[0];
   },
 
   async delete(id) {

@@ -81,41 +81,36 @@ const userMapper = {
     return result.rows[0];
   },
 
-  async update(id, body) {
-    const userId = Number(id);
+  async update(id, user) {
+    const result = await database.query('SELECT * FROM "user" WHERE id = $1', [id]);
+
+    if (result.rowCount === 0) {
+      throw result.status(400);
+    }
+
+    const oldUser = result.rows[0];
+    const newUser = {
+      ...oldUser,
+      ...user,
+    };
     const {
       alias,
       email,
       password,
       presentation,
-    } = body;
+    } = newUser;
 
-    const result = await database.query(
-      `UPDATE "user"
-        SET "alias" = '${alias}',
-        "email" = '${email}',
-        "password" = '${password}',
-        "presentation" = '${presentation}'
-        WHERE "user"."id" = ${userId}
-        RETURNING *;`,
-    );
-    if (result.rowCount === 0) {
-      return null;
-    }
-    return result.rows[0];
+    const savedItinerary = await database.query(`UPDATE "user"
+           SET "alias" = '${alias}',
+          "email" = '${email}',
+          "password" = '${password}',
+          "presentation" = '${presentation}'
+          WHERE id = '${id}'
+          RETURNING *;`);
+
+    return savedItinerary.rows[0];
   },
-  async delete(id) {
-    const userId = Number(id);
-    const result = await database.query(
-      `DELETE FROM "user" WHERE "user"."id" = '${userId}'`,
-    );
 
-    if (result.rowCount === 0) {
-      return null;
-    }
-
-    return result.rows[0];
-  },
 };
 
 module.exports = userMapper;
