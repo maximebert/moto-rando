@@ -16,6 +16,7 @@ const { Pool } = require('pg');
 
 const config = {};
 
+
 // si j'exécute l'appli sur Héroku, je complète mon object de config
 if (process.env.NODE_ENV === 'production') {
   config.connectionString = process.env.DATABASE_URL;
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const pool = new Pool(config);
+
 
 module.exports = {
   // On expose quand même le client original "au cas ou"
@@ -46,3 +48,4 @@ module.exports = {
     return this.originalClient.query(...params);
   },
 };
+

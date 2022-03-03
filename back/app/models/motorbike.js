@@ -59,30 +59,36 @@ const motorbikeMapper = {
     }
     return result.rows[0];
   },
+  async update(id, moto) {
+    const result = await database.query('SELECT * FROM "motorbike" WHERE id = $1', [id]);
 
-  async update(id, body) {
-    const motorbikeId = Number(id);
+    if (result.rowCount === 0) {
+      throw result.status(400);
+    }
+
+    const oldMoto = result.rows[0];
+    const newMoto = {
+      ...oldMoto,
+      ...moto,
+    };
     const {
       brand,
       model,
       description,
-    } = body;
-    const userId = body.user_id;
+    } = newMoto;
+    const userId = newMoto.user_id;
+
 
     // Mise à jour d'une moto de la BDD
-    const result = await database.query(
-      `UPDATE "motorbike"
-        SET "brand "= '${brand}',
+    const savedMotorbike = await database.query(`UPDATE "motorbike"
+          SET "brand" = '${brand}',
         "model" = '${model}',
-        "description" = '${description}',
-        "user_id" = '${userId}'
-        WHERE "motorbike"."id" = ${motorbikeId}
-        RETURNING *;`,
-    );
-    if (result.rowCount === 0) {
-      return null;
-    }
-    return result.rows[0];
+         "description" = '${description}',
+         "user_id" = '${userId}'
+         WHERE "motorbike"."id" = ${id}
+          RETURNING *;`);
+
+    return savedMotorbike.rows[0];
   },
 
   async delete(id) {
