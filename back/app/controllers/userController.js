@@ -4,26 +4,30 @@ const userMapper = require('../models/user');
 const { ApiError } = require('../helpers/errorHandler');
 
 const userController = {
+
+  // Méthode d'ajout d'un utilisateur
   async inscription(req, res) {
     try {
       const newAlias = req.body.alias;
+      // On vérifie en BDD si le pseudo existe déjà
       const user = await userMapper.findByAlias(newAlias);
+      // S'il existe, message d'erreur
       if (user) {
         return res.json('Cet alias est déjà utilisé par un utilisateur.').status(500);
       }
-      // - 2: format d'email valide
+      // Vérification du format de l'email
       if (!emailValidator.validate(req.body.email)) {
         return res.render('signup', {
           error: "Cet email n'est pas valide.",
         });
       }
-      // - 3: le mdp et la confirmation ne correspondent pas
+      // Vérification entre Password et confirmation de Password lors de la création du Password
       if (req.body.password !== req.body.confirmPassword) {
         return res.render('signup', {
           error: 'La confirmation du mot de passe ne correspond pas.',
         });
       }
-      // 5 - On crypt
+      // Cryptage du Password
       const salt = await bcrypt.genSalt(10);
       const encryptedPassword = await bcrypt.hash(req.body.password, salt);
 
@@ -36,8 +40,11 @@ const userController = {
       return res.status(500).send(err.message);
     }
   },
+
+  // Méthode d'affichage d'un utilisateur
   async findOne(req, res) {
     const { id } = req.params;
+    // On récupère les informations de l'utilisateur
     const userDatas = await userMapper.findByPk(id);
 
     if (!userDatas) {
@@ -46,6 +53,7 @@ const userController = {
 
     const itinerariesInfos = [];
 
+    // Rreforlmatage du json pour affichage de tous les éléments du profil de manière organisée
     userDatas.forEach((element) => {
       itinerariesInfos.push({ title: element.itinerary_title, pics: element.itipic });
     });
@@ -66,6 +74,7 @@ const userController = {
     return res.json(userInfos).status(200);
   },
 
+  // Méthode de mise à jour d'un utilisateur
   async update(req, res) {
     const { id } = req.params;
     const savedUser = req.body;
@@ -73,6 +82,7 @@ const userController = {
     return res.json(user).status(200);
   },
 
+  // Méthode de suppression d'un utilisateur
   async delete(req, res) {
     const { id } = req.params;
     const user = await userMapper.delete(id);

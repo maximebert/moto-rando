@@ -1,7 +1,7 @@
 const database = require('./database');
 
 const motorbikeMapper = {
-  // Route non utilisée
+  // Route non utilisée, mais prête pour d'éventuelles nouvelles fonctionnalités
   async findAll() {
     const result = await database.query(
       'SELECT * FROM "motorbike"',
@@ -15,6 +15,7 @@ const motorbikeMapper = {
 
   async findByPk(id) {
     const motorbikeId = Number(id);
+    // Récupération d'une moto, avec son propriétaire et la photo associée
     const result = await database.query(
       `SELECT
         "motorbike"."id" AS "motorbike_id",
@@ -45,6 +46,7 @@ const motorbikeMapper = {
     } = body;
     const userId = body.user_id;
 
+    // Insertion d'une moto dans la BDD
     const result = await database.query(
       `INSERT INTO "motorbike"
         ("brand", "model", "description", "user_id")
@@ -67,6 +69,7 @@ const motorbikeMapper = {
     } = body;
     const userId = body.user_id;
 
+    // Mise à jour d'une moto de la BDD
     const result = await database.query(
       `UPDATE "motorbike"
         SET "brand "= '${brand}',
@@ -84,6 +87,8 @@ const motorbikeMapper = {
 
   async delete(id) {
     const motorbikeId = Number(id);
+
+    // Suppression d'une moto de la BDD
     const result = await database.query(
       `DELETE FROM "motorbike" WHERE "motorbike""id" = '${motorbikeId}'`,
     );
