@@ -12,6 +12,7 @@ import Itinerary from "../../Pages/Itinerary/Itinerary";
 import LoginContainer from "../../containers/Login";
 import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 import HeaderContainer from "../../containers/Header";
+import OneItinerary from "../../Pages/OneItinerary/Itinerary";
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
@@ -26,6 +27,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/itineraires" element={<Itinerary/>} />
+            <Route path="/:id" element={<OneItinerary/>} />
             <Route path="/connexion" element={<LoginContainer />} />
             <Route path="/inscription" element={<Registration />} />
             <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />

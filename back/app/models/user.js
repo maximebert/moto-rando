@@ -3,6 +3,7 @@ const database = require('./database');
 const userMapper = {
 
   async findAll() {
+    // Route non utilisée, mais prête pour d'éventuelles nouvelles fonctionnalités
     const result = await database.query(
       'SELECT * FROM "user"',
     );
@@ -12,8 +13,11 @@ const userMapper = {
     }
     return result.rows;
   },
+
   async findByPk(id) {
     const userId = Number(id);
+    // Récupération d'un utilisateur, avec sa moto, la photo de sa moto,
+    // ses itineraires et leurs photos
     const result = await database.query(
       `SELECT
         u.id AS "user_id",
@@ -47,6 +51,7 @@ const userMapper = {
   },
 
   async findByAlias(alias) {
+    // Récupération d'un utilisateur par son alias
     const result = await database.query(`SELECT * FROM "user" WHERE alias = '${alias}'`);
 
     if (result.rowCount === 0) {
@@ -57,6 +62,7 @@ const userMapper = {
   },
 
   async findByMail(email) {
+    // Récupération d'un utilisateur par son email
     const result = await database.query(`SELECT * FROM "user" WHERE email = '${email}'`);
 
     if (result.rowCount === 0) {
@@ -67,6 +73,7 @@ const userMapper = {
   },
 
   async create(alias, email, hashedPassword, presentation) {
+    // Insertion d'un utilisateur dans la BDD
     const result = await database.query(
       `INSERT INTO "user"
          ("alias", "email", "password", "presentation")
@@ -100,6 +107,8 @@ const userMapper = {
       presentation,
     } = newUser;
 
+
+     // Misa à jour d'un utilisateur de la BDD
     const savedUser = await database.query(`UPDATE "user"
            SET "alias" = '${alias}',
           "email" = '${email}',
@@ -107,8 +116,23 @@ const userMapper = {
           "presentation" = '${presentation}'
           WHERE id = '${id}'
           RETURNING *;`);
-
+    
     return savedUser.rows[0];
+
+  },
+
+  async delete(id) {
+    const userId = Number(id);
+    // Suppression d'un utilisateur de la BDD
+    const result = await database.query(
+      `DELETE FROM "user" WHERE "user"."id" = '${userId}'`,
+    );
+
+    if (result.rowCount === 0) {
+      return null;
+    }
+
+    return result.rows[0];
   },
 
 };

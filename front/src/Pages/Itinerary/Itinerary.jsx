@@ -5,7 +5,6 @@ import InputFilterItinerary from "../../Components/InputFilterItinerary/InputFil
 //style
 import './profilItinary.scss';
 
-// page d'un itinéraire
 
 const Itinerary = () => {
     const [itinerary, setItinerary] = useState([])

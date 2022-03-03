@@ -2,7 +2,7 @@ const database = require('./database');
 
 const pictureMapper = {
   async findAll() {
-    // Route non utilisée
+    // Route non utilisée, mais prête pour d'éventuelles nouvelles fonctionnalités
     const result = await database.query(
       'SELECT * FROM "picture"',
     );
@@ -12,8 +12,10 @@ const pictureMapper = {
     }
     return result.rows;
   },
+
   async findByPk(id) {
     const pictureId = Number(id);
+    // Récupération d'une image
     const result = await database.query(
       `SELECT
         "picture"."title" AS "picture_title",
@@ -39,6 +41,7 @@ const pictureMapper = {
     const motorbikeId = body.motorbike_id;
     const itineraryId = body.itinerary_id;
 
+    // Insertion d'une image dans la BDD
     const result = await database.query(
       `INSERT INTO "picture"
         ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
@@ -73,6 +76,8 @@ const pictureMapper = {
     const motorbikeId = newPicture.motorbike_id;
     const itineraryId = newPicture.itinary_id;
 
+
+    // Mise à jour d'une image de la BDD
     const savedPicture = await database.query(`UPDATE "picture"
            SET "title" = '${title}',
            "description" = '${description}',
@@ -84,10 +89,13 @@ const pictureMapper = {
            RETURNING *;`);
 
     return savedPicture.rows[0];
+
   },
 
   async delete(id) {
     const pictureId = Number(id);
+
+    // Suppression d'une image de la BDD
     const result = await database.query(
       `DELETE FROM "picture" WHERE "picture"."id" = '${pictureId}'`,
     );
