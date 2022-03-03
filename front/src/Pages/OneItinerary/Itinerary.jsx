@@ -1,5 +1,7 @@
 // import react
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/Itinerary/Itinerary'
@@ -7,28 +9,39 @@ import Itinerary from '../../Components/Itinerary/Itinerary'
 
 const OneItinerary = () => {
     const [itineraryID, setItineraryID] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const params = useParams()
     console.log(params);
 
     useEffect( () => {
         async function fetchData(){
-            try{
-                const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
-                setItineraryID(response.data)
-            }catch(err){
-                return err.response
-            }
+
+            const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
+            setItineraryID(response.data);
+            setIsLoading(false);
+
         }
         fetchData()
     }, []);
 
     console.log(itineraryID);
     return (
-        <div> 
-            <Itinerary 
-                title={itineraryID.itinerary_title} 
+
+
+        <div>
+          {!isLoading && (
+            <Itinerary
+                map={itineraryID.pictures[0].pic_link}
+                title={itineraryID.itinerary_title}
                 description={itineraryID.itinerary_description}
-            />
+                // duration={itineraryID.itinerary_duration}
+                highway={itineraryID.is_highway}
+                kilometre={itineraryID.itinerary_kilometer}
+                curve={itineraryID.itinerary_curve}
+                // user={itineraryID.user_alias}
+
+            />)}
+
         </div>
     )
 }
