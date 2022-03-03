@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 //style
 import './itinerary.scss';
 import {GiMountainRoad, GiPathDistance} from "react-icons/gi";
@@ -8,11 +7,10 @@ import {AiOutlineFieldTime} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 
 
-const Itinerary = ({id, map, title, description}) => {
+const OneItinerary = ({title, description}) => {
     return (
 
         <div className='card'>
-            <Link to={`/${id}`}><img className='card__img' src={map} alt={title} /></Link>
             <div className='card__title'>{title}</div>
             <div className='card__description'>
                 <div className='card__description-icon'>
@@ -37,14 +35,9 @@ const Itinerary = ({id, map, title, description}) => {
     )
 }
 
-Itinerary.prototype = {
+OneItinerary.prototype = {
     title: PropTypes.string.isRequired,
-    map: PropTypes.string,
     description: PropTypes.string.isRequired,
 }
 
-Itinerary.defaultProps = {
-    map: 'https://fakeimg.pl/300'
-}
-
-export default React.memo(Itinerary);
+export default React.memo(OneItinerary);

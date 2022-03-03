@@ -11,6 +11,7 @@ const ContentItinerary = ({itineraryList}) => {
                                map={itinerary.pictures[0].pic_link}
                                title={itinerary.itinerary_title}
                                description={itinerary.itinerary_description}
+                               id={itinerary.itinerary_id}
                     />
                 ))
             }
