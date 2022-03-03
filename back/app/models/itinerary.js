@@ -2,6 +2,7 @@ const database = require('./database');
 
 const itineraryMapper = {
   async findAll() {
+    // Récupération de tous les itineraires, avec les images associées
     const result = await database.query(
       `SELECT
         "itinerary"."id" AS "itinerary_id",
@@ -19,8 +20,10 @@ const itineraryMapper = {
     }
     return result.rows;
   },
+
   async findByPk(id) {
     const itineraryId = Number(id);
+    // Récupération d'un itinéraire via son id, avec l'alias de son créateur et les images associées
     const result = await database.query(
       `SELECT
         "itinerary"."id" AS "itinerary_id",
@@ -58,6 +61,7 @@ const itineraryMapper = {
     } = body;
     const userId = body.user_id;
 
+    // Ajout d'un itineraire à la BDD
     const result = await database.query(
       `INSERT INTO "itinerary"
         ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
@@ -85,6 +89,7 @@ const itineraryMapper = {
     } = body;
     const userId = body.user_id;
 
+    // Mise à jour d'un itineraire dans la BDD
     const result = await database.query(
       `UPDATE "itinerary"
         SET title = '${title}',
@@ -107,6 +112,7 @@ const itineraryMapper = {
 
   async delete(id) {
     const itineraryId = Number(id);
+    // Suppression d'un itineraire de la BDD
     const result = await database.query(
       `DELETE FROM "itinerary" WHERE "itinerary"."id" = '${itineraryId}'`,
     );
