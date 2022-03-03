@@ -1,6 +1,6 @@
 import { Routes , Route } from "react-router-dom";
 //components
-import RegistrationItinerary from "../Registration/RegistrationItinerary";
+import RegistrationItinerary from "../Registration/Itinerary/RegistrationItinerary";
 // pages
 import Home from "../../Pages/Home/Home";
 import Registration from '../../Pages/Registration/Registration';
@@ -18,8 +18,6 @@ import '../../Styles/index.scss';
 import './app.scss';
 
 
-
-
 function App() {
   return (
     <div className="App">
@@ -31,7 +29,7 @@ function App() {
             <Route path="/connexion" element={<LoginContainer />} />
             <Route path="/inscription" element={<Registration />} />
             <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
-            <Route path="/profil" element={<Profil />} />
+            <Route path="/profil/:id" element={<Profil />} />
             <Route path="/equipe" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/mentions-legales" element={<LegalNotice />} />

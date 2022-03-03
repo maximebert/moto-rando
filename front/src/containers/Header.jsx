@@ -9,7 +9,8 @@ const HeaderContainer = () => {
   const isLogged = useSelector((state) => state.user.logged);
   const pseudo = useSelector((state)=> state.user.pseudo);
 
-  const handleLogout = ()=>{
+
+  const handleLogout = () => {
     dispatch(actionSetLogout());
   }
   
