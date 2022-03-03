@@ -20,6 +20,7 @@ router.use('/images', pictureRouter);
 
 router.use((err, _, response, next) => {
   errorHandler(err, response, next);
+  console.log(err);
 });
 
 module.exports = router;
