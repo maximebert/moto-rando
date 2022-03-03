@@ -14,8 +14,8 @@ const RegistrationUser = ({})=>{
 
     return(
 
-    <form >
-        <label for="user">Nom d'utilisateur   </label>
+    <form className='form'>
+        <label for="user">Nom d'utilisateur</label>
         <input id="user" type="text" placeholder='pseudo' onChange={(e) => setPseudo(e.target.value)}/>
 
         <label for="mail">Email</label>
@@ -27,7 +27,7 @@ const RegistrationUser = ({})=>{
         <label for="confirm" >Veuillez ressaisir votre mot de passe</label>
         <input id="confirm" type="password" placeholder='mot de passe' onChange={(e) => setConfirmPassword(e.target.value)}/>
 
-        <button onClick={handleOnSubmit} disabled={pseudo === "" || mail === "" || password ==="" || password !== confirmPassword}>valider</button>
+        <button className='form__btn-submit' onClick={handleOnSubmit} disabled={pseudo === "" || mail === "" || password ==="" || password !== confirmPassword}>valider</button>
     </form>)
 }
 

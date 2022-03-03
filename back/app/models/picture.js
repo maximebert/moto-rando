@@ -2,6 +2,7 @@ const database = require('./database');
 
 const pictureMapper = {
   async findAll() {
+    // Route non utilisée, mais prête pour d'éventuelles nouvelles fonctionnalités
     const result = await database.query(
       'SELECT * FROM "picture"',
     );
@@ -11,8 +12,10 @@ const pictureMapper = {
     }
     return result.rows;
   },
+
   async findByPk(id) {
     const pictureId = Number(id);
+    // Récupération d'une image
     const result = await database.query(
       `SELECT
         "picture"."title" AS "picture_title",
@@ -38,6 +41,7 @@ const pictureMapper = {
     const motorbikeId = body.motorbike_id;
     const itineraryId = body.itinerary_id;
 
+    // Insertion d'une image dans la BDD
     const result = await database.query(
       `INSERT INTO "picture"
         ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
@@ -51,36 +55,45 @@ const pictureMapper = {
     return result.rows[0];
   },
 
-  async update(id, body) {
-    const pictureId = Number(id);
+  async update(id, picture) {
+    const result = await database.query('SELECT * FROM "picture" WHERE id = $1', [id]);
+
+    if (result.rowCount === 0) {
+      throw result.status(400);
+    }
+
+    const oldPicture = result.rows[0];
+    const newPicture = {
+      ...oldPicture,
+      ...picture,
+    };
     const {
       title,
-      description,
       link,
-    } = body;
-    const userId = body.user_id;
-    const motorbikeId = body.motorbike_id;
-    const itineraryId = body.itinary_id;
+      description,
+    } = newPicture;
+    const userId = newPicture.user_id;
+    const motorbikeId = newPicture.motorbike_id;
+    const itineraryId = newPicture.itinary_id;
 
-    const result = await database.query(
-      `UPDATE "picture"
-        SET "title" = '${title}',
-        "description" = '${description}',
-        "link" = '${link}',
-        "user_id" = '${userId}',
-        "motorbike_id" = '${motorbikeId}',
-        "itinerary_id" = '${itineraryId}'
-        WHERE "picture"."id" = ${pictureId}
-        RETURNING *;`,
-    );
-    if (result.rowCount === 0) {
-      return null;
-    }
-    return result.rows[0];
+    // Mise à jour d'une image de la BDD
+    const savedPicture = await database.query(`UPDATE "picture"
+           SET "title" = '${title}',
+           "description" = '${description}',
+           "link" = '${link}',
+           "user_id" = '${userId}',
+           "motorbike_id" = '${motorbikeId}',
+           "itinerary_id" = '${itineraryId}'
+           WHERE "picture"."id" = ${id}
+           RETURNING *;`);
+
+    return savedPicture.rows[0];
   },
 
   async delete(id) {
     const pictureId = Number(id);
+
+    // Suppression d'une image de la BDD
     const result = await database.query(
       `DELETE FROM "picture" WHERE "picture"."id" = '${pictureId}'`,
     );

@@ -1,5 +1,5 @@
 /**
- * Plutôt que créer et connecté un Client
+ * Plutôt que créer et connecter un Client
  * On va plutôt créer un "pool" de client et
  * laisser notre module manager les connexions
  * de plusieurs client en fonction des besoins.
@@ -46,3 +46,4 @@ module.exports = {
     return this.originalClient.query(...params);
   },
 };
+

@@ -1,6 +1,5 @@
 import { Routes , Route } from "react-router-dom";
 //components
-import Header from '../Header/Header';
 import RegistrationItinerary from "../Registration/RegistrationItinerary";
 // pages
 import Home from "../../Pages/Home/Home";
@@ -9,23 +8,27 @@ import Profil from "../../Pages/Profil/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from '../../Pages/Contact/Contact';
 import Footer from "../Footer/Footer";
-
 import Itinerary from "../../Pages/Itinerary/Itinerary";
-
+import LoginContainer from "../../containers/Login";
 import LegalNotice from "../Footer/LegalNotice/LegalNotice";
-
+import HeaderContainer from "../../containers/Header";
+import OneItinerary from "../../Pages/OneItinerary/Itinerary";
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
 
 
+
+
 function App() {
   return (
     <div className="App">
-        <Header />
+        <HeaderContainer />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/itineraires" element={<Itinerary/>} />
+            <Route path="/:id" element={<OneItinerary/>} />
+            <Route path="/connexion" element={<LoginContainer />} />
             <Route path="/inscription" element={<Registration />} />
             <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil" element={<Profil />} />

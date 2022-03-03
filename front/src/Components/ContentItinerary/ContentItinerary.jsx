@@ -8,9 +8,10 @@ const ContentItinerary = ({itineraryList}) => {
             {
                 itineraryList.map((itinerary) => (
                     <Itinerary key={itinerary.itinerary_id}
-                               map={itinerary.picture_link}
+                               map={itinerary.pictures[0].pic_link}
                                title={itinerary.itinerary_title}
                                description={itinerary.itinerary_description}
+                               id={itinerary.itinerary_id}
                     />
                 ))
             }
@@ -22,7 +23,11 @@ ContentItinerary.propTypes = {
     ItineraryList: PropTypes.arrayOf(
         PropTypes.shape({
             itinerary_id: PropTypes.number.isRequired,
-            picture_link: PropTypes.string.isRequired,
+            pictures: PropTypes.arrayOf(
+                PropTypes.shape({
+                    pic_link: PropTypes.string.isRequired
+                }).isRequired
+            ),
             itinerary_title: PropTypes.string.isRequired,
             itinerary_description: PropTypes.string.isRequired
         })

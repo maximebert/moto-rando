@@ -88,4 +88,12 @@
             }
         }
     }
+  .pseudo{
+    margin: 30px;
+  }
+  .btn__logout{
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: $yellow;
+  }
 }

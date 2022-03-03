@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
+import PropTypes from "prop-types";
 import logo from '../../assets/images/logo-white.png';
 import './header.scss';
 import {BiMenuAltRight} from 'react-icons/bi'
 import {IoCloseCircleOutline} from "react-icons/io5";
-import LoginContainer from "../../containers/Login";
+import {FiLogOut} from "react-icons/fi";
 
-const Header = () => {
+const Header = ({isLogged, handleLogout, pseudo}) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [size, setSize] = useState({
         width: undefined,
@@ -24,7 +25,7 @@ const Header = () => {
         return () => window.removeEventListener('resize', handleRezise)
     }, [])
 
-    // close menu when page is > 768
+    // close menu when page is > 900
     useEffect(() => {
         if(size.width > 900 && menuOpen) {
             setMenuOpen(false)
@@ -48,27 +49,56 @@ const Header = () => {
 
             <nav className={`header__content__nav ${menuOpen ? 'isMenu' : ''}` }>
                 <ul className='header_list'>
-                    <li>
+                  {!isLogged && (
+                    <>
+                      <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
-                            Accueil
+                          Accueil
                         </NavLink>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
-                            Listes des itinéraires
+                          Listes des itinéraires
                         </NavLink>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
-                            L'equipe
+                          L'equipe
                         </NavLink>
-                    </li>
-                    <li>
+                      </li>
+                      <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/inscription'>
-                            Inscription
+                          Inscription
                         </NavLink>
-                    </li>
-                    <LoginContainer />
+                      </li>
+                      <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/connexion'>
+                          Connexion
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
+                  {isLogged && (
+                    <>
+                      <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
+                          Accueil
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
+                          Listes des itinéraires
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
+                          L'equipe
+                        </NavLink>
+                      </li>
+                      <p className='pseudo'>{pseudo}</p>
+                      <div className='btn__logout' onClick={handleLogout}><FiLogOut /></div>
+                    </>
+                  )}
                 </ul>
             </nav>
                 <div className='header__content__toggle'>
@@ -77,6 +107,16 @@ const Header = () => {
             </div>
         </header>
     )
+}
+
+Header.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+  pseudo: PropTypes.string,
+}
+
+Header.defaultProps = {
+  pseudo: "Connecté"
 }
 
 export default React.memo(Header)

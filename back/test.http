@@ -1,8 +1,7 @@
 ### page d'accueil du site (doit renvoyer 6 itinéraires "random")
 GET http://localhost:3000
 
-
-### connection
+### connexion
 POST http://localhost:3000/profil/connexion
 content-type: application/json
 
@@ -19,6 +18,7 @@ GET http://localhost:3000/itineraires
 ### affiche un itinéraire
 GET http://localhost:3000/itineraires/1
 
+
 ### ajout itinéraire
 POST http://localhost:3000/itineraires
 content-type: application/json
@@ -33,19 +33,22 @@ content-type: application/json
     "trace": null,
     "user_id": 1
 
+}
+
+### modif itinéraire (fonctionne uniquement si on modifie la durée avec)
+PATCH  http://localhost:3000/itineraires/11
+content-type: application/json
+
+{
+    "title": "Baux de Provence",
+    "duration": "20:00:30"
 
 }
 
 ### supprimer un itinéraire
 DELETE http://localhost:3000/itineraires/10
 
-### modif itinéraire (ne fonctionne pas)
-PATCH  http://localhost:3000/itineraires/11
-content-type: application/json
 
-{
-    "duration": "20:10:30"
-}
 
 ###################################################################################################################
 ### USERS
@@ -58,11 +61,23 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "maxou",
-    "email": "maxouuuuuu@gmail.com",
+    "alias": "maxoru",
+    "email": "maxouuruuuu@gmail.com",
     "password": "js4life",
     "confirmPassword": "js4life",
     "presentation": "bonjour je suis maxime"
+}
+
+### modifier d'un profil
+PATCH http://localhost:3000/profil/3
+content-type: application/json
+
+{
+    "alias": "norbert",
+    "email": "bebert@gmail.com",
+    "password": "js4life",
+    "confirmPassword": "js4life",
+    "presentation": "bonjour je suis norbert alias bebert"
 }
 
 ### supprimer un profil avec son id
@@ -80,6 +95,17 @@ GET http://localhost:3000/motos/1
 
 ### ajout moto
 POST http://localhost:3000/motos
+content-type: application/json
+
+{
+    "brand": "suzuki",
+    "model": "gsx1000",
+    "description": "vroom vroom",
+    "user_id": 1
+}
+
+### modif moto
+PATCH  http://localhost:3000/motos/5
 content-type: application/json
 
 {
@@ -107,6 +133,19 @@ content-type: application/json
 
 {
     "title": "suzuki",
+    "description": "gsx1000",
+    "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
+    "user_id": 1,
+    "motorbike_id": 1,
+    "itinary_id": 1
+}
+
+### modif photo
+PATCH  http://localhost:3000/images/10
+content-type: application/json
+
+{
+    "title": "suzuk",
     "description": "gsx1000",
     "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
     "user_id": 1,

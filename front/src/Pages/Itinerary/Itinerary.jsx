@@ -3,9 +3,8 @@ import React, {useEffect, useState} from 'react'
 import {getAllList} from "../../request/itineraryRequest";
 import InputFilterItinerary from "../../Components/InputFilterItinerary/InputFilterItinerary";
 //style
-import './/profilItinary.scss';
+import './profilItinary.scss';
 
-// page d'un itinéraire
 
 const Itinerary = () => {
     const [itinerary, setItinerary] = useState([])

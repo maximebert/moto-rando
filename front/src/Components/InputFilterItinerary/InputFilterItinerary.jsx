@@ -81,16 +81,20 @@ const InputFilterItinerary = ({data}) => {
                 {filterPlace.length > 0 ? (
                     filterPlace.map((option) => (
                         <Itinerary key={option.itinerary_id}
-                                   map={option.picture_link}
+                                   map={option.pictures[0].pic_link}
                                    title={option.itinerary_title}
-                                   description={option.itinerary_description} />
+                                   description={option.itinerary_description}
+                                   id={option.itinerary_id}
+                        />
                     ))
                 ) : (
                     data.map((item) => (
                         <Itinerary key={item.itinerary_id}
-                                   map={item.picture_link}
+                                   map={item.pictures[0].pic_link}
                                    title={item.itinerary_title}
-                                   description={item.itinerary_description} />
+                                   description={item.itinerary_description}
+                                   id={item.itinerary_id}
+                        />
                     ))
                 )};
             </div>
