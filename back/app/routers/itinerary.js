@@ -17,7 +17,7 @@ router.route('/:id')
 module.exports = router;
 
 /**
- *  * GET /
+ *  * GET
      * @summary Get a itinerary
      * @tags Generate - Routes to get all itinerary
      * @param {string} request.query - the first part of a sentence
@@ -28,8 +28,8 @@ module.exports = router;
 /**
  * * POST
      * @summary Send new word and get a itinerary
-     * @tags Store - Routes to save end get a itinerary
-     * @param {string} body.required - the first part of a sentencesentence
+     * @tags Store - Routes to save end get a itineraries
+     * @param {string} body.required - the first part of a sentence
      * @returns {itineraryController} 200 - itinerary object
      * @returns {Error} 404 - Input data invalid
 
@@ -44,8 +44,8 @@ module.exports = router;
  */
 /**
  * * PATCH(/:id)
-     * @summary Get a one itinerary
-     * @tags Generate - Routes to get one itinerary
+     * @summary update one itinerary
+     * @tags Generate - Routes to update one itinerary
      * @param {string} request.query - the first part of a sentence
      * @returns {itineraryController} 200 - itinerary object
      * @returns {Error} 404 - Input data invalid
@@ -53,7 +53,7 @@ module.exports = router;
 /**
  * * DELETE(/:id)
      * @summary delete a one itinary
-     * @tags Generate - deleting a route
+     * @tags Generate -Routes to deleting a itinerary
      * @param {string} request.query - the first part of a sentence
      * @returns {itineraryController} 204 - itinerary object
      * @returns {Error} 404 - Input data invalid

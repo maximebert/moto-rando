@@ -17,8 +17,8 @@ module.exports = router;
 
 /**
  *  * GET /findAll
-     * @summary Get a motorbike
-     * @tags Generate - Routes to get all motorbike
+     * @summary Get all motorbikes
+     * @tags Generate - Routes to get all motorbikes
      * @param {string} request.query - the first part of a sentence
      * @returns {motorbike} 200 - motorbike object (ok)
  */
@@ -41,8 +41,8 @@ module.exports = router;
  */
 /**
  * * PATCH(/:id)
-     * @summary Get a one itinary
-     * @tags Generate - Update a motorbike
+     * @summary Update one itinary
+     * @tags Generate - Generate - Routes to get one motorbike
      * @param {string} request.query - the first part of a sentence
      * @returns {motorbike} 200 - motorbike object (ok)
 
@@ -50,7 +50,7 @@ module.exports = router;
 /**
  * * DELETE(/:id)
      * @summary delete a one motorbike
-     * @tags Generate - Deleting a motorbike
+     * @tags Generate - Generate - Routes to get deleting one motorbike
      * @param {string} request.query - the first part of a sentence
      * @returns {motorbike} 200 - motorbike object (ok)
 
