@@ -1,3 +1,5 @@
+-- Revert motorando:initdb from pg
+-- reverse the order of tables to delete
 
 BEGIN;
 

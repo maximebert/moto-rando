@@ -19,3 +19,44 @@ router.route('/:id')
   .delete(controllerHandler(motorbikeController.delete));
 
 module.exports = router;
+
+/**
+ *  * GET /findAll
+     * @summary Get all motorbikes
+     * @tags Generate - Routes to get all motorbikes
+     * @param {string} request.query - the first part of a sentence
+     * @returns {motorbike} 200 - motorbike object (ok)
+ */
+
+/**
+ * * POST /new
+     * @summary Send new word and get a motorbike
+     * @tags Store - Routes to save end get a motorbike
+     * @param {string} body.required - the first part of a sentencesentence
+     * @returns {motorbike} 200 - motorbike object (ok)
+
+ */
+/**
+ * * GET(/:id)
+     * @summary Get a one motorbike
+     * @tags Generate - Routes to get one motorbike
+     * @param {string} request.query - the first part of a sentence
+     * @returns {motorbike} 200 - motorbike object (ok)
+
+ */
+/**
+ * * PATCH(/:id)
+     * @summary Update one itinary
+     * @tags Generate - Generate - Routes to get one motorbike
+     * @param {string} request.query - the first part of a sentence
+     * @returns {motorbike} 200 - motorbike object (ok)
+
+ */
+/**
+ * * DELETE(/:id)
+     * @summary delete a one motorbike
+     * @tags Generate - Generate - Routes to get deleting one motorbike
+     * @param {string} request.query - the first part of a sentence
+     * @returns {motorbike} 200 - motorbike object (ok)
+
+ */
