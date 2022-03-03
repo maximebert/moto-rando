@@ -7,15 +7,16 @@ import {actionSetLogout} from "../action/user";
 const HeaderContainer = () => {
   const dispatch = useDispatch()
   const isLogged = useSelector((state) => state.user.logged);
-  const pseudo = useSelector((state)=> state.user.pseudo)
+  const pseudo = useSelector((state)=> state.user.pseudo);
 
   const handleLogout = ()=>{
     dispatch(actionSetLogout());
   }
+  
   return (
     <Header
       isLogged={isLogged}
-      pseud={pseudo}
+      pseudo={pseudo}
       handleLogout={handleLogout}
     />
   )
