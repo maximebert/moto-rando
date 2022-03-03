@@ -105,20 +105,6 @@ const itineraryMapper = {
     const newDuration = newItinerary.duration;
 
     // Mise à jour d'un itineraire dans la BDD
-    const result = await database.query(
-      `UPDATE "itinerary"
-        SET title = '${title}',
-        description = '${description}',
-        duration = '${duration}',
-        highway = '${highway}',
-        kilometer = '${kilometer}',
-        curve = '${curve}',
-        trace = '${trace}',
-        user_id = '${userId}'
-        WHERE "itinerary"."id" = ${itineraryId}
-        RETURNING *;`,
-    );
-
 
     const savedItinerary = await database.query(`UPDATE "itinerary"
            SET title = '${title}',

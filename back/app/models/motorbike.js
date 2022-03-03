@@ -78,7 +78,6 @@ const motorbikeMapper = {
     } = newMoto;
     const userId = newMoto.user_id;
 
-
     // Mise à jour d'une moto de la BDD
     const savedMotorbike = await database.query(`UPDATE "motorbike"
           SET "brand" = '${brand}',

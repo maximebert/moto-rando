@@ -107,8 +107,7 @@ const userMapper = {
       presentation,
     } = newUser;
 
-
-     // Misa à jour d'un utilisateur de la BDD
+    // Mise à jour d'un utilisateur de la BDD
     const savedUser = await database.query(`UPDATE "user"
            SET "alias" = '${alias}',
           "email" = '${email}',
@@ -116,9 +115,8 @@ const userMapper = {
           "presentation" = '${presentation}'
           WHERE id = '${id}'
           RETURNING *;`);
-    
-    return savedUser.rows[0];
 
+    return savedUser.rows[0];
   },
 
   async delete(id) {

@@ -76,7 +76,6 @@ const pictureMapper = {
     const motorbikeId = newPicture.motorbike_id;
     const itineraryId = newPicture.itinary_id;
 
-
     // Mise à jour d'une image de la BDD
     const savedPicture = await database.query(`UPDATE "picture"
            SET "title" = '${title}',
@@ -89,7 +88,6 @@ const pictureMapper = {
            RETURNING *;`);
 
     return savedPicture.rows[0];
-
   },
 
   async delete(id) {
