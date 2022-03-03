@@ -100,7 +100,7 @@ const userMapper = {
       presentation,
     } = newUser;
 
-    const savedItinerary = await database.query(`UPDATE "user"
+    const savedUser = await database.query(`UPDATE "user"
            SET "alias" = '${alias}',
           "email" = '${email}',
           "password" = '${password}',
@@ -108,7 +108,7 @@ const userMapper = {
           WHERE id = '${id}'
           RETURNING *;`);
 
-    return savedItinerary.rows[0];
+    return savedUser.rows[0];
   },
 
 };

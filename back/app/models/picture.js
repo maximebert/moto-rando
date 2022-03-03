@@ -73,7 +73,7 @@ const pictureMapper = {
     const motorbikeId = newPicture.motorbike_id;
     const itineraryId = newPicture.itinary_id;
 
-    const savedItinerary = await database.query(`UPDATE "picture"
+    const savedPicture = await database.query(`UPDATE "picture"
            SET "title" = '${title}',
            "description" = '${description}',
            "link" = '${link}',
@@ -83,7 +83,7 @@ const pictureMapper = {
            WHERE "picture"."id" = ${id}
            RETURNING *;`);
 
-    return savedItinerary.rows[0];
+    return savedPicture.rows[0];
   },
 
   async delete(id) {

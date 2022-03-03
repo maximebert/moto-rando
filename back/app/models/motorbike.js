@@ -76,7 +76,7 @@ const motorbikeMapper = {
     } = newMoto;
     const userId = newMoto.user_id;
 
-    const savedItinerary = await database.query(`UPDATE "motorbike"
+    const savedMotorbike = await database.query(`UPDATE "motorbike"
           SET "brand" = '${brand}',
         "model" = '${model}',
          "description" = '${description}',
@@ -84,7 +84,7 @@ const motorbikeMapper = {
          WHERE "motorbike"."id" = ${id}
           RETURNING *;`);
 
-    return savedItinerary.rows[0];
+    return savedMotorbike.rows[0];
   },
 
   async delete(id) {
