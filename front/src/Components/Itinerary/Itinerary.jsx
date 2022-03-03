@@ -34,7 +34,7 @@ const Itinerary = ({map, title, description}) => {
                 <BiUserCircle />
             </span>
         </div>
-)
+    )
 }
 
 Itinerary.prototype = {
