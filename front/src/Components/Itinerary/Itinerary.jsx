@@ -9,6 +9,7 @@ import {BiUserCircle} from 'react-icons/bi';
 import { FaRoad, FaRegWindowClose } from 'react-icons/fa';
 
 
+
 const Itinerary = ({id, map, title, description, user, kilometer, highway}) => {
 
     return (
@@ -31,10 +32,12 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway}) => {
                 </div>
             </div>
             <p className='description'>{description}</p>
+
             <span className='card__user'>
-                {user}
                 <BiUserCircle className='icon' />
+                {user}
             </span>
+
         </div>
     )
 }
@@ -43,8 +46,6 @@ Itinerary.prototype = {
     title: PropTypes.string.isRequired,
     map: PropTypes.string,
     description: PropTypes.string.isRequired,
-
-
 }
 
 Itinerary.defaultProps = {

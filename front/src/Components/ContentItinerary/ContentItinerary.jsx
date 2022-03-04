@@ -6,7 +6,9 @@ const ContentItinerary = ({itineraryList}) => {
     return (
         <div className='container__card'>
             {
+              //ici on va boucler pour récupérer une liste d'itinéraire
                 itineraryList.map((itinerary) => (
+                  //c'est les infos que l'on a besoin pour afficher un itinéraire
                     <Itinerary key={itinerary.itinerary_id}
                                map={itinerary.pictures[0].pic_link}
                                title={itinerary.itinerary_title}

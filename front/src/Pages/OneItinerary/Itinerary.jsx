@@ -31,14 +31,16 @@ const OneItinerary = () => {
         <div>
            {!isLoading && (
             <Itinerary
-                map={itineraryID.pictures[0].pic_link}
+                map={itineraryID.pictures[0].pic_link}// tracé
                 title={itineraryID.itinerary_title}
                 description={itineraryID.itinerary_description}
+                // photo
                 // duration={itineraryID.itinerary_duration}
                 highway={itineraryID.is_highway}
                 kilometer={itineraryID.itinerary_kilometer}
                 curve={itineraryID.itinerary_curve}
                 user={itineraryID.user_alias}
+
 
 
             />)}
