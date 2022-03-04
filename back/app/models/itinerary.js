@@ -1,4 +1,5 @@
 const database = require('./database');
+const { ApiError } = require('../helpers/errorHandler');
 
 const itineraryMapper = {
   async findAll() {
@@ -8,7 +9,8 @@ const itineraryMapper = {
       "itinerary"."id" AS "itinerary_id",
       "itinerary"."title" AS "itinerary_title",
       "itinerary"."description" AS "itinerary_description",
-      "itinerary"."duration" AS "itinerary_duration",
+      "itinerary"."hour" AS "itinerary_hour",
+      "itinerary"."minute" AS "itineray_minute",
       "itinerary"."highway" AS "is_highway",
       "itinerary"."kilometer" AS "itinerary_kilometer",
       "itinerary"."curve" AS "itinerary_curve",
@@ -34,7 +36,8 @@ const itineraryMapper = {
         "itinerary"."id" AS "itinerary_id",
         "itinerary"."title" AS "itinerary_title",
         "itinerary"."description" AS "itinerary_description",
-        "itinerary"."duration" AS "itinerary_duration",
+        "itinerary"."hour" AS "itinerary_hour",
+        "itinerary"."minute" AS "itineray_minute",
         "itinerary"."highway" AS "is_highway",
         "itinerary"."kilometer" AS "itinerary_kilometer",
         "itinerary"."curve" AS "itinerary_curve",
@@ -58,7 +61,8 @@ const itineraryMapper = {
     const {
       title,
       description,
-      duration,
+      hour,
+      minute,
       highway,
       kilometer,
       curve,
@@ -69,9 +73,9 @@ const itineraryMapper = {
     // Ajout d'un itineraire à la BDD
     const result = await database.query(
       `INSERT INTO "itinerary"
-        ("title", "description", "duration", "highway", "kilometer", "curve","trace", "user_id")
+        ("title", "description", "hour", "minute", "highway", "kilometer", "curve","trace", "user_id")
       VALUES
-        ('${title}', '${description}', '${duration}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}')
+        ('${title}', '${description}', '${hour}', '${minute}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}')
         RETURNING *;`,
     );
 
@@ -82,10 +86,13 @@ const itineraryMapper = {
   },
 
   async update(id, itinerary) {
-    const result = await database.query('SELECT * FROM itinerary WHERE id = $1', [id]);
+    const result = await database.query(
+      'SELECT * FROM itinerary WHERE id = $1',
+      [id],
+    );
 
     if (result.rowCount === 0) {
-      throw result.status(400);
+      throw new ApiError(400, 'This itinerary does not exist');
     }
 
     const oldItinerary = result.rows[0];
@@ -93,30 +100,35 @@ const itineraryMapper = {
       ...oldItinerary,
       ...itinerary,
     };
+
     const {
       title,
       description,
+      hour,
+      minute,
       highway,
       kilometer,
       curve,
       trace,
     } = newItinerary;
     const userId = newItinerary.user_id;
-    const newDuration = newItinerary.duration;
 
     // Mise à jour d'un itineraire dans la BDD
 
-    const savedItinerary = await database.query(`UPDATE "itinerary"
-           SET title = '${title}',
-          description = '${description}',
-           duration = '${newDuration}',
-           highway = '${highway}',
-          kilometer = '${kilometer}',
-          curve = '${curve}',
-          trace = '${trace}',
-          user_id = '${userId}'
-           WHERE "itinerary"."id" = ${id}
-          RETURNING *;`);
+    const savedItinerary = await database.query(
+      `UPDATE "itinerary"
+        SET title = '${title}',
+        "description" = '${description}',
+        "hour" = '${hour}',
+        "minute" = '${minute}',
+        "highway" = '${highway}',
+        "kilometer" = '${kilometer}',
+        "curve" = '${curve}',
+        "trace" = '${trace}',
+        "user_id" = '${userId}'
+        WHERE "itinerary"."id" = ${id}
+        RETURNING *;`,
+    );
 
     return savedItinerary.rows[0];
   },
