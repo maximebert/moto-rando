@@ -1,9 +1,7 @@
-
 // APPLICATION EXPRESS
 /*
 Désormais notre application est un module qui est exporté, afin de pouvoir require notre application dans différents environnement
 */
-
 const cors = require('cors');
 
 const express = require('express');
