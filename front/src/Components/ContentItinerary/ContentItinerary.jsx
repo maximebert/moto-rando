@@ -8,7 +8,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
                 itineraryList.map((itinerary) => (
                     <Itinerary key={itinerary.itinerary_id}
-                               map={itinerary.pictures}
+                               map={itinerary.pictures[0].pic_link}
                                title={itinerary.itinerary_title}
                                description={itinerary.itinerary_description}
                                id={itinerary.itinerary_id}
