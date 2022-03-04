@@ -6,7 +6,7 @@ const motorbikeController = {
   async new(req, res) {
     const newMotorbike = req.body;
     const motorbike = await motorbikeMapper.create(newMotorbike);
-    return res.json(motorbike).status(200);
+    return res.json(motorbike).status(201);
   },
 
   // Méthode daffichage de toutes les motos
