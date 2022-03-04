@@ -10,13 +10,13 @@ const connectController = {
       const user = await userMapper.findByMail(userMail);
       // Si pas d'utilisateur, on renvoie un message d'ereur
       if (!user) {
-        return res.json("Cet utilisateur n'existe pas.");
+        return res.status(404).json("Cet utilisateur n'existe pas.");
       }
       // Si on a un utilisateur, on teste si le mot de passe est valide
       const validPwd = await bcrypt.compare(req.body.password, user.password);
       // Si le mot de passe ne correspond pas, message d'erreur
       if (!validPwd) {
-        return res.json("Le mot de passe et l'email ne correspondent pas.");
+        return res.status(403).json("Le mot de passe et l'email ne correspondent pas.");
       }
       // Si c'est valide, on renvoie l'utilisateur
       return res.status(200).json(user);

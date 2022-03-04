@@ -1,39 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 //style
 import './itinerary.scss';
-import {GiPathDistance} from "react-icons/gi";
+import {GiMountainRoad, GiPathDistance} from "react-icons/gi";
 import {AiOutlineFieldTime} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
-import { FaRoad, FaRegWindowClose } from 'react-icons/fa';
 
 
-const Itinerary = ({id, map, title, description, user, kilometer, highway}) => {
-
+const Itinerary = ({id, map, title, description}) => {
     return (
 
         <div className='card'>
-            <Link to={`/${id}`}><img className='card__img' src={map} alt={title} /></Link>
+            <img className='card__img' src={map} alt={title} />
             <div className='card__title'>{title}</div>
             <div className='card__description'>
                 <div className='card__description-icon'>
-                    <p>Durée <AiOutlineFieldTime className='icon' /></p>
+                    <p>Durée <AiOutlineFieldTime /></p>
                     <span>3h</span>
                 </div>
                 <div className='card__description-icon'>
-                    <p>Distance <GiPathDistance className='icon' /></p>
-                    <span>{kilometer} km</span>
+                    <p>Distance <GiPathDistance /></p>
+                    <span>450km</span>
                 </div>
                 <div className='card__description-icon'>
-                    <p>Autoroute</p>
-                    <span className='icon'>{highway === true ? <FaRoad /> : <FaRegWindowClose />}</span>
+                    <p>Sinuosité <GiMountainRoad /></p>
+                    <span>3/5</span>
                 </div>
             </div>
-            <p className='description'>{description}</p>
+            <p>{description}</p>
             <span className='card__user'>
-                {user}
-                <BiUserCircle className='icon' />
+                Mathilde
+                <BiUserCircle />
             </span>
         </div>
     )
@@ -43,8 +41,6 @@ Itinerary.prototype = {
     title: PropTypes.string.isRequired,
     map: PropTypes.string,
     description: PropTypes.string.isRequired,
-
-
 }
 
 Itinerary.defaultProps = {
