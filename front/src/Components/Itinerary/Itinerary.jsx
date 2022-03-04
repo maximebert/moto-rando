@@ -14,7 +14,7 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway}) => {
     return (
 
         <div className='card'>
-            <Link to={`/${id}`}><img className='card__img' src={map} alt={title} /></Link>
+            <Link to={`/itineraire/${id}`}><img className='card__img' src={map} alt={title} /></Link>
             <div className='card__title'>{title}</div>
             <div className='card__description'>
                 <div className='card__description-icon'>
