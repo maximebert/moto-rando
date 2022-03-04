@@ -26,7 +26,7 @@ function App() {
     <div className="App">
         <HeaderContainer />
         <Routes>
-          
+
             {/* route public */}
             <Route path="/" element={<Home />} />
             <Route path="/itineraires" element={<Itinerary/>} />
@@ -35,7 +35,7 @@ function App() {
             <Route path="/inscription" element={<Registration />} />
             <Route path="/equipe" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/mentions-legales" element={<LegalNotice />} />]
+            <Route path="/mentions-legales" element={<LegalNotice />} />
             <Route path="*" element={<Error />} />
             {/* route privee */}
 
