@@ -26,7 +26,8 @@ content-type: application/json
 {
     "title": "Baux de Provence",
     "description": "venez aux baux de provence cest splendide",
-    "duration": "20:00:30",
+    "hour": 2,
+    "minute": 30,
     "highway": false,
     "kilometer": 20,
     "curve": 3,
@@ -36,17 +37,17 @@ content-type: application/json
 }
 
 ### modif itinéraire (fonctionne uniquement si on modifie la durée avec)
-PATCH  http://localhost:3000/itineraires/11
+PATCH  http://localhost:3000/itineraires/10
 content-type: application/json
 
 {
     "title": "Baux de Provence",
-    "duration": "20:00:30"
-
+    "hour": 1,
+    "minute": 25
 }
 
 ### supprimer un itinéraire
-DELETE http://localhost:3000/itineraires/10
+DELETE http://localhost:3000/itineraires/11
 
 
 
