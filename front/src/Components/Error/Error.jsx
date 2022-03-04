@@ -1,12 +1,10 @@
+import error from '../../assets/images/404-error.jpg';
+import './error.scss';
 
 const Error = () => (
-    <Page>
+    <div className='error'>
+      <img src={error} alt='Erreur 404'/>
+    </div>
+);
 
-      <Content
-        title="Erreur"
-        text="Nous sommes désolé, Une erreur s'est produite."
-      />
-    </Page>
-  );
-
-  export default Error;
+export default Error;
