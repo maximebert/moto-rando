@@ -9,7 +9,6 @@ import '../Registration/registration.scss'
 const Registration = () => {
     return (
         <>
-          <h2 className='registration-title'>S'inscrire</h2>
           <div className='registration'>
               <RegistrationUser/>
           </div>

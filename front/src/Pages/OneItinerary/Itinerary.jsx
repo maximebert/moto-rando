@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import Itinerary from '../../Components/Itinerary/Itinerary'
+import Itinerary from '../../Components/OneItinerary/Itinerary'
 
 
 const OneItinerary = () => {
@@ -28,6 +28,10 @@ const OneItinerary = () => {
             <Itinerary 
                 title={itineraryID.itinerary_title} 
                 description={itineraryID.itinerary_description}
+                map={itineraryID.picture}
+                highway={itineraryID.is_highway}
+                kilometer={itineraryID.itinerary_kilometer}
+                user={itineraryID.user_alias}
             />
         </div>
     )
