@@ -1,6 +1,20 @@
 @import 'src/Styles/vars';
 
-.form{
-  max-width: 500px;
-  margin: 0 auto;
+.success{
+  margin: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: green;
+  font-size: 1.5rem;
+}
+
+.redirect{
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 auto 100px auto;
+  background-color: $blue;
+  width: 200px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #fff;
 }

@@ -1,5 +1,6 @@
 // import react
 import React, {useEffect, useState} from 'react'
+import {useSelector} from "react-redux";
 import Content from "../../Components/ContentHome/Content";
 import ContentItinerary from "../../Components/ContentItinerary/ContentItinerary";
 import {Link} from "react-router-dom";
@@ -9,6 +10,7 @@ import {getAllList} from "../../request/itineraryRequest";
 
 const Home = () => {
     const [itinerary, setItinerary] = useState([])
+    const isLogged = useSelector((state) => state.user.logged)
 
     useEffect( () => {
         async function fetchData() {
@@ -25,8 +27,10 @@ const Home = () => {
             <h2 className='home__title'>Des balades motos à couper le souffle</h2>
 
             <ContentItinerary itineraryList={itinerary} />
-
-            <Link to="#" className='btn-createItinerary'>Créer votre itineraire</Link>
+            
+            {isLogged ?  <Link to="/nouveau-itineraire" className='btn-createItinerary'>Créer votre itineraire</Link> :  (
+               <Link to="/inscription" className='btn-createItinerary'>Inscrivez-vous pour créer votre itineraire</Link>
+            )}
 
             <div className='home__content'>
                 <div className='home__content-text'>

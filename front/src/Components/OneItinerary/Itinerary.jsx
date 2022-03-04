@@ -1,37 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//style
-import './itinerary.scss';
-import {GiMountainRoad, GiPathDistance} from "react-icons/gi";
-import {AiOutlineFieldTime} from 'react-icons/ai';
-import {BiUserCircle} from 'react-icons/bi';
 
+import './itinerary.scss'
+import { AiOutlineUser } from 'react-icons/ai';
+import { ImCross } from 'react-icons/im';
+import { FaRoad } from 'react-icons/fa';
 
-const OneItinerary = ({title, description, map}) => {
+const OneItinerary = ({title, description, map, highway, kilometer, user}) => {
     return (
 
-        <div className='card'>
-            <img className='card__img' src={map} alt={title} />
-            <div className='card__title'>{title}</div>
-            <div className='card__description'>
-                <div className='card__description-icon'>
-                    <p>Durée <AiOutlineFieldTime /></p>
-                    <span>3h</span>
+        <div className='itinerary'>
+           <div className='itinerary__left'>
+                <h2>{title}</h2>
+                <span>Sinuosité: 4/5</span>
+                <img src={map} alt={title}/>
+
+                <div className='itinerary__left-details'>
+                    <p>Durée: 3 heures</p>
+                    <p>Kilomètres: {kilometer} km</p>
+                    <p className='details-higway'>Autoroute: <span>{highway === true ? <FaRoad /> : <ImCross />}</span></p>
                 </div>
-                <div className='card__description-icon'>
-                    <p>Distance <GiPathDistance /></p>
-                    <span>450km</span>
-                </div>
-                <div className='card__description-icon'>
-                    <p>Sinuosité <GiMountainRoad /></p>
-                    <span>3/5</span>
-                </div>
-            </div>
-            <p>{description}</p>
-            <span className='card__user'>
-                Mathilde
-                <BiUserCircle />
-            </span>
+           </div>
+
+           <div className='itinerary__right'>
+                <h3>Description</h3>
+                <p>{description}</p>
+                <p className='itinerary__right-user'>Itinéraire proposé par <span><AiOutlineUser className='icon-user' /> {user} </span></p>
+           </div>
         </div>
     )
 }

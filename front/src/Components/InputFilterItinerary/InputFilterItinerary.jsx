@@ -81,19 +81,25 @@ const InputFilterItinerary = ({data}) => {
                 {filterPlace.length > 0 ? (
                     filterPlace.map((option) => (
                         <Itinerary key={option.itinerary_id}
-                                   map={option.pictures[0].pic_link}
+                                   map={option.pictures}
                                    title={option.itinerary_title}
                                    description={option.itinerary_description}
                                    id={option.itinerary_id}
+                                   user={option.user_alias}
+                                   kilometer={option.itinerary_kilometer}
+                                   highway={option.is_highway}
                         />
                     ))
                 ) : (
                     data.map((item) => (
                         <Itinerary key={item.itinerary_id}
-                                   map={item.pictures[0].pic_link}
+                                   map={item.pictures}
                                    title={item.itinerary_title}
                                    description={item.itinerary_description}
                                    id={item.itinerary_id}
+                                   user={item.user_alias}
+                                   kilometer={item.itinerary_kilometer}
+                                   highway={item.is_highway}
                         />
                     ))
                 )};

@@ -9,7 +9,7 @@ import {
  * par défaut elles sont vide
  */
 export const initialState = {
-  email: "maxime@gmail.com",
+  email: "",
   password: "",
   pseudo: "",
   logged: false,

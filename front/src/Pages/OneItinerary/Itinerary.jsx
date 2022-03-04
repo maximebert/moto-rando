@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import Itinerary from '../../Components/Itinerary/Itinerary'
+import Itinerary from '../../Components/OneItinerary/Itinerary'
 
 
 const OneItinerary = () => {
@@ -31,17 +31,14 @@ const OneItinerary = () => {
         <div>
           {!isLoading && (
             <Itinerary
-                map={itineraryID.pictures[0].pic_link}
                 title={itineraryID.itinerary_title}
                 description={itineraryID.itinerary_description}
-                // duration={itineraryID.itinerary_duration}
+                map={itineraryID.picture}
                 highway={itineraryID.is_highway}
-                kilometre={itineraryID.itinerary_kilometer}
-                curve={itineraryID.itinerary_curve}
-                // user={itineraryID.user_alias}
-
-            />)}
-
+                kilometer={itineraryID.itinerary_kilometer}
+                user={itineraryID.user_alias}
+            />
+              )}
         </div>
     )
 }

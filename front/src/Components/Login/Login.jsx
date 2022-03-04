@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './input/Input'
 import './login.scss';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 const Login = ({email, password, changeField, handleLogin}) => {
   // Redirect to pageHome
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
         handleLogin();
-        navigate('/')
+        // navigate('/')
+
     }
 
     return (
