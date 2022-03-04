@@ -10,7 +10,6 @@ const pictureRouter = require('./picture');
 
 const router = express.Router();
 
-
 // Quand on créer un routeur central, dont le but est de chargé les
 // différents router de l'application en leur assignant un prefixe de route
 
@@ -19,7 +18,6 @@ const router = express.Router();
 // on les classes du plus spécifique au moins spécifique
 
 // Un préfixe ça veut la route commence par. Donc l'ordre est important
-
 
 // On préfixe les routers
 
