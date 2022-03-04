@@ -7,7 +7,7 @@ const itineraryController = {
   async new(req, res) {
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
-    return res.json(itinerary).status(200);
+    return res.json(itinerary).status(201);
   },
 
   // Méthode d'affichage de tous les utilisateurs
