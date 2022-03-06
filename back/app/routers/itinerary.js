@@ -1,6 +1,6 @@
 const express = require('express');
 const itineraryController = require('../controllers/itineraryController');
-const authenticateToken = require('../helpers/authenticateToken');
+const authenticateToken = require('../helpers/auth');
 // Il est prévu d'ajouter la validation des données via Joi et les schemas
 
 const controllerHandler = require('../helpers/controllerHandler');
