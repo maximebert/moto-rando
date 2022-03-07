@@ -20,7 +20,7 @@ const connectController = {
         return res.status(403).json("Le mot de passe et l'email ne correspondent pas.");
       }
       // Si c'est valide, on renvoie l'utilisateur
-      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '2h' });
+      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn: '2h' });
       return res.status(200).json(`access: ${accessToken} alias: '${user.alias}'`);
     } catch (err) {
       return res.status(500).send(err.message);
