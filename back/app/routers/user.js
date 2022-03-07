@@ -1,7 +1,7 @@
 const express = require('express');
 const userController = require('../controllers/userController');
 const connectController = require('../controllers/connectController');
-const authenticateToken = require('../helpers/authenticateToken');
+const authenticateToken = require('../helpers/auth');
 // Il est prévu d'ajouter la validation des données via Joi et les schemas
 
 const controllerHandler = require('../helpers/controllerHandler');
