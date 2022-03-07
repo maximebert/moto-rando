@@ -6,8 +6,8 @@ POST http://localhost:3000/profil/connexion
 content-type: application/json
 
 {
-    "email": "maxime@gmail.com",
-    "password": "js4life"
+    "email": "jeanjean@gmail.com",
+    "password": "jeanjean"
 }
 ###################################################################################################################
 ### ITINERAIRES
@@ -62,10 +62,10 @@ POST http://localhost:3000/profil/inscription
 content-type: application/json
 
 {
-    "alias": "maxoru",
-    "email": "maxouuruuuu@gmail.com",
-    "password": "js4life",
-    "confirmPassword": "js4life",
+    "alias": "jeanjean",
+    "email": "jeanjean@gmail.com",
+    "password": "jeanjean",
+    "confirmPassword": "jeanjean",
     "presentation": "bonjour je suis maxime"
 }
 
