@@ -49,6 +49,6 @@ Login.propTypes = {
     handleLogin: PropTypes.func.isRequired,
 }
 Login.defaultProps = {
-  isLogged: false
+  // isLogged: false
 }
 export default React.memo(Login);

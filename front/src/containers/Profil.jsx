@@ -1,4 +1,7 @@
 import React from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
 import { Navigate } from 'react-router-dom';
 import { useSelector, } from 'react-redux';
 import Profil from '../Pages/Profil/Profil';
@@ -7,12 +10,13 @@ const ProfilContainer = () => {
   const logged = useSelector((state) => state.user.logged);
 
 
+
   if (!logged) {
     return (<Navigate to="/" replace />);
   }
 
   return (
-    <Profil />
+    <Profil/>
   );
 };
 
