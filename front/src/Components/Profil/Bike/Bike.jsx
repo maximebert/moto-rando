@@ -4,11 +4,13 @@ import React from "react";
 const Bike=({photoMoto, brand, user,model,description})=>{
 
     return(
-        <div className="motor">
-            <img src={photoMoto} alt={user} className="user-photo"/>
-            <span className="user-brand" >Marque {brand} </span>
-            <span className="user-model">Modèle {model}  </span>
-            <span >{description}</span>
+        <div className="bike">
+            <img src={photoMoto} alt={user} className="bike-photo"/>
+            <div className=" bike-container">
+              <span className="bike-brand" >Marque {brand} </span>
+              <span className="bike-model">Modèle {model}  </span>
+              <span >{description}</span>
+            </div>
             <button>Modifier ma moto</button>
         </div>
 

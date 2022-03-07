@@ -7,8 +7,9 @@ import {BiMenuAltRight} from 'react-icons/bi'
 import {IoCloseCircleOutline} from "react-icons/io5";
 import {FiLogOut} from "react-icons/fi";
 
-const Header = ({isLogged, handleLogout, pseudo}) => {
+const Header = ({isLogged, handleLogout, pseudo,id}) => {
     const [menuOpen, setMenuOpen] = useState(false);
+
     const [size, setSize] = useState({
         width: undefined,
         height: undefined
@@ -49,8 +50,7 @@ const Header = ({isLogged, handleLogout, pseudo}) => {
 
             <nav className={`header__content__nav ${menuOpen ? 'isMenu' : ''}` }>
                 <ul className='header_list'>
-                  {!isLogged && (
-                    <>
+
                       <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
                           Accueil
@@ -66,6 +66,8 @@ const Header = ({isLogged, handleLogout, pseudo}) => {
                           L'equipe
                         </NavLink>
                       </li>
+                  {!isLogged && (
+                    <>
                       <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/inscription'>
                           Inscription
@@ -80,29 +82,10 @@ const Header = ({isLogged, handleLogout, pseudo}) => {
                   )}
                   {isLogged && (
                     <>
-                      <li>
-                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/'>
-                          Accueil
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/itineraires'>
-                          Listes des itinéraires
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/nouveau-itineraire'>
-                          Créer un itineraire
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
-                          L'equipe
-                        </NavLink>
-                      </li>
-                      <NavLink onClick={closeMenu} to="/profil">
+                      <li><NavLink onClick={closeMenu} to={`/profil/${id}`}>
                         <p className='pseudo'>{pseudo}</p>
                       </NavLink>
+                      </li>
                       <div className='btn__logout' onClick={handleLogout}><FiLogOut /></div>
                     </>
                   )}

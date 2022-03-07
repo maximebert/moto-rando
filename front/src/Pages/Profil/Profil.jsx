@@ -12,10 +12,12 @@ import './profil.scss';
 const Profil = () => {
 
     return (
-        <div>
+        <div className='profil'>
           <h1>Page Profil</h1>
+
           <User/>
           <Bike/>
+
         </div>
     )
 }

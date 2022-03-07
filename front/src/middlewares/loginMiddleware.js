@@ -13,14 +13,13 @@ const loginMiddleware = (store) => (next) => async (action) => {
     case SUBMIT_LOGIN: {
       const { user } = store.getState();
       const response = await requestLogin(user.email, user.password);
-      console.log('requestLogin', response);
+      console.log("requestLogin", response);
       // si le status de la reponse est bien = à 200 alors l'utilisateur est connecté et on affiche son pseudo
       if (response.status === 200 && response.data.id) {
-        store.dispatch(actionSetLogged(true));
+        store.dispatch(actionSetLogged(true, response.data.id));
         store.dispatch(actionsSetPseudo(response.data.alias));
-      } 
-      else {
-        store.dispatch(actionSetErrorConnection(response.data))
+      } else {
+        store.dispatch(actionSetErrorConnection(response.data));
       }
       return;
     }

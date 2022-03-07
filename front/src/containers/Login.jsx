@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from "../Components/Login/Login";
+import { Navigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 import { actionSubmitLogin, actionUpdateLoginInput} from "../action/user";
 
@@ -17,6 +18,10 @@ const LoginContainer = () => {
 
     const handleLogin = () => {
         dispatch(actionSubmitLogin());
+    }
+
+    if (isLogged){
+      return (<Navigate to="/" replace /> )
     }
 
   return (

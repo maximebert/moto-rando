@@ -1,11 +1,32 @@
 .user{
     display: flex;
+    width: 600px;
 
    &-photo{
     width: 10rem;
+    margin: 10px 0;
     height: 8rem;
    }
    &-container{
-       flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    span{
+      margin-left: 20px;
+      font-size: 1.3rem;
+   }
    }
 }
+
+
+
+
+
+
+
+
+
+
