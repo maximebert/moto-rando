@@ -1,6 +1,7 @@
 @import 'src/Styles/vars';
 
 
+
 .itinerary{
    margin: 0 auto 300px 0;
    padding: 0 10px;
@@ -89,9 +90,11 @@
         flex-wrap: wrap;
         align-items: center;
 
+
         &__img{
           width: 200px;
           height: 150px;
+          margin: 10px
 
         }
       }
