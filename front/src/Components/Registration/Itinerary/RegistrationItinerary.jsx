@@ -21,6 +21,9 @@ const RegistrationItinerary = ()=>{
                 <label for="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" onChange={(e)=>setTitle(e.target.value)}/>
 
+                <label for="map">Votre itinéraire</label>
+                <input type="file" id="map" />
+
                 <label for="root">Sinuosité de la route</label>
                 <input id="root" type="number" min="1" max="5" placeholder='Type de route'onChange={(e)=>setRoot(e.target.value)} />
 
@@ -36,6 +39,11 @@ const RegistrationItinerary = ()=>{
 
                 <label for="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
                 <textarea id="description" type="text" placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
+
+                <label for="photo">Vos plus belles photos</label>
+                <input type="file" id="photo" />
+                <input type="file" id="photo" />
+                <input type="file" id="photo" />
 
                 <button className='form__btn-submit' onClick={handleOnSubmit} disabled={title === ""} >Valider l'itinéraire</button>
 
