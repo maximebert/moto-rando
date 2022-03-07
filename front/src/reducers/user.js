@@ -9,6 +9,7 @@ import {
  * par défaut elles sont vide
  */
 export const initialState = {
+  id: 0,
   email: "",
   password: "",
   pseudo: "",
@@ -29,13 +30,15 @@ const reducer = (state = initialState, action = {}) => {
     case SET_LOGGED:
       return {
         ...state,
-        logged: action.payload,
+        logged: action.payload.isLogged,
+        id: action.payload.id,
       };
 
     // mise a jour de la déconnexion
     case SET_LOGOUT:
       return {
         ...state,
+        id: initialState.id,
         email: initialState.email,
         password: initialState.password,
         pseudo: initialState.pseudo,

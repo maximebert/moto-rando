@@ -1,0 +1,17 @@
+.profil{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+
+}
+
+  h1{
+    text-align: start;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 50px 0 30px 0;
+    color: $blue;
+  }

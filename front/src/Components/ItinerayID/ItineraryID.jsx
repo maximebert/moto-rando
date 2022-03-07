@@ -7,11 +7,11 @@ import {AiOutlineFieldTime} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 
 
-const ItineraryID = ({title}) => {
+const ItineraryID = ({map, title}) => {
     return (
 
         <div className='card'>
-            {/* <img className='card__img' src={map} alt={title} /> */}
+            <img className='card__img' src={map} alt={title} />
             <div className='card__title'>{title}</div>
             <div className='card__description'>
                 <div className='card__description-icon'>
@@ -38,12 +38,12 @@ const ItineraryID = ({title}) => {
 
 ItineraryID.prototype = {
     title: PropTypes.string.isRequired,
-    // map: PropTypes.string,
+    map: PropTypes.string,
     description: PropTypes.string.isRequired,
 }
 
 ItineraryID.defaultProps = {
-    // map: 'https://fakeimg.pl/300'
+    map: 'https://fakeimg.pl/300'
 }
 
 export default React.memo(ItineraryID);
