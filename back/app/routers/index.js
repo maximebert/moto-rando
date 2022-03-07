@@ -7,6 +7,7 @@ const { errorHandler } = require('../helpers/errorHandler');
 
 const motorbikeRouter = require('./motorbike');
 const pictureRouter = require('./picture');
+const authenticateToken = require('../helpers/auth');
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ const router = express.Router();
 
 router.use('/profil', userRouter);
 router.use('/itineraires', itinaryRouter);
-router.use('/motos', motorbikeRouter);
+router.use('/motos', authenticateToken, motorbikeRouter);
 router.use('/images', pictureRouter);
 
 router.use((err, _, response, next) => {
