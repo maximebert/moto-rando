@@ -138,7 +138,7 @@ content-type: application/json
     "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
     "user_id": 1,
     "motorbike_id": 1,
-    "itinary_id": 1
+    "itinerary_id": 1
 }
 
 ### modif photo
@@ -151,7 +151,7 @@ content-type: application/json
     "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
     "user_id": 1,
     "motorbike_id": 1,
-    "itinary_id": 1
+    "itinerary_id": 1
 }
 
 ### supprimer une image
