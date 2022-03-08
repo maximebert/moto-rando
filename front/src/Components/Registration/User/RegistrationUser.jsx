@@ -60,10 +60,12 @@ const RegistrationUser = () => {
             setPassword('');
             setConfirmPassword('');
         } catch (err) {
+
           if (err.response) {
             setErrMsg('Cet utilisateur existe déjà');
             } else if (err.response.status === 401) {
             setErrMsg('Username Taken');
+
             } else {
             setErrMsg('Registration Failed')
            }

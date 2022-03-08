@@ -9,6 +9,8 @@ export async function requestLogin(
 ) {
   try {
     const response = await axios.patch("http://localhost:3000/profil/3", {
+      alias,
+      email,
       password,
       confirmPassword,
       presentation,
