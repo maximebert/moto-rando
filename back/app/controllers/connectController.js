@@ -1,9 +1,10 @@
-// const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const userMapper = require('../models/user');
+
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const userMapper = require("../models/user");
+
 
 const connectController = {
-
   async connexion(req, res) {
     const userMail = req.body.email;
     try {
@@ -17,9 +18,12 @@ const connectController = {
       const validPwd = await bcrypt.compare(req.body.password, user.password);
       // Si le mot de passe ne correspond pas, message d'erreur
       if (!validPwd) {
-        return res.status(403).json("Le mot de passe et l'email ne correspondent pas.");
+        return res
+          .status(403)
+          .json("Le mot de passe et l'email ne correspondent pas.");
       }
       // Si c'est valide, on renvoie l'utilisateur
+
       // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
       //  algorithm: 'HS256',
       //  expiresIn: '2h' });
@@ -30,7 +34,6 @@ const connectController = {
       return res.status(500).send(err.message);
     }
   },
-
 };
 
 module.exports = connectController;

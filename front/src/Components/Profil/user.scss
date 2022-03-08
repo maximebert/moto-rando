@@ -1,32 +1,32 @@
+@import 'src/Styles/vars';
+
 .user{
-    display: flex;
-    width: 600px;
+    text-align: center;
+    // font-size: 2rem;
+    margin: 20px 0;
+    color: $grey;
 
-   &-photo{
-    width: 10rem;
-    margin: 10px 0;
-    height: 8rem;
-   }
-   &-container{
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    span{
-      margin-left: 20px;
-      font-size: 1.3rem;
-   }
-   }
+    &-photo{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    }
+
+
+
 }
+.user-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 
+  span{
+    padding: 15px;
+  }
 
-
-
-
-
-
+}
 
 
 
