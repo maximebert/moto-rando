@@ -78,7 +78,10 @@ const userController = {
   async update(req, res) {
     const { id } = req.params;
     const savedUser = req.body;
+    const salt = await bcrypt.genSalt(10);
+    savedUser.password = await bcrypt.hash(req.body.password, salt);
     const user = await userMapper.update(id, savedUser);
+    delete user.password;
     return res.json(user).status(200);
   },
 
@@ -86,7 +89,6 @@ const userController = {
   async delete(req, res) {
     const { id } = req.params;
     const user = await userMapper.delete(id);
-    console.log('user deleted with success');
     return res.json(user).status(200);
   },
 
