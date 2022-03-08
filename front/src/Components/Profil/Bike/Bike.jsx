@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 //Profil de la moto
-const Bike=({photoMoto, brand,model})=>{
+const Bike=({user_id, photoMoto, brand,model})=>{
 
     return(
         <div className="bike">
@@ -10,7 +12,9 @@ const Bike=({photoMoto, brand,model})=>{
               <span className="bike-brand" >Marque {brand} </span>
               <span className="bike-model">Modèle {model}  </span>
             </div>
-            <button>Modifier ma moto</button>
+            {/* <Link to={`/profil/${user_id}/modifier`} >
+              <button >Modifier ma moto</button>
+            </Link> */}
         </div>
 
     )
