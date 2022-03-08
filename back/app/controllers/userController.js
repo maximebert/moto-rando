@@ -13,7 +13,7 @@ const userController = {
       const user = await userMapper.findByAlias(newAlias);
       // S'il existe, message d'erreur
       if (user) {
-        return res.json('Cet alias est déjà utilisé par un utilisateur.').status(500);
+        return res.status(401).json('Cet alias est déjà utilisé par un utilisateur.');
       }
       // Vérification du format de l'email
       if (!emailValidator.validate(req.body.email)) {
