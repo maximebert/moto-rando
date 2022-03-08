@@ -13,7 +13,9 @@ const userController = {
       const user = await userMapper.findByAlias(newAlias);
       // S'il existe, message d'erreur
       if (user) {
-        return res.json('Cet alias est déjà utilisé par un utilisateur.').status(500);
+
+        return res.status(401).json('Cet alias est déjà utilisé par un utilisateur.');
+
       }
       // Vérification du format de l'email
       if (!emailValidator.validate(req.body.email)) {
@@ -78,7 +80,10 @@ const userController = {
   async update(req, res) {
     const { id } = req.params;
     const savedUser = req.body;
+    const salt = await bcrypt.genSalt(10);
+    savedUser.password = await bcrypt.hash(req.body.password, salt);
     const user = await userMapper.update(id, savedUser);
+    delete user.password;
     return res.json(user).status(200);
   },
 
@@ -86,7 +91,6 @@ const userController = {
   async delete(req, res) {
     const { id } = req.params;
     const user = await userMapper.delete(id);
-    console.log('user deleted with success');
     return res.json(user).status(200);
   },
 

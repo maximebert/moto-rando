@@ -13,6 +13,8 @@ import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 import HeaderContainer from "../../containers/Header";
 import OneItinerary from "../../Pages/OneItinerary/Itinerary";
 import RegistrationItinerary from "../../containers/RegistrationItinerary";
+import ProfilUpdate from "../ProfilUpdate/ProfilUpdate";
+
 import Error from "../Error/Error";
 
 // styles
@@ -41,6 +43,7 @@ function App() {
 
             <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil/:id" element={<Profil />} />
+            <Route path="/profil/:id/modifier" element={<ProfilUpdate/>} />
 
         </Routes>
         <Footer/>
