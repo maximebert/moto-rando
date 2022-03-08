@@ -60,14 +60,14 @@ const RegistrationUser = () => {
             setPassword('');
             setConfirmPassword('');
         } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 401) { 
-                setErrMsg('Username Taken');
+          if (err.response) {
+            setErrMsg('Cet utilisateur existe déjà');
+            } else if (err.response.status === 401) {
+            setErrMsg('Username Taken');
             } else {
-                setErrMsg('Registration Failed')
-            }
-            errRef.current.focus();
+            setErrMsg('Registration Failed')
+           }
+        errRef.current.focus();
         }
     }
 
@@ -119,7 +119,7 @@ const RegistrationUser = () => {
                             value={password}
                             required
                         />
-                        {/* 
+                        {/*
                         <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                             8 à 24 caractères.<br />
                             Doit inclure des lettres majuscules et minuscules, un chiffre et un caractère spécial.<br />
@@ -134,7 +134,7 @@ const RegistrationUser = () => {
                             value={confirmPassword}
                             required
                         />
-                        {/* 
+                        {/*
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             Doit correspondre au premier champ de saisie du mot de passe.
                         </p> */}
