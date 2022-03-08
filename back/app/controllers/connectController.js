@@ -24,6 +24,7 @@ const connectController = {
       //  algorithm: 'HS256',
       //  expiresIn: '2h' });
       // return res.status(200).json(`access: ${accessToken} alias: '${user.alias}'`);
+      delete user.password;
       return res.status(200).json(user);
     } catch (err) {
       return res.status(500).send(err.message);
