@@ -40,9 +40,6 @@ const OneItinerary = () => {
                 kilometer={itineraryID.itinerary_kilometer}
                 curve={itineraryID.itinerary_curve}
                 user={itineraryID.user_alias}
-
-
-
             />)}
         </div>
     )

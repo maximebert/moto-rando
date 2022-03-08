@@ -16,7 +16,7 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway}) => {
 
         <div className='card'>
             <Link to={`/itineraire/${id}`}><img className='card__img' src={map} alt={title} /></Link>
-            <div className='card__title'>{title}</div>
+            <Link to={`/itineraire/${id}`}><div className='card__title'>{title}</div></Link>
             <div className='card__description'>
                 <div className='card__description-icon'>
                     <p>Durée <AiOutlineFieldTime className='icon' /></p>

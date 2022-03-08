@@ -7,7 +7,7 @@ import {BiMenuAltRight} from 'react-icons/bi'
 import {IoCloseCircleOutline} from "react-icons/io5";
 import {FiLogOut} from "react-icons/fi";
 
-const Header = ({isLogged, handleLogout, pseudo,id}) => {
+const Header = ({isLogged, handleLogout, pseudo, id}) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const [size, setSize] = useState({
@@ -87,9 +87,10 @@ const Header = ({isLogged, handleLogout, pseudo,id}) => {
                           Créer un itineraire
                         </NavLink>
                       </li>
-                      <li><NavLink onClick={closeMenu} to={`/profil/${id}`}>
+                      <li>
+                        <NavLink onClick={closeMenu} to={`/profil/${id}`}>
                         <p className='pseudo'>{pseudo}</p>
-                      </NavLink>
+                        </NavLink>
                       </li>
 
                       <div className='btn__logout' onClick={handleLogout}><FiLogOut /></div>

@@ -1,51 +1,90 @@
+
 import React, { useState } from 'react';
+import axios from '../../../api/axios';
 import './itineraryForm.scss';
 
-const RegistrationItinerary = ()=>{
-    const [title, setTitle]=useState("");
-    const [root, setRoot]= useState();
-    const [duration, setDuration]= useState();
-    const [km, setKm]=useState();
-    const [highway, setHighway]=useState(false);
-    const [description, setDescription]=useState("");
+const ADD_ITINERARY = '/itineraires';
 
-    const handleOnSubmit =(event)=>{
-        event.preventDefault()
+const RegistrationItinerary = () => {
+    const [title, setTitle] = useState("");
+    const [curve, setCurve] = useState('');
+    const [hours, setHours] = useState('');
+    const [minutes, setMinutes] = useState('');
+    const [kilometer, setKilometer] = useState('');
+    const [highway, setHighway] = useState(false);
+    const [description, setDescription] = useState("");
+    const [file, setFile] = useState()
+    const [map, setMap] = useState()
+    // const handleOnSubmit =(event)=>{
+    //     event.preventDefault()
+    // }
+
+
+    const send = async (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append('map', map);
+        data.append('file', file)
+
+        try {
+            const response = await axios.post(ADD_ITINERARY, { title, description }
+            );
+            console.log(response.data);
+            console.log(response.accessToken);
+            console.log(JSON.stringify(response))
+
+            //clear
+            setTitle('');
+            setCurve('')
+            setHours('');
+            setMinutes('');
+            setKilometer('');
+            setHighway('');
+            setDescription('');
+            setFile('');
+            setMap('');
+        } catch (err) {
+           console.log(err);
+        }
     }
-
 
     return (
         <div className='form'>
             <h2>Créer un itineraire</h2>
-            <form className='itinerary-form'>
+            <form className='itinerary-form' onSubmit={send}>
                 <label for="title">Titre de l'itinéraire</label>
-                <input id="title" type="text" placeholder="Titre de l'itinéraire" onChange={(e)=>setTitle(e.target.value)}/>
+                <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
                 <label for="map">Votre itinéraire</label>
-                <input type="file" id="map" />
+                <input type="file" accept="image/*" id="map" onChange={event => {
+                    const file = event.target.files[0];
+                    setMap(file)
+                }}  />
 
                 <label for="root">Sinuosité de la route</label>
-                <input id="root" type="number" min="1" max="5" placeholder='Type de route'onChange={(e)=>setRoot(e.target.value)} />
+                <input id="root" type="number" min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
 
                 <label for="duration">Durée de l'itinéraire</label>
-                <input id="duration" type="number" onChange={(e)=>setDuration(e.target.value)} />
+                <input id="hours" placeholder='Heures' type="number" value={hours} onChange={(e)=>setHours(e.target.value)} />
+                <input id="minutes" placeholder='Minutes' type="number" value={minutes} onChange={(e)=>setMinutes(e.target.value)} />
 
                 <label for="km">Nombre de kilomètres</label>
-                <input id="km" type="number" min="1" onChange={(e)=>setKm(e.target.value)}/>
+                <input id="km" type="number" min="1" value={kilometer} onChange={(e)=>setKilometer(e.target.value)}/>
 
 
                 <label for="highway">Trajet avec autoroute</label>
-                <input type="checkbox" id="highway" value="autoroute" onChange={(e)=>setHighway(e.target.value)}/>
+                <input type="checkbox" id="highway" value={highway} onChange={(e)=>setHighway(e.target.value)}/>
 
                 <label for="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
-                <textarea id="description" type="text" placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
+                <textarea id="description" type="text" value={description} placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
 
                 <label for="photo">Vos plus belles photos</label>
-                <input type="file" id="photo" />
-                <input type="file" id="photo" />
-                <input type="file" id="photo" />
+                <input type="file" id="file" accept='.jpg' onChange={event => {
+                    const file = event.target.files[0];
+                    setFile(file)
+                }} />
 
-                <button className='form__btn-submit' onClick={handleOnSubmit} disabled={title === ""} >Valider l'itinéraire</button>
+                <button className='form__btn-submit' >Valider l'itinéraire</button>
 
             </form>
         </div>

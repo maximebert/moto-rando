@@ -13,25 +13,25 @@ import './profil.scss';
 
 //Page du profil
 const Profil = () => {
-  const  [profilID, setProfilID]=useState([]);
+  const [profilID, setProfilID] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const params = useParams()
 
-  useEffect(() =>{
+  useEffect(() => {
     async function fetchData() {
        const response = await axios.get(`http://localhost:3000/profil/${params.id}`)
        setProfilID(response.data);
        setIsLoading(false);
-
     }
     fetchData()
   },[]);
+  console.log(profilID);
 
     return (
         <div className='profil'>
           <h1>Page Profil</h1>
           {!isLoading && (
-          <User pseudo={profilID.pseudo} year={profilID.year} description={profilID.description}/>)}
+          <User pseudo={profilID.user_alias} year={profilID.year} description={profilID.description}/>)}
           {/* <Bike/> */}
 
         </div>

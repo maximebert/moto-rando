@@ -1,1 +1,14 @@
-@use 'src/Styles/vars';
+@import 'src/Styles/vars';
+
+.itinerary_list{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   &-left{
+      width: 800px;
+   }
+   &-right{
+      
+      width: 800px;
+   }
+}
