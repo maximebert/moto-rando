@@ -6,20 +6,21 @@ const itineraryMapper = {
     // Récupération de tous les itineraires, avec les images associées
     const result = await database.query(
       `SELECT
-      "itinerary"."id" AS "itinerary_id",
-      "itinerary"."title" AS "itinerary_title",
-      "itinerary"."description" AS "itinerary_description",
-      "itinerary"."hour" AS "itinerary_hour",
-      "itinerary"."minute" AS "itineray_minute",
-      "itinerary"."highway" AS "is_highway",
-      "itinerary"."kilometer" AS "itinerary_kilometer",
-      "itinerary"."curve" AS "itinerary_curve",
-      "user"."alias" AS "user_alias",
-      json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
-      FROM "user"
-      JOIN "picture" p ON "user_id" = "user"."id"
-      JOIN "itinerary" ON "itinerary_id" = "itinerary"."id"
-      GROUP BY "itinerary"."id", "user"."alias"`,
+        "itinerary"."id" AS "itinerary_id",
+        "itinerary"."title" AS "itinerary_title",
+        "itinerary"."description" AS "itinerary_description",
+        "itinerary"."hour" AS "itinerary_hour",
+        "itinerary"."minute" AS "itineray_minute",
+        "itinerary"."highway" AS "is_highway",
+        "itinerary"."kilometer" AS "itinerary_kilometer",
+        "itinerary"."curve" AS "itinerary_curve",
+        "itinerary"."trace" AS "itinerary_trace",
+        "user"."alias" AS "user_alias",
+        json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
+        FROM "itinerary"
+        LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
+        JOIN "user" ON "itinerary"."user_id" = "user"."id"
+        GROUP BY "itinerary"."id", "user"."alias"`,
     );
 
     if (!result.rows) {
@@ -41,11 +42,12 @@ const itineraryMapper = {
         "itinerary"."highway" AS "is_highway",
         "itinerary"."kilometer" AS "itinerary_kilometer",
         "itinerary"."curve" AS "itinerary_curve",
+        "itinerary"."trace" AS "itinerary_trace",
         "user"."alias" AS "user_alias",
         json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
-        FROM "user"
-        JOIN "picture" p ON "user_id" = "user"."id"
-        JOIN "itinerary" ON "itinerary_id" = "itinerary"."id"
+        FROM "itinerary"
+        LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
+        JOIN "user" ON "itinerary"."user_id" = "user"."id"
         WHERE "itinerary"."id" = ${itineraryId}
         GROUP BY "itinerary"."id", "user"."alias"`,
     );
