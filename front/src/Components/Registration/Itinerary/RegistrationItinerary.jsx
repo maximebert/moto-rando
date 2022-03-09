@@ -7,14 +7,14 @@ const ADD_ITINERARY = '/itineraires';
 
 const RegistrationItinerary = () => {
     const [title, setTitle] = useState("");
-    const [curve, setCurve] = useState('');
-    const [hours, setHours] = useState('');
-    const [minutes, setMinutes] = useState('');
-    const [kilometer, setKilometer] = useState('');
+    const [curve, setCurve] = useState();
+    const [hours, setHours] = useState();
+    const [minutes, setMinutes] = useState();
+    const [kilometer, setKilometer] = useState();
     const [highway, setHighway] = useState(false);
     const [description, setDescription] = useState("");
-    const [file, setFile] = useState();
-    const [map, setMap] = useState();
+    const [file, setFile] = useState(null);
+    const [map, setMap] = useState(null);
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
@@ -24,25 +24,24 @@ const RegistrationItinerary = () => {
         e.preventDefault();
         const data = new FormData();
         data.append('map', map);
-        data.append('file', file)
+        data.append('photo', file)
 
         try {
-            const response = await axios.post(ADD_ITINERARY, { title, description }
-            );
+            const response = await axios.post(ADD_ITINERARY, data, {headers: { "Content-Type": "multipart/form-data" }} );
             console.log(response.data);
-            console.log(response.accessToken);
+            // console.log(response.accessToken);
             console.log(JSON.stringify(response))
 
             //clear
-            setTitle('');
-            setCurve('')
-            setHours('');
-            setMinutes('');
-            setKilometer('');
-            setHighway('');
-            setDescription('');
-            setFile('');
-            setMap('');
+            // setTitle('');
+            // setCurve()
+            // setHours();
+            // setMinutes();
+            // setKilometer();
+            // setHighway(false);
+            // setDescription('');
+            // setFile(null);
+            // setMap(null);
         } catch (err) {
            console.log(err);
         }
@@ -51,15 +50,15 @@ const RegistrationItinerary = () => {
     return (
         <div className='form'>
             <h2>Créer un itineraire</h2>
-            <form action="/itineraires/" enctype="multipart/form-data" className='itinerary-form' onSubmit={send}>
+            <form action="/itineraires/:id" enctype="multipart/form-data" className='itinerary-form' onSubmit={send}>
                 <label for="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
-                <label for="map">Votre itinéraire</label>
+                {/* <label for="map">Votre itinéraire</label>
                 <input type="file" id="map"  onChange={event => {
                     const file = event.target.files[0];
                     setMap(file)
-                }}  />
+                }}  /> */}
 
                 <label for="root">Sinuosité de la route</label>
                 <input id="root" type="number" min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
@@ -79,7 +78,7 @@ const RegistrationItinerary = () => {
                 <textarea id="description" type="text" value={description} placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
 
                 <label for="photo">Vos plus belles photos</label>
-                <input type="file" id="photo" accept='.jpg' multiple onChange={event => {
+                <input type="file" id="photo" accept='.jpg' name="file" onChange={event => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />

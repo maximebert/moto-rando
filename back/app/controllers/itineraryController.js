@@ -1,8 +1,7 @@
-const { ApiError } = require('../helpers/errorHandler');
-const itineraryMapper = require('../models/itinerary');
+const { ApiError } = require("../helpers/errorHandler");
+const itineraryMapper = require("../models/itinerary");
 
 const itineraryController = {
-
   // Méthode d'ajout d'un utilisateur
   async new(req, res) {
     const newItinerary = req.body;
@@ -22,7 +21,7 @@ const itineraryController = {
     const itinerary = await itineraryMapper.findByPk(id);
 
     if (!itinerary) {
-      throw new ApiError(404, 'Itinerary not found');
+      throw new ApiError(404, "Itinerary not found");
     }
 
     return res.json(itinerary);
@@ -44,6 +43,19 @@ const itineraryController = {
     return res.json(itinerary).status(204);
   },
 
+  async upload(req, res) {
+    if (!req.files) {
+      res.send({
+        status: false,
+        message: "No file uploaded",
+      });
+    } else {
+      res.send({
+        status: true,
+        message: req.files.photo.name,
+      });
+    }
+  },
 };
 
 module.exports = itineraryController;
