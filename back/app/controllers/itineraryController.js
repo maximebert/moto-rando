@@ -47,6 +47,7 @@ const itineraryController = {
   upload(req, res) {
     let imgUploaded = null;
     let pathUploaded = null;
+    const now = Date.now();
 
     if (!req.files) {
       res.status(400).send({
@@ -56,7 +57,7 @@ const itineraryController = {
     }
 
     imgUploaded = req.files.photo;
-    pathUploaded = `${__dirname}/../images/${imgUploaded.name}`;
+    pathUploaded = `${__dirname}/../images/${now}_${imgUploaded.name}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
