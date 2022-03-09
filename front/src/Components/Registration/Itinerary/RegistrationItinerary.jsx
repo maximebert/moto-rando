@@ -13,8 +13,8 @@ const RegistrationItinerary = () => {
     const [kilometer, setKilometer] = useState('');
     const [highway, setHighway] = useState(false);
     const [description, setDescription] = useState("");
-    const [file, setFile] = useState()
-    const [map, setMap] = useState()
+    const [file, setFile] = useState();
+    const [map, setMap] = useState();
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
@@ -51,12 +51,12 @@ const RegistrationItinerary = () => {
     return (
         <div className='form'>
             <h2>Créer un itineraire</h2>
-            <form className='itinerary-form' onSubmit={send}>
+            <form action="/itineraires/" enctype="multipart/form-data" className='itinerary-form' onSubmit={send}>
                 <label for="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
                 <label for="map">Votre itinéraire</label>
-                <input type="file" accept="image/*" id="map" onChange={event => {
+                <input type="file" id="map"  onChange={event => {
                     const file = event.target.files[0];
                     setMap(file)
                 }}  />
@@ -79,7 +79,7 @@ const RegistrationItinerary = () => {
                 <textarea id="description" type="text" value={description} placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
 
                 <label for="photo">Vos plus belles photos</label>
-                <input type="file" id="file" accept='.jpg' onChange={event => {
+                <input type="file" id="photo" accept='.jpg' multiple onChange={event => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
