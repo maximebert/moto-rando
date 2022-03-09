@@ -1,75 +1,164 @@
 @import 'src/Styles/vars';
 
-.home__title{
-    text-align: center;
-    font-size: 2rem;
-    margin: 20px 0;
-    color: $grey;
-
+.card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
-.container__card{
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  height: 450px;
+  h4{
+    a{
+      .card__title{
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $blue;
+      }
+    }
+  }
+  &-tag{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+  }
 }
-.card{
-    position: relative;
-    margin: 20px;
-    width: 350px;
-    border-radius: 20px 20px 5px 5px ;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-    &__img{
-        width: 100%;
-        height: 300px;
-        border-radius: 20px 20px 0 0;
-    }
-    &__title{
-        margin: 10px;
-        font-size: 1.2rem;
-        color: $blue;
-        font-weight: bold;
-    }
-    &__description{
-        margin: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        &-icon{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 30px 0;
-            p{
-                display: flex;
-                align-items: center;
-
-                .icon{
-                    font-size: 1.3rem;
-                    margin-left: 5px;
-                }
-            }
-            span{
-                margin: 10px 0;
-            }
-        }
-    }
-    .description{
-        padding: 0 10px 60px 10px;
-    }
-    &__user{
-        position: absolute;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-top: 2px solid $greyLight;
-        padding: 10px;
-        color: $blue;
-
-        .icon{
-            margin-left: 10px;
-            font-size: 1.3rem;
-        }
-    }
+.tag {
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 10px 0;
+  color: #fff;
+  padding: 3px 10px;
+  text-transform: uppercase;
 }
+.tag-teal {
+  background-color: #47bcd4;
+}
+.tag-purple {
+  background-color: #5e76bf;
+}
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body  {
+  p{
+    font-size: 0.9rem;
+    margin: 30px 0;
+  }
+  .link-itinerary{
+    display: block;
+    margin: 0 auto;
+    border: 1px solid $blue;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+      &:hover{
+        background-color: $blue;
+        color: #fff;
+      }
+  }
+}
+.user {
+  display: flex;
+  margin-top: auto;
+
+  .card__user{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #545d7a;
+}
+
+
+//.home__title{
+//    text-align: center;
+//    font-size: 2rem;
+//    margin: 20px 0;
+//    color: $grey;
+//
+//}
+//.container__card{
+//    display: flex;
+//    justify-content: center;
+//}
+//.card{
+//    position: relative;
+//    margin: 20px;
+//    max-width: 350px;
+//    border-radius: 20px 20px 5px 5px ;
+//    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+//
+//    &__img{
+//        width: 100%;
+//        height: 300px;
+//        border-radius: 20px 20px 0 0;
+//    }
+//    &__title{
+//        margin: 10px;
+//        font-size: 1.2rem;
+//        color: $blue;
+//        font-weight: bold;
+//    }
+//    &__description{
+//        margin: 10px;
+//        display: flex;
+//        justify-content: space-between;
+//        align-items: center;
+//        &-icon{
+//            display: flex;
+//            flex-direction: column;
+//            align-items: center;
+//            margin: 30px 0;
+//            p{
+//                display: flex;
+//                align-items: center;
+//
+//                .icon{
+//                    font-size: 1.3rem;
+//                    margin-left: 5px;
+//                }
+//            }
+//            span{
+//                margin: 10px 0;
+//            }
+//        }
+//    }
+//    .description{
+//        padding: 0 10px 60px 10px;
+//    }
+//    &__user{
+//        position: absolute;
+//        bottom: 0;
+//        display: flex;
+//        align-items: center;
+//        justify-content: center;
+//        border-top: 2px solid $greyLight;
+//        padding: 10px;
+//        color: $blue;
+//
+//        .icon{
+//            margin-left: 10px;
+//            font-size: 1.3rem;
+//        }
+//    }
+//}

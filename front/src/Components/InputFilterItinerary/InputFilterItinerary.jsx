@@ -1,15 +1,20 @@
 import React, {useState} from 'react';
 import './inputFilterItinerary.scss';
 import Itinerary from "../Itinerary/Itinerary";
+import 'react-alice-carousel/lib/alice-carousel.css';
+import AliceCarousel from "react-alice-carousel";
+
+const responsive = {
+  0: { items: 1 },
+  568: { items: 2 },
+};
 
 const InputFilterItinerary = ({data}) => {
-  const regions = ['Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire' , 'Corse',
-                    'Grand Est', 'Hauts-de-France', 'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', 'Provence-Alpes-Côte d\'Azur']
+  const regions = ['Alsace', 'Bourgogne-Franche-Comté', 'Aquitaine', 'Auvergne' , 'Basse Normandie','Bourgogne', 'Bretagne', 'Centre', 'Champagne-Ardenne', 'Corse', 'Franche-ComtÃ©', 'Haute Normandie', 'Ile-de-France', 'Languedoc-Roussillon', 'Limousin', 'Lorraine', 'Midi-PyrÃ©nÃ©es', 'Nord-Pas-de-Calais', 'Pays de la Loire', 'Picardie', 'Poitou-Charentes', 'Provence-Alpes-CÃ´te-dAzur', 'RhÃ´ne-Alpes']
   const [valueDistrict, setValueDistrict] = useState('')
   const [rangeValue, setRangeValue] = useState(0);
-  const [rangeValueDistance, setRangeValueDistance] = useState(200);
+  const [rangeValueDistance, setRangeValueDistance] = useState(50);
   const [isCrescent, setIsCrescent] = useState(false);
-  const distance = ["De 0 a 150 km ", "De 151 a 300 km ", "De 301 a 700 km ", "Plus de 700km"];
   const [isHighway, setIsHighway] = useState(true);
   const [selectedRadio, setSelectedRadio] = useState("");
   // select pour la region
@@ -104,8 +109,15 @@ const InputFilterItinerary = ({data}) => {
 
 
             <div className='container__card'>
+              <AliceCarousel
+                disableDotsControls
+                mouseTracking
+                responsive={responsive}
+                controlsStrategy="alternate">
+
                 {
                     data
+                      .filter((district) => district.districts[0].district_name.includes(valueDistrict))
                       .filter((distance) => distance.itinerary_kilometer > rangeValueDistance)
                       .filter((curve) => curve.itinerary_curve > rangeValue)
                       .filter((highway) => {
@@ -124,17 +136,20 @@ const InputFilterItinerary = ({data}) => {
                       })
                       .map((item) => (
                             <Itinerary key={item.itinerary_id}
-                                       map={item.pictures}
+                                       map={item.pictures[0].pic_link}
                                        title={item.itinerary_title}
                                        description={item.itinerary_description}
                                        id={item.itinerary_id}
                                        user={item.user_alias}
                                        kilometer={item.itinerary_kilometer}
                                        highway={item.is_highway}
+                                       hours={item.itinerary_hour}
+                                       minutes={item.itineray_minute}
                             />
                           )
                     )
                 }
+              </AliceCarousel>
             </div>
         </>
     )
