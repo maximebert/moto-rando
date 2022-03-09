@@ -16,10 +16,12 @@ const itineraryMapper = {
         "itinerary"."curve" AS "itinerary_curve",
         "itinerary"."trace" AS "itinerary_trace",
         "user"."alias" AS "user_alias",
+        json_agg(json_build_object('district_name', district.name, 'district_latitude', district.latitude, 'district_longitude', district.longitude, 'district_zoom', district.zoom))AS "districts",
         json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
         FROM "itinerary"
         LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
         JOIN "user" ON "itinerary"."user_id" = "user"."id"
+        JOIN "district" ON "itinerary"."district_id" = "district"."id"
         GROUP BY "itinerary"."id", "user"."alias"`,
     );
 
@@ -34,22 +36,24 @@ const itineraryMapper = {
     // Récupération d'un itinéraire via son id, avec l'alias de son créateur et les images associées
     const result = await database.query(
       `SELECT
-        "itinerary"."id" AS "itinerary_id",
-        "itinerary"."title" AS "itinerary_title",
-        "itinerary"."description" AS "itinerary_description",
-        "itinerary"."hour" AS "itinerary_hour",
-        "itinerary"."minute" AS "itineray_minute",
-        "itinerary"."highway" AS "is_highway",
-        "itinerary"."kilometer" AS "itinerary_kilometer",
-        "itinerary"."curve" AS "itinerary_curve",
-        "itinerary"."trace" AS "itinerary_trace",
-        "user"."alias" AS "user_alias",
-        json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
-        FROM "itinerary"
-        LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
-        JOIN "user" ON "itinerary"."user_id" = "user"."id"
-        WHERE "itinerary"."id" = ${itineraryId}
-        GROUP BY "itinerary"."id", "user"."alias"`,
+      "itinerary"."id" AS "itinerary_id",
+      "itinerary"."title" AS "itinerary_title",
+      "itinerary"."description" AS "itinerary_description",
+      "itinerary"."hour" AS "itinerary_hour",
+      "itinerary"."minute" AS "itineray_minute",
+      "itinerary"."highway" AS "is_highway",
+      "itinerary"."kilometer" AS "itinerary_kilometer",
+      "itinerary"."curve" AS "itinerary_curve",
+      "itinerary"."trace" AS "itinerary_trace",
+      "user"."alias" AS "user_alias",
+      json_agg(json_build_object('district_name', district.name, 'district_latitude', district.latitude, 'district_longitude', district.longitude, 'district_zoom', district.zoom))AS "districts",
+      json_agg(json_build_object('pic_title', p.title, 'pic_link',p.link)) AS "pictures"
+      FROM "itinerary"
+      LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
+      JOIN "user" ON "itinerary"."user_id" = "user"."id"
+      JOIN "district" ON "itinerary"."district_id" = "district"."id"
+      WHERE "itinerary"."id" = ${itineraryId}
+      GROUP BY "itinerary"."id", "user"."alias"`,
     );
 
     if (result.rowCount === 0) {
@@ -71,13 +75,14 @@ const itineraryMapper = {
       trace,
     } = body;
     const userId = body.user_id;
+    const districtId = body.user.district_id;
 
     // Ajout d'un itineraire à la BDD
     const result = await database.query(
       `INSERT INTO "itinerary"
-        ("title", "description", "hour", "minute", "highway", "kilometer", "curve","trace", "user_id")
+        ("title", "description", "hour", "minute", "highway", "kilometer", "curve","trace", "user_id", "district")
       VALUES
-        ('${title}', '${description}', '${hour}', '${minute}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}')
+        ('${title}', '${description}', '${hour}', '${minute}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}', '${districtId}')
         RETURNING *;`,
     );
 
@@ -114,6 +119,7 @@ const itineraryMapper = {
       trace,
     } = newItinerary;
     const userId = newItinerary.user_id;
+    const districtId = newItinerary.user.district_id;
 
     // Mise à jour d'un itineraire dans la BDD
 
@@ -127,7 +133,8 @@ const itineraryMapper = {
         "kilometer" = '${kilometer}',
         "curve" = '${curve}',
         "trace" = '${trace}',
-        "user_id" = '${userId}'
+        "user_id" = '${userId}',
+        "district_id" = '${districtId}'
         WHERE "itinerary"."id" = ${id}
         RETURNING *;`,
     );
