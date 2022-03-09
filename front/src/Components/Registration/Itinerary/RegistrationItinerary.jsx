@@ -50,7 +50,7 @@ const RegistrationItinerary = () => {
     return (
         <div className='form'>
             <h2>Créer un itineraire</h2>
-            <form action="/itineraires/:id" enctype="multipart/form-data" className='itinerary-form' onSubmit={send}>
+            <form action="/itineraires/:id" encType="multipart/form-data" className='itinerary-form' onSubmit={send}>
                 <label for="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
@@ -83,7 +83,7 @@ const RegistrationItinerary = () => {
                     setFile(file)
                 }} />
 
-                <button className='form__btn-submit' >Valider l'itinéraire</button>
+                <button className='form__btn-submit'>Valider l'itinéraire</button>
 
             </form>
         </div>
