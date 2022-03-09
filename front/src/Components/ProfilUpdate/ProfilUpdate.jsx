@@ -17,22 +17,22 @@ const ProfilUpdate = ()=>{
         <div className='form'>
             <h2>Modifier votre profil</h2>
             <form className='profilUpdate-form'>
-                <label for="photo-user">Votre plus belle photo</label>
+                <label htmlFor="photo-user">Votre plus belle photo</label>
                 <input type="file" id="photo-user" />
 
-                <label for="alias">Nom de Profil</label>
+                <label htmlFor="alias">Nom de Profil</label>
                 <input id="alias" type="text" placeholder={alias} onChange={(e)=>setAlias(e.target.value)}/>
 
-                <label for="presentation">Présentation</label>
+                <label htmlFor="presentation">Présentation</label>
                 <input id="presentation" type="text"  placeholder={presentation} onChange={(e)=>setPresentation(e.target.value)} />
 
-                <label for="photo-bike">Photo de votre moto</label>
+                <label htmlFor="photo-bike">Photo de votre moto</label>
                 <input type="file" id="photo-bike" />
 
-                <label for="brand">Marque de votre moto</label>
+                <label htmlFor="brand">Marque de votre moto</label>
                 <input id="brand" type="text" placeholder={alias} onChange={(e)=>setBrand(e.target.value)}/>
 
-                <label for="model">Modèle de votre moto</label>
+                <label htmlFor="model">Modèle de votre moto</label>
                 <input id="model" type="text" placeholder={alias} onChange={(e)=>setModel(e.target.value)}/>
 
                 <button className='form__btn-submit' onClick={handleOnSubmit} >Valider votre profil</button>

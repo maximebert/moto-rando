@@ -13,18 +13,21 @@
     overflow: hidden;
     border-radius: 50%;
     }
+    &-container{
+      display: flex;
+      flex-direction: column;
+      padding: 20px 50px;
+      text-align: -webkit-left;
 
-
-
-}
-.user-container{
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-
-  span{
-    padding: 15px;
-  }
+      input, textarea{
+         width: 100%;
+         margin: 20px 0;
+         padding: 10px;
+         border-radius: 5px;
+         border: 1px solid $blue;
+         font-family: 'Poppins', sans-serif;
+      }
+    }
 
 }
 

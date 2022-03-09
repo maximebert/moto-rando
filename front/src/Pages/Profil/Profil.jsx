@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+
 
 
 //composants
@@ -40,6 +42,9 @@ const Profil = () => {
             <div>
             <User  id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation}/>
             <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
+            <Link to={`/profil/${profilID.user_id}/modifier`} >
+              <button >Modifier mon profil</button>
+            </Link>
             </div>
           )}
 
