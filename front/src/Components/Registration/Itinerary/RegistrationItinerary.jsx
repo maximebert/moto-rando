@@ -32,7 +32,7 @@ const RegistrationItinerary = () => {
 
             // console.log(response.accessToken);
 
-            console.log(JSON.stringify(response))
+            console.log(JSON.stringify(response.data))
 
             // clear
             setTitle('');

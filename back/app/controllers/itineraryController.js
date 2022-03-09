@@ -1,3 +1,4 @@
+const { path } = require('express/lib/application');
 const { ApiError } = require('../helpers/errorHandler');
 const itineraryMapper = require('../models/itinerary');
 
@@ -43,28 +44,44 @@ const itineraryController = {
     return res.json(itinerary).status(204);
   },
 
-  async upload(req, res) {
+  upload(req, res) {
+    let imgUploaded = null;
+    let pathUploaded = null;
+
     if (!req.files) {
-      res.send({
+      res.status(400).send({
         status: false,
         message: 'No file uploaded',
       });
-    } else {
-      const imageUploaded = req.files.photo;
-      imageUploaded.mv(`../../images/${imageUploaded.name}`);
-
-      const image = res.send({
-        status: true,
-        message: `${req.files.photo.name} uploaded with success`,
-        data: {
-          name: imageUploaded.name,
-          mimetype: imageUploaded.mimetype,
-          size: imageUploaded.size,
-        },
-      });
-      console.log('image', image.files);
-      return image;
     }
+
+    imgUploaded = req.files.photo;
+    pathUploaded = `${__dirname}/../images/${imgUploaded.name}`;
+
+    // console.log('img', imgUploaded);
+    // console.log('path', pathUploaded);
+    // console.log('mv', imgUploaded.mv);
+
+    imgUploaded.mv(pathUploaded, (err) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+    });
+
+    console.log(imgUploaded);
+
+    res.json({
+      path: pathUploaded,
+
+      status: true,
+      message: `${req.files.photo.name} uploaded with success`,
+      data: {
+        name: imgUploaded.name,
+        mimetype: imgUploaded.mimetype,
+        size: imgUploaded.size,
+      },
+
+    });
   },
 
 };
