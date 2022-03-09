@@ -29,6 +29,7 @@ const LegalNotice = () => {
             <p>
             Et cela commence par consultez notre page Team qui vous présentera les humains qui vous accompagneront pendant votre périple. Alors non, pas de mentions légales sur cette page mentions légales, parce qu’après tout, on fait ce que l’on veut. Et vous aussi !
             </p>
+
           </div>
         </>
     )
