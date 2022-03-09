@@ -1,5 +1,7 @@
 BEGIN;
 
+--setting up the structure
+
 CREATE TABLE "user" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "alias" TEXT NOT NULL UNIQUE,
@@ -17,7 +19,6 @@ CREATE TABLE "district" (
     "latitude" INT,
     "longitude" INT ,
     "zoom" INT NOT NULL,
-    "highway" BOOLEAN,
 
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
@@ -27,15 +28,15 @@ CREATE TABLE "itinerary" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "hour" INT,
-    "minute" INT,
+    "hour" INT NOT NULL DEFAULT 1,
+    "minute" INT NOT NULL DEFAULT 1,
     "highway" BOOLEAN,
     "kilometer" INT NOT NULL,
     "curve" INT NOT NULL,
     "trace" TEXT,
 
     "user_id" int REFERENCES "user"("id"),
-    "district_id" int REFERENCES "district"("id");
+    "district_id" int REFERENCES "district"("id"),
 
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
