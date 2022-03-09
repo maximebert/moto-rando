@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 //style
 import './itinerary.scss';
-import {GiPathDistance} from "react-icons/gi";
-import {AiOutlineFieldTime} from 'react-icons/ai';
+
 import {BiUserCircle} from 'react-icons/bi';
-import { FaRoad, FaRegWindowClose } from 'react-icons/fa';
-
-
 
 const Itinerary = ({id, map, title, description, user, kilometer, highway, hours, minutes}) => {
 

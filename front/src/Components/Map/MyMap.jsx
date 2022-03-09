@@ -1,16 +1,28 @@
-import React ,{ useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
 import { MapContainer, GeoJSON, TileLayer, Marker, Popup } from "react-leaflet";
 import itinerary from "../MapBox/map.json";
 import "leaflet/dist/leaflet.css";
-
-
-const latt = 47;
-const long = 2;
-const zoom = 6
-
+import axios from "axios";
 
 const MyMap = ({}) => {
+    const [district, setDistrict] = useState([])
+    const [latt, setLatt] = useState();
+    const [long, setLong] = useState();
+    const [zoom, setZoom] = useState();
+
+  useEffect( () => {
+      async function fetchData(){
+        const response = await axios.get('http://localhost:3000/regions')
+        setDistrict(response.data)
+        setLatt(response.data.latitude)
+        setLong(response.data.longitude)
+        setZoom(response.data.zoom)
+      }
+      fetchData();
+    }, []);
+    console.log(district)
+
     useEffect(() => {
         const L = require("leaflet");
 
@@ -25,7 +37,7 @@ const MyMap = ({}) => {
 
    return (
         <div>
-            <MapContainer style={{ height: "80vh"}} zoom={zoom} center={[latt, long]}>
+            <MapContainer className='map' style={{ height: "80vh"}} zoom={zoom} center={[latt, long]} >
                 <Marker position={itinerary.features[1].geometry.coordinates}>
                 </Marker>
                 <TileLayer

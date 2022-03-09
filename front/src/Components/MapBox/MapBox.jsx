@@ -39,7 +39,7 @@ const MapBox = ({ mapData }) => {
                  <Marker position={position2}/>
                  <Marker position={position3}/>
                  <Marker position={position4}/>
-              ))
+
          </MapContainer>
       </>
 
