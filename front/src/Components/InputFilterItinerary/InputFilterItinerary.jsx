@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './inputFilterItinerary.scss';
 import Itinerary from "../Itinerary/Itinerary";
 import 'react-alice-carousel/lib/alice-carousel.css';
 import AliceCarousel from "react-alice-carousel";
+import {getAllList} from "../../request/itineraryRequest";
+import axios from "axios";
 
 const responsive = {
   0: { items: 1 },
@@ -10,13 +12,23 @@ const responsive = {
 };
 
 const InputFilterItinerary = ({data}) => {
-  const regions = ['Alsace', 'Bourgogne-Franche-Comté', 'Aquitaine', 'Auvergne' , 'Basse Normandie','Bourgogne', 'Bretagne', 'Centre', 'Champagne-Ardenne', 'Corse', 'Franche-ComtÃ©', 'Haute Normandie', 'Ile-de-France', 'Languedoc-Roussillon', 'Limousin', 'Lorraine', 'Midi-PyrÃ©nÃ©es', 'Nord-Pas-de-Calais', 'Pays de la Loire', 'Picardie', 'Poitou-Charentes', 'Provence-Alpes-CÃ´te-dAzur', 'RhÃ´ne-Alpes']
+  const [district, setDistrict] = useState([])
+
+  useEffect( () => {
+    async function fetchData(){
+      const response = await axios.get('http://localhost:3000/regions')
+      setDistrict(response.data)
+    }
+    fetchData();
+  }, []);
+  console.log(district)
+
   const [valueDistrict, setValueDistrict] = useState('')
   const [rangeValue, setRangeValue] = useState(0);
   const [rangeValueDistance, setRangeValueDistance] = useState(50);
   const [isCrescent, setIsCrescent] = useState(false);
   const [isHighway, setIsHighway] = useState(true);
-  const [selectedRadio, setSelectedRadio] = useState("");
+
   // select pour la region
   const handleChangeDistrict = (event) => {
     setValueDistrict(event.target.value);
@@ -46,12 +58,12 @@ const InputFilterItinerary = ({data}) => {
                   <label>Où souhaitez-vous vous balader ?</label>
                     <select value={valueDistrict} onChange={handleChangeDistrict}>
                       {
-                        regions.map((region, index) => (
+                        district.map((region, index) => (
                           <option
                             key={index}
-                            id={region}
-                            value={region}>
-                            {region}
+                            id={region.name}
+                            value={region.name}>
+                            {region.name}
                           </option>
                         ))
                       }

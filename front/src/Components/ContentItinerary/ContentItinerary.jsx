@@ -13,9 +13,10 @@ const responsive = {
 };
 
 const ContentItinerary = ({itineraryList}) => {
+
     return (
       <>
-        <h2 className='title-home'>Balades moto en Provence-Alpes-Côte-d'Azur</h2>
+        <h2 className='title-home'>Balades moto en Provence-Alpes-Côte d'Azur</h2>
         <div className='container__card'>
           <AliceCarousel
             disableDotsControls
@@ -25,7 +26,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
               //ici on va boucler pour récupérer une liste d'itinéraire
               itineraryList
-                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te-dAzur')
+                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur')
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary
@@ -75,7 +76,7 @@ const ContentItinerary = ({itineraryList}) => {
           </AliceCarousel>
         </div>
 
-        <h2 className='title-home'>Balades moto en Alsace</h2>
+        <h2 className='title-home'>Balades moto en Nouvelle-Aquitaine</h2>
         <div className='container__card'>
           <AliceCarousel
             disableDotsControls
@@ -86,7 +87,7 @@ const ContentItinerary = ({itineraryList}) => {
 
             //ici on va boucler pour récupérer une liste d'itinéraire
             itineraryList
-              .filter((district) => district.districts[0].district_name === 'Alsace')
+              .filter((district) => district.districts[0].district_name === 'Nouvelle-Aquitaine')
               .map((itinerary) => (
                 //c'est les infos que l'on a besoin pour afficher un itinéraire
                 <Itinerary key={itinerary.itinerary_id}
