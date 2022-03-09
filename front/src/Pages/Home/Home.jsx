@@ -24,10 +24,8 @@ const Home = () => {
         <>
             <Content />
 
-            <h2 className='home__title'>Des balades motos à couper le souffle</h2>
-
             <ContentItinerary itineraryList={itinerary} />
-            
+
             {isLogged ?  <Link to="/nouveau-itineraire" className='btn-createItinerary'>Créer votre itineraire</Link> :  (
                <Link to="/inscription" className='btn-createItinerary'>Inscrivez-vous pour créer votre itineraire</Link>
             )}

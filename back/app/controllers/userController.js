@@ -1,7 +1,9 @@
 const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
 const userMapper = require('../models/user');
-const { ApiError } = require('../helpers/errorHandler');
+const {
+  ApiError,
+} = require('../helpers/errorHandler');
 
 const userController = {
 
@@ -13,9 +15,7 @@ const userController = {
       const user = await userMapper.findByAlias(newAlias);
       // S'il existe, message d'erreur
       if (user) {
-
         return res.status(401).json('Cet alias est déjà utilisé par un utilisateur.');
-
       }
       // Vérification du format de l'email
       if (!emailValidator.validate(req.body.email)) {
@@ -33,7 +33,11 @@ const userController = {
       const salt = await bcrypt.genSalt(10);
       const encryptedPassword = await bcrypt.hash(req.body.password, salt);
 
-      const { alias, email, presentation } = req.body;
+      const {
+        alias,
+        email,
+        presentation,
+      } = req.body;
       const hashedPassword = encryptedPassword;
 
       const newUser = await userMapper.create(alias, email, hashedPassword, presentation);
@@ -45,7 +49,9 @@ const userController = {
 
   // Méthode d'affichage d'un utilisateur
   async findOne(req, res) {
-    const { id } = req.params;
+    const {
+      id,
+    } = req.params;
     // On récupère les informations de l'utilisateur
     const userDatas = await userMapper.findByPk(id);
 
@@ -57,7 +63,10 @@ const userController = {
 
     // Rreforlmatage du json pour affichage de tous les éléments du profil de manière organisée
     userDatas.forEach((element) => {
-      itinerariesInfos.push({ title: element.itinerary_title, pics: element.itipic });
+      itinerariesInfos.push({
+        title: element.itinerary_title,
+        pics: element.itipic,
+      });
     });
 
     const userInfos = {
@@ -78,7 +87,9 @@ const userController = {
 
   // Méthode de mise à jour d'un utilisateur
   async update(req, res) {
-    const { id } = req.params;
+    const {
+      id,
+    } = req.params;
     const savedUser = req.body;
     const salt = await bcrypt.genSalt(10);
     savedUser.password = await bcrypt.hash(req.body.password, salt);
@@ -89,7 +100,9 @@ const userController = {
 
   // Méthode de suppression d'un utilisateur
   async delete(req, res) {
-    const { id } = req.params;
+    const {
+      id,
+    } = req.params;
     const user = await userMapper.delete(id);
     return res.json(user).status(200);
   },

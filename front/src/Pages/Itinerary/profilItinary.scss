@@ -5,10 +5,11 @@
    flex-wrap: wrap;
    justify-content: space-around;
    &-left{
+     overflow: hidden;
       width: 800px;
    }
    &-right{
-      
+
       width: 800px;
    }
 }

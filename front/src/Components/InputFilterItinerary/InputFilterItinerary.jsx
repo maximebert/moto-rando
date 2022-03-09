@@ -1,108 +1,155 @@
 import React, {useState} from 'react';
-import {MenuItem, Rating, TextField, Typography} from "@mui/material";
 import './inputFilterItinerary.scss';
 import Itinerary from "../Itinerary/Itinerary";
+import 'react-alice-carousel/lib/alice-carousel.css';
+import AliceCarousel from "react-alice-carousel";
 
-const kilometers = [
-    {
-        value: '50 - 150',
-        label: '50 - 150'
-    },
-    {
-        value: '150 - 300',
-        label: '150 - 300'
-    },
-    {
-        value: '300 +',
-        label: '300 +'
-    },
-];
+const responsive = {
+  0: { items: 1 },
+  568: { items: 2 },
+};
 
 const InputFilterItinerary = ({data}) => {
-    const [kilometer, setKilometer] = useState('50 - 150');
-    const [valueSinuosite, setValueSinuosite] = useState(3);
+  const regions = ['Alsace', 'Bourgogne-Franche-Comté', 'Aquitaine', 'Auvergne' , 'Basse Normandie','Bourgogne', 'Bretagne', 'Centre', 'Champagne-Ardenne', 'Corse', 'Franche-ComtÃ©', 'Haute Normandie', 'Ile-de-France', 'Languedoc-Roussillon', 'Limousin', 'Lorraine', 'Midi-PyrÃ©nÃ©es', 'Nord-Pas-de-Calais', 'Pays de la Loire', 'Picardie', 'Poitou-Charentes', 'Provence-Alpes-CÃ´te-dAzur', 'RhÃ´ne-Alpes']
+  const [valueDistrict, setValueDistrict] = useState('')
+  const [rangeValue, setRangeValue] = useState(0);
+  const [rangeValueDistance, setRangeValueDistance] = useState(50);
+  const [isCrescent, setIsCrescent] = useState(false);
+  const [isHighway, setIsHighway] = useState(true);
+  const [selectedRadio, setSelectedRadio] = useState("");
+  // select pour la region
+  const handleChangeDistrict = (event) => {
+    setValueDistrict(event.target.value);
+  }
 
-    const [inputPlace, setInputPlace] = useState('');
-    const [filterPlace, setFilterPlace] = useState([]);
+  // range sinuosite
+  const numberFormat = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
 
-    // change value kilometers
-    const handleChangeKilometer = (event) => {
-        setKilometer(event.target.value);
-    }
+  const handleChangeTri = (e) => {
+    e.preventDefault();
+    setIsCrescent((a) => !a)
+  }
 
-    const filter = (searchValue) => {
-        setInputPlace(searchValue)
-
-        if(inputPlace !== '') {
-            const results = data.filter((item) => {
-                return item.itinerary_title.toLowerCase().includes(inputPlace);
-            });
-            setFilterPlace(results);
-        } else {
-            setFilterPlace(data)
-        }
-    }
+  const handleChangeHighway = (e) => {
+    e.preventDefault();
+    setIsHighway((a) => !a)
+  }
 
     return (
         <>
-            <h2 className='itinerary__title'>Recherche D'itinéraires</h2>
+            <h2 className='itinerary__title'>RECHERCHE DE BALADE MOTO</h2>
             <form className='itinerary__form'>
-                <div className='itinerary__form-input'>
-                    <TextField className='input'  label="Lieu"  value={inputPlace} onChange={(e) => filter(e.target.value)}  />
+                <div className='itinerary__form-district'>
 
-                    <TextField
-                        className='input'
-                        select
-                        label="Kilomètres"
-                        value={kilometer}
-                        onChange={handleChangeKilometer}
-                    >
-                        {kilometers.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>{option.label} </MenuItem>
-                        ))}
-                    </TextField>
-                    <div className='input-note'>
-                        <Typography className='input' component='legend'>Sinuosité de la route</Typography>
-                        <Rating
-                            className='input'
-                            name="simple-controlled"
-                            value={valueSinuosite}
-                            onChange={(event, newValue) => {
-                                setValueSinuosite(newValue);
-                            }}
-                        />
+                  <label>Où souhaitez-vous vous balader ?</label>
+                    <select value={valueDistrict} onChange={handleChangeDistrict}>
+                      {
+                        regions.map((region, index) => (
+                          <option
+                            key={index}
+                            id={region}
+                            value={region}>
+                            {region}
+                          </option>
+                        ))
+                      }
+                    </select>
+
+                  <label>Distance</label>
+                  <ul className="range-container">
+                    <input
+                      type="range"
+                      min="0"
+                      max="2000"
+                      defaultValue={rangeValueDistance}
+                      onChange={(e) => setRangeValueDistance(e.target.value)}
+                    />
+                    <p>
+                      Balade supérieur à {numberFormat(rangeValueDistance)} kilomètres
+                    </p>
+                  </ul>
+
+                  <label>Sinuosite de la route</label>
+                  <ul className="range-container">
+                    <input
+                      type="range"
+                      min="0"
+                      max="5"
+                      defaultValue={rangeValue}
+                      onChange={(e) => setRangeValue(e.target.value)}
+                    />
+                    <p>
+                      {numberFormat(rangeValue)}
+                    </p>
+                  </ul>
+
+                  <div className='filter-btn'>
+                    <div>
+                      {isCrescent ? (
+                        <button onClick={handleChangeTri}>Plus longue distance</button>
+                      ) : (
+                        <button onClick={handleChangeTri}>Plus petite distance</button>
+                      )}
                     </div>
+                    <div>
+                      {
+                        isHighway ? (
+                          <button onClick={handleChangeHighway}>Balade sans autoroutes </button>
+                        ) : (
+                          <button onClick={handleChangeHighway}>Balade avec autoroutes </button>
+                        )
+                      }
+                    </div>
+                  </div>
                 </div>
-
-                <button className='itinerary__button-submit'>Rechercher</button>
             </form>
 
+
+
             <div className='container__card'>
-                {filterPlace.length > 0 ? (
-                    filterPlace.map((option) => (
-                        <Itinerary key={option.itinerary_id}
-                                   map={option.pictures}
-                                   title={option.itinerary_title}
-                                   description={option.itinerary_description}
-                                   id={option.itinerary_id}
-                                   user={option.user_alias}
-                                   kilometer={option.itinerary_kilometer}
-                                   highway={option.is_highway}
-                        />
-                    ))
-                ) : (
-                    data.map((item) => (
-                        <Itinerary key={item.itinerary_id}
-                                   map={item.pictures}
-                                   title={item.itinerary_title}
-                                   description={item.itinerary_description}
-                                   id={item.itinerary_id}
-                                   user={item.user_alias}
-                                   kilometer={item.itinerary_kilometer}
-                                   highway={item.is_highway}
-                        />
-                    ))
-                )};
+              <AliceCarousel
+                disableDotsControls
+                mouseTracking
+                responsive={responsive}
+                controlsStrategy="alternate">
+
+                {
+                    data
+                      .filter((district) => district.districts[0].district_name.includes(valueDistrict))
+                      .filter((distance) => distance.itinerary_kilometer > rangeValueDistance)
+                      .filter((curve) => curve.itinerary_curve > rangeValue)
+                      .filter((highway) => {
+                        if(isHighway === false){
+                          return highway.is_highway === false
+                        } else {
+                          return highway.is_highway === true
+                        }
+                      })
+                      .sort((a, b) => {
+                        if(isCrescent) {
+                          return a.itinerary_kilometer - b.itinerary_kilometer;
+                        } else {
+                          return b.itinerary_kilometer - a.itinerary_kilometer
+                        }
+                      })
+                      .map((item) => (
+                            <Itinerary key={item.itinerary_id}
+                                       map={item.pictures[0].pic_link}
+                                       title={item.itinerary_title}
+                                       description={item.itinerary_description}
+                                       id={item.itinerary_id}
+                                       user={item.user_alias}
+                                       kilometer={item.itinerary_kilometer}
+                                       highway={item.is_highway}
+                                       hours={item.itinerary_hour}
+                                       minutes={item.itineray_minute}
+                            />
+                          )
+                    )
+                }
+              </AliceCarousel>
             </div>
         </>
     )
