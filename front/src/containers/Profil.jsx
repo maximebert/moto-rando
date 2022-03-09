@@ -9,8 +9,6 @@ import Profil from '../Pages/Profil/Profil';
 const ProfilContainer = () => {
   const logged = useSelector((state) => state.user.logged);
 
-
-
   if (!logged) {
     return (<Navigate to="/" replace />);
   }

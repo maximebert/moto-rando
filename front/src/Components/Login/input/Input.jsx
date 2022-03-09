@@ -16,7 +16,7 @@ const Input = ({ value, type, name, placeholder, onChange }) => {
                 value={value}
                 // infos base
                 id={inputId}
-                className='form__input'
+                className="input-field"
                 type={type}
                 placeholder={placeholder}
                 name={name}

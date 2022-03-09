@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './input/Input'
 import './login.scss';
+import {Link} from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 
@@ -16,29 +17,30 @@ const Login = ({email, password, changeField, handleLogin}) => {
     }
 
     return (
-        <div className='login'>
-          <h2>Se connecter</h2>
-                <form className='form' autoComplete='off' onSubmit={handleSubmit}>
-                  <div className='form__modal'>
-                    <label>Veuillez saisir votre email</label>
-                    <Input
-                      name='email'
-                      placeholder='adresse email'
-                      onChange={changeField}
-                      value={email}
-                    />
-                    <label>Veuillez saisir votre mot de passe</label>
-                    <Input
-                      placeholder='mot de passe'
-                      name='password'
-                      type='password'
-                      onChange={changeField}
-                      value={password}
-                    />
-                  </div>
-                  <button type="submit" className='form__btn-submit'>Valider</button>
-                </form>
+      <div className="card-login">
+        <div className="card-image">
+          <h2 className="card-heading">
+            CONNEXION
+            <small>Votre compte</small>
+          </h2>
         </div>
+        <form className="card-form" onSubmit={handleSubmit}>
+          <div className="input">
+            <Input type="text" name='email' value={email} onChange={changeField} required/>
+            <label className="input-label">Email</label>
+          </div>
+          <div className="input">
+            <Input type="password" name='password' value={password} onChange={changeField} required/>
+            <label className="input-label">Mot de passe</label>
+          </div>
+          <div className="action">
+            <button className="action-button">Se connecter</button>
+          </div>
+        </form>
+        <div className="card-info">
+          <p>Pas encore de compte ? <Link to='/inscription'>inscrivez-vous</Link></p>
+        </div>
+      </div>
     )
 }
 

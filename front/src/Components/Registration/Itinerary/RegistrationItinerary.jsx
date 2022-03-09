@@ -29,7 +29,9 @@ const RegistrationItinerary = () => {
         try {
             const response = await axios.post(ADD_ITINERARY, data, {headers: { "Content-Type": "multipart/form-data" }} );
             console.log(response.data);
+
             // console.log(response.accessToken);
+
             console.log(JSON.stringify(response))
 
             //clear

@@ -5,26 +5,28 @@
     margin: 50px;
     font-size: 2rem;
     font-weight: bold;
+    font-style: italic;
 }
 .itinerary__form{
-    &-input{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
 
-        .input-note{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    ;
-
-        .input{
-            font-family: 'Poppins', sans-serif;
-            margin: 10px 30px;
-        }
-    }
+   &-district{
+     display: flex;
+     flex-direction: column;
+      margin: 0 10px;
+     text-align: center;
+      label{
+        margin: 10px;
+      }
+     select{
+       border: 1px solid $blue;
+       padding: 10px;
+       border-radius: 50px;
+       font-family: 'Poppins', sans-serif;
+       width: 300px;
+       text-align: center;
+       margin: 0 auto;
+     }
+   }
 
     .itinerary__button-submit{
 
@@ -49,4 +51,75 @@
         display: flex;
         justify-content: center;
     }
+}
+
+button{
+  width: 180px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  &:hover{
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.radio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  background: $blue;
+  border-radius: 20px;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.452);
+
+  input {
+    transform: translateY(1px);
+    appearance: auto;
+  }
+
+  label {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.range-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid $blue;
+  border-radius: 20px;
+  padding: 10px;
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.452);
+
+  p{
+    color: $blue;
+  }
+
+  input {
+    transform: translateY(1px);
+    appearance: auto;
+    width: 50%;
+    cursor: pointer;
+  }
+
+  label {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+.filter-btn{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
