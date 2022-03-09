@@ -1,4 +1,5 @@
 BEGIN;
+drop TABLE "district";
 
 CREATE TABLE "district" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -11,8 +12,8 @@ CREATE TABLE "district" (
     "updated_at" TIMESTAMPTZ
 );
 
-ALTER TABLE "itinerary"
-ADD COLUMN "district_id" int REFERENCES "district"("id");
+-- ALTER TABLE "itinerary"
+-- ADD COLUMN "district_id" int REFERENCES "district"("id");
 
 
 COMMIT;
