@@ -16,7 +16,7 @@ content-type: application/json
 GET http://localhost:3000/itineraires
 
 ### affiche un itinéraire
-GET http://localhost:3000/itineraires/36
+GET http://localhost:3000/itineraires/2
 
 
 ### ajout itinéraire
@@ -32,7 +32,8 @@ content-type: application/json
     "kilometer": 20,
     "curve": 3,
     "trace": null,
-    "user_id": 1
+    "user_id": 1,
+    "district_id" : 11
 
 }
 
