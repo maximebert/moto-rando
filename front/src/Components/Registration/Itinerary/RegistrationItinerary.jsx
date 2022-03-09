@@ -32,16 +32,16 @@ const RegistrationItinerary = () => {
             // console.log(response.accessToken);
             console.log(JSON.stringify(response))
 
-            //clear
-            // setTitle('');
-            // setCurve()
-            // setHours();
-            // setMinutes();
-            // setKilometer();
-            // setHighway(false);
-            // setDescription('');
-            // setFile(null);
-            // setMap(null);
+            // clear
+            setTitle('');
+            setCurve()
+            setHours();
+            setMinutes();
+            setKilometer();
+            setHighway(false);
+            setDescription('');
+            setFile(null);
+            setMap(null);
         } catch (err) {
            console.log(err);
         }
