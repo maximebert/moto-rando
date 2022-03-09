@@ -30,7 +30,6 @@ const RegistrationItinerary = () => {
             const response = await axios.post(ADD_ITINERARY, { title, description }
             );
             console.log(response.data);
-            console.log(response.accessToken);
             console.log(JSON.stringify(response))
 
             //clear
