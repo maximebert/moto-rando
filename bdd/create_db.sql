@@ -11,17 +11,31 @@ CREATE TABLE "user" (
     "updated_at" TIMESTAMPTZ
 );
 
+CREATE TABLE "district" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "latitude" INT,
+    "longitude" INT ,
+    "zoom" INT NOT NULL,
+    "highway" BOOLEAN,
+
+    "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+    "updated_at" TIMESTAMPTZ
+);
+
 CREATE TABLE "itinerary" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "duration" INTERVAL,
+    "hour" INT,
+    "minute" INT,
     "highway" BOOLEAN,
     "kilometer" INT NOT NULL,
     "curve" INT NOT NULL,
-    "trace" JSON,
+    "trace" TEXT,
 
     "user_id" int REFERENCES "user"("id"),
+    "district_id" int REFERENCES "district"("id");
 
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
