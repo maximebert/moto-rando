@@ -1,6 +1,6 @@
 BEGIN;
 
-INSERT INTO "district" ("name", "lattitude", "longitude", "zoom")
+INSERT INTO "district" ("name", "latitude", "longitude", "zoom")
 VALUES
 ('Alsace', 48.32, 7.44, 8),
 ('Aquitaine', 44.6, 0, 8),
