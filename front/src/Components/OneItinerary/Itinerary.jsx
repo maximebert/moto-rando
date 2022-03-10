@@ -14,14 +14,13 @@ import img1 from '../../assets/images/photoInitineraire1.jpg';
 import img2 from '../../assets/images/photoInitineraire2.jpg';
 import img3 from '../../assets/images/photoInitineraire3.jpg';
 
-const OneItinerary = ({title, description, highway, kilometer, user}) => {
+const OneItinerary = ({title, description, highway, kilometer, user, longitude, zoom, latitude}) => {
     return (
-
         <div className='itinerary'>
            <div className='itinerary__left'>
                 <h2>{title}</h2>
                 <span>Sinuosité: 4/5</span>
-                    <MyMap />
+                    <MyMap zoom={zoom} latitude={latitude} longitude={longitude} />
                 <div className='itinerary__left-details'>
                     <p>Durée: 3 heures</p>
                     <p>Kilomètres: {kilometer} km</p>

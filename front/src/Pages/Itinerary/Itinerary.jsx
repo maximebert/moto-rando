@@ -5,27 +5,34 @@ import InputFilterItinerary from "../../Components/InputFilterItinerary/InputFil
 import MapBox from '../../Components/MapBox/MapBox';
 //style
 import './profilItinary.scss';
+import axios from "axios";
 
 
 
 const Itinerary = () => {
     const [itinerary, setItinerary] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect( () => {
-        async function fetchData(){
-            const response = await getAllList();
-            setItinerary(response.data)
-        }
-        fetchData();
-    }, []);
 
+      getAllList()
+        .then(({data}) => {
+          setItinerary(data)
+          setIsLoading(false);
+        })
+    }, []);
+  console.log(itinerary)
     return (
         <div className='itinerary_list'>
             <div className='itinerary_list-left'>
                 <InputFilterItinerary data={itinerary} />
             </div>
             <div className='itinerary_list-right'>
-                <MapBox mapData={itinerary} />
+              {
+                !isLoading && itinerary && (
+                  <MapBox mapData={itinerary} />
+                )
+              }
             </div>
 
         </div>
