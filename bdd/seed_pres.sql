@@ -14,7 +14,8 @@ VALUES
 ('Nouvelle-Aquitaine', 45, 0, 8),
 ('Occitanie', 43., 1, 8),
 ('Pays de la Loire', 48, 0, 8),
-('Provence-Alpes-Côte dAzur', 44, 5, 8);
+('Provence-Alpes-Côte dAzur', 44, 5, 8),
+('Toute la France', 47, 2, 6);
 
 INSERT INTO "user" ("alias", "email", "password", "presentation")
 VALUES
