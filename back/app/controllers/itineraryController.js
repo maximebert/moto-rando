@@ -1,4 +1,4 @@
-const { path } = require('express/lib/application');
+// const { path } = require('express/lib/application');
 const { ApiError } = require('../helpers/errorHandler');
 const itineraryMapper = require('../models/itinerary');
 
@@ -7,6 +7,12 @@ const itineraryController = {
   async new(req, res) {
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
+
+    // une fois mon itineraire créé récupéré,
+    // je veux ajouter la ou les images en utilisant ma methode upload()
+    // puis récupérer le lien, les id user et itineraire
+    // pour insérer tout ça dans la table picture avec la methode update()
+
     return res.json(itinerary).status(201);
   },
 
