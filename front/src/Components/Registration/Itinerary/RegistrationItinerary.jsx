@@ -23,9 +23,9 @@ const RegistrationItinerary = ({userId}) => {
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
-    const handleChangeDistrict = (event) => {
-      setValueDistrict(event.target.value);
-    }
+    // const handleChangeDistrict = (event) => {
+    //   setValueDistrict(event.target.value);
+    // }
 
     useEffect( () => {
       async function fetchData(){
@@ -85,7 +85,7 @@ const RegistrationItinerary = ({userId}) => {
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
                 <label htmlFor="district">Région</label>
-                <select value={valueDistrict} onChange={handleChangeDistrict}>
+                <select className='form-select' value={valueDistrict} onChange={(e)=>setDistrict(e.target.value)}>
                       {
                         district.map((region, index) => (
                           <option
