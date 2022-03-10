@@ -20,7 +20,7 @@ const MyMap = ({zoom, latitude, longitude}) => {
   console.log(zoom, latitude, longitude)
    return (
         <div>
-            <MapContainer className='map' style={{ height: "80vh"}} zoom={zoom} center={[latitude,  longitude]} >
+            <MapContainer className='map' style={{ height: "40vh", margin:0}} zoom={zoom} center={[latitude,  longitude]} >
                 <Marker position={itinerary.features[1].geometry.coordinates}>
                 </Marker>
                 <TileLayer
