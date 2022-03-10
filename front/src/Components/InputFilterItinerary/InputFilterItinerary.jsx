@@ -24,7 +24,7 @@ const InputFilterItinerary = ({data}) => {
   console.log(district)
 
   const [valueDistrict, setValueDistrict] = useState('')
-  const [rangeValue, setRangeValue] = useState(0);
+  const [rangeValue, setRangeValue] = useState(1);
   const [rangeValueDistance, setRangeValueDistance] = useState(50);
   const [isCrescent, setIsCrescent] = useState(false);
   const [isHighway, setIsHighway] = useState(true);
@@ -87,7 +87,7 @@ const InputFilterItinerary = ({data}) => {
                   <ul className="range-container">
                     <input
                       type="range"
-                      min="0"
+                      min="1"
                       max="5"
                       defaultValue={rangeValue}
                       onChange={(e) => setRangeValue(e.target.value)}
