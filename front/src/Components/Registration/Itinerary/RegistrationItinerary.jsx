@@ -27,7 +27,6 @@ const RegistrationItinerary = ({userId}) => {
       setValueDistrict(event.target.value);
     }
 
-
     useEffect( () => {
       async function fetchData(){
         const response = await axios.get('http://localhost:3000/regions')
@@ -36,6 +35,8 @@ const RegistrationItinerary = ({userId}) => {
       fetchData();
     }, []);
 
+    console.log(userId)
+    
     const send = async (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -49,6 +50,7 @@ const RegistrationItinerary = ({userId}) => {
         data.append('kilometer', kilometer);
         data.append('highway', highway);
         data.append('description', description);
+
 
 
         try {
@@ -70,13 +72,14 @@ const RegistrationItinerary = ({userId}) => {
             setFile(null);
             setMap(null);
         } catch (err) {
-           console.log(err);
+          console.log(err);
         }
     }
 
     return (
         <div className='form'>
             <h2>Créer un itineraire</h2>
+
             <form action="/itineraires/:id" encType="multipart/form-data" className='itinerary-form' onSubmit={send}>
                 <label htmlFor="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
@@ -107,6 +110,7 @@ const RegistrationItinerary = ({userId}) => {
                 <input id="root" type="number"  min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
 
                 <label htmlFor="duration">Durée de l'itinéraire</label>
+
                 <input id="hour" placeholder='Heures' type="number" value={hour} onChange={(e)=>setHour(e.target.value)} />
                 <input id="minute" placeholder='Minutes' type="number" value={minute} onChange={(e)=>setMinute(e.target.value)} />
 
@@ -119,6 +123,7 @@ const RegistrationItinerary = ({userId}) => {
 
                 <label htmlFor="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
                 <textarea id="description" type="text" value={description} placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
+
 
                 <label htmlFor="photo">Vos plus belles photos</label>
                 <input type="file" id="photo" accept='.jpg' name="file" onChange={event => {

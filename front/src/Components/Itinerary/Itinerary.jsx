@@ -6,7 +6,7 @@ import './itinerary.scss';
 
 import {BiUserCircle} from 'react-icons/bi';
 
-const Itinerary = ({id, map, title, description, user, kilometer, highway, hours, minutes}) => {
+const Itinerary = ({id, map, title, description, user, kilometer, highway, hours, minutes, district}) => {
 
     return (
 
@@ -19,12 +19,17 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway, hours
             <Link to={`/itineraire/${id}`}><div className='card__title'>{title}</div></Link>
           </h4>
           <div className='card-body-tag'>
+            {
+              district && (
+                <span className="tag tag-green">{district}</span>
+              )
+            }
             <span className="tag tag-teal">Distance: {kilometer} km</span>
             <span className="tag tag-purple">Durée: {hours} heures {minutes} min</span>
             <span className="tag tag-pink">Autoroute: {highway === true ? 'Non'  : 'Oui'}</span>
           </div>
           <p>
-            {description}
+            {description.length > 30 ? description.substring(0,100) + '...' : ''}
           </p>
           <Link className='link-itinerary' to={`/itineraire/${id}`}>Voir l'itineraire</Link>
           <div className="user">

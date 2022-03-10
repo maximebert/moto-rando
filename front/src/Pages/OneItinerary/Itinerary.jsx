@@ -38,8 +38,10 @@ const OneItinerary = () => {
                 // map={itineraryID.pictures[0].pic_link}// tracé
                 title={itineraryID.itinerary_title}
                 description={itineraryID.itinerary_description}
+                hour={itineraryID.itinerary_hour}
+                minute={itineraryID.itinerary_minute}
+                curve={itineraryID.itinerary_curve}
                 // photo
-                duration={itineraryID.itinerary_duration}
                 highway={itineraryID.is_highway}
                 kilometer={itineraryID.itinerary_kilometer}
                 curve={itineraryID.itinerary_curve}
