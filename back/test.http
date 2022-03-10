@@ -57,7 +57,7 @@ DELETE http://localhost:3000/itineraires/11
 GET http://localhost:3000/regions
 
 ### affiche une région
-GET http://localhost:3000/regions/21
+GET http://localhost:3000/regions/10
 
 
 ###################################################################################################################
