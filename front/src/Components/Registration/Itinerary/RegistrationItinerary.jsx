@@ -49,6 +49,7 @@ const RegistrationItinerary = ({userId}) => {
         data.append('kilometer', kilometer);
         data.append('highway', highway);
         data.append('description', description);
+        data.append('district', district)
 
 
         try {
