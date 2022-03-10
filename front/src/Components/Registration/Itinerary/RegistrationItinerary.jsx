@@ -14,7 +14,6 @@ const RegistrationItinerary = ({userId}) => {
     const [description, setDescription] = useState("");
     const [file, setFile] = useState(null);
     const [map, setMap] = useState(null);
-    const [errMsg, setErrMsg] = useState('');
     const [curve, setCurve] = useState();
     const [valueDistrict, setValueDistrict] = useState('');
     const [district, setDistrict] = useState([]);
@@ -23,14 +22,15 @@ const RegistrationItinerary = ({userId}) => {
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
-    // const handleChangeDistrict = (event) => {
-    //   setValueDistrict(event.target.value);
-    // }
+    const handleChangeDistrict = (event) => {
+      setValueDistrict(event.target.value);
+    }
 
     useEffect( () => {
       async function fetchData(){
         const response = await axios.get('http://localhost:3000/regions')
         setDistrict(response.data)
+        console.log("data",response.data)
       }
       fetchData();
     }, []);
@@ -50,7 +50,7 @@ const RegistrationItinerary = ({userId}) => {
         data.append('kilometer', kilometer);
         data.append('highway', highway);
         data.append('description', description);
-        data.append('district', district)
+        data.append('district', valueDistrict)
 
 
         try {
@@ -85,13 +85,13 @@ const RegistrationItinerary = ({userId}) => {
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
                 <label htmlFor="district">Région</label>
-                <select className='form-select' value={valueDistrict} onChange={(e)=>setDistrict(e.target.value)}>
+                <select className='form-select' value={valueDistrict} onChange={handleChangeDistrict}>
                       {
                         district.map((region, index) => (
                           <option
                             key={index}
-                            id={region.name}
-                            value={region.name}>
+                            id={region.id}
+                            value={region.id}>
                             {region.name}
                           </option>
                         ))
