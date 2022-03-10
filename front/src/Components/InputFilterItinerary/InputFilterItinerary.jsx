@@ -72,6 +72,7 @@ const InputFilterItinerary = ({data}) => {
                   <label>Distance</label>
                   <ul className="range-container">
                     <input
+                      className='range-input'
                       type="range"
                       min="0"
                       max="2000"
@@ -86,6 +87,7 @@ const InputFilterItinerary = ({data}) => {
                   <label>Sinuosite de la route</label>
                   <ul className="range-container">
                     <input
+                      className='range-input'
                       type="range"
                       min="1"
                       max="5"
