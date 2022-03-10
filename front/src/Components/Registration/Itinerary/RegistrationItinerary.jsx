@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
 import './itineraryForm.scss';
 
@@ -7,7 +7,6 @@ const ADD_ITINERARY = '/itineraires';
 
 const RegistrationItinerary = ({userId}) => {
     const [title, setTitle] = useState("");
-    const [curve, setCurve] = useState();
     const [hour, setHour] = useState();
     const [minute, setMinute] = useState();
     const [kilometer, setKilometer] = useState();
@@ -16,18 +15,34 @@ const RegistrationItinerary = ({userId}) => {
     const [file, setFile] = useState(null);
     const [map, setMap] = useState(null);
     const [errMsg, setErrMsg] = useState('');
+    const [curve, setCurve] = useState();
+    const [valueDistrict, setValueDistrict] = useState('');
+    const [district, setDistrict] = useState([]);
+
 
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
+    const handleChangeDistrict = (event) => {
+      setValueDistrict(event.target.value);
+    }
 
-  console.log(userId)
+    useEffect( () => {
+      async function fetchData(){
+        const response = await axios.get('http://localhost:3000/regions')
+        setDistrict(response.data)
+      }
+      fetchData();
+    }, []);
+
+    console.log(userId)
+    
     const send = async (e) => {
         e.preventDefault();
         const data = new FormData();
-        // data.append('map', map);
-
-        data.append('photo', file);
+        data.append('map', map);
+        data.append('photo', file)
+        data.append('id', userId)
         data.append('title', title);
         data.append('curve', curve);
         data.append('hour', hour);
@@ -69,6 +84,22 @@ const RegistrationItinerary = ({userId}) => {
                 <label htmlFor="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
+                <label htmlFor="district">Région</label>
+                <select value={valueDistrict} onChange={handleChangeDistrict}>
+                      {
+                        district.map((region, index) => (
+                          <option
+                            key={index}
+                            id={region.name}
+                            value={region.name}>
+                            {region.name}
+                          </option>
+                        ))
+                      }
+
+                </select>
+
+
                 {/* <label htmlFor="map">Votre itinéraire</label>
                 <input type="file" id="map"  onChange={event => {
                     const file = event.target.files[0];
@@ -79,8 +110,9 @@ const RegistrationItinerary = ({userId}) => {
                 <input id="root" type="number"  min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
 
                 <label htmlFor="duration">Durée de l'itinéraire</label>
-                <input id="hours" placeholder='Heures' type="number" value={hour} onChange={(e)=>setHour(e.target.value)} />
-                <input id="minutes" placeholder='Minutes' type="number" value={minute} onChange={(e)=>setMinute(e.target.value)} />
+
+                <input id="hour" placeholder='Heures' type="number" value={hour} onChange={(e)=>setHour(e.target.value)} />
+                <input id="minute" placeholder='Minutes' type="number" value={minute} onChange={(e)=>setMinute(e.target.value)} />
 
                 <label htmlFor="km">Nombre de kilomètres</label>
                 <input id="km" type="number" min="1" value={kilometer} onChange={(e)=>setKilometer(e.target.value)}/>
