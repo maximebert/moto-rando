@@ -26,7 +26,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
               //ici on va boucler pour récupérer une liste d'itinéraire
               itineraryList
-                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur' || 'Provence-Alpes-Côte dAzur')
+                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur' || district.districts[0].district_name === 'Provence-Alpes-Côte dAzur')
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary
