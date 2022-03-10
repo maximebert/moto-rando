@@ -5,6 +5,7 @@ import RegistrationItinerary from '../Components/Registration/Itinerary/Registra
 
 const RegistrationItineraryContainer = () => {
   const logged = useSelector((state) => state.user.logged);
+  const userId = useSelector((state) => state.user.id)
 
 
   if (!logged) {
@@ -12,7 +13,7 @@ const RegistrationItineraryContainer = () => {
   }
 
   return (
-    <RegistrationItinerary  />
+    <RegistrationItinerary userId={userId} />
   );
 };
 

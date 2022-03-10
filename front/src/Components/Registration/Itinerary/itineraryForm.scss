@@ -23,6 +23,18 @@
          font-family: 'Poppins', sans-serif;
       }
 
+      select{
+        border: 1px solid $blue;
+        border-radius: 5px;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        background-color: white;
+        margin: 20px 0;
+      }
+
         .form__btn-submit{
             display: block;
             margin: 20px auto 100px auto;
