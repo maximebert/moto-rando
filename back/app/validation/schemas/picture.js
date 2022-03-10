@@ -1,10 +1,10 @@
-// const Joi = require('joi');
+const Joi = require('joi');
 
-// module.exports = Joi.object({
-//   title: Joi.string().pattern(/^\w+$/),
-//   description: Joi.string().pattern(/^\w+$/),
-//   link: Joi.string().pattern(/^\w+$/),
-//   user_id: Joi.string().pattern(/^\w+$/),
-//   motorbike_id: Joi.string().pattern(/^\w+$/),
-//   itinerary_id: Joi.string().pattern(/^\w+$/),
-// });
+module.exports = Joi.object({
+  title: Joi.string().min(2).max(20),
+  description: Joi.string().min(2).max(20),
+  link: Joi.string(),
+  user_id: Joi.number().integer(),
+  motorbike_id: Joi.number().integer(),
+  itinerary_id: Joi.number().integer(),
+});
