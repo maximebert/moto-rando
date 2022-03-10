@@ -14,7 +14,7 @@
       flex-direction: column;
       padding: 0 50px;
 
-      input, textarea{
+      input:not([type="checkbox"]), textarea{
          width: 100%;
          margin: 20px 0;
          padding: 10px;

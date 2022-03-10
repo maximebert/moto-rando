@@ -83,7 +83,7 @@ const Header = ({isLogged, handleLogout, pseudo, id}) => {
                   {isLogged && (
                     <>
                      <li>
-                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/nouveau-itineraire'>
+                        <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to={`/profil/${id}/nouveau-itineraire`}>
                           Créer un itineraire
                         </NavLink>
                       </li>
