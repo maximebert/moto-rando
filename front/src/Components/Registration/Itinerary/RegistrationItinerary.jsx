@@ -36,7 +36,7 @@ const RegistrationItinerary = ({userId}) => {
     }, []);
 
     console.log(userId)
-    
+
     const send = async (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -51,7 +51,6 @@ const RegistrationItinerary = ({userId}) => {
         data.append('highway', highway);
         data.append('description', description);
         data.append('district', district)
-
 
 
         try {
