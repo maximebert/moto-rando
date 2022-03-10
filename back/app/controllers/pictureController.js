@@ -4,11 +4,7 @@ const pictureController = {
 
   // Méthode d'ajout d'une image
   async new(req, res) {
-    const pictureObject = JSON.parse(req.body.picture);
-    const newPicture = {
-      pictureObject,
-      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-    };
+    const newPicture = req.body;
     const picture = await pictureMapper.create(newPicture);
     return res.json(picture).status(201);
   },

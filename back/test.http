@@ -24,7 +24,7 @@ POST http://localhost:3000/itineraires
 content-type: application/json
 
 {
-    "title": "Baux de Provence",
+    "title": "Baux de Provence5",
     "description": "venez aux baux de provence cest splendide",
     "hour": 2,
     "minute": 30,
@@ -38,7 +38,7 @@ content-type: application/json
 }
 
 ### modif itinéraire (fonctionne uniquement si on modifie la durée avec)
-PATCH  http://localhost:3000/itineraires/10
+PATCH  http://localhost:3000/itineraires/21
 content-type: application/json
 
 {

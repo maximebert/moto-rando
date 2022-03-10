@@ -37,9 +37,9 @@ const pictureMapper = {
       description,
       link,
     } = body;
-    const userId = body.user_id;
-    const motorbikeId = body.motorbike_id;
-    const itineraryId = body.itinerary_id;
+    const userId = body.user_id?body.user_id:1;
+    const motorbikeId = body.motorbike_id?body.motorbike_id:null;
+    const itineraryId = body.itinerary_id?body.itinerary_id:null;
 
     // Insertion d'une image dans la BDD
     const result = await database.query(
