@@ -79,8 +79,8 @@ const RegistrationItinerary = () => {
                 <input id="root" type="number"  min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
 
                 <label htmlFor="duration">Durée de l'itinéraire</label>
-                <input id="hours" placeholder='Heures' type="number" value={hours} onChange={(e)=>setHours(e.target.value)} />
-                <input id="minutes" placeholder='Minutes' type="number" value={minutes} onChange={(e)=>setMinutes(e.target.value)} />
+                <input id="hours" placeholder='Heures' type="number" value={hour} onChange={(e)=>setHour(e.target.value)} />
+                <input id="minutes" placeholder='Minutes' type="number" value={minute} onChange={(e)=>setMinute(e.target.value)} />
 
                 <label htmlFor="km">Nombre de kilomètres</label>
                 <input id="km" type="number" min="1" value={kilometer} onChange={(e)=>setKilometer(e.target.value)}/>
