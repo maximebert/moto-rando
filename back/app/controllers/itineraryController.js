@@ -6,6 +6,7 @@ const pictureMapper = require('../models/picture');
 const itineraryController = {
   // Méthode d'ajout d'un itinéraire
   async new(req, res) {
+    console.log('body', req.body);
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
 
@@ -21,14 +22,14 @@ const itineraryController = {
       const imgData = {
         title: image.title,
         link: image.path,
-        user_id: itinerary.user_id,
+        user_id: req.body.id,
         itinerary_id: itinerary.id,
       };
+      console.log('imgData', imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.create(imgData);
       return res.json(itinerary, imgInDb).status(201);
     }
-    return res.json(itinerary).status(201);
   },
 
   // Méthode d'affichage de tous les itinéraires
