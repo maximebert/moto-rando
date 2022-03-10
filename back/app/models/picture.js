@@ -31,22 +31,22 @@ const pictureMapper = {
     return result.rows[0];
   },
 
-  async create(body) {
+  async createItiPic(body) {
+    console.log('body picture', body);
     const {
       title,
       description,
       link,
     } = body;
-    const userId = body.user_id?body.user_id:1;
-    const motorbikeId = body.motorbike_id?body.motorbike_id:null;
-    const itineraryId = body.itinerary_id?body.itinerary_id:null;
-
+    const userId = Number(body.user_id);
+    const itineraryId = body.itinerary_id;
+    console.log(title, description, link, userId, itineraryId);
     // Insertion d'une image dans la BDD
     const result = await database.query(
       `INSERT INTO "picture"
-        ("title", "description", "link", "user_id", "motorbike_id", "itinerary_id")
+        ("title", "description", "link", "user_id", "itinerary_id")
         VALUES
-        ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}', '${itineraryId}')
+        ('${title}', '${description}', '${link}', '${userId}', '${itineraryId}')
         RETURNING *;`,
     );
     if (result.rowCount === 0) {

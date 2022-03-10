@@ -74,8 +74,8 @@ const itineraryMapper = {
       curve,
     } = body;
     const trace = body.trace?body.trace:null;
-    const userId = body.user_id?body.user_id:1;
-    const districtId = body.district_id?body.district_id:1;
+    const userId = Number(body.id);
+    const districtId = Number(body.district);
     // console.log('district', districtId);
 
     // Ajout d'un itineraire à la BDD
