@@ -157,4 +157,20 @@ const itineraryMapper = {
   },
 };
 
+/**
+ * @typedef {object} itinerary
+ * @typedef {object} Error
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {number} hour
+ * @property {number} minute
+ * @property {number} highway
+ * @property {number} kilometer
+ * @property {string} curve
+ * @property {number} trace
+ * @property {number} user_id
+ * @property {number} district_id
+ */
+
 module.exports = itineraryMapper;

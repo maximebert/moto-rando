@@ -27,44 +27,43 @@ router
 module.exports = router;
 
 /**
- *  * GET
- * @summary Get a itinerary
- * @tags Generate - Routes to get all itinerary
- * @param {string} request.query - the first part of a sentence
- * @returns {itineraryController} 200 - itinerary object
+ * GET /itineraires
+ * @summary Get all itineraries
+ * @tags itineraires - itinerary management
+ * @returns {itinerary} 200 - itinerary object
  * @returns {Error} 404 - Input data invalid
  */
 
 /**
- * * POST
-     * @summary Send new word and get a itinerary
-     * @tags Store - Routes to save end get a itineraries
-     * @param {string} body.required - the first part of a sentence
-     * @returns {itineraryController} 200 - itinerary object
-     * @returns {Error} 404 - Input data invalid
+ * POST /itineraire
+ * @summary Send new word and get a itinerary
+ * @tags Itineraires - itinerary management
+ * @param {string} body.required - the first part of a sentence
+ * @returns {itinerary} 200 - itinerary object
+ * @returns {error} 404 - Input data invalid
 
  */
 /**
- * * GET(/:id)
+* GET /itineraires/{id}
  * @summary Get a one itinerary
- * @tags Generate - Routes to get one itinerary
- * @param {string} request.query - the first part of a sentence
- * @returns {itineraryController} 200 - itinerary object
+ * @tags Itineraires - itinerary management
+ * @param {string} id.path.required - the first part of a sentence
+ * @returns {itinerary} 200 - itinerary object
  * @returns {Error} 404 - Input data invalid
  */
 /**
- * * PATCH(/:id)
+ * PATCH /itineraire/{id}
  * @summary update one itinerary
- * @tags Generate - Routes to update one itinerary
- * @param {string} request.query - the first part of a sentence
- * @returns {itineraryController} 200 - itinerary object
+ * @tags Itineraires - itinerary management
+ * @param {number} id.path.required - the first part of a sentence
+ * @returns {itinerary} 200 - itinerary object
  * @returns {Error} 404 - Input data invalid
  */
 /**
- * * DELETE(/:id)
+ * * DELETE /itineraire/{id}
  * @summary delete a one itinary
- * @tags Generate -Routes to deleting a itinerary
- * @param {string} request.query - the first part of a sentence
- * @returns {itineraryController} 204 - itinerary object
+ * @tags itineraires - itinerary management
+ * @param {number} id.path.required - the first part of a sentence
+ * @returns {itinerary} 204 - itinerary object
  * @returns {Error} 404 - Input data invalid
  */

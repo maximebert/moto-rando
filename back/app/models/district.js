@@ -30,4 +30,12 @@ const motorbikeMapper = {
 
 };
 
+/**
+ * @typedef {object} district
+ * @property {number} id
+ * @property {number} user_id
+ * @property {number} motorbike_id
+ * @property {number} picture_id
+ */
+
 module.exports = motorbikeMapper;

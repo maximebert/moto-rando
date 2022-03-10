@@ -13,7 +13,11 @@ const userMapper = {
     }
     return result.rows;
   },
-
+  /**
+ *
+ * @param {*} id
+ * @returns {User}
+ */
   async findByPk(id) {
     const userId = Number(id);
     // Récupération d'un utilisateur, avec sa moto, la photo de sa moto,
@@ -135,5 +139,12 @@ const userMapper = {
   },
 
 };
+/**
+ * @typedef {object} User
+ * @property {number} id
+ * @property {string} alias
+ * @property {string} email
+ * @property {string} presentation
+ */
 
 module.exports = userMapper;
