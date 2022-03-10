@@ -26,7 +26,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
               //ici on va boucler pour récupérer une liste d'itinéraire
               itineraryList
-                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur')
+                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur' || 'Provence-Alpes-Côte dAzur')
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary
@@ -49,7 +49,7 @@ const ContentItinerary = ({itineraryList}) => {
 
         </div>
 
-        <h2 className='title-home'>Balades moto en Bretagne</h2>
+        <h2 className='title-home'>Balades moto en Auvergne-Rhône-Alpes</h2>
         <div className='container__card'>
           <AliceCarousel
             disableDotsControls
