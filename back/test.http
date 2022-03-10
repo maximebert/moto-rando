@@ -101,21 +101,21 @@ DELETE http://localhost:3000/profil/13
 GET http://localhost:3000/motos
 
 ### voir une moto
-GET http://localhost:3000/motos/1
+GET http://localhost:3000/motos/7
 
 ### ajout moto
 POST http://localhost:3000/motos
 content-type: application/json
 
 {
-    "brand": "suzuki",
-    "model": "gsx1000",
-    "description": "vroom vroom",
+    "brand": "ducati",
+    "model": "monster",
+    "description": "un plaisir italien",
     "user_id": 1
 }
 
 ### modif moto
-PATCH  http://localhost:3000/motos/5
+PATCH  http://localhost:3000/motos/7
 content-type: application/json
 
 {
@@ -126,7 +126,7 @@ content-type: application/json
 }
 
 ### supprimer une moto
-DELETE http://localhost:3000/motos/10
+DELETE http://localhost:3000/motos/7
 
 ###################################################################################################################
 ### PHOTOS
