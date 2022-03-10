@@ -51,7 +51,7 @@ const itineraryMapper = {
       FROM "itinerary"
       LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
       JOIN "user" ON "itinerary"."user_id" = "user"."id"
-      JOIN "district" ON "district"."itinerary_id" = "district"."id"
+      JOIN "district" ON "itinerary"."district_id" = "district"."id"
       WHERE "itinerary"."id" = ${itineraryId}
       GROUP BY "itinerary"."id", "user"."alias"`,
     );
