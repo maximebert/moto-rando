@@ -13,7 +13,7 @@ router
   .route('/')
   .get(controllerHandler(itineraryController.findAll))
   .post(
-    controllerHandler(itineraryController.upload),
+    // controllerHandler(itineraryController.upload),
     controllerHandler(itineraryController.new),
   );
 

@@ -95,7 +95,7 @@ const motorbikeMapper = {
 
     // Suppression d'une moto de la BDD
     const result = await database.query(
-      `DELETE FROM "motorbike" WHERE "motorbike""id" = '${motorbikeId}'`,
+      `DELETE FROM "motorbike" WHERE "motorbike"."id" = '${motorbikeId}'`,
     );
 
     if (result.rowCount === 0) {

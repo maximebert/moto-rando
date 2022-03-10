@@ -2,101 +2,94 @@
 
 
 
-.itinerary{
-   margin: 0 auto 300px 0;
-   padding: 0 10px;
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-
-
-   &__left{
-      width: 600px;
-      margin:0 50px;
-
-         h2{
-            text-align: start;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 50px 0 30px 0;
-            color: $blue;
-         }
-         span{
-
-         }
-         img{
-            margin: 10px 0;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-         }
-
-         &-details{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 50px;
-            font-weight: bold;
-
-            .details-higway{
-               display: flex;
-               align-items: center;
-
-               span{
-                  margin-left: 20px;
-                  font-size: 1.3rem;
-               }
-            }
-
-            p{
-               margin: 10px 0;
-            }
-         }
-
-   }
-
-   &__right{
-      width: 600px;
-      margin-top: 50px;
-      h3{
-         margin: 30px 0;
-         font-size: 1.5rem;
+.itinerary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__left {
+    width: 800px;
+    padding: 50px;
+    margin: 10px auto;
+    .detail {
+      &-title {
+        text-align: left;
+        margin: 20px 0;
+        font-size: 1.5rem;
       }
-      p{
-         padding: 0 10px;
-      }
-      &-user{
-         margin: 30px 0 ;
-         font-style: italic;
-         font-weight: bold;
-         display: flex;
-         align-items: center;
 
-         span{
-            display: flex;
-            align-items: center;
-            font-style: normal;
-            color: $blue;
-            margin-left: 10px;
+      &__itinerary {
 
-            .icon-user {
-               font-size: 1.3rem;
-            }
-         }
-      }
-      .card__photo{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
+        &-span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          padding: 25px;
+          border-radius: 5px;
+          margin: 10px 0;
+          font-size: 1.1rem;
 
+          h5 {
+            margin-right: 10px;
+          }
+        }
 
-        &__img{
-          width: 200px;
-          height: 150px;
-          margin: 10px
+        .title-description {
+          margin-top: 50px;
+          font-size: 1.1rem;
+          color: $blue;
+          font-style: italic;
+          text-decoration: underline;
+        }
 
+        p {
+          margin-top: 20px;
+          font-size: 1.2rem;
         }
       }
-   }
+    }
+
+    .itinerary__user {
+      display: flex;
+      flex-direction: column;
+      margin: 30px 0;
+
+      img {
+        display: block;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+
+      h5 {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  &__right{
+    width: 800px;
+    margin: 50px auto;
+    overflow: hidden;
+
+    .title-description {
+      margin: 10px;
+      font-size: 1.1rem;
+      color: $blue;
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+      img{
+        width: 100%;
+      }
+    }
+
+  .card-suggestion{
+    overflow: hidden;
+    background-color: #edf2fb;
+    .title-description {
+      margin: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
 }
