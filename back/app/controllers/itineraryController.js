@@ -1,18 +1,33 @@
 // const { path } = require('express/lib/application');
 const { ApiError } = require('../helpers/errorHandler');
 const itineraryMapper = require('../models/itinerary');
+const pictureMapper = require('../models/picture');
 
 const itineraryController = {
   // Méthode d'ajout d'un utilisateur
   async new(req, res) {
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
-
+    console.log('body', req.body);
     // une fois mon itineraire créé récupéré,
+    // Si non créé, renvoi d'erreur.
+    if (!itinerary) {
+      throw new ApiError(404, 'Itinerary not added');
+    }
     // je veux ajouter la ou les images en utilisant ma methode upload()
-    // puis récupérer le lien, les id user et itineraire
-    // pour insérer tout ça dans la table picture avec la methode update()
-
+    if (req.files) {
+      const image = await itineraryController.uploadImg(req, res);
+      // puis récupérer le lien, les id user et itineraire
+      const imgData = {
+        title: image.title,
+        link: image.path,
+        user_id: itinerary.user_id,
+        itinerary_id: itinerary.id,
+      };
+      // pour insérer tout ça dans la table picture avec la methode update()
+      const imgInDb = await pictureMapper.create(imgData);
+      return res.json(itinerary, imgInDb).status(201);
+    }
     return res.json(itinerary).status(201);
   },
 
@@ -50,7 +65,7 @@ const itineraryController = {
     return res.json(itinerary).status(204);
   },
 
-  upload(req, res) {
+  uploadImg(req, res) {
     let imgUploaded = null;
     let pathUploaded = null;
     const now = Date.now();
@@ -79,7 +94,7 @@ const itineraryController = {
 
     res.json({
       path: pathUploaded,
-
+      title: imgUploaded.name,
       status: true,
       message: `${req.files.photo.name} uploaded with success`,
       data: {

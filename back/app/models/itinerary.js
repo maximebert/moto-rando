@@ -51,7 +51,7 @@ const itineraryMapper = {
       FROM "itinerary"
       LEFT JOIN "picture" p ON "itinerary"."id" = "itinerary_id"
       JOIN "user" ON "itinerary"."user_id" = "user"."id"
-      JOIN "district" ON "itinerary"."district_id" = "district"."id"
+      JOIN "district" ON "district"."itinerary_id" = "district"."id"
       WHERE "itinerary"."id" = ${itineraryId}
       GROUP BY "itinerary"."id", "user"."alias"`,
     );
@@ -72,10 +72,11 @@ const itineraryMapper = {
       highway,
       kilometer,
       curve,
-      trace,
     } = body;
-    const userId = body.user_id;
-    const districtId = body.user.district_id;
+    const trace = body.trace?body.trace:null;
+    const userId = body.user_id?body.user_id:1;
+    const districtId = body.district_id?body.district_id:1;
+    // console.log('district', districtId);
 
     // Ajout d'un itineraire à la BDD
     const result = await database.query(
@@ -119,7 +120,7 @@ const itineraryMapper = {
       trace,
     } = newItinerary;
     const userId = newItinerary.user_id;
-    const districtId = newItinerary.user.district_id;
+    const districtId = newItinerary.district_id;
 
     // Mise à jour d'un itineraire dans la BDD
 
