@@ -15,6 +15,8 @@ const RegistrationItinerary = () => {
     const [description, setDescription] = useState("");
     const [file, setFile] = useState(null);
     const [map, setMap] = useState(null);
+    const [errMsg, setErrMsg] = useState('');
+
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
@@ -53,33 +55,33 @@ const RegistrationItinerary = () => {
         <div className='form'>
             <h2>Créer un itineraire</h2>
             <form action="/itineraires/:id" encType="multipart/form-data" className='itinerary-form' onSubmit={send}>
-                <label for="title">Titre de l'itinéraire</label>
+                <label htmlFor="title">Titre de l'itinéraire</label>
                 <input id="title" type="text" placeholder="Titre de l'itinéraire" value={title} onChange={(e)=>setTitle(e.target.value)}/>
 
-                {/* <label for="map">Votre itinéraire</label>
+                {/* <label htmlFor="map">Votre itinéraire</label>
                 <input type="file" id="map"  onChange={event => {
                     const file = event.target.files[0];
                     setMap(file)
                 }}  /> */}
 
-                <label for="root">Sinuosité de la route</label>
-                <input id="root" type="number" min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
+                <label htmlFor="root">Sinuosité de la route</label>
+                <input id="root" type="number"  min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
 
-                <label for="duration">Durée de l'itinéraire</label>
+                <label htmlFor="duration">Durée de l'itinéraire</label>
                 <input id="hours" placeholder='Heures' type="number" value={hours} onChange={(e)=>setHours(e.target.value)} />
                 <input id="minutes" placeholder='Minutes' type="number" value={minutes} onChange={(e)=>setMinutes(e.target.value)} />
 
-                <label for="km">Nombre de kilomètres</label>
+                <label htmlFor="km">Nombre de kilomètres</label>
                 <input id="km" type="number" min="1" value={kilometer} onChange={(e)=>setKilometer(e.target.value)}/>
 
 
-                <label for="highway">Trajet avec autoroute</label>
-                <input type="checkbox" id="highway" value={highway} onChange={(e)=>setHighway(e.target.value)}/>
+                <label htmlFor="highway">Trajet avec autoroute</label>
+                <input  type="checkbox" id="highway" value={highway} onChange={(e)=>setHighway(e.target.value)}/>
 
-                <label for="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
+                <label htmlFor="description">Description de votre itinéraire (point de vue, endroit friendly motard,...)</label>
                 <textarea id="description" type="text" value={description} placeholder="Description de l'itinéraire "onChange={(e)=>setDescription(e.target.value)}/>
 
-                <label for="photo">Vos plus belles photos</label>
+                <label htmlFor="photo">Vos plus belles photos</label>
                 <input type="file" id="photo" accept='.jpg' name="file" onChange={event => {
                     const file = event.target.files[0];
                     setFile(file)
