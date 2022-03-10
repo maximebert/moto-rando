@@ -5,7 +5,7 @@ import './itineraryForm.scss';
 
 const ADD_ITINERARY = '/itineraires';
 
-const RegistrationItinerary = () => {
+const RegistrationItinerary = ({userId}) => {
     const [title, setTitle] = useState("");
     const [curve, setCurve] = useState();
     const [hour, setHour] = useState();
@@ -21,7 +21,7 @@ const RegistrationItinerary = () => {
     //     event.preventDefault()
     // }
 
-
+  console.log(userId)
     const send = async (e) => {
         e.preventDefault();
         const data = new FormData();
