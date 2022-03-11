@@ -12,7 +12,7 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway, hours
 
         <div className="card">
           <div className="card-header">
-            <img className='card__img' src={map === null ? 'https://fakeimg.pl/300' : ''} alt={title} />
+            <img className='card__img' src='http://localhost:3000/img/avatar-copy.jpg' alt={title} />
           </div>
           <div className="card-body">
             <h4>
