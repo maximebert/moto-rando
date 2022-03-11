@@ -9,8 +9,9 @@ import '../Home/home.scss'
 import {getAllList} from "../../request/itineraryRequest";
 
 const Home = () => {
-    const [itinerary, setItinerary] = useState([])
-    const isLogged = useSelector((state) => state.user.logged)
+    const [itinerary, setItinerary] = useState([]);
+    const isLogged = useSelector((state) => state.user.logged);
+    const userId = useSelector((state)  => state.user.id);
 
     useEffect( () => {
         async function fetchData() {
@@ -26,7 +27,7 @@ const Home = () => {
 
             <ContentItinerary itineraryList={itinerary} />
 
-            {isLogged ?  <Link to="/nouveau-itineraire" className='btn-createItinerary'>Créer votre itineraire</Link> :  (
+            {isLogged ?  <Link to={`profil/${userId}/nouveau-itineraire`} className='btn-createItinerary'>Créer votre itineraire</Link> :  (
                <Link to="/inscription" className='btn-createItinerary'>Inscrivez-vous pour créer votre itineraire</Link>
             )}
 
