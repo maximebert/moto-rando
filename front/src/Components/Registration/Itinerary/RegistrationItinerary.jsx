@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
+import { Link } from 'react-router-dom';
+
 import './itineraryForm.scss';
 
 const ADD_ITINERARY = '/itineraires';
@@ -130,9 +132,9 @@ const RegistrationItinerary = ({userId}) => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
-
-                <button className='form__btn-submit'>Valider l'itinéraire</button>
-
+                <Link to='/itineraires'>
+                  <button className='form__btn-submit'>Valider l'itinéraire</button>
+                </Link>
             </form>
         </div>
     )
