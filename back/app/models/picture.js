@@ -55,6 +55,30 @@ const pictureMapper = {
     return result.rows[0];
   },
 
+  async createMotoPic(body) {
+    console.log('body picture', body);
+    const {
+      title,
+      description,
+      link,
+    } = body;
+    const userId = Number(body.user_id);
+    const motorbikeId = body.motorbike_id;
+    console.log(title, description, link, userId, motorbikeId);
+    // Insertion d'une image dans la BDD
+    const result = await database.query(
+      `INSERT INTO "picture"
+        ("title", "description", "link", "user_id", "motorbike_id")
+        VALUES
+        ('${title}', '${description}', '${link}', '${userId}', '${motorbikeId}')
+        RETURNING *;`,
+    );
+    if (result.rowCount === 0) {
+      return null;
+    }
+    return result.rows[0];
+  },
+
   async update(id, picture) {
     const result = await database.query('SELECT * FROM "picture" WHERE id = $1', [id]);
 

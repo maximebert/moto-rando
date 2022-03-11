@@ -29,7 +29,7 @@ const itineraryController = {
       console.log('imgData', imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
-      return res.status(201).json({ itinerary, imgInDb });
+      return res.json({ itinerary, imgInDb });
     }
   },
 
@@ -94,17 +94,17 @@ const itineraryController = {
 
     console.log('image uploaded', imgUploaded);
 
-    res.json({
-      path: pathUploaded,
-      title: imgUploaded.name,
-      status: true,
-      message: `${req.files.photo.name} uploaded with success`,
-      data: {
-        name: imgUploaded.name,
-        mimetype: imgUploaded.mimetype,
-        size: imgUploaded.size,
-      },
-    });
+    // res.json({
+    //   path: pathUploaded,
+    //   title: imgUploaded.name,
+    //   status: true,
+    //   message: `${req.files.photo.name} uploaded with success`,
+    //   data: {
+    //     name: imgUploaded.name,
+    //     mimetype: imgUploaded.mimetype,
+    //     size: imgUploaded.size,
+    //   },
+    // });
     const image = {
       path: pathUploaded,
       title: imgUploaded.name,
