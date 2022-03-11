@@ -32,11 +32,11 @@ const itineraryController = {
       // uload du fichier geojson et recup de son lien
       const geoJson = await itineraryController.uploadGeoJson(req, res);
       console.log('geo', geoJson);
-      const itiId = itinerary.id;
+
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
-      const geoJsonPath = await itineraryMapper.update(itiId, { trace: geoJson });
+      const geoJsonPath = await itineraryMapper.update(req.body.itinerary_id, { trace: geoJson });
       return res.json({ itinerary, imgInDb, geoJsonPath });
     }
   },
