@@ -35,7 +35,7 @@ const OneItinerary = ({title,
                         longitude,
                         zoom,
                         latitude,
-                        data
+
 }) => {
 
     return (

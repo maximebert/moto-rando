@@ -13,6 +13,7 @@ const fileUpload = require('express-fileupload');
 const router = require('./routers');
 
 const app = express();
+require('./helpers/apiDocs')(app);
 
 app.use(
   fileUpload({
@@ -20,7 +21,6 @@ app.use(
   }),
 );
 
-require('./helpers/apiDocs')(app);
 // On active le middleware pour parser le playload JSON - remplace body-parser
 app.use(express.json());
 
@@ -29,7 +29,7 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('../images'));
+app.use(express.static('public'));
 
 app.use(router);
 
