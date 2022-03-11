@@ -36,6 +36,7 @@ const OneItinerary = ({title,
                         zoom,
                         latitude,
 
+
 }) => {
 
   const [itineraryRandom, setItineraryRandom] = useState([])

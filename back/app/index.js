@@ -4,23 +4,25 @@ Désormais notre application est un module qui est exporté, afin de pouvoir req
 */
 // const path = require('path');
 
-const cors = require('cors');
+const cors = require("cors");
 
-const express = require('express');
+const express = require("express");
 
-const fileUpload = require('express-fileupload');
+const fileUpload = require("express-fileupload");
 
-const router = require('./routers');
+const router = require("./routers");
+
+const path = require("path");
 
 const app = express();
+require("./helpers/apiDocs")(app);
 
 app.use(
   fileUpload({
     createParentPath: true,
-  }),
+  })
 );
 
-require('./helpers/apiDocs')(app);
 // On active le middleware pour parser le playload JSON - remplace body-parser
 app.use(express.json());
 
@@ -28,6 +30,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
+
 
 app.use(express.static('public'));
 
