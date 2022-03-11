@@ -3,7 +3,8 @@ const userController = require('../controllers/userController');
 const connectController = require('../controllers/connectController');
 
 // Il est prévu d'ajouter la validation des données via Joi et les schemas
-
+const validate = require('../validation');
+const userSchema = require('../validation/schemas/user');
 const controllerHandler = require('../helpers/controllerHandler');
 
 const router = express.Router();
@@ -14,13 +15,13 @@ router.post('/connexion', connectController.connexion);
 
 // Routes de récupération, de mise à jour ou de suppression d'1 utilisateur
 router.route('/:id')
-  .get(controllerHandler(userController.findOne))
-  .patch(controllerHandler(userController.update))
-  .delete(controllerHandler(userController.delete));
+  .get(validate(userSchema, 'query'), controllerHandler(userController.findOne))
+  .patch(validate(userSchema, 'body'), controllerHandler(userController.update))
+  .delete(validate(userSchema, 'query'), controllerHandler(userController.delete));
 
 // Route d'inscription
 router.route('/inscription')
-  .post(userController.inscription);
+  .post(validate(userSchema, 'body'), userController.inscription);
 
 module.exports = router;
 

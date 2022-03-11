@@ -24,7 +24,7 @@ POST http://localhost:3000/itineraires
 content-type: application/json
 
 {
-    "title": "Baux de Provence",
+    "title": "Baux de Provence5",
     "description": "venez aux baux de provence cest splendide",
     "hour": 2,
     "minute": 30,
@@ -38,7 +38,7 @@ content-type: application/json
 }
 
 ### modif itinéraire (fonctionne uniquement si on modifie la durée avec)
-PATCH  http://localhost:3000/itineraires/10
+PATCH  http://localhost:3000/itineraires/21
 content-type: application/json
 
 {
@@ -57,14 +57,14 @@ DELETE http://localhost:3000/itineraires/11
 GET http://localhost:3000/regions
 
 ### affiche une région
-GET http://localhost:3000/regions/21
+GET http://localhost:3000/regions/10
 
 
 ###################################################################################################################
 ### USERS
 
 ### rechercher un profil avec son id
-GET http://localhost:3000/profil/1
+GET http://localhost:3000/profil/7
 
 ### ajout d'un profil
 POST http://localhost:3000/profil/inscription
@@ -91,7 +91,7 @@ content-type: application/json
 }
 
 ### supprimer un profil avec son id
-DELETE http://localhost:3000/profil/13
+DELETE http://localhost:3000/profil/7
 
 
 ###################################################################################################################
@@ -101,21 +101,21 @@ DELETE http://localhost:3000/profil/13
 GET http://localhost:3000/motos
 
 ### voir une moto
-GET http://localhost:3000/motos/1
+GET http://localhost:3000/motos/7
 
 ### ajout moto
 POST http://localhost:3000/motos
 content-type: application/json
 
 {
-    "brand": "suzuki",
-    "model": "gsx1000",
-    "description": "vroom vroom",
+    "brand": "ducati",
+    "model": "monster",
+    "description": "un plaisir italien",
     "user_id": 1
 }
 
 ### modif moto
-PATCH  http://localhost:3000/motos/5
+PATCH  http://localhost:3000/motos/7
 content-type: application/json
 
 {
@@ -126,7 +126,7 @@ content-type: application/json
 }
 
 ### supprimer une moto
-DELETE http://localhost:3000/motos/10
+DELETE http://localhost:3000/motos/7
 
 ###################################################################################################################
 ### PHOTOS
@@ -155,7 +155,7 @@ PATCH  http://localhost:3000/images/10
 content-type: application/json
 
 {
-    "title": "suzuk",
+    "title": "suzuki",
     "description": "gsx1000",
     "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
     "user_id": 1,

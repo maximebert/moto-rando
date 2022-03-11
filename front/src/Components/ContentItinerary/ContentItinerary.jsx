@@ -10,12 +10,43 @@ const responsive = {
   568: { items: 2 },
   1024: { items: 3 },
   1300: { items: 4},
+  1400: { items: 5},
+
 };
 
 const ContentItinerary = ({itineraryList}) => {
-
+  console.log(itineraryList)
     return (
       <>
+        <h2 className='title'>Des balades motos à couper le souffle</h2>
+        <div className='container__card'>
+          <AliceCarousel
+            disableDotsControls
+            mouseTracking
+            responsive={responsive}
+            controlsStrategy="alternate">
+            {
+              //ici on va boucler pour récupérer une liste d'itinéraire
+              itineraryList
+                .map((itinerary) => (
+                  //c'est les infos que l'on a besoin pour afficher un itinéraire
+                  <Itinerary key={itinerary.itinerary_id}
+                             map={itinerary.pictures[0].pic_link}
+                             title={itinerary.itinerary_title}
+                             description={itinerary.itinerary_description}
+                             id={itinerary.itinerary_id}
+                             user={itinerary.user_alias}
+                             kilometer={itinerary.itinerary_kilometer}
+                             highway={itinerary.is_highway}
+                             district={itinerary.districts[0].district_name}
+                             hours={itinerary.itinerary_hour}
+                             minutes={itinerary.itineray_minute}
+                  />
+                ))
+            }
+          </AliceCarousel>
+        </div>
+        <h3 className='title-hr'>Une communauté qui aime le partage</h3>
         <h2 className='title-home'>Balades moto en Provence-Alpes-Côte d'Azur</h2>
         <div className='container__card'>
           <AliceCarousel
@@ -26,7 +57,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
               //ici on va boucler pour récupérer une liste d'itinéraire
               itineraryList
-                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur')
+                .filter((district) => district.districts[0].district_name === 'Provence-Alpes-CÃ´te dAzur' || district.districts[0].district_name === 'Provence-Alpes-Côte dAzur')
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary
@@ -47,61 +78,6 @@ const ContentItinerary = ({itineraryList}) => {
             }
           </AliceCarousel>
 
-        </div>
-
-        <h2 className='title-home'>Balades moto en Bretagne</h2>
-        <div className='container__card'>
-          <AliceCarousel
-            disableDotsControls
-            mouseTracking
-            responsive={responsive}
-            controlsStrategy="alternate">
-          {
-            //ici on va boucler pour récupérer une liste d'itinéraire
-            itineraryList
-              .filter((district) => district.districts[0].district_name === 'Bretagne')
-              .map((itinerary) => (
-                //c'est les infos que l'on a besoin pour afficher un itinéraire
-                <Itinerary key={itinerary.itinerary_id}
-                           map={itinerary.pictures[0].pic_link}
-                           title={itinerary.itinerary_title}
-                           description={itinerary.itinerary_description}
-                           id={itinerary.itinerary_id}
-                           user={itinerary.user_alias}
-                           kilometer={itinerary.itinerary_kilometer}
-                           highway={itinerary.is_highway}
-                />
-              ))
-          }
-          </AliceCarousel>
-        </div>
-
-        <h2 className='title-home'>Balades moto en Nouvelle-Aquitaine</h2>
-        <div className='container__card'>
-          <AliceCarousel
-            disableDotsControls
-            mouseTracking
-            responsive={responsive}
-            controlsStrategy="alternate">
-            {
-
-            //ici on va boucler pour récupérer une liste d'itinéraire
-            itineraryList
-              .filter((district) => district.districts[0].district_name === 'Nouvelle-Aquitaine')
-              .map((itinerary) => (
-                //c'est les infos que l'on a besoin pour afficher un itinéraire
-                <Itinerary key={itinerary.itinerary_id}
-                           map={itinerary.pictures[0].pic_link}
-                           title={itinerary.itinerary_title}
-                           description={itinerary.itinerary_description}
-                           id={itinerary.itinerary_id}
-                           user={itinerary.user_alias}
-                           kilometer={itinerary.itinerary_kilometer}
-                           highway={itinerary.is_highway}
-                />
-              ))
-          }
-            </AliceCarousel>
         </div>
       </>
 

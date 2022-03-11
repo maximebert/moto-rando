@@ -41,7 +41,7 @@ function App() {
             <Route path="*" element={<Error />} />
             {/* route privee */}
 
-            <Route path="/nouveau-itineraire" element={<RegistrationItinerary/>} />
+            <Route path="/profil/:id/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil/:id" element={<Profil />} />
             <Route path="/profil/:id/modifier" element={<ProfilUpdate/>} />
 

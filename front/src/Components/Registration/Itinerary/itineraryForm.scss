@@ -14,13 +14,25 @@
       flex-direction: column;
       padding: 0 50px;
 
-      input, textarea{
+      input:not([type="checkbox"]), textarea{
          width: 100%;
          margin: 20px 0;
          padding: 10px;
          border-radius: 5px;
          border: 1px solid $blue;
          font-family: 'Poppins', sans-serif;
+      }
+
+      .form-select{
+        border: 1px solid $blue;
+        border-radius: 5px;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        background-color: white;
+        margin: 20px 0;
       }
 
         .form__btn-submit{

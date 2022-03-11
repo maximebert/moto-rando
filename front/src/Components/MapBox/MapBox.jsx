@@ -1,17 +1,12 @@
 import React, {useEffect} from 'react'
-import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import {Link} from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
-import './map.json';
 import './mapBox.scss';
 
 const latt = 47;
 const long = 2;
-const zoom = 6.2;
-
-const position1 = [46.157293856489495, -1.1543294622502314]
-const position2 = [43.33599403684779, -0.41495834393993586]
-const position3 = [43.183805764877675, 3.01350315492017]
-const position4 = [45.90164179061724, 6.120415909532463]
+const zoom = 6;
 
 const MapBox = ({ mapData }) => {
 
@@ -27,19 +22,26 @@ const MapBox = ({ mapData }) => {
       });
     }, []);
 
-   console.log(mapData);
-   return (
+  return (
       <>
          <MapContainer className='map' style={{ height: "80vh" }} zoom={zoom} center={[latt, long]}>
             <TileLayer
                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-                 <Marker position={position1}/>
-                 <Marker position={position2}/>
-                 <Marker position={position3}/>
-                 <Marker position={position4}/>
-
+             <>
+               {
+               mapData.map((point) =>
+               <Marker
+                 key={point.itinerary_id}
+                 position={[point.districts[0].district_latitude, point.districts[0].district_longitude]}>
+                 <Popup>
+                   <Link to={`/itineraire/${point.itinerary_id}`}>{point.itinerary_title}</Link>
+                 </Popup>
+               </Marker>)
+             }
+             </>
+           }
          </MapContainer>
       </>
 

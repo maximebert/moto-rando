@@ -1,6 +1,6 @@
 const database = require('./database');
 
-const motorbikeMapper = {
+const districtMapper = {
   // Route non utilisée, mais prête pour d'éventuelles nouvelles fonctionnalités
   async findAll() {
     const result = await database.query(
@@ -8,7 +8,7 @@ const motorbikeMapper = {
     );
 
     if (!result.rows) {
-      throw new Error('No record available in table "motorbike"');
+      throw new Error('No record available in table "district"');
     }
     return result.rows;
   },
@@ -39,3 +39,4 @@ const motorbikeMapper = {
  */
 
 module.exports = motorbikeMapper;
+

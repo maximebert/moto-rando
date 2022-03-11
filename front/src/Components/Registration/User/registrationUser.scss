@@ -30,7 +30,7 @@ img {
 
 
 // iOS Reset
-input {
+input:not([type="checkbox"]) {
   appearance: none;
   border-radius: 0;
 }
