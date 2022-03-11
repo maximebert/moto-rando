@@ -102,11 +102,11 @@ const RegistrationItinerary = ({userId}) => {
                 </select>
 
 
-                {/* <label htmlFor="map">Votre itinéraire</label>
+                <label htmlFor="map">Votre itinéraire</label>
                 <input type="file" id="map"  onChange={event => {
                     const file = event.target.files[0];
                     setMap(file)
-                }}  /> */}
+                }}  />
 
                 <label htmlFor="root">Sinuosité de la route</label>
                 <input id="root" type="number"  min="1" max="5" placeholder='Type de route' value={curve} onChange={(e)=>setCurve(e.target.value)} />
@@ -132,9 +132,9 @@ const RegistrationItinerary = ({userId}) => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
-                <Link to='/itineraires'>
+                {/* <Link to='/itineraires'> */}
                   <button className='form__btn-submit'>Valider l'itinéraire</button>
-                </Link>
+                {/* </Link> */}
             </form>
         </div>
     )

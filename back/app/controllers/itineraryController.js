@@ -17,6 +17,7 @@ const itineraryController = {
     // Si mon itineraire a été créé et récupéré,
     // je veux ajouter l'image en utilisant ma methode uploadImg()
     if (req.files) {
+      // upload de l'image de l'itineraire
       const image = await itineraryController.uploadImg(req, res);
       console.log('image', image);
       // puis récupérer le lien, les id user et itineraire
@@ -27,9 +28,16 @@ const itineraryController = {
         itinerary_id: itinerary.id,
       };
       console.log('imgData', imgData);
+
+      // uload du fichier geojson et recup de son lien
+      const geoJson = await itineraryController.uploadGeoJson(req, res);
+      console.log('geo', geoJson);
+      const itiId = itinerary.id;
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
-      return res.json({ itinerary, imgInDb });
+      // pour insérer tout ça dans la table picture avec la methode update()
+      const geoJsonPath = await itineraryMapper.update(itiId, { trace: geoJson });
+      return res.json({ itinerary, imgInDb, geoJsonPath });
     }
   },
 
@@ -94,22 +102,40 @@ const itineraryController = {
 
     console.log('image uploaded', imgUploaded);
 
-    // res.json({
-    //   path: pathUploaded,
-    //   title: imgUploaded.name,
-    //   status: true,
-    //   message: `${req.files.photo.name} uploaded with success`,
-    //   data: {
-    //     name: imgUploaded.name,
-    //     mimetype: imgUploaded.mimetype,
-    //     size: imgUploaded.size,
-    //   },
-    // });
     const image = {
       path: pathUploaded,
       title: imgUploaded.name,
     };
     return image;
+  },
+
+  uploadGeoJson(req, res) {
+    let geoUploaded = null;
+    let pathUploaded = null;
+    const now = Date.now();
+
+    if (!req.files) {
+      res.status(400).send({
+        status: false,
+        message: 'No file uploaded',
+      });
+    }
+
+    geoUploaded = req.files.map;
+    pathUploaded = `${__dirname}/../geoJson/${now}_${geoUploaded.name}`;
+
+    // console.log('img', imgUploaded);
+    // console.log('path', pathUploaded);
+    // console.log('mv', imgUploaded.mv);
+
+    geoUploaded.mv(pathUploaded, (err) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+    });
+
+    const geoJsonPath = pathUploaded;
+    return geoJsonPath;
   },
 
 };

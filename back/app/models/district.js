@@ -38,5 +38,4 @@ const districtMapper = {
  * @property {number} picture_id
  */
 
-module.exports = motorbikeMapper;
-
+module.exports = districtMapper;
