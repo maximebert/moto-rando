@@ -31,7 +31,7 @@ const motorbikeMapper = {
 };
 
 /**
- * @typedef {object} district
+ * @typedef {object} District
  * @property {number} id
  * @property {number} user_id
  * @property {number} motorbike_id

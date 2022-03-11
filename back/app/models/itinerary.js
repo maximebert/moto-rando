@@ -158,8 +158,7 @@ const itineraryMapper = {
 };
 
 /**
- * @typedef {object} itinerary
- * @typedef {object} Error
+ * @typedef {object} Itinerary
  * @property {number} id
  * @property {string} title
  * @property {string} description

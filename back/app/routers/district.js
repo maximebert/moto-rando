@@ -18,15 +18,15 @@ router.route('/:id')
 module.exports = router;
 
 /**
- * GET /districts
+ * GET /regions
  * @summary Get all districts
- * @tags districts - districts management
+ * @tags Districts - districts management
  */
 /**
- * GET /district/{id}
+ * GET /regions/{id}
  * @summary Get a one district
- * @tags districts - districts management
+ * @tags Districts - districts management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {district} 200 - district object
- * @returns {Error} 404 - Input data invalid
+ * @return {District} 200 - district object
+ * @return {object} 404 - Input data invalid
  */

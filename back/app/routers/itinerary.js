@@ -29,18 +29,18 @@ module.exports = router;
 /**
  * GET /itineraires
  * @summary Get all itineraries
- * @tags itineraires - itinerary management
- * @returns {itinerary} 200 - itinerary object
- * @returns {Error} 404 - Input data invalid
+ * @tags Itineraires - itinerary management
+ * @return {Itinerary} 200 - itinerary object
+ * @return {object} 404 - Input data invalid
  */
 
 /**
- * POST /itineraire
+ * POST /itineraires
  * @summary Send new word and get a itinerary
  * @tags Itineraires - itinerary management
  * @param {string} body.required - the first part of a sentence
- * @returns {itinerary} 200 - itinerary object
- * @returns {error} 404 - Input data invalid
+ * @return {Itinerary} 200 - itinerary object
+ * @return {object} 404 - Input data invalid
 
  */
 /**
@@ -48,22 +48,21 @@ module.exports = router;
  * @summary Get a one itinerary
  * @tags Itineraires - itinerary management
  * @param {string} id.path.required - the first part of a sentence
- * @returns {itinerary} 200 - itinerary object
- * @returns {Error} 404 - Input data invalid
+ * @return {Itinerary} 200 - itinerary object
+ * @return {object} 404 - Input data invalid
  */
 /**
- * PATCH /itineraire/{id}
+ * PATCH /itineraires/{id}
  * @summary update one itinerary
  * @tags Itineraires - itinerary management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {itinerary} 200 - itinerary object
- * @returns {Error} 404 - Input data invalid
+ * @return {Itinerary} 200 - itinerary object
+ * @return {object} 404 - Input data invalid
  */
 /**
- * * DELETE /itineraire/{id}
+ * DELETE /itineraires/{id}
  * @summary delete a one itinary
- * @tags itineraires - itinerary management
+ * @tags Itineraires - itinerary management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {itinerary} 204 - itinerary object
- * @returns {Error} 404 - Input data invalid
+ * @return {object} 404 - Input data invalid
  */

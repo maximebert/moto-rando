@@ -29,8 +29,8 @@ module.exports = router;
 * @summary User authentication
 * @tags User - User management
 * @param {string} body.required - the first part of a sentence
-* @returns {User} 200 - user object
-* @returns {Error} 500 - Input data invalid
+* @return {User} 200 - user object
+* @return {object} 500 - Input data invalid
 */
 
 /**
@@ -38,8 +38,8 @@ module.exports = router;
 * @summary Get a one user
 * @tags User - User management
 * @param {number} id.path.required - the first part of a sentence
-* @returns {User} 200 - user object
-* @returns {Error} 404 - Input data invalid
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
 */
 
 /**
@@ -47,8 +47,8 @@ module.exports = router;
 * @summary Update a user
 * @tags User - User management
 * @param {number} id.path.required - the first part of a sentence
-* @returns {User} 200 - user object
-* @returns {Error} 404 - Input data invalid
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
 */
 
 /**
@@ -56,8 +56,7 @@ module.exports = router;
 * @summary Delete a one picture
 * @tags User - User management
 * @param {number} id.path.required - the first part of a sentence
-* @returns {User} 200 - user object
-* @returns {Error} 404 - Input data invalid
+* @return {object} 404 - Input data invalid
 */
 
 /**
@@ -68,6 +67,6 @@ module.exports = router;
 * @param {string} email - Email
 * @param {string} password - Password
 * @param {string} confirmPassword - Confirm password
-* @returns {User} 200 - user object
-* @returns {Error} 404 - Input data invalid
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
 */

@@ -21,42 +21,41 @@ router.route('/:id')
 module.exports = router;
 
 /**
- * GET /motorbikes
+ * GET /motos
  * @summary Get all motorbikes
  * @tags Motorbikes - Motorbikes management
- * @returns {motorbike} 200 - motorbike object (ok)
+ * @return {array<Motorbike>} 200 - motorbike object (ok)
  */
 
 /**
- * POST /motorbike
+ * POST /motos
  * @summary Send new word and get a motorbike
  * @tags Motorbikes - Motorbikes management
  * @param {string} body.required - the first part of a sentencesentence
- * @returns {motorbike} 201 - motorbike object (ok)
+ * @return {Motorbike} 201 - motorbike object (ok)
 
  */
 /**
- * GET /motorbikes/{id}
+ * GET /motos/{id}
  * @summary Get a one motorbike
  * @tags Motorbikes - Motorbikes management
  * @param {number} id.path.required- the first part of a sentence
- * @returns {motorbike} 200 - motorbike object (ok)
- * @returns {Error}
+ * @return {Motorbike} 200 - motorbike object (ok)
+ * @return {object}
 
  */
 /**
- * PATCH /motorbikes/{id}
+ * PATCH /motos/{id}
  * @summary Update one itinary
  * @tags Motorbikes - Motorbikes management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {motorbike} 200 - motorbike object (ok)
- * @returns {Error} 404 - Input data invalid
+ * @return {Motorbike} 200 - motorbike object (ok)
+ * @return {object} 404 - Input data invalid
 
  */
 /**
- * DELETE /motorbikes/{id}
+ * DELETE /motos/{id}
  * @summary delete a one motorbike
  * @tags Motorbikes - Motorbikes management
  * @param {number} id.path.required- the first part of a sentence
- * @returns {motorbike} 200 - motorbike object (ok)
  */

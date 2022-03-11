@@ -25,17 +25,17 @@ module.exports = router;
  * GET /images
  * @summary Get all pictures
  * @tags Pictures - Picture management
- * @returns {array} 200 - Pictures array
- * @returns {Error} 404 - Input data invalid
+ * @return {array<Picture>} 200 - Pictures array
+ * @return {object} 404 - Input data invalid
  */
 
 /**
- * POST /image
+ * POST /images
  * @summary Send new word and get a picture
  * @tags Pictures - Picture management
  * @param {string} body.required - the first part of a sentencesentence
- * @returns {Picture} 200 - picture object
- * @returns {Error} 404 - Input data invalid
+ * @return {Picture} 200 - picture object
+ * @return {object} 404 - Input data invalid
 */
 
 /**
@@ -43,8 +43,8 @@ module.exports = router;
  * @summary Get a one picture
  * @tags Pictures - Picture management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {Picture} 200 - picture object
- * @returns {Error} 404 - Input data invalid
+ * @return {Picture} 200 - picture object
+ * @return {object} 404 - Input data invalid
  */
 
 /**
@@ -52,8 +52,8 @@ module.exports = router;
  * @summary Update a picture
  * @tags Pictures - Picture management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {Picture} 200 - picture object
- * @returns {Error} 404 - Input data invalid
+ * @return {Picture} 200 - picture object
+ * @return {object} 404 - Input data invalid
  */
 
 /**
@@ -61,5 +61,5 @@ module.exports = router;
  * @summary Delete a picture
  * @tags Pictures - Picture management
  * @param {number} id.path.required - the first part of a sentence
- * @returns {Error} 404 - Input data invalid
+ * @return {object} 404 - Input data invalid
  */
