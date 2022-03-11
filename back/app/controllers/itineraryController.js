@@ -18,6 +18,7 @@ const itineraryController = {
     // je veux ajouter l'image en utilisant ma methode uploadImg()
     if (req.files) {
       const image = await itineraryController.uploadImg(req, res);
+      console.log('image', image);
       // puis récupérer le lien, les id user et itineraire
       const imgData = {
         title: image.title,
@@ -27,8 +28,8 @@ const itineraryController = {
       };
       console.log('imgData', imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
-      const imgInDb = await pictureMapper.create(imgData);
-      return res.json(itinerary, imgInDb).status(201);
+      const imgInDb = await pictureMapper.createItiPic(imgData);
+      return res.json({ itinerary, imgInDb });
     }
   },
 
@@ -91,20 +92,24 @@ const itineraryController = {
       }
     });
 
-    console.log(imgUploaded);
+    console.log('image uploaded', imgUploaded);
 
-    res.json({
+    // res.json({
+    //   path: pathUploaded,
+    //   title: imgUploaded.name,
+    //   status: true,
+    //   message: `${req.files.photo.name} uploaded with success`,
+    //   data: {
+    //     name: imgUploaded.name,
+    //     mimetype: imgUploaded.mimetype,
+    //     size: imgUploaded.size,
+    //   },
+    // });
+    const image = {
       path: pathUploaded,
       title: imgUploaded.name,
-      status: true,
-      message: `${req.files.photo.name} uploaded with success`,
-      data: {
-        name: imgUploaded.name,
-        mimetype: imgUploaded.mimetype,
-        size: imgUploaded.size,
-      },
-
-    });
+    };
+    return image;
   },
 
 };
