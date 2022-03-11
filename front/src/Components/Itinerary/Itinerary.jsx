@@ -42,32 +42,6 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway, hours
         </div>
         </div>
 
-
-
-        // <div className='card'>
-        //   <Link to={`/itineraire/${id}`}><div className='card__title'>{title}</div></Link>
-        //    <img className='card__img' src={map} alt={title} />
-        //     <div className='card__description'>
-        //         <div className='card__description-icon'>
-        //             <p>Durée <AiOutlineFieldTime className='icon' /></p>
-        //             <span>3h</span>
-        //         </div>
-        //         <div className='card__description-icon'>
-        //             <p>Distance <GiPathDistance className='icon' /></p>
-        //             <span>{kilometer} km</span>
-        //         </div>
-        //         <div className='card__description-icon'>
-        //             <p>Autoroute</p>
-        //             <span className='icon'>{highway === true ? <FaRoad /> : <FaRegWindowClose />}</span>
-        //         </div>
-        //     </div>
-        //     <p className='description'>{description}</p>
-        //
-        //     <span className='card__user'>
-        //         <BiUserCircle className='icon' />
-        //         {user}
-        //     </span>
-
     )
 }
 

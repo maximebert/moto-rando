@@ -38,17 +38,11 @@ const Profil = () => {
         <div className='profil'>
           <h1>Profil</h1>
           {!isLoading && (
-
-            <div>
-            <User  id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation}/>
-            <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
-            <Link to={`/profil/${profilID.user_id}/modifier`} >
-              <button >Modifier mon profil</button>
-            </Link>
+            <div className='profil__detail'>
+              <User  id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation}/>
+              <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
             </div>
           )}
-
-
         </div>
     )
 }
