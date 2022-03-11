@@ -28,6 +28,7 @@ const ContentItinerary = ({itineraryList}) => {
             {
               //ici on va boucler pour récupérer une liste d'itinéraire
               itineraryList
+                .slice(0).reverse()
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary key={itinerary.itinerary_id}

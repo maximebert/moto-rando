@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/OneItinerary/Itinerary'
+import {getAllList} from "../../request/itineraryRequest";
 
 
 const OneItinerary = () => {
@@ -12,7 +13,7 @@ const OneItinerary = () => {
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams()
     // console.log(params);
-
+    const [itineraryRandom, setItineraryRandom] = useState([])
     useEffect( () => {
             // const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
             // setItineraryID(response.data);
@@ -26,6 +27,7 @@ const OneItinerary = () => {
 
     }, []);
     console.log(itineraryID)
+  
     // console.log(itineraryID.districts[0].district_latitude);
     return (
         <div>

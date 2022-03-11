@@ -25,11 +25,15 @@
        width: 300px;
        text-align: center;
        margin: 0 auto;
+       cursor: pointer;
      }
 
       .range-input{
         appearance: auto !important;
       }
+     span{
+       color: red;
+     }
    }
 
     .itinerary__button-submit{
@@ -123,7 +127,19 @@ button{
   }
 }
 .filter-btn{
-  display: flex;
-  justify-content: space-around;
   margin: 20px 0;
+  &-changeFilter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    p{
+      font-size: 0.8rem;
+    }
+    button{
+      margin: 5px;
+      .active{
+        background-color: $blue;
+      }
+    }
+  }
 }
