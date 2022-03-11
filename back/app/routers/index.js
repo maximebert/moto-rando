@@ -20,8 +20,12 @@ const router = express.Router();
 
 // Un préfixe ça veut la route commence par. Donc l'ordre est important
 
-// On préfixe les routers
+// Dans le cas où l'on souhaiterais restreindre l'accès à nos fichiers public nous pouvons
+// faire une route qui nous permettra de placer un token pour l'acces
 
+// router.use('/public', express.static('public'));
+
+// On préfixe les routers
 router.use('/profil', userRouter);
 router.use('/itineraires', itinaryRouter);
 router.use('/motos', motorbikeRouter);
