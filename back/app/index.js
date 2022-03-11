@@ -20,6 +20,7 @@ app.use(
   }),
 );
 
+require('./helpers/apiDocs')(app);
 // On active le middleware pour parser le playload JSON - remplace body-parser
 app.use(express.json());
 

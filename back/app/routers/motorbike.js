@@ -22,42 +22,41 @@ router.route('/:id')
 module.exports = router;
 
 /**
- *  * GET /findAll
-     * @summary Get all motorbikes
-     * @tags Generate - Routes to get all motorbikes
-     * @param {string} request.query - the first part of a sentence
-     * @returns {motorbike} 200 - motorbike object (ok)
+ * GET /motos
+ * @summary Get all motorbikes
+ * @tags Motorbikes - Motorbikes management
+ * @return {array<Motorbike>} 200 - motorbike object (ok)
  */
 
 /**
- * * POST /new
-     * @summary Send new word and get a motorbike
-     * @tags Store - Routes to save end get a motorbike
-     * @param {string} body.required - the first part of a sentencesentence
-     * @returns {motorbike} 200 - motorbike object (ok)
+ * POST /motos
+ * @summary Send new word and get a motorbike
+ * @tags Motorbikes - Motorbikes management
+ * @param {string} body.required - the first part of a sentencesentence
+ * @return {Motorbike} 201 - motorbike object (ok)
 
  */
 /**
- * * GET(/:id)
-     * @summary Get a one motorbike
-     * @tags Generate - Routes to get one motorbike
-     * @param {string} request.query - the first part of a sentence
-     * @returns {motorbike} 200 - motorbike object (ok)
+ * GET /motos/{id}
+ * @summary Get a one motorbike
+ * @tags Motorbikes - Motorbikes management
+ * @param {number} id.path.required- the first part of a sentence
+ * @return {Motorbike} 200 - motorbike object (ok)
+ * @return {object}
 
  */
 /**
- * * PATCH(/:id)
-     * @summary Update one itinary
-     * @tags Generate - Generate - Routes to get one motorbike
-     * @param {string} request.query - the first part of a sentence
-     * @returns {motorbike} 200 - motorbike object (ok)
+ * PATCH /motos/{id}
+ * @summary Update one itinary
+ * @tags Motorbikes - Motorbikes management
+ * @param {number} id.path.required - the first part of a sentence
+ * @return {Motorbike} 200 - motorbike object (ok)
+ * @return {object} 404 - Input data invalid
 
  */
 /**
- * * DELETE(/:id)
-     * @summary delete a one motorbike
-     * @tags Generate - Generate - Routes to get deleting one motorbike
-     * @param {string} request.query - the first part of a sentence
-     * @returns {motorbike} 200 - motorbike object (ok)
-
+ * DELETE /motos/{id}
+ * @summary delete a one motorbike
+ * @tags Motorbikes - Motorbikes management
+ * @param {number} id.path.required- the first part of a sentence
  */

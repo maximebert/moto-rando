@@ -10,6 +10,7 @@ const controllerHandler = require('../helpers/controllerHandler');
 const router = express.Router();
 
 // Route de de connexion d'un utilisateur
+
 router.post('/connexion', connectController.connexion);
 
 // Routes de récupération, de mise à jour ou de suppression d'1 utilisateur
@@ -25,42 +26,48 @@ router.route('/inscription')
 module.exports = router;
 
 /**
- * * POST(/connexion)
-     * @summary user authentication
-     * @tags Store - Routes to authenticate a user
-     * @param {string} body.required - the first part of a sentence
-     * @returns {userController} 200 - user object
-     * @returns {Error} 500 - Input data invalid
- */
+* POST /profil/connexion
+* @summary User authentication
+* @tags User - User management
+* @param {string} body.required - the first part of a sentence
+* @return {User} 200 - user object
+* @return {object} 500 - Input data invalid
+*/
+
 /**
- * * GET(/:id)
-     * @summary Get a one user
-     * @tags Generate - Routes to get one user
-     * @param {string} request.query - the first part of a sentence
-     * @returns {userController} 200 - user object
-     * @returns {Error} 404 - Input data invalid
- */
+* GET /profil/{id}
+* @summary Get a one user
+* @tags User - User management
+* @param {number} id.path.required - the first part of a sentence
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
+*/
+
 /**
- * * PATCH(/:id)
-     * @summary Update a user
-     * @tags Generate - Routes to get one user
-     * @param {string} request.query - the first part of a sentence
-     * @returns {pictureController} 200 - user object
-     * @returns {Error} 404 - Input data invalid
- */
+* PATCH /profil/{id}
+* @summary Update a user
+* @tags User - User management
+* @param {number} id.path.required - the first part of a sentence
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
+*/
+
 /**
- * * DELETE(/:id)
-     * @summary delete a one picture
-     * @tags Generate - Routes to deleting a user
-     * @param {string} request.query - the first part of a sentence
-     * @returns {pictureController} 200 - user object
-     * @returns {Error} 404 - Input data invalid
- */
+ * DELETE /profil/{id}
+* @summary Delete a one picture
+* @tags User - User management
+* @param {number} id.path.required - the first part of a sentence
+* @return {object} 404 - Input data invalid
+*/
+
 /**
- * * POST(/inscription)
-     * @summary Send new word and get a user
-     * @tags Store - Routes to use to register a user
-     * @param {string} body.required - the first part of a sentence
-     * @returns {pictureController} 200 - user object
-     * @returns {Error} 404 - Input data invalid
- */
+ * POST /profil/inscription
+* @summary Send new word and get a user
+* @tags User - User management
+* @param {string} alias - Username
+* @param {string} email - Email
+* @param {string} password - Password
+* @param {string} confirmPassword - Confirm password
+* @return {User} 200 - user object
+* @return {object} 404 - Input data invalid
+*/

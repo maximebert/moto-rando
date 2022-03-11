@@ -106,4 +106,13 @@ const motorbikeMapper = {
   },
 };
 
+/**
+ * @typedef {object} Motorbike
+ * @property {number} id
+ * @property {string} brand
+ * @property {string} model
+ * @property {string} description
+ * @property {number} user_id
+ */
+
 module.exports = motorbikeMapper;

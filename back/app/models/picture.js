@@ -130,4 +130,15 @@ const pictureMapper = {
   },
 };
 
+/**
+ * @typedef {object} Picture
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {string} link
+ * @property {number} user_id
+ * @property {number} motorbike_id
+ * @property {number} itinerary_id
+ */
+
 module.exports = pictureMapper;

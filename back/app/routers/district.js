@@ -17,3 +17,17 @@ router.route('/:id')
   .get(validate(districtSchema, 'query'), controllerHandler(districtController.findOne));
 
 module.exports = router;
+
+/**
+ * GET /regions
+ * @summary Get all districts
+ * @tags Districts - districts management
+ */
+/**
+ * GET /regions/{id}
+ * @summary Get a one district
+ * @tags Districts - districts management
+ * @param {number} id.path.required - the first part of a sentence
+ * @return {District} 200 - district object
+ * @return {object} 404 - Input data invalid
+ */

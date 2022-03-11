@@ -30,4 +30,13 @@ const districtMapper = {
 
 };
 
-module.exports = districtMapper;
+/**
+ * @typedef {object} District
+ * @property {number} id
+ * @property {number} user_id
+ * @property {number} motorbike_id
+ * @property {number} picture_id
+ */
+
+module.exports = motorbikeMapper;
+
