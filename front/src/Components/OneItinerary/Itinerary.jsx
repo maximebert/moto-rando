@@ -35,7 +35,9 @@ const OneItinerary = ({title,
                         longitude,
                         zoom,
                         latitude,
+
 }) => {
+
   const [itineraryRandom, setItineraryRandom] = useState([])
   useEffect( () => {
 
@@ -45,7 +47,7 @@ const OneItinerary = ({title,
     }
     fetchData();
   }, []);
-
+  console.log('user', user);
     return (
       <>
       <MyMap zoom={zoom} latitude={latitude} longitude={longitude} />

@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from '../../../api/axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 import './itineraryForm.scss';
 
@@ -20,7 +21,7 @@ const RegistrationItinerary = ({userId}) => {
     const [valueDistrict, setValueDistrict] = useState('');
     const [district, setDistrict] = useState([]);
 
-
+    const navigate = useNavigate();
     // const handleOnSubmit =(event)=>{
     //     event.preventDefault()
     // }
@@ -73,6 +74,7 @@ const RegistrationItinerary = ({userId}) => {
             setDescription('');
             setFile(null);
             setMap(null);
+            navigate('/');
         } catch (err) {
           console.log(err);
         }
@@ -132,9 +134,9 @@ const RegistrationItinerary = ({userId}) => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
-                {/* <Link to='/itineraires'> */}
-                  <button className='form__btn-submit'>Valider l'itinéraire</button>
-                {/* </Link> */}
+
+                  <button className='form__btn-submit' target="'/itineraires'" >Valider l'itinéraire</button>
+
             </form>
         </div>
     )
