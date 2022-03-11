@@ -36,19 +36,8 @@ const OneItinerary = ({title,
                         zoom,
                         latitude,
 
-
 }) => {
 
-  const [itineraryRandom, setItineraryRandom] = useState([])
-  useEffect( () => {
-
-    async function fetchData() {
-      const response = await getAllList();
-      setItineraryRandom(response.data)
-    }
-    fetchData();
-  }, []);
-  console.log('user', user);
     return (
       <>
       <MyMap zoom={zoom} latitude={latitude} longitude={longitude} />
@@ -104,38 +93,6 @@ const OneItinerary = ({title,
               </div>
             </Carousel>
             </div>
-          <div className='card-suggestion'>
-            <div className='container-card'>
-              <h5 className='title-description'>Suggestion de balades</h5>
-              <AliceCarousel
-                disableDotsControls
-                mouseTracking
-                responsive={responsive}
-                controlsStrategy="alternate">
-                {
-                  itineraryRandom
-                    .slice(0, 10)
-                    .map((itinerary) => (
-                      <Itinerary
-                        className='item'
-                        data-value={itinerary.itinerary_id}
-                        key={itinerary.itinerary_id}
-                        map={itinerary.pictures[0].pic_link}
-                        title={itinerary.itinerary_title}
-                        description={itinerary.itinerary_description}
-                        id={itinerary.itinerary_id}
-                        user={itinerary.user_alias}
-                        district={itinerary.districts[0].district_name}
-                        kilometer={itinerary.itinerary_kilometer}
-                        highway={itinerary.is_highway}
-                        hours={itinerary.itinerary_hour}
-                        minutes={itinerary.itineray_minute}
-                      />
-                    ))
-                }
-              </AliceCarousel>
-            </div>
-          </div>
           </div>
         </>
     )

@@ -23,10 +23,10 @@ const InputFilterItinerary = ({data}) => {
   }, []);
   console.log(district)
 
-  const [valueDistrict, setValueDistrict] = useState('')
+  const [valueDistrict, setValueDistrict] = useState('Choisissez une region')
   const [rangeValue, setRangeValue] = useState(1);
   const [rangeValueDistance, setRangeValueDistance] = useState(50);
-  const [isCrescent, setIsCrescent] = useState(false);
+  const [isCrescent, setIsCrescent] = useState();
   const [isHighway, setIsHighway] = useState(true);
 
   // select pour la region
@@ -39,24 +39,32 @@ const InputFilterItinerary = ({data}) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   };
 
-  const handleChangeTri = (e) => {
+  const handleChangeUp = (e) => {
     e.preventDefault();
-    setIsCrescent((a) => !a)
+    setIsCrescent(false)
+  }
+  const handleChangeDown = (e) => {
+    e.preventDefault();
+    setIsCrescent(true)
   }
 
-  const handleChangeHighway = (e) => {
+  const handleChangeHighwayYes = (e) => {
     e.preventDefault();
-    setIsHighway((a) => !a)
+    setIsHighway(true)
   }
-
+  const handleChangeHighwayNo = (e) => {
+    e.preventDefault();
+    setIsHighway(false)
+  }
     return (
         <>
             <h2 className='itinerary__title'>RECHERCHE DE BALADE MOTO</h2>
             <form className='itinerary__form'>
                 <div className='itinerary__form-district'>
 
-                  <label>Où souhaitez-vous vous balader ?</label>
+                  <label>Où souhaitez-vous vous balader ? <span>*</span></label>
                     <select value={valueDistrict} onChange={handleChangeDistrict}>
+                      <option value='Choisissez une region'>Choisissez une region</option>
                       {
                         district.map((region, index) => (
                           <option
@@ -84,43 +92,23 @@ const InputFilterItinerary = ({data}) => {
                     </p>
                   </ul>
 
-                  <label>Sinuosite de la route</label>
-                  <ul className="range-container">
-                    <input
-                      className='range-input'
-                      type="range"
-                      min="1"
-                      max="5"
-                      defaultValue={rangeValue}
-                      onChange={(e) => setRangeValue(e.target.value)}
-                    />
-                    <p>
-                      {numberFormat(rangeValue)}
-                    </p>
-                  </ul>
-
                   <div className='filter-btn'>
-                    <div>
-                      {isCrescent ? (
-                        <button onClick={handleChangeTri}>Plus longue distance</button>
-                      ) : (
-                        <button onClick={handleChangeTri}>Plus petite distance</button>
-                      )}
-                    </div>
-                    <div>
-                      {
-                        isHighway ? (
-                          <button onClick={handleChangeHighway}>Balade sans autoroutes </button>
-                        ) : (
-                          <button onClick={handleChangeHighway}>Balade avec autoroutes </button>
-                        )
-                      }
+                    <div className='filter-btn-changeFilter'>
+                      <div>
+                        <p>Trier par</p>
+                        <button onClick={handleChangeUp}>Longue distance</button>
+                        <button onClick={handleChangeDown}>Petite distance</button>
+                      </div>
+
+                      <div>
+                        <p>Trier par <span>*</span></p>
+                        <button onClick={handleChangeHighwayYes}>Éviter l'autoroute</button>
+                        <button onClick={handleChangeHighwayNo}>Avec autoroute </button>
+                      </div>
                     </div>
                   </div>
                 </div>
             </form>
-
-
 
             <div className='container__card'>
               <AliceCarousel
@@ -128,40 +116,38 @@ const InputFilterItinerary = ({data}) => {
                 mouseTracking
                 responsive={responsive}
                 controlsStrategy="alternate">
-
                 {
-                    data
-                      .filter((district) => district.districts[0].district_name.includes(valueDistrict))
-                      .filter((distance) => distance.itinerary_kilometer > rangeValueDistance)
-                      .filter((curve) => curve.itinerary_curve > rangeValue)
-                      .filter((highway) => {
-                        if(isHighway === false){
-                          return highway.is_highway === false
-                        } else {
-                          return highway.is_highway === true
-                        }
-                      })
-                      .sort((a, b) => {
-                        if(isCrescent) {
-                          return a.itinerary_kilometer - b.itinerary_kilometer;
-                        } else {
-                          return b.itinerary_kilometer - a.itinerary_kilometer
-                        }
-                      })
-                      .map((item) => (
-                            <Itinerary key={item.itinerary_id}
-                                       map={item.pictures[0].pic_link}
-                                       title={item.itinerary_title}
-                                       description={item.itinerary_description}
-                                       id={item.itinerary_id}
-                                       user={item.user_alias}
-                                       kilometer={item.itinerary_kilometer}
-                                       highway={item.is_highway}
-                                       hours={item.itinerary_hour}
-                                       minutes={item.itineray_minute}
-                            />
-                          )
-                    )
+                  data
+                    .filter((district) => district.districts[0].district_name.includes(valueDistrict))
+                    .filter((distance) => distance.itinerary_kilometer > rangeValueDistance)
+                    .filter((highway) => {
+                      if(isHighway === false){
+                        return highway.is_highway === false
+                      } else {
+                        return highway.is_highway === true
+                      }
+                    })
+                    .sort((a, b) => {
+                      if(isCrescent) {
+                        return a.itinerary_kilometer - b.itinerary_kilometer;
+                      } else {
+                        return b.itinerary_kilometer - a.itinerary_kilometer
+                      }
+                    })
+                    .map((item) => (
+                        <Itinerary key={item.itinerary_id}
+                                   map={item.pictures[0].pic_link}
+                                   title={item.itinerary_title}
+                                   description={item.itinerary_description}
+                                   id={item.itinerary_id}
+                                   user={item.user_alias}
+                                   kilometer={item.itinerary_kilometer}
+                                   highway={item.is_highway}
+                                   hours={item.itinerary_hour}
+                                   minutes={item.itineray_minute}
+                        />
+                      )
+                  )
                 }
               </AliceCarousel>
             </div>
