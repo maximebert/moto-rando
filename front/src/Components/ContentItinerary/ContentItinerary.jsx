@@ -15,7 +15,6 @@ const responsive = {
 };
 
 const ContentItinerary = ({itineraryList}) => {
-  console.log(itineraryList)
     return (
       <>
         <h2 className='title'>Des balades motos à couper le souffle</h2>
@@ -47,8 +46,11 @@ const ContentItinerary = ({itineraryList}) => {
             }
           </AliceCarousel>
         </div>
+
         <h3 className='title-hr'>Une communauté qui aime le partage</h3>
+        
         <h2 className='title-home'>Balades moto en Provence-Alpes-Côte d'Azur</h2>
+
         <div className='container__card'>
           <AliceCarousel
             disableDotsControls
@@ -62,18 +64,18 @@ const ContentItinerary = ({itineraryList}) => {
                 .map((itinerary) => (
                   //c'est les infos que l'on a besoin pour afficher un itinéraire
                   <Itinerary
-                            className='item'
-                            data-value={itinerary.itinerary_id}
-                            key={itinerary.itinerary_id}
-                             map={itinerary.pictures[0].pic_link}
-                             title={itinerary.itinerary_title}
-                             description={itinerary.itinerary_description}
-                             id={itinerary.itinerary_id}
-                             user={itinerary.user_alias}
-                             kilometer={itinerary.itinerary_kilometer}
-                             highway={itinerary.is_highway}
-                            hours={itinerary.itinerary_hour}
-                            minutes={itinerary.itineray_minute}
+                              className='item'
+                              data-value={itinerary.itinerary_id}
+                              key={itinerary.itinerary_id}
+                              map={itinerary.pictures[0].pic_link}
+                              title={itinerary.itinerary_title}
+                              description={itinerary.itinerary_description}
+                              id={itinerary.itinerary_id}
+                              user={itinerary.user_alias}
+                              kilometer={itinerary.itinerary_kilometer}
+                              highway={itinerary.is_highway}
+                              hours={itinerary.itinerary_hour}
+                              minutes={itinerary.itineray_minute}
                   />
                 ))
             }
