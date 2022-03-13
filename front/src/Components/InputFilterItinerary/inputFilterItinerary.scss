@@ -13,14 +13,14 @@
 }
 
 .container__card{
-  .emptyList{
+  .empty span{
     color: $yellow;
     text-align: center;
     background-color: $grey;
     width: 300px;
     display: block;
     margin: 0 auto;
-    padding: 10px 30px;
+    padding: 10px;
     border-radius: 50px;
   }
 }

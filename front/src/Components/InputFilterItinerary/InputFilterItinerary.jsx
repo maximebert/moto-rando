@@ -4,6 +4,7 @@ import AliceCarousel from "react-alice-carousel";
 import FilterPanel from './filterPanel/FilterPanel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './inputFilterItinerary.scss';
+import EmptyView from './emptyView/EmptyView';
 
 
 const responsive = {
@@ -16,6 +17,8 @@ const InputFilterItinerary = ({ data }) => {
 
   const [resultsFound, setResultsFound] = useState(true)
   const [itinerary, setItinerary] = useState(data);
+
+  const [selectedRatingCurve, setSelectedRatingCurve] = useState(null)
 
   const [regions, setRegions] = useState([
     { id: 1, checked: false, label: 'Auvergne-RhÃ´ne-Alpes' },
@@ -38,6 +41,9 @@ const InputFilterItinerary = ({ data }) => {
     setSelectedDistance(value);
   }
 
+  const handleSelectRatingCurve = (event, value) =>
+    !value ? null : setSelectedRatingCurve(value);
+
   const handleChangeCheckedDistrict = (id) => {
     const districtStateList = regions;
     const changeCheckedDistrict = districtStateList.map((item) =>
@@ -47,6 +53,13 @@ const InputFilterItinerary = ({ data }) => {
 
   const applyFilters = () => {
     let updatedData = data;
+
+    // curve filter
+    if (selectedRatingCurve) {
+      updatedData = updatedData.filter(
+        (item) => parseInt(item.itinerary_curve) === parseInt(selectedRatingCurve)
+      );
+    }
 
 
     // regions filter
@@ -77,7 +90,7 @@ const InputFilterItinerary = ({ data }) => {
   useEffect(() => {
     applyFilters();
 
-  }, [ selectedDistance, regions])
+  }, [selectedRatingCurve, selectedDistance, regions])
 
   const [isCrescent, setIsCrescent] = useState();
   const [isHighway, setIsHighway] = useState(false);
@@ -109,7 +122,9 @@ const InputFilterItinerary = ({ data }) => {
           changeDistance={handleChangeDistance}
           regions={regions}
           changeChecked={handleChangeCheckedDistrict}
-
+          selectedRating={selectedRatingCurve}
+          changeRating={handleSelectRatingCurve}
+          data={data}
         />
       </div>
       <div className='filter-btn'>
@@ -129,46 +144,53 @@ const InputFilterItinerary = ({ data }) => {
       </div>
       <div>
         <div className='container__card'>
-          <AliceCarousel
-            disableDotsControls
-            mouseTracking
-            responsive={responsive}
-            controlsStrategy="alternate">
-            {
-              resultsFound ?
-                itinerary
-                  .filter((highway) => {
-                    if (isHighway === false) {
-                      return highway.is_highway === false
-                    } else {
-                      return highway.is_highway === true
-                    }
-                  })
-                  .sort((a, b) => {
-                    if (isCrescent) {
-                      return a.itinerary_kilometer - b.itinerary_kilometer;
-                    } else {
-                      return b.itinerary_kilometer - a.itinerary_kilometer
-                    }
-                  })
-                  .map((item) => (
-                    <Itinerary key={item.itinerary_id}
-                      map={item.pictures[0].pic_link}
-                      title={item.itinerary_title}
-                      description={item.itinerary_description}
-                      district={item.districts[0].district_name}
-                      id={item.itinerary_id}
-                      user={item.user_alias}
-                      kilometer={item.itinerary_kilometer}
-                      highway={item.is_highway}
-                      hours={item.itinerary_hour}
-                      minutes={item.itineray_minute}
-                    />
-                  ))
-                :
-                <p className='emptyList'>Aucune Balade trouver</p>
-            }
-          </AliceCarousel>
+
+          {
+            resultsFound ?
+              itinerary
+                .filter((highway) => {
+                  if (isHighway === false) {
+                    return highway.is_highway === false
+                  } else {
+                    return highway.is_highway === true
+                  }
+                })
+                .sort((a, b) => {
+                  if (isCrescent) {
+                    return a.itinerary_kilometer - b.itinerary_kilometer;
+                  } else {
+                    return b.itinerary_kilometer - a.itinerary_kilometer
+                  }
+                })
+                .map((item) => (
+                  <AliceCarousel
+                    disableDotsControls
+                    mouseTracking
+                    responsive={responsive}
+                    controlsStrategy="alternate">
+                      <Itinerary key={item.itinerary_id}
+                        map={item.pictures[0].pic_link}
+                        title={item.itinerary_title}
+                        description={item.itinerary_description}
+                        district={item.districts[0].district_name}
+                        id={item.itinerary_id}
+                        user={item.user_alias}
+                        kilometer={item.itinerary_kilometer}
+                        highway={item.is_highway}
+                        hours={item.itinerary_hour}
+                        minutes={item.itineray_minute}
+                      />
+                  </AliceCarousel>
+                ))
+
+              :
+              <div className='empty'>
+                <EmptyView />
+                <span>Aucune balade trouver <br /> Affiner votre recherche</span>
+              </div>
+
+          }
+
         </div>
       </div>
     </div>
