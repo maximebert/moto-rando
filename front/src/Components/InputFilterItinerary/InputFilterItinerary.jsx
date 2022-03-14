@@ -21,19 +21,19 @@ const InputFilterItinerary = ({ data }) => {
   const [selectedRatingCurve, setSelectedRatingCurve] = useState(null)
 
   const [regions, setRegions] = useState([
-    { id: 1, checked: false, label: 'Auvergne-RhÃ´ne-Alpes' },
-    { id: 2, checked: false, label: 'Bourgogne-Franche-ComtÃ©' },
+    { id: 1, checked: false, label: 'Auvergne-Rhône-Alpes' },
+    { id: 2, checked: false, label: 'Bourgogne-Franche-Comté' },
     { id: 3, checked: false, label: 'Bretagne' },
     { id: 4, checked: false, label: 'Centre-Val de Loire' },
     { id: 5, checked: false, label: 'Corse' },
     { id: 6, checked: false, label: 'Grand Est' },
     { id: 7, checked: false, label: 'Hauts-de-France' },
-    { id: 8, checked: false, label: 'ÃŽle-de-France' },
+    { id: 8, checked: false, label: 'Ile-de-France' },
     { id: 9, checked: false, label: 'Normandie' },
     { id: 10, checked: false, label: 'Nouvelle-Aquitaine' },
     { id: 11, checked: false, label: 'Occitanie' },
     { id: 12, checked: false, label: 'Pays de la Loire' },
-    { id: 13, checked: false, label: 'Provence-Alpes-CÃ´te dAzur' },
+    { id: 13, checked: false, label: "Provence-Alpes-Côte d'Azur" },
   ]);
 
 
