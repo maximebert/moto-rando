@@ -88,7 +88,8 @@ const itineraryController = {
     }
 
     imgUploaded = req.files.photo;
-    pathUploaded = `${__dirname}/../images/${now}_${imgUploaded.name}`;
+    const imgName = `${now}_${imgUploaded.name}`;
+    pathUploaded = `${__dirname}/../public/images/${imgName}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
@@ -103,7 +104,7 @@ const itineraryController = {
     console.log('image uploaded', imgUploaded);
 
     const image = {
-      path: pathUploaded,
+      path: `http://localhost/images/${imgName}`,
       title: imgUploaded.name,
     };
     return image;
@@ -122,7 +123,8 @@ const itineraryController = {
     }
 
     geoUploaded = req.files.map;
-    pathUploaded = `${__dirname}/../geoJson/${now}_${geoUploaded.name}`;
+    const pathName = `${now}_${geoUploaded.name}`;
+    pathUploaded = `${__dirname}/../public/geoJson/${pathName}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
@@ -134,7 +136,7 @@ const itineraryController = {
       }
     });
 
-    const geoJsonPath = pathUploaded;
+    const geoJsonPath = `http://localhost/geoJson/${pathName}`;
     return geoJsonPath;
   },
 
