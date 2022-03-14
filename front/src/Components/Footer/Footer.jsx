@@ -12,7 +12,7 @@ import SocialLink from './SocialLink/SocialLink';
 const Footer = () => {
     return (
         <div className='footer'>
-        <Link to="/mentions-legales" >Mentions légales</Link>
+        <Link to="/mentions-legales" >Mentions légales et CGU</Link>
         <SocialLink/>
         </div>
     )
