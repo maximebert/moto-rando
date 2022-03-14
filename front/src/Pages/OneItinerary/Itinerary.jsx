@@ -1,11 +1,11 @@
 // import react
 import axios from 'axios';
-import PropTypes from 'prop-types';
+
 
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/OneItinerary/Itinerary'
-import {getAllList} from "../../request/itineraryRequest";
+
 
 
 const OneItinerary = () => {
@@ -13,7 +13,6 @@ const OneItinerary = () => {
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams()
     // console.log(params);
-    const [itineraryRandom, setItineraryRandom] = useState([])
     useEffect( () => {
             // const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
             // setItineraryID(response.data);
@@ -46,7 +45,6 @@ const OneItinerary = () => {
                 // photo
                 highway={itineraryID.is_highway}
                 kilometer={itineraryID.itinerary_kilometer}
-                curve={itineraryID.itinerary_curve}
                 user={itineraryID.user_alias}
                 longitude={itineraryID.districts[0].district_longitude}
                 latitude={itineraryID.districts[0].district_latitude}

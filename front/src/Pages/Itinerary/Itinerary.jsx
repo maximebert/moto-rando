@@ -5,7 +5,6 @@ import InputFilterItinerary from "../../Components/InputFilterItinerary/InputFil
 import MapBox from '../../Components/MapBox/MapBox';
 //style
 import './profilItinary.scss';
-import axios from "axios";
 
 
 

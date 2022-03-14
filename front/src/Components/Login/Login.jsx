@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Input from './input/Input'
 import './login.scss';
@@ -13,7 +13,6 @@ const Login = ({email, password, changeField, handleLogin}) => {
         event.preventDefault();
         handleLogin();
         // navigate('/')
-
     }
 
     return (

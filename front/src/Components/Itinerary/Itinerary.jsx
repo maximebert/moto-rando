@@ -49,11 +49,12 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway, hours
 Itinerary.prototype = {
     title: PropTypes.string.isRequired,
     map: PropTypes.string,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string
 }
 
 Itinerary.defaultProps = {
-    map: 'https://fakeimg.pl/300'
+    map: 'https://fakeimg.pl/300',
+    description: ''
 }
 
 export default React.memo(Itinerary);
