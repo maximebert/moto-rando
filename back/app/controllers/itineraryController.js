@@ -36,7 +36,7 @@ const itineraryController = {
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
-      const geoJsonPath = await itineraryMapper.update(req.body.itinerary_id, { trace: geoJson });
+      const geoJsonPath = await itineraryMapper.update(itinerary.id, { trace: geoJson });
       return res.json({ itinerary, imgInDb, geoJsonPath });
     }
   },
