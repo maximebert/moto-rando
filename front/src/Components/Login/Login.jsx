@@ -49,7 +49,7 @@ Login.propTypes = {
     password: PropTypes.string.isRequired,
     changeField: PropTypes.func.isRequired,
     handleLogin: PropTypes.func.isRequired,
-}
+}"
 Login.defaultProps = {
   // isLogged: false
 }
