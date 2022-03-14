@@ -89,7 +89,7 @@ const itineraryController = {
 
     imgUploaded = req.files.photo;
     const imgName = `${now}_${imgUploaded.name}`;
-    pathUploaded = `${__dirname}/../public/images/${imgName}`;
+    pathUploaded = `${__dirname}/../../public/images/${imgName}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
@@ -124,7 +124,7 @@ const itineraryController = {
 
     geoUploaded = req.files.map;
     const pathName = `${now}_${geoUploaded.name}`;
-    pathUploaded = `${__dirname}/../public/geoJson/${pathName}`;
+    pathUploaded = `${__dirname}/../../public/geoJson/${pathName}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
