@@ -6,8 +6,8 @@ POST http://localhost:3000/profil/connexion
 content-type: application/json
 
 {
-    "email": "bebert@gmail.com",
-    "password": "js4life"
+    "email": "jeanjean@gmail.com",
+    "password": "jeanjean"
 }
 ###################################################################################################################
 ### ITINERAIRES
