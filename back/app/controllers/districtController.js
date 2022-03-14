@@ -3,7 +3,7 @@ const districtMapper = require('../models/district');
 const districtController = {
 
   // Méthode daffichage de toutes les régions
-  async findAll(req, res) {
+  async findAll(_, res) {
     const district = await districtMapper.findAll();
     return res.status(200).json(district);
   },

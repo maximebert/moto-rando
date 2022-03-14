@@ -18,8 +18,6 @@ const router = express.Router();
 // L'ordre est très important. Pour savoir dans quel ordre on doit organiser nos router,
 // on les classes du plus spécifique au moins spécifique
 
-// Un préfixe ça veut la route commence par. Donc l'ordre est important
-
 // Dans le cas où l'on souhaiterais restreindre l'accès à nos fichiers public nous pouvons
 // faire une route qui nous permettra de placer un token pour l'acces
 
@@ -34,7 +32,6 @@ router.use('/regions', districtRouter);
 
 router.use((err, _, response, next) => {
   errorHandler(err, response, next);
-  console.log(err);
 });
 
 module.exports = router;

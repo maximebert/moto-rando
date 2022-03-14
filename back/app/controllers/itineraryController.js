@@ -1,4 +1,3 @@
-
 const { ApiError } = require('../helpers/errorHandler');
 const itineraryMapper = require('../models/itinerary');
 const pictureMapper = require('../models/picture');
@@ -6,7 +5,6 @@ const pictureMapper = require('../models/picture');
 const itineraryController = {
   // Méthode d'ajout d'un itinéraire
   async new(req, res) {
-    console.log('body', req.body);
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
 
@@ -19,7 +17,6 @@ const itineraryController = {
     if (req.files) {
       // upload de l'image de l'itineraire
       const image = await itineraryController.uploadImg(req, res);
-      console.log('image', image);
       // puis récupérer le lien, les id user et itineraire
       const imgData = {
         title: image.title,
@@ -27,11 +24,9 @@ const itineraryController = {
         user_id: req.body.id,
         itinerary_id: itinerary.id,
       };
-      console.log('imgData', imgData);
 
       // uload du fichier geojson et recup de son lien
       const geoJson = await itineraryController.uploadGeoJson(req, res);
-      console.log('geo', geoJson);
 
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
@@ -39,10 +34,11 @@ const itineraryController = {
       const geoJsonPath = await itineraryMapper.update(req.body.itinerary_id, { trace: geoJson });
       return res.json({ itinerary, imgInDb, geoJsonPath });
     }
+    throw new ApiError(400, 'Itineray image not added');
   },
 
   // Méthode d'affichage de tous les itinéraires
-  async findAll(req, res) {
+  async findAll(_, res) {
     const itineraries = await itineraryMapper.findAll();
     return res.json(itineraries).status(200);
   },
@@ -72,7 +68,7 @@ const itineraryController = {
   async delete(req, res) {
     const { id } = req.params;
     const itinerary = await itineraryMapper.delete(id);
-    return res.json(itinerary).status(204);
+    return res.status(204).json(itinerary);
   },
 
   uploadImg(req, res) {
@@ -100,8 +96,6 @@ const itineraryController = {
       }
     });
 
-    console.log('image uploaded', imgUploaded);
-
     const image = {
       path: pathUploaded,
       title: imgUploaded.name,
@@ -123,10 +117,6 @@ const itineraryController = {
 
     geoUploaded = req.files.map;
     pathUploaded = `${__dirname}/../geoJson/${now}_${geoUploaded.name}`;
-
-    // console.log('img', imgUploaded);
-    // console.log('path', pathUploaded);
-    // console.log('mv', imgUploaded.mv);
 
     geoUploaded.mv(pathUploaded, (err) => {
       if (err) {
