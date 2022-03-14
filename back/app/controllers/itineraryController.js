@@ -31,7 +31,7 @@ const itineraryController = {
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);
       // pour insérer tout ça dans la table picture avec la methode update()
-      const geoJsonPath = await itineraryMapper.update(req.body.itinerary_id, { trace: geoJson });
+      const geoJsonPath = await itineraryMapper.update(itinerary.id, { trace: geoJson });
       return res.json({ itinerary, imgInDb, geoJsonPath });
     }
     throw new ApiError(400, 'Itineray image not added');
@@ -84,7 +84,8 @@ const itineraryController = {
     }
 
     imgUploaded = req.files.photo;
-    pathUploaded = `${__dirname}/../images/${now}_${imgUploaded.name}`;
+    const imgName = `${now}_${imgUploaded.name}`;
+    pathUploaded = `${__dirname}/../../public/images/${imgName}`;
 
     // console.log('img', imgUploaded);
     // console.log('path', pathUploaded);
@@ -97,7 +98,7 @@ const itineraryController = {
     });
 
     const image = {
-      path: pathUploaded,
+      path: `http://localhost/images/${imgName}`,
       title: imgUploaded.name,
     };
     return image;
@@ -116,7 +117,8 @@ const itineraryController = {
     }
 
     geoUploaded = req.files.map;
-    pathUploaded = `${__dirname}/../geoJson/${now}_${geoUploaded.name}`;
+    const pathName = `${now}_${geoUploaded.name}`;
+    pathUploaded = `${__dirname}/../../public/geoJson/${pathName}`;
 
     geoUploaded.mv(pathUploaded, (err) => {
       if (err) {
@@ -124,7 +126,7 @@ const itineraryController = {
       }
     });
 
-    const geoJsonPath = pathUploaded;
+    const geoJsonPath = `http://localhost/geoJson/${pathName}`;
     return geoJsonPath;
   },
 
