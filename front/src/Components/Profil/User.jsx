@@ -9,16 +9,13 @@ const User = ({id,alias,email,presentation}) => {
 
     return(
         <div className="user">
-
+          <h5 className="user-infos">Mes informations personnel</h5>
           <div className='user__detail'>
             <img className='user__picture' src={avatar} alt='photo de profil' />
             <h2>{alias}</h2>
             <span>{email}</span>
             <p>{presentation === undefined ? presentation : ''}</p>
           </div>
-          <Link to={`/profil/${id}/modifier`} >
-            <button >Modifier mon profil</button>
-          </Link>
         </div>
 
     )

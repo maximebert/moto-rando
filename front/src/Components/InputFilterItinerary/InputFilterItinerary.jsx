@@ -144,53 +144,53 @@ const InputFilterItinerary = ({ data }) => {
       </div>
       <div>
         <div className='container__card'>
+          <AliceCarousel
+            disableDotsControls
+            mouseTracking
+            responsive={responsive}
+            controlsStrategy="alternate">
+            {
+              resultsFound ?
+                itinerary
+                  .filter((highway) => {
+                    if (isHighway === false) {
+                      return highway.is_highway === false
+                    } else {
+                      return highway.is_highway === true
+                    }
+                  })
+                  .sort((a, b) => {
+                    if (isCrescent) {
+                      return a.itinerary_kilometer - b.itinerary_kilometer;
+                    } else {
+                      return b.itinerary_kilometer - a.itinerary_kilometer
+                    }
+                  })
+                  .map((item) => (
 
-          {
-            resultsFound ?
-              itinerary
-                .filter((highway) => {
-                  if (isHighway === false) {
-                    return highway.is_highway === false
-                  } else {
-                    return highway.is_highway === true
-                  }
-                })
-                .sort((a, b) => {
-                  if (isCrescent) {
-                    return a.itinerary_kilometer - b.itinerary_kilometer;
-                  } else {
-                    return b.itinerary_kilometer - a.itinerary_kilometer
-                  }
-                })
-                .map((item) => (
-                  <AliceCarousel
-                    disableDotsControls
-                    mouseTracking
-                    responsive={responsive}
-                    controlsStrategy="alternate">
-                      <Itinerary key={item.itinerary_id}
-                        map={item.pictures[0].pic_link}
-                        title={item.itinerary_title}
-                        description={item.itinerary_description}
-                        district={item.districts[0].district_name}
-                        id={item.itinerary_id}
-                        user={item.user_alias}
-                        kilometer={item.itinerary_kilometer}
-                        highway={item.is_highway}
-                        hours={item.itinerary_hour}
-                        minutes={item.itineray_minute}
-                      />
-                  </AliceCarousel>
-                ))
+                    <Itinerary key={item.itinerary_id}
+                      map={item.pictures[0].pic_link}
+                      title={item.itinerary_title}
+                      description={item.itinerary_description}
+                      district={item.districts[0].district_name}
+                      id={item.itinerary_id}
+                      user={item.user_alias}
+                      kilometer={item.itinerary_kilometer}
+                      highway={item.is_highway}
+                      hours={item.itinerary_hour}
+                      minutes={item.itineray_minute}
+                    />
 
-              :
-              <div className='empty'>
-                <EmptyView />
-                <span>Aucune balade trouver <br /> Affiner votre recherche</span>
-              </div>
+                  ))
 
-          }
+                :
+                <div className='empty'>
+                  <EmptyView />
+                  <span>Aucune balade trouver <br /> Affiner votre recherche</span>
+                </div>
 
+            }
+          </AliceCarousel>
         </div>
       </div>
     </div>
