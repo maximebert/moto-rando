@@ -90,6 +90,7 @@ const InputFilterItinerary = ({ data }) => {
   useEffect(() => {
     applyFilters();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedRatingCurve, selectedDistance, regions])
 
   const [isCrescent, setIsCrescent] = useState();
@@ -107,11 +108,11 @@ const InputFilterItinerary = ({ data }) => {
 
   const handleChangeHighwayYes = (e) => {
     e.preventDefault();
-    setIsHighway(true)
+    setIsHighway(false)
   }
   const handleChangeHighwayNo = (e) => {
     e.preventDefault();
-    setIsHighway(false)
+    setIsHighway(true)
   }
   return (
     <div>

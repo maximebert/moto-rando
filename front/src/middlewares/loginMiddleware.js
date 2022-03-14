@@ -14,7 +14,6 @@ const loginMiddleware = (store) => (next) => async (action) => {
   // si l'action SUBMIT_LOGIN est récupéré on fait la requete
   switch (action.type) {
     case APP_MOUNT: {
-      console.log('hello');
       const res = initBearerToken();
       if(res) {
         store.dispatch(actionSetLogged(true, res.data.id));

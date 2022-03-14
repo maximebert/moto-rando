@@ -20,19 +20,9 @@ import Error from "../Error/Error";
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
-import { useEffect } from "react";
-import { actionAppMount } from "../../action/system";
-import { useDispatch } from "react-redux";
-
 
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(
-      actionAppMount()
-    )
-  }, [])
 
   return (
     <div className="App">

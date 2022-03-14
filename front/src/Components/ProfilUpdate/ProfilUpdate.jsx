@@ -30,10 +30,10 @@ const ProfilUpdate = ()=>{
                 <input type="file" id="photo-bike" />
 
                 <label htmlFor="brand">Marque de votre moto</label>
-                <input id="brand" type="text" placeholder={alias} onChange={(e)=>setBrand(e.target.value)}/>
+                <input id="brand" type="text" placeholder={brand} onChange={(e)=>setBrand(e.target.value)}/>
 
                 <label htmlFor="model">Modèle de votre moto</label>
-                <input id="model" type="text" placeholder={alias} onChange={(e)=>setModel(e.target.value)}/>
+                <input id="model" type="text" placeholder={model} onChange={(e)=>setModel(e.target.value)}/>
 
                 <button className='form__btn-submit' onClick={handleOnSubmit} >Valider votre profil</button>
 

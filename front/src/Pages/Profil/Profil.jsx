@@ -33,7 +33,7 @@ const Profil = () => {
     }
     fetchData()
 
-  }, []);
+  }, [params.id]);
   console.log(profilID)
 
   return (
