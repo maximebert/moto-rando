@@ -7,7 +7,6 @@ import MapBox from '../../Components/MapBox/MapBox';
 import './profilItinary.scss';
 
 
-
 const Itinerary = () => {
     const [itinerary, setItinerary] = useState([])
     const [isLoading, setIsLoading] = useState(true);

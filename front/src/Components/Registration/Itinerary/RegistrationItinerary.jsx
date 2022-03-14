@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 import './itineraryForm.scss';
+import apiAxios from '../../../request';
 
 const ADD_ITINERARY = '/itineraires';
 
@@ -31,7 +32,7 @@ const RegistrationItinerary = ({userId}) => {
 
     useEffect( () => {
       async function fetchData(){
-        const response = await axios.get('http://localhost:3000/regions')
+        const response = await apiAxios.get('/regions')
         setDistrict(response.data)
         console.log("data",response.data)
       }

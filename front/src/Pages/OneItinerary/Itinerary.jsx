@@ -5,6 +5,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/OneItinerary/Itinerary'
+import apiAxios, { initBearerToken } from '../../request';
 
 
 
@@ -17,13 +18,11 @@ const OneItinerary = () => {
             // const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
             // setItineraryID(response.data);
             // setIsLoading(false);
-
-          axios.get(`http://localhost:3000/itineraires/${params.id}`)
+             apiAxios.get(`/itineraires/${params.id}`)
             .then(({data}) => {
               setItineraryID(data)
               setIsLoading(false);
             })
-
     }, []);
     console.log(itineraryID)
   
