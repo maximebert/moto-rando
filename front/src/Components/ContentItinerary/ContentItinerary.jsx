@@ -65,13 +65,13 @@ const ContentItinerary = ({itineraryList}) => {
                             className='item'
                             data-value={itinerary.itinerary_id}
                             key={itinerary.itinerary_id}
-                             map={itinerary.pictures[0].pic_link}
-                             title={itinerary.itinerary_title}
-                             description={itinerary.itinerary_description}
-                             id={itinerary.itinerary_id}
-                             user={itinerary.user_alias}
-                             kilometer={itinerary.itinerary_kilometer}
-                             highway={itinerary.is_highway}
+                            map={itinerary.pictures[0].pic_link}
+                            title={itinerary.itinerary_title}
+                            description={itinerary.itinerary_description}
+                            id={itinerary.itinerary_id}
+                            user={itinerary.user_alias}
+                            kilometer={itinerary.itinerary_kilometer}
+                            highway={itinerary.is_highway}
                             hours={itinerary.itinerary_hour}
                             minutes={itinerary.itineray_minute}
                   />
