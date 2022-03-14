@@ -104,8 +104,10 @@ const RegistrationItinerary = ({userId}) => {
                 </select>
 
 
-                <label htmlFor="map">Votre itinéraire</label>
-                <input type="file" id="map"  onChange={event => {
+                <label htmlFor="map">Votre itinéraire.
+                  <div>'.geojson' uniquement.</div>
+                </label>
+                <input type="file" id="map" accept=".geojson" onChange={event => {
                     const file = event.target.files[0];
                     setMap(file)
                 }}  />
@@ -130,7 +132,7 @@ const RegistrationItinerary = ({userId}) => {
 
 
                 <label htmlFor="photo">Vos plus belles photos</label>
-                <input type="file" id="photo" accept='.jpg' name="file" onChange={event => {
+                <input type="file" id="photo" accept='.jpg, .jpeg' name="file" onChange={event => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
