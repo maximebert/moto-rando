@@ -1,4 +1,5 @@
-import axios from "axios";
+
+import apiAxios from ".";
 
 /***
  * query with axios to retrieve the lists of itinerary
@@ -6,7 +7,7 @@ import axios from "axios";
  */
 export async function getAllList() {
     try{
-        const response = await axios.get('http://localhost:3000/itineraires')
+        const response = await apiAxios.get('/itineraires')
         return response
     }catch(err){
         return err.response

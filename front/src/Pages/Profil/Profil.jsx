@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+
 
 
 //composants
@@ -12,6 +12,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { BsPen } from 'react-icons/bs';
 import './profil.scss';
 import ItineraryProfil from '../../Components/Profil/ItineraryProfil/ItineraryProfil';
+import apiAxios from '../../request';
 
 
 //Page du profil
@@ -25,7 +26,7 @@ const Profil = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://localhost:3000/profil/${params.id}`)
+      const response = await apiAxios.get(`/profil/${params.id}`)
       setProfilID(response.data);
       setMotorbikeID(response.data);
       setIsLoading(false);

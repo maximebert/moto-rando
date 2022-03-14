@@ -22,7 +22,7 @@ const connectController = {
       delete user.password;
 
       const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS256', expiresIn: '2h' });
-      return res.status(200).json(accessToken);
+      return res.status(200).json({accessToken});
 
       // return res.status(200).json(user);
     } catch (err) {
