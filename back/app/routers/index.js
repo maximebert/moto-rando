@@ -5,7 +5,7 @@ const itinaryRouter = require('./itinerary');
 const districtRouter = require('./district');
 const motorbikeRouter = require('./motorbike');
 const pictureRouter = require('./picture');
-// const authenticateToken = require('../helpers/auth');
+const authenticateToken = require('../helpers/auth');
 
 const { errorHandler } = require('../helpers/errorHandler');
 
