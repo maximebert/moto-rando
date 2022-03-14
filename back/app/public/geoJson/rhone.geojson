@@ -1,0 +1,68 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              4.850464,
+              45.767523
+            ],
+            [
+              4.806519,
+              45.58329
+            ],
+            [
+              4.87793,
+              45.517895
+            ],
+            [
+              4.801025,
+              45.348285
+            ],
+            [
+              4.844971,
+              45.038597
+            ],
+            [
+              4.77356,
+              44.731126
+            ],
+            [
+              4.735107,
+              44.574817
+            ],
+            [
+              4.663696,
+              44.308127
+            ],
+            [
+              4.779053,
+              44.158563
+            ],
+            [
+              4.795532,
+              43.988862
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "chateauneuf du pape",
+          "description": "chateauneuf du pape"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            4.834328,
+            44.058972
+          ]
+        }
+      }
+    ]
+  }
