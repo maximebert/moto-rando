@@ -6,13 +6,13 @@ const pictureController = {
   async new(req, res) {
     const newPicture = req.body;
     const picture = await pictureMapper.create(newPicture);
-    return res.json(picture).status(201);
+    return res.status(201).json(picture);
   },
 
   // Méthode d'affichage de toutes les images'
   async findAll(req, res) {
     const picture = await pictureMapper.findAll();
-    return res.json(picture).status(200);
+    return res.status(200).json(picture);
   },
 
   // Méthode d'affichage d'une image

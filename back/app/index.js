@@ -1,7 +1,4 @@
 // APPLICATION EXPRESS
-/*
-Désormais notre application est un module qui est exporté, afin de pouvoir require notre application dans différents environnement
-*/
 // const path = require('path');
 
 const cors = require('cors');
@@ -21,7 +18,6 @@ app.use(
   }),
 );
 
-// On active le middleware pour parser le playload JSON - remplace body-parser
 app.use(express.json());
 
 // TODO : Levée de la restriction des Cors à configurer

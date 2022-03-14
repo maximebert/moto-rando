@@ -56,7 +56,7 @@ const userController = {
     const userDatas = await userMapper.findByPk(id);
 
     if (!userDatas) {
-      throw new ApiError(404, 'User not found');
+      throw new ApiError(403, 'User not found');
     }
 
     const itinerariesInfos = [];
