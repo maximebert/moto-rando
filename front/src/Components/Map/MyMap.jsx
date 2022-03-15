@@ -1,10 +1,25 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 import { MapContainer, GeoJSON, TileLayer, Marker } from "react-leaflet";
-import itinerary from "../MapBox/map.json";
+// import itinerary from "";
 import "leaflet/dist/leaflet.css";
+import axios from "axios";
 
-const MyMap = ({zoom, latitude, longitude}) => {
+
+
+const MyMap = ({zoom, latitude, longitude, trace}) => {
+  const [mapData, setMapData] = useState('')
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect( () => {
+    axios.get(`${trace}`)
+          .then(({data}) => {
+            setMapData(data)
+            setIsLoading(false)
+          })
+  }, [])
+  console.log('data', mapData);
+
 
     useEffect(() => {
         const L = require("leaflet");
@@ -20,15 +35,19 @@ const MyMap = ({zoom, latitude, longitude}) => {
   console.log(zoom, latitude, longitude)
    return (
         <div>
-            <MapContainer className='map' style={{ height: "40vh", margin:0}} zoom={zoom} center={[latitude,  longitude]} >
-                <Marker position={itinerary.features[1].geometry.coordinates}>
+          {
+            !isLoading && mapData && (
+               <MapContainer className='map' style={{ height: "40vh", margin:0}} zoom={zoom} center={[latitude, longitude]} >
+                <Marker position={mapData.features[1].geometry.coordinates}>
                 </Marker>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                <GeoJSON data={itinerary.features} />
+                <GeoJSON data={mapData} />
             </MapContainer>
+            )
+          }
         </div>
    )
 };

@@ -1,15 +1,16 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import './mapBox.scss';
+import axios from 'axios';
 
 const latt = 47;
 const long = 2;
 const zoom = 6;
 
 const MapBox = ({ mapData }) => {
-
+  const [mapBoxData, setMapBoxData] = useState('')
    useEffect(() => {
       const L = require("leaflet");
 
@@ -21,7 +22,15 @@ const MapBox = ({ mapData }) => {
         shadowUrl: require("leaflet/dist/images/marker-shadow.png")
       });
     }, []);
+    
+    useEffect( () => {
+      axios.get(`${mapData[0].itinerary_trace}`)
+            .then(({data}) => {
+              setMapBoxData(data)
+            })
+    }, [])
 
+    console.log(mapBoxData);
   return (
       <>
          <MapContainer className='map' style={{ height: "80vh" }} zoom={zoom} center={[latt, long]}>
