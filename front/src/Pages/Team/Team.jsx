@@ -87,7 +87,9 @@ const Team = () => {
               </div>
             </div>
 
+
           </div>
+          <span className='team__span'>Crédit photo : Ruroc</span>
       </div>
     )
 }

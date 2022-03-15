@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <div className='footer'>
         <Link to="/mentions-legales" >Mentions légales et CGU</Link>
-        <SocialLink/>
+        <Link to="/*"><SocialLink /></Link>
         </div>
     )
 }
