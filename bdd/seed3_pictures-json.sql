@@ -122,7 +122,7 @@ INSERT INTO "picture" ("title", "description", "link", "user_id", "itinerary_id"
   ('saint-michel_3', 'Balalde au Mont St Michel', 'http://localhost:3000/images/saint-michel_3.jpg', 1, 6),
 
   ('toulouse', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/toulouse.jpg', 3, 4),
-  ('narbone', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/narbone.jpg', 3, 4),
+  ('narbonne', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/narbonne.jpg', 3, 4),
   ('montpellier', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/montpellier.jpg', 3, 4),
   ('cassoulet', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/cassoulet.jpg', 3, 4),
   ('carcassonne', 'Balade entre Montpellier et Toulouse', 'http://localhost:3000/images/carcassonne.jpg', 3, 4),
@@ -131,7 +131,7 @@ INSERT INTO "picture" ("title", "description", "link", "user_id", "itinerary_id"
   ('transpyreneenne_1', 'Transpyrénéenne', 'http://localhost:3000/images/transpyreneenne_1.jpg', 4, 13),
   ('transpyreneenne_2', 'Transpyrénéenne', 'http://localhost:3000/images/transpyreneenne_2.jpg', 4, 13),
 
-  ('val-de-loire', 'Val de Loire', 'http://localhost:3000/images/val-de-loire.jpeg', 4, 13),
+  ('val-de-loire', 'Val de Loire', 'http://localhost:3000/images/val-de-loire.jpeg', 4, 14),
 
   ('vercors_1', 'Les petites routes du Vercors', 'http://localhost:3000/images/vercors_1.jpg', 2, 20),
   ('vercors_2', 'Les petites routes du Vercors', 'http://localhost:3000/images/vercors_2.jpg', 2, 20),
