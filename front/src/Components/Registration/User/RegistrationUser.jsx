@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from '../../../api/axios';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './registrationUser.scss';
 
 // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;

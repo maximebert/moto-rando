@@ -13,7 +13,6 @@ const Login = ({email, password, changeField, handleLogin}) => {
         event.preventDefault();
         handleLogin();
         // navigate('/')
-
     }
 
     return (

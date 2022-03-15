@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MyMap from '../Map/MyMap';
 import {AiOutlineArrowLeft} from 'react-icons/ai';
 import {Link} from "react-router-dom";
-import Itinerary from "../Itinerary/Itinerary";
-import {getAllList} from "../../request/itineraryRequest";
+
 import { Carousel } from 'react-responsive-carousel';
 import './itinerary.scss';
 import './carousel.scss';
@@ -13,16 +12,7 @@ import avatar from '../../assets/images/racer.png';
 import img1 from '../../assets/images/photoInitineraire1.jpg';
 import img2 from '../../assets/images/photoInitineraire2.jpg';
 import img3 from '../../assets/images/photoInitineraire3.jpg';
-import AliceCarousel from "react-alice-carousel";
 
-const responsive = {
-  0: { items: 1 },
-  568: { items: 2 },
-  1024: { items: 3 },
-  1300: { items: 4 },
-  1600: { items: 5},
-  1700: { items: 6 },
-};
 
 const OneItinerary = ({title,
                         description,

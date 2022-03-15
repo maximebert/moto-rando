@@ -4,8 +4,6 @@
  * en cas de passage d'erreur à la function next()
  */
 const ApiError = require('../errors/apiError');
-// Lignes en commentaires car non nécessaires pour le moment
-// const WebsiteError = require('../errors/websiteError');
 
 const errorHandler = (err, res) => {
   let { statusCode, message } = err;
@@ -13,13 +11,6 @@ const errorHandler = (err, res) => {
   if (Number.isNaN(Number(statusCode))) {
     statusCode = 500;
   }
-
-  // Commentaire de ces lignes car on avait rencontré une erreur "header défini 2 fois",
-  // car on renvoyait 2 fois res.json (en double avec les lignes 26 à 31) :
-
-  // if (statusCode === 500) {
-  //   res.json(err);
-  // }
 
   if (statusCode === 500 && res.app.get('env') !== 'development') {
     message = 'Internal Server Error';
@@ -35,6 +26,4 @@ const errorHandler = (err, res) => {
 module.exports = {
   errorHandler,
   ApiError,
-  // Lignes en commentaires car non nécessaires pour le moment
-  //   WebsiteError,
 };

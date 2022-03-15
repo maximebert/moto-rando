@@ -5,8 +5,6 @@ import InputFilterItinerary from "../../Components/InputFilterItinerary/InputFil
 import MapBox from '../../Components/MapBox/MapBox';
 //style
 import './profilItinary.scss';
-import axios from "axios";
-
 
 
 const Itinerary = () => {
@@ -22,6 +20,7 @@ const Itinerary = () => {
         })
     }, []);
   console.log(itinerary)
+  
     return (
         <div className='itinerary_list'>
             <div className='itinerary_list-left'>

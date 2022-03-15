@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 import { Navigate } from 'react-router-dom';
 import { useSelector, } from 'react-redux';

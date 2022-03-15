@@ -22,8 +22,8 @@ import '../../Styles/index.scss';
 import './app.scss';
 
 
-
 function App() {
+
   return (
     <div className="App">
         <HeaderContainer />

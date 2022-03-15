@@ -2,17 +2,46 @@
 
 .profil{
   max-width: 1200px;
-  margin: 100px auto 300px;
+  margin: 0 auto 300px;
 
   &__detail{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
-}
-  h1{
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 50px 0;
-    color: $blue;
+
+  &-title{
+    font-weight: 100;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 50px 10px;
+    color: $yellow;
+    background-color: $grey;
+    border-radius: 3px;
   }
+  &-update{
+    background-color: #ef233c;
+    color: #fff;
+    border: none;
+    margin: 20px auto;
+    padding: 10px 50px;
+    width: 300px;
+  }
+  &-create{
+    display: flex;
+    align-items: center;
+    background-color: #38b000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px 50px;
+    width: 350px;
+    text-align: center;
+
+    .icon{
+      margin-left: 10px;
+    }
+  }
+}
+
