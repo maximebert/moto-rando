@@ -9,9 +9,6 @@ import './itinerary.scss';
 import './carousel.scss';
 
 import avatar from '../../assets/images/racer.png';
-// import img1 from '../../assets/images/photoInitineraire1.jpg';
-// import img2 from '../../assets/images/photoInitineraire2.jpg';
-// import img3 from '../../assets/images/photoInitineraire3.jpg';
 
 
 const OneItinerary = ({title,
@@ -82,15 +79,6 @@ const OneItinerary = ({title,
 
                 ))}
             </Carousel>
-              {/* <div >
-                <img  src={img1} alt="lac"/>
-              </div>
-              <div >
-                <img src={img2} alt="arbre"/>
-              </div>
-              <div >
-                <img src={img3} alt="route"/>
-              </div> */}
 
             </div>
           </div>
