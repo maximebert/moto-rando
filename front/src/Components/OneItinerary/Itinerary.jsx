@@ -9,9 +9,9 @@ import './itinerary.scss';
 import './carousel.scss';
 
 import avatar from '../../assets/images/racer.png';
-import img1 from '../../assets/images/photoInitineraire1.jpg';
-import img2 from '../../assets/images/photoInitineraire2.jpg';
-import img3 from '../../assets/images/photoInitineraire3.jpg';
+// import img1 from '../../assets/images/photoInitineraire1.jpg';
+// import img2 from '../../assets/images/photoInitineraire2.jpg';
+// import img3 from '../../assets/images/photoInitineraire3.jpg';
 
 
 const OneItinerary = ({title,
@@ -25,6 +25,7 @@ const OneItinerary = ({title,
                         longitude,
                         zoom,
                         latitude,
+                        pictures,
 
 }) => {
 
@@ -72,7 +73,16 @@ const OneItinerary = ({title,
           <div className='itinerary__right'>
             <h5 className='title-description'>Photos</h5>
             <Carousel showArrows={true} >
-              <div >
+                {pictures.map((picture) => (
+
+                    <img
+                    src={picture.pic_link}
+                    alt={picture.pic_title}>
+                    </img>
+
+                ))}
+            </Carousel>
+              {/* <div >
                 <img  src={img1} alt="lac"/>
               </div>
               <div >
@@ -80,8 +90,8 @@ const OneItinerary = ({title,
               </div>
               <div >
                 <img src={img3} alt="route"/>
-              </div>
-            </Carousel>
+              </div> */}
+
             </div>
           </div>
         </>

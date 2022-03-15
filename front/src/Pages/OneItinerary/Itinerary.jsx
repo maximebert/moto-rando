@@ -21,7 +21,7 @@ const OneItinerary = () => {
             })
     }, [params.id]);
     console.log(itineraryID)
-  
+
     // console.log(itineraryID.districts[0].district_latitude);
     return (
         <div>
@@ -37,7 +37,7 @@ const OneItinerary = () => {
                 hour={itineraryID.itinerary_hour}
                 minute={itineraryID.itinerary_minute}
                 curve={itineraryID.itinerary_curve}
-                // photo
+                pictures={itineraryID.pictures}
                 highway={itineraryID.is_highway}
                 kilometer={itineraryID.itinerary_kilometer}
                 user={itineraryID.user_alias}
