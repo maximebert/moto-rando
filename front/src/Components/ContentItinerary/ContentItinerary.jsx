@@ -48,7 +48,7 @@ const ContentItinerary = ({itineraryList}) => {
         </div>
 
         <h3 className='title-hr'>Une communauté qui aime le partage</h3>
-        
+
         <h2 className='title-home'>Balades moto en Provence-Alpes-Côte d'Azur</h2>
 
         <div className='container__card'>
@@ -76,6 +76,7 @@ const ContentItinerary = ({itineraryList}) => {
                               highway={itinerary.is_highway}
                               hours={itinerary.itinerary_hour}
                               minutes={itinerary.itineray_minute}
+                              pictures={itinerary.pictures}
                   />
                 ))
             }

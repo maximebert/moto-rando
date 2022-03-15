@@ -9,23 +9,22 @@ import './itinerary.scss';
 import './carousel.scss';
 
 import avatar from '../../assets/images/racer.png';
-import img1 from '../../assets/images/photoInitineraire1.jpg';
-import img2 from '../../assets/images/photoInitineraire2.jpg';
-import img3 from '../../assets/images/photoInitineraire3.jpg';
 
 
-const OneItinerary = ({ title,
-  description,
-  highway,
-  curve,
-  kilometer,
-  hour,
-  minute,
-  user,
-  longitude,
-  zoom,
-  latitude,
-  trace
+
+const OneItinerary = ({title,
+                        description,
+                        highway,
+                        curve,
+                        kilometer,
+                        hour,
+                        minute,
+                        user,
+                        longitude,
+                        zoom,
+                        latitude,
+                        pictures,
+                        trace
 
 }) => {
 
@@ -67,22 +66,25 @@ const OneItinerary = ({ title,
             <div className='itinerary__user'>
               <img src={avatar} alt='casque moto' width='100px' height='100px' />
               <h5>{user}</h5>
+
             </div>
           </div>
-        </div>
-        <div className='itinerary__right'>
-          <h5 className='title-description'>Photos</h5>
-          <Carousel showArrows={true} >
-            <div >
-              <img src={img1} alt="lac" />
+          <div className='itinerary__right'>
+            <h5 className='title-description'>Photos</h5>
+            <Carousel showArrows={true} >
+                {pictures.map((picture) => (
+
+                    <img
+                    src={picture.pic_link}
+                    alt={picture.pic_title}>
+                    </img>
+
+                ))}
+            </Carousel>
+
+
             </div>
-            <div >
-              <img src={img2} alt="arbre" />
-            </div>
-            <div >
-              <img src={img3} alt="route" />
-            </div>
-          </Carousel>
+          </div>
         </div>
       </div>
     </>

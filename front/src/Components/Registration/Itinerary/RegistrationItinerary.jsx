@@ -133,7 +133,7 @@ const RegistrationItinerary = ({userId}) => {
 
 
                 <label htmlFor="photo">Vos plus belles photos</label>
-                <input type="file" id="photo" accept='.jpg, .jpeg' name="file" onChange={event => {
+                <input type="file" id="photo" accept='.jpg, .jpeg' multiple name="file" onChange={event => {
                     const file = event.target.files[0];
                     setFile(file)
                 }} />
