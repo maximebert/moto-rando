@@ -56,7 +56,7 @@ const OneItinerary = ({
 
               <div className="detail__itinerary-span tag-pink">
                 <h5>Autoroute :</h5>
-                <span>{highway === true ? "Non" : "Oui"}</span>
+                <span>{highway === true ? "Oui" : "Non"}</span>
               </div>
 
               <div className="detail__itinerary-span tag-green">
