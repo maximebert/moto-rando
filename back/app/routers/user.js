@@ -6,7 +6,7 @@ const connectController = require('../controllers/connectController');
 const validate = require('../validation');
 const userSchema = require('../validation/schemas/user');
 const controllerHandler = require('../helpers/controllerHandler');
-const authenticateToken = require('../helpers/auth');
+// const authenticateToken = require('../helpers/auth');
 
 const router = express.Router();
 
@@ -16,9 +16,9 @@ router.post('/connexion', connectController.connexion);
 
 // Routes de récupération, de mise à jour ou de suppression d'1 utilisateur
 router.route('/:id')
-  .get(authenticateToken, (validate(userSchema, 'query'), controllerHandler(userController.findOne)))
-  .patch(authenticateToken, (validate(userSchema, 'body'), controllerHandler(userController.update)))
-  .delete(authenticateToken, (validate(userSchema, 'query'), controllerHandler(userController.delete)));
+  .get(validate(userSchema, 'query'), controllerHandler(userController.findOne))
+  .patch(validate(userSchema, 'body'), controllerHandler(userController.update))
+  .delete(validate(userSchema, 'query'), controllerHandler(userController.delete));
 
 // Route d'inscription
 router.route('/inscription')

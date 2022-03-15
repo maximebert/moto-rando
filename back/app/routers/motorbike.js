@@ -5,20 +5,20 @@ const motorbikeController = require('../controllers/motorbikeController');
 const validate = require('../validation');
 const motorbikeSchema = require('../validation/schemas/motorbike');
 const controllerHandler = require('../helpers/controllerHandler');
-const authenticateToken = require('../helpers/auth');
+// const authenticateToken = require('../helpers/auth');
 
 const router = express.Router();
 
 // Routes de récupération de tous les motos et d'ajout d'une moto
 router.route('/')
-  .get(authenticateToken, (validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findAll)))
-  .post(authenticateToken, (validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.new)));
+  .get(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findAll))
+  .post(validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.new));
 
 // Routes de récupération, de mise à jour ou de suppression d'1 moto
 router.route('/:id')
-  .get(authenticateToken, (validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findOne)))
-  .patch(authenticateToken, (validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.update)))
-  .delete(authenticateToken, (validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.delete)));
+  .get(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findOne))
+  .patch(validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.update))
+  .delete(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.delete));
 
 module.exports = router;
 

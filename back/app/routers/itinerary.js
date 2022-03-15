@@ -18,8 +18,8 @@ router
 router
   .route('/:id')
   .get(authenticateToken, controllerHandler(itineraryController.findOne))
-  .patch(authenticateToken, controllerHandler(itineraryController.update))
-  .delete(authenticateToken, controllerHandler(itineraryController.delete));
+  .patch(controllerHandler(itineraryController.update))
+  .delete(controllerHandler(itineraryController.delete));
 
 module.exports = router;
 
