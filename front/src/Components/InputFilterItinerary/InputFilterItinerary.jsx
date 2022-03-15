@@ -28,12 +28,12 @@ const InputFilterItinerary = ({ data }) => {
     { id: 5, checked: false, label: 'Corse' },
     { id: 6, checked: false, label: 'Grand Est' },
     { id: 7, checked: false, label: 'Hauts-de-France' },
-    { id: 8, checked: false, label: 'Ile-de-France' },
+    { id: 8, checked: false, label: 'Île-de-France' },
     { id: 9, checked: false, label: 'Normandie' },
     { id: 10, checked: false, label: 'Nouvelle-Aquitaine' },
     { id: 11, checked: false, label: 'Occitanie' },
     { id: 12, checked: false, label: 'Pays de la Loire' },
-    { id: 13, checked: false, label: "Provence-Alpes-Côte d'Azur" },
+    { id: 13, checked: false, label: "Provence-Alpes-Côte dAzur" },
   ]);
 
 
