@@ -12,7 +12,7 @@ const router = express.Router();
 router
   .route('/')
   .get(controllerHandler(itineraryController.findAll))
-  .post(authenticateToken, controllerHandler(itineraryController.new));
+  .post(controllerHandler(itineraryController.new));
 
 // Routes de récupération, de mise à jour ou de suppression d'1 itinéraire
 router

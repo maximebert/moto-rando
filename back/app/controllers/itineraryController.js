@@ -5,7 +5,6 @@ const pictureMapper = require('../models/picture');
 const itineraryController = {
   // Méthode d'ajout d'un itinéraire
   async new(req, res) {
-
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
 

@@ -76,12 +76,12 @@ const itineraryMapper = {
     } = body;
     const userId = Number(body.id);
     const districtId = Number(body.district);
-    // console.log('district', districtId);
+    console.log(body);
 
     // Ajout d'un itineraire à la BDD
     const result = await database.query(
       `INSERT INTO "itinerary"
-        ("title", "description", "hour", "minute", "highway", "kilometer", "curve","trace", "user_id", "district_id")
+        ("title", "description", "hour", "minute", "highway", "kilometer", "curve", "trace", "user_id", "district_id")
       VALUES
         ('${title}', '${description}', '${hour}', '${minute}', '${highway}', '${kilometer}', '${curve}', '${trace}', '${userId}', '${districtId}')
         RETURNING *;`,

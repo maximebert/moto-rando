@@ -91,6 +91,7 @@ const RegistrationItinerary = ({userId}) => {
 
                 <label htmlFor="district">Région</label>
                 <select className='form-select' value={valueDistrict} onChange={handleChangeDistrict}>
+                <option>Selectionnez votre Région </option>
                       {
                         district.map((region, index) => (
                           <option
@@ -118,8 +119,8 @@ const RegistrationItinerary = ({userId}) => {
 
                 <label htmlFor="duration">Durée de l'itinéraire</label>
 
-                <input id="hour" placeholder='Heures' type="number" value={hour} onChange={(e)=>setHour(e.target.value)} />
-                <input id="minute" placeholder='Minutes' type="number" value={minute} onChange={(e)=>setMinute(e.target.value)} />
+                <input id="hour" placeholder='Heures' type="number" min="0" value={hour} onChange={(e)=>setHour(e.target.value)} />
+                <input id="minute" placeholder='Minutes' type="number" min="0" max="59" value={minute} onChange={(e)=>setMinute(e.target.value)} />
 
                 <label htmlFor="km">Nombre de kilomètres</label>
                 <input id="km" type="number" min="1" value={kilometer} onChange={(e)=>setKilometer(e.target.value)}/>
