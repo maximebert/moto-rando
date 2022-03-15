@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Input from './input/Input'
 import './login.scss';
-import {Link} from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-const Login = ({email, password, changeField, handleLogin}) => {
-  // Redirect to pageHome
-  // const navigate = useNavigate()
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        handleLogin();
-        // navigate('/')
-    }
+const Login = ({ email, password, changeField, handleLogin, loggedMsgError }) => {
+  const [status, setStatus] = useState(false)
 
-    return (
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin();
+    setStatus(true)
+  }
+
+  return (
+    <>
+      {
+        status && (
+          <p className='errmsg'>{loggedMsgError}</p>
+        )
+      }
+
       <div className="card-login">
         <div className="card-image">
           <h2 className="card-heading">
@@ -25,11 +31,11 @@ const Login = ({email, password, changeField, handleLogin}) => {
         </div>
         <form className="card-form" onSubmit={handleSubmit}>
           <div className="input">
-            <Input type="text" name='email' value={email} onChange={changeField} required/>
+            <Input type="text" name='email' value={email} onChange={changeField} required />
             <label className="input-label">Email</label>
           </div>
           <div className="input">
-            <Input type="password" name='password' value={password} onChange={changeField} required/>
+            <Input type="password" name='password' value={password} onChange={changeField} required />
             <label className="input-label">Mot de passe</label>
           </div>
           <div className="action">
@@ -40,14 +46,15 @@ const Login = ({email, password, changeField, handleLogin}) => {
           <p>Pas encore de compte ? <Link to='/inscription'>inscrivez-vous</Link></p>
         </div>
       </div>
-    )
+    </>
+  )
 }
 
 Login.propTypes = {
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    changeField: PropTypes.func.isRequired,
-    handleLogin: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 }
 Login.defaultProps = {
   // isLogged: false
