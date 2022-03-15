@@ -100,7 +100,7 @@ const itineraryController = {
     });
 
     const image = {
-      path: `http://localhost/images/${imgName}`,
+      path: `http://localhost:3000/images/${imgName}`,
       title: imgUploaded.name,
     };
     return image;
@@ -128,7 +128,7 @@ const itineraryController = {
       }
     });
 
-    const geoJsonPath = `http://localhost/geoJson/${pathName}`;
+    const geoJsonPath = `http://localhost:3000/geoJson/${pathName}`;
     return geoJsonPath;
   },
 
