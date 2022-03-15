@@ -6,7 +6,7 @@ const pictureMapper = require('../models/picture');
 const itineraryController = {
   // Méthode d'ajout d'un itinéraire
   async new(req, res) {
-    console.log('body', req.body);
+    // console.log('body', req.body);
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
 
@@ -19,7 +19,7 @@ const itineraryController = {
     if (req.files) {
       // upload de l'image de l'itineraire
       const image = await itineraryController.uploadImg(req, res);
-      console.log('image', image);
+      // console.log('image', image);
       // puis récupérer le lien, les id user et itineraire
       const imgData = {
         title: image.title,
@@ -27,11 +27,11 @@ const itineraryController = {
         user_id: req.body.id,
         itinerary_id: itinerary.id,
       };
-      console.log('imgData', imgData);
+      // console.log('imgData', imgData);
 
-      // uload du fichier geojson et recup de son lien
+      // upload du fichier geojson et recup de son lien
       const geoJson = await itineraryController.uploadGeoJson(req, res);
-      console.log('geo', geoJson);
+      // console.log('geo', geoJson);
 
       // pour insérer tout ça dans la table picture avec la methode update()
       const imgInDb = await pictureMapper.createItiPic(imgData);

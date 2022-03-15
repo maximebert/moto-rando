@@ -72,8 +72,8 @@ const itineraryMapper = {
       highway,
       kilometer,
       curve,
+      trace,
     } = body;
-    const trace = body.trace?body.trace:null;
     const userId = Number(body.id);
     const districtId = Number(body.district);
     // console.log('district', districtId);
