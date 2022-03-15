@@ -20,6 +20,7 @@ const Itinerary = () => {
         })
     }, []);
   console.log(itinerary)
+  
     return (
         <div className='itinerary_list'>
             <div className='itinerary_list-left'>

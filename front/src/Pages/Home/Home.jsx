@@ -20,7 +20,7 @@ const Home = () => {
         }
         fetchData();
     }, []);
-
+    console.log(itinerary);
     return (
         <>
             <Content />

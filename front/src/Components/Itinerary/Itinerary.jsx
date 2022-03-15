@@ -28,10 +28,10 @@ const Itinerary = ({id, map, title, description, user, kilometer, highway, hours
               }
               <span className="tag tag-teal">Distance: {kilometer} km</span>
               <span className="tag tag-purple">Durée: {hours} heures {minutes} min</span>
-              <span className="tag tag-pink">Autoroute: {highway === true ? 'Non'  : 'Oui'}</span>
+              <span className="tag tag-pink">Autoroute: {highway === true ? 'Oui'  : 'Non'}</span>
             </div>
             <p>
-              {description.length > 30 ? description.substring(0,100) + '...' : ''}
+              {description.length > 1 ? description.substring(0,150) + '...' : ''}
             </p>
             <Link className='link-itinerary' to={`/itineraire/${id}`}>Voir l'itineraire</Link>
             <div className="user">

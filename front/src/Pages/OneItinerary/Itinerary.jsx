@@ -1,12 +1,8 @@
-// import react
-import axios from 'axios';
-
 
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Itinerary from '../../Components/OneItinerary/Itinerary'
-import apiAxios, { initBearerToken } from '../../request';
-
+import apiAxios from '../../request';
 
 
 const OneItinerary = () => {
@@ -23,7 +19,7 @@ const OneItinerary = () => {
               setItineraryID(data)
               setIsLoading(false);
             })
-    }, []);
+    }, [params.id]);
     console.log(itineraryID)
   
     // console.log(itineraryID.districts[0].district_latitude);

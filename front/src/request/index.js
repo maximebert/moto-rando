@@ -4,6 +4,7 @@ import axios from 'axios';
 const apiAxios = axios.create({
   // Attention bien mettre http:// sinon souci (obscure) de cors
   baseURL: 'http://localhost:3000',
+  
 });
 export default apiAxios;
 
@@ -32,7 +33,6 @@ export default apiAxios;
 export function initBearerToken() {
   const localToken = localStorage.getItem('token');
   if (localToken) {
-    console.log('j ai trouver le token', localToken);
     apiAxios.defaults.headers.common.Authorization = `bearer ${localToken}`;
     return true
   }

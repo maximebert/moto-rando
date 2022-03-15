@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import AliceCarousel from 'react-alice-carousel'
 import Card from './cardItineraryProfil/Card';
 

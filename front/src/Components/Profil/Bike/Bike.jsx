@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import moto from "../../../assets/images/moto.webp"
 import './bike.scss';
 
