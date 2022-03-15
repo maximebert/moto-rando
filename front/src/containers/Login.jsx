@@ -9,7 +9,7 @@ const LoginContainer = () => {
     const email = useSelector((state) => state.user.email);
     const password = useSelector((state) => state.user.password);
     const isLogged = useSelector((state) => state.user.logged);
-    const loggedMsgError = useSelector((state) => state.user.loggedMsg)
+    const loggedMsgError = useSelector((state) => state.user.errLogged)
 
     const changeField = (value, name) => {
         dispatch(actionUpdateLoginInput(value, name))
