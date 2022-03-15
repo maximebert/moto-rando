@@ -44,6 +44,7 @@ const OneItinerary = () => {
                 longitude={itineraryID.districts[0].district_longitude}
                 latitude={itineraryID.districts[0].district_latitude}
                 zoom={itineraryID.districts[0].district_zoom}
+                trace={itineraryID.itinerary_trace}
             />
              </>
              )}
