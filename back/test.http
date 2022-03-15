@@ -24,14 +24,14 @@ POST http://localhost:3000/itineraires
 content-type: application/json
 
 {
-    "title": "Baux de Provence5",
+    "title": "Baux de Provence",
     "description": "venez aux baux de provence cest splendide",
     "hour": 2,
     "minute": 30,
     "highway": false,
     "kilometer": 20,
     "curve": 3,
-    "trace": null,
+    "trace": "blabla",
     "user_id": 1,
     "district_id" : 11
 

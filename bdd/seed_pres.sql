@@ -4,7 +4,7 @@ INSERT INTO "district" ("name", "latitude", "longitude", "zoom")
 VALUES
 ('Auvergne-Rhône-Alpes', 45, 5, 8),
 ('Bourgogne-Franche-Comté', 47, 5, 8),
-('Bretagne', 48, 7, 8),
+('Bretagne', 48, -2, 8),
 ('Centre-Val de Loire', 47, 2, 8),
 ('Corse', 42, 9, 8),
 ('Grand Est', 48., 5, 8),
