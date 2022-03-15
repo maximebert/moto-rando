@@ -5,6 +5,7 @@ const pictureMapper = require('../models/picture');
 const itineraryController = {
   // Méthode d'ajout d'un itinéraire
   async new(req, res) {
+
     const newItinerary = req.body;
     const itinerary = await itineraryMapper.create(newItinerary);
 
@@ -17,6 +18,7 @@ const itineraryController = {
     if (req.files) {
       // upload de l'image de l'itineraire
       const image = await itineraryController.uploadImg(req, res);
+
       // puis récupérer le lien, les id user et itineraire
       const imgData = {
         title: image.title,
@@ -25,7 +27,7 @@ const itineraryController = {
         itinerary_id: itinerary.id,
       };
 
-      // uload du fichier geojson et recup de son lien
+      // upload du fichier geojson et recup de son lien
       const geoJson = await itineraryController.uploadGeoJson(req, res);
 
       // pour insérer tout ça dans la table picture avec la methode update()
