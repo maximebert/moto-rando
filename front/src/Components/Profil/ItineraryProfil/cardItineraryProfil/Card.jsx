@@ -10,7 +10,7 @@ const CardProfil = ({ title, pictures}) => {
 
         <div className="card-profil">
           <div className="card-header-profil">
-            <img className='card__img=profil' src='http://localhost:3000/img/avatar-copy.jpg' alt={title} />
+            <img className='card__img=profil' src='http://localhost:3000/images/arcachon.jpg' alt={title} />
           </div>
           <div className="card-body-profil">
             <h4>

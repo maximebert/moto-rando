@@ -16,8 +16,8 @@ const loginMiddleware = (store) => (next) => async (action) => {
     case APP_MOUNT: {
       const res = initBearerToken();
       if(res) {
-        store.dispatch(actionSetLogged(true, res.data.id));
-        store.dispatch(actionsSetPseudo(res.data.alias));
+        store.dispatch(actionSetLogged(true, res.data.user.id));
+        store.dispatch(actionsSetPseudo(res.data.user.alias));
       }
       next(action);
       return;
@@ -29,8 +29,8 @@ const loginMiddleware = (store) => (next) => async (action) => {
       console.log("requestLogin", response);
       // si le status de la reponse est bien = à 200 alors l'utilisateur est connecté et on affiche son pseudo
       if (response.status === 200) {
-        store.dispatch(actionSetLogged(true, response.data.id));
-        store.dispatch(actionsSetPseudo(response.data.alias));
+        store.dispatch(actionSetLogged(true, response.data.user.id));
+        store.dispatch(actionsSetPseudo(response.data.user.alias));
         setBearerToken(response.data.accessToken)
         initBearerToken()
       } else {
