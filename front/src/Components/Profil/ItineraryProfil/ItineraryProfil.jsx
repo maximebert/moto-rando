@@ -24,10 +24,10 @@ const ItineraryProfil = ({ itineraryProfil }) => {
             mouseTracking
             responsive={responsive}
             controlsStrategy="alternate">
-            { card?.length > 1 ?
+            { card?.length > 0 ? 
                //ici on va boucler pour récupérer une liste d'itinéraire
                card?.slice(0).reverse()
-                  .map((item, index) => (
+                     .map((item, index) => (
                      // c'est les infos que l'on a besoin pour afficher un itinéraire
                      <Card
                         key={index}

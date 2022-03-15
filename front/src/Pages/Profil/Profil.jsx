@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 
-
-
 //composants
 import User from '../../Components/Profil/User';
 import Bike from '../../Components/Profil/Bike/Bike';
@@ -25,32 +23,34 @@ const Profil = () => {
   const params = useParams()
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await apiAxios.get(`/profil/${params.id}`)
-      setProfilID(response.data);
-      setMotorbikeID(response.data);
-      setIsLoading(false);
-    }
-    fetchData()
-
+    apiAxios.get(`/profil/${params.id}`)
+      .then(({ data }) => {
+        setProfilID(data)
+        setMotorbikeID(data)
+        setIsLoading(false);
+      })
   }, [params.id]);
   console.log(profilID)
 
   return (
     <div className='profil'>
       <h3 className='profil-title'>Mon Profil</h3>
-      {!isLoading && (
-        <div className='profil__detail'>
-          <User id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation} />
-          <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
-        </div>
+      {!isLoading && profilID && (
+        <>
+
+          <div className='profil__detail'>
+            <User id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation} />
+            <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
+          </div>
+
+          <Link to={`/profil/${profilID.user_id}/modifier`} >
+            <button className='profil-update' >Modifier mon profil <BsPen className='icon' /> </button>
+          </Link>
+          <h3 className='profil-title'>Dernières balades partagées</h3>
+          <ItineraryProfil itineraryProfil={profilID} />
+          <Link to={`/profil/${profilID.user_id}/nouveau-itineraire`} className='profil-create'>Créer une nouvelle balade <AiOutlinePlusCircle className='icon' /></Link>
+        </>
       )}
-      <Link to={`/profil/${profilID.user_id}/modifier`} >
-        <button className='profil-update' >Modifier mon profil <BsPen className='icon'/> </button>
-      </Link>
-      <h3 className='profil-title'>Dernières balades partagées</h3>
-      <ItineraryProfil itineraryProfil={profilID} />
-      <Link to={`/profil/${profilID.user_id}/nouveau-itineraire`} className='profil-create'>Créer une nouvelle balade <AiOutlinePlusCircle className='icon' /></Link>
     </div>
   )
 }
