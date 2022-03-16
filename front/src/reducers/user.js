@@ -4,6 +4,7 @@ import {
   SET_LOGOUT,
   SET_PSEUDO,
   SET_ERROR_CONNECTION,
+  TOKEN,
 } from "../action/user";
 /**
  * on met des valeurs par défaut sur notre statut (state)
@@ -15,7 +16,8 @@ export const initialState = {
   password: "",
   pseudo: "",
   logged: false,
-  errLogged: ''
+  errLogged: '',
+  token:''
 };
 
 // le reducer va nous servir a centraliser la mise à jour des actions de mise à jour du login, de la connexion, la déconnexion et l'affichage du pseudo
@@ -56,6 +58,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         errLogged: action.payload
+      }
+    case TOKEN:
+      return{
+        ...state,
+        token:action.payload
       }
     default:
       return state;

@@ -5,6 +5,7 @@ export const SET_LOGOUT = "SET_LOGOUT";
 export const SET_PSEUDO = "SET_PSEUDO";
 export const SET_ERROR_CONNECTION = "SET_ERROR_CONNECTION";
 export const ADD_USER = "ADD_USER";
+export const TOKEN = "TOKEN";
 
 /**
  * fonction que l'on exporte, c'est l'action pour mettre à jour la valeur des champs email et password
@@ -66,4 +67,12 @@ export function actionAddUser(pseudo, email, password, confirmPassword) {
       confirmPassword,
     },
   };
+
+}
+
+export function actionToken (token){
+  return {
+    type: TOKEN,
+    payload : token
+  }
 }
