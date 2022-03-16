@@ -1,5 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import moto from "../../../assets/images/moto.webp"
+import { BsPen } from 'react-icons/bs';
 import './bike.scss';
 
 //Profil de la moto
@@ -19,6 +22,8 @@ const Bike = ({ user_id, photoMoto, brand, model }) => {
                         <span className="bike-model">Modèle : 790 duke {model}  </span>
                     </div>
                 </div>
+
+                <button className='profil-update-bike' >Modifier ma moto <BsPen className='icon' /> </button>
             </div>
         </>
 

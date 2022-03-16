@@ -37,6 +37,7 @@ const OneItinerary = () => {
           }
           <Itinerary
             // map={itineraryID.pictures[0].pic_link}// tracé
+            id={itineraryID.itinerary_id}
             title={itineraryID.itinerary_title}
             description={itineraryID.itinerary_description}
             hour={itineraryID.itinerary_hour}
