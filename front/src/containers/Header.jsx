@@ -1,19 +1,18 @@
-import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../Components/Header/Header";
-import {actionSetLogout} from "../action/user";
+import { actionSetLogout } from "../action/user";
 
 const HeaderContainer = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const isLogged = useSelector((state) => state.user.logged);
   const userId = useSelector((state) => state.user.id);
-  const pseudo = useSelector((state)=> state.user.pseudo);
-
+  const pseudo = useSelector((state) => state.user.pseudo);
 
   const handleLogout = () => {
     dispatch(actionSetLogout());
-  }
+  };
 
   return (
     <Header
@@ -22,7 +21,7 @@ const HeaderContainer = () => {
       pseudo={pseudo}
       handleLogout={handleLogout}
     />
-  )
-}
+  );
+};
 
 export default React.memo(HeaderContainer);

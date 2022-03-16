@@ -1,30 +1,30 @@
-import React from 'react';
-import Checkbox from '@material-ui/core/Checkbox';
-import { makeStyles } from '@material-ui/core/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import React from "react";
+import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles } from "@material-ui/core/styles";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const useStyles = makeStyles({
   root: {
-    '&$checked': {
-      color: '#008593',
+    "&$checked": {
+      color: "#008593",
     },
   },
   checked: {},
   wrap: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row-reverse',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    width: "100%",
+    display: "flex",
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginLeft: 0,
   },
   label: {
-    fontSize: '.8rem',
-    fontFamily: 'Poppins'
+    fontSize: ".8rem",
+    fontFamily: "Poppins",
   },
 });
 
-const CheckboxProton = ({ changeChecked, region}) => {
+const CheckboxProton = ({ changeChecked, region }) => {
   const classes = useStyles();
   const { checked, label, id } = region;
   return (
@@ -40,10 +40,10 @@ const CheckboxProton = ({ changeChecked, region}) => {
               checked: classes.checked,
               root: classes.root,
             }}
-            size='small'
+            size="small"
             checked={checked}
             onChange={() => changeChecked(id)}
-            inputProps={{ 'aria-label': 'checkbox with small size' }}
+            inputProps={{ "aria-label": "checkbox with small size" }}
           />
         }
         label={label}
