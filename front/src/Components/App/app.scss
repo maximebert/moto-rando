@@ -1,5 +1,9 @@
 @use 'src/Styles/vars';
 
 .App{
-    color: vars.$grey
+    color: vars.$grey;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: auto;
 }

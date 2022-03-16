@@ -46,7 +46,7 @@ const Profil = () => {
           <Link to={`/profil/${profilID.user_id}/modifier`} >
             <button className='profil-update' >Modifier mon profil <BsPen className='icon' /> </button>
           </Link>
-          <h3 className='profil-title'>Dernières balades partagées</h3>
+          <h3 className='profil-title'>Mes balades</h3>
           <ItineraryProfil itineraryProfil={profilID} />
           <Link to={`/profil/${profilID.user_id}/nouveau-itineraire`} className='profil-create'>Créer une nouvelle balade <AiOutlinePlusCircle className='icon' /></Link>
         </>

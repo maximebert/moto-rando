@@ -143,7 +143,7 @@ const RegistrationUser = () => {
                       </div>
                     </form>
                     <div className="card-info">
-                      <p>Deja un compte ? <Link to='/connexion'>connectez-vous</Link></p>
+                      <p>Déjà un compte ? <Link to='/connexion'>connectez-vous</Link></p>
                     </div>
                   </div>
                 </>

@@ -13,7 +13,7 @@ import {TiSocialFacebookCircular, TiSocialLinkedinCircular, TiSocialTwitterCircu
 const Team = () => {
     return (
       <div className='team'>
-          <h2 className='team__title'>L'equipe Moto'Rando</h2>
+          <h2 className='team__title'>L'équipe Moto'Rando</h2>
 
           <div className='team__card'>
 
@@ -22,7 +22,7 @@ const Team = () => {
               <div className='card__content'>
                 <h3>Karine</h3>
                 <h5>Product Owner</h5>
-                <p>Developpeur Back</p>
+                <p>Développeur Back</p>
                 <div className='id-social'>
                   <Link to="#"><TiSocialFacebookCircular/></Link>
                   <Link to="#"><TiSocialLinkedinCircular/></Link>
@@ -36,7 +36,7 @@ const Team = () => {
               <div className='card__content'>
                 <h3>Alban</h3>
                 <h5>Lead Dev Front</h5>
-                <p>Developpeur Front</p>
+                <p>Développeur Front</p>
                 <div className='id-social'>
                   <Link to="#"><TiSocialFacebookCircular/></Link>
                   <Link to="#"><TiSocialLinkedinCircular/></Link>
@@ -50,7 +50,7 @@ const Team = () => {
               <div className='card__content'>
                 <h3>Maxime</h3>
                 <h5>Lead Dev Back</h5>
-                <p>Developpeur Back</p>
+                <p>Développeur Back</p>
                 <div className='id-social'>
                   <Link to="#"><TiSocialFacebookCircular/></Link>
                   <Link to="#"><TiSocialLinkedinCircular/></Link>
@@ -64,7 +64,7 @@ const Team = () => {
               <div className='card__content'>
                 <h3>Elodie</h3>
                 <h5>Scrum Master</h5>
-                <p>Developpeur Front</p>
+                <p>Développeur Front</p>
                 <div className='id-social'>
                   <Link to="#"><TiSocialFacebookCircular/></Link>
                   <Link to="#"><TiSocialLinkedinCircular/></Link>
@@ -89,7 +89,7 @@ const Team = () => {
 
 
           </div>
-          <span className='team__span'>Crédit photo : Ruroc</span>
+          <span className='team__span'>Crédits photos : Ruroc</span>
       </div>
     )
 }
