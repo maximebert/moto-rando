@@ -10,7 +10,7 @@ const User = ({ id, alias, email, presentation }) => {
 
   return (
     <div className="user">
-      <h5 className="user-infos">Mes informations personnel</h5>
+      <h5 className="user-infos">Mes informations personnelles</h5>
       <div className='user__detail'>
         <img className='user__picture' src={avatar} alt='photo de profil' />
         <h2>{alias}</h2>

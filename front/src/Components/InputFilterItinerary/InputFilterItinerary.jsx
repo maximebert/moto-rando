@@ -187,7 +187,7 @@ const InputFilterItinerary = ({ data }) => {
                 :
                 <div className='empty'>
                   <EmptyView />
-                  <span>Aucune balade trouver <br /> Affiner votre recherche</span>
+                  <span>Aucune balade trouvée <br /> Affiner votre recherche</span>
                 </div>
 
             }

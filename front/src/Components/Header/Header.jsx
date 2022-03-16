@@ -63,7 +63,7 @@ const Header = ({isLogged, handleLogout, pseudo, id}) => {
                       </li>
                       <li>
                         <NavLink onClick={closeMenu} className={({ isActive }) => `header_link ${isActive ? 'active' : '' }`} to='/equipe'>
-                          L'equipe
+                          L'équipe
                         </NavLink>
                       </li>
                   {!isLogged && (
