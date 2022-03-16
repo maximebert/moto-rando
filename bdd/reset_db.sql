@@ -1,5 +1,6 @@
 BEGIN;
 
+DROP TABLE IF EXISTS "user", "motorbike", "district", "picture", "itinerary";
 --setting up the structure
 
 CREATE TABLE "user" (
