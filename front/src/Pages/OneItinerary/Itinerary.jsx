@@ -41,7 +41,7 @@ const OneItinerary = () => {
             title={itineraryID.itinerary_title}
             description={itineraryID.itinerary_description}
             hour={itineraryID.itinerary_hour}
-            minute={itineraryID.itinerary_minute}
+            minute={itineraryID.itineray_minute}
             curve={itineraryID.itinerary_curve}
             pictures={itineraryID.pictures}
             highway={itineraryID.is_highway}
