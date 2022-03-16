@@ -1,62 +1,65 @@
-import React, { useState } from 'react';
-import '../ProfilUpdate/profilUpdate.scss';
+import React, { useState } from "react";
+import "../ProfilUpdate/profilUpdate.scss";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
+const ProfilUpdate = ({ pseudo, userId }) => {
+  const [presentation, setPresentation] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
 
+  console.log(userId);
 
-const ProfilUpdate = ({pseudo, userId}) => {
-    const [presentation, setPresentation] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
-    console.log(userId);
+  const send = async (e) => {
+    e.preventDefault();
 
-    const navigate = useNavigate();
+    try {
+      const response = await axios.patch(
+        `http://localhost:3000/profil/${userId}`,
+        { presentation }
+      );
 
-    const send = async (e) => {
-        e.preventDefault();
+      console.log(response.data);
 
-        try {
-            const response = await axios.patch(`http://localhost:3000/profil/${userId}`, {presentation});
-        
-            console.log(response.data);
+      // console.log(response.accessToken);
 
-            // console.log(response.accessToken);
+      console.log(JSON.stringify(response.data));
 
-            console.log(JSON.stringify(response.data))
-
-            // clear
-            setPresentation('');
-            // setPassword('')
-            // setConfirmPassword('')
-            navigate(`/profil/${userId}`);
-        } catch (err) {
-            console.log(err);
-        }
+      // clear
+      setPresentation("");
+      // setPassword('')
+      // setConfirmPassword('')
+      navigate(`/profil/${userId}`);
+    } catch (err) {
+      console.log(err);
     }
+  };
 
+  return (
+    <div className="form">
+      <h2>Modifier votre profil</h2>
+      <form className="profilUpdate-form" onSubmit={send}>
+        <label htmlFor="presentation">Présentation</label>
+        <input
+          id="presentation"
+          type="text"
+          placeholder={presentation}
+          value={presentation}
+          onChange={(e) => setPresentation(e.target.value)}
+        />
 
-    return (
-        <div className='form'>
-            <h2>Modifier votre profil</h2>
-            <form className='profilUpdate-form' onSubmit={send}>
-
-
-                <label htmlFor="presentation">Présentation</label>
-                <input id="presentation" type="text" placeholder={presentation} value={presentation} onChange={(e) => setPresentation(e.target.value)} />
-
-                {/* <label htmlFor="password">Mot de passe</label>
+        {/* <label htmlFor="password">Mot de passe</label>
                 <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                 <label htmlFor="confirmPassword">Confirmez votre mot de passe</label>
                 <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /> */}
 
-                <button className='form__btn-submit' >Valider votre profil</button>
+        <button className="form__btn-submit">Valider votre profil</button>
+      </form>
+    </div>
+  );
+};
 
-            </form>
-        </div>
-    )
-}
-
-export default React.memo(ProfilUpdate)
+export default React.memo(ProfilUpdate);

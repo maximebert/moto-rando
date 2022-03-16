@@ -15,7 +15,7 @@ export const initialState = {
   password: "",
   pseudo: "",
   logged: false,
-  errLogged: ''
+  errLogged: "",
 };
 
 // le reducer va nous servir a centraliser la mise à jour des actions de mise à jour du login, de la connexion, la déconnexion et l'affichage du pseudo
@@ -55,8 +55,8 @@ const reducer = (state = initialState, action = {}) => {
     case SET_ERROR_CONNECTION:
       return {
         ...state,
-        errLogged: action.payload
-      }
+        errLogged: action.payload,
+      };
     default:
       return state;
   }

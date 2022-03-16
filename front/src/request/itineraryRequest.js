@@ -1,4 +1,3 @@
-
 import apiAxios from ".";
 
 /***
@@ -6,10 +5,10 @@ import apiAxios from ".";
  * @returns {Promise<AxiosResponse<any>|*>}
  */
 export async function getAllList() {
-    try{
-        const response = await apiAxios.get('/itineraires')
-        return response
-    }catch(err){
-        return err.response
-    }
+  try {
+    const response = await apiAxios.get("/itineraires");
+    return response;
+  } catch (err) {
+    return err.response;
+  }
 }

@@ -4,7 +4,11 @@ import MyMap from "../Map/MyMap";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-import { FacebookShareButton, WhatsappShareButton, TwitterShareButton } from "react-share";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+} from "react-share";
 import { FacebookIcon, WhatsappIcon, TwitterIcon } from "react-share";
 import { Carousel } from "react-responsive-carousel";
 import "./itinerary.scss";
@@ -28,7 +32,7 @@ const OneItinerary = ({
   pictures,
   trace,
 }) => {
-  console.log('trace', trace);
+  console.log("trace", trace);
   return (
     <>
       <MyMap
@@ -82,7 +86,6 @@ const OneItinerary = ({
                 <h5>{user}</h5>
               </div>
               <div className="itinerary__user-share">
-                
                 <div className="icon">
                   <FacebookShareButton
                     url={`http://localhost:3001/itineraire/${id}`}
@@ -108,7 +111,6 @@ const OneItinerary = ({
                 </div>
                 <p>Partager cette balade</p>
               </div>
-
             </div>
           </div>
         </div>

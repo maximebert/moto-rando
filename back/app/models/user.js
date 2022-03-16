@@ -83,7 +83,7 @@ const userMapper = {
       `INSERT INTO "user"
          ("alias", "email", "password", "presentation")
      VALUES
-         ('${alias}', '${email}', '${hashedPassword}', '${presentation}')
+         ('${alias}', '${email}', '${hashedPassword}', '')
          RETURNING *;`,
     );
 
