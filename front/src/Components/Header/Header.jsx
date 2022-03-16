@@ -5,6 +5,7 @@ import logo from '../../assets/images/logo-white.png';
 import './header.scss';
 import {BiMenuAltRight} from 'react-icons/bi'
 import {IoCloseCircleOutline} from "react-icons/io5";
+import {GiFullMotorcycleHelmet} from 'react-icons/gi'
 import {FiLogOut} from "react-icons/fi";
 
 const Header = ({isLogged, handleLogout, pseudo, id}) => {
@@ -89,7 +90,7 @@ const Header = ({isLogged, handleLogout, pseudo, id}) => {
                       </li>
                       <li>
                         <NavLink onClick={closeMenu} to={`/profil/${id}`}>
-                        <p className='pseudo'>{pseudo}</p>
+                        <p className='pseudo'><GiFullMotorcycleHelmet className='icon'/>{pseudo}</p>
                         </NavLink>
                       </li>
 

@@ -83,8 +83,7 @@ PATCH http://localhost:3000/profil/3
 content-type: application/json
 
 {
-    "alias": "norbert",
-    "email": "bebert@gmail.com",
+    "alias": "max",
     "password": "js4life",
     "confirmPassword": "js4life",
     "presentation": "bonjour je suis norbert alias bebert"

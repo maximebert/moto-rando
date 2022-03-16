@@ -20,6 +20,7 @@ import Error from "../Error/Error";
 // styles
 import '../../Styles/index.scss';
 import './app.scss';
+import UpdateProfil from "../../containers/UpdateProfil";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
 
             <Route path="/profil/:id/nouveau-itineraire" element={<RegistrationItinerary/>} />
             <Route path="/profil/:id" element={<Profil />} />
-            <Route path="/profil/:id/modifier" element={<ProfilUpdate/>} />
+            <Route path="/profil/:id/modifier" element={<UpdateProfil/>} />
 
         </Routes>
         <Footer/>

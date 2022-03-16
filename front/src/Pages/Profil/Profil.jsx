@@ -7,7 +7,7 @@ import Bike from '../../Components/Profil/Bike/Bike';
 
 //styles
 import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { BsPen } from 'react-icons/bs';
+
 import './profil.scss';
 import ItineraryProfil from '../../Components/Profil/ItineraryProfil/ItineraryProfil';
 import apiAxios from '../../request';
@@ -42,10 +42,6 @@ const Profil = () => {
             <User id={profilID.user_id} alias={profilID.user_alias} email={profilID.user_email} presentation={profilID.user_presentation} />
             <Bike brand={motorbikeID.motorbike_brand} model={motorbikeID.motorbike_model} />
           </div>
-
-          <Link to={`/profil/${profilID.user_id}/modifier`} >
-            <button className='profil-update' >Modifier mon profil <BsPen className='icon' /> </button>
-          </Link>
           <h3 className='profil-title'>Dernières balades partagées</h3>
           <ItineraryProfil itineraryProfil={profilID} />
           <Link to={`/profil/${profilID.user_id}/nouveau-itineraire`} className='profil-create'>Créer une nouvelle balade <AiOutlinePlusCircle className='icon' /></Link>

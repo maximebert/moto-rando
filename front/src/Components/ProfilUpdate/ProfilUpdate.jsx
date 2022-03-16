@@ -1,41 +1,58 @@
 import React, { useState } from 'react';
 import '../ProfilUpdate/profilUpdate.scss';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-const ProfilUpdate = ()=>{
-    const [alias, setAlias] = useState("");
+
+
+const ProfilUpdate = ({pseudo, userId}) => {
     const [presentation, setPresentation] = useState("");
-    const [brand,setBrand] = useState("");
-    const [model, setModel] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [confirmPassword, setConfirmPassword] = useState("");
 
+    console.log(userId);
 
-    const handleOnSubmit =(event)=>{
-        event.preventDefault()
+    const navigate = useNavigate();
+
+    const send = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.patch(`http://localhost:3000/profil/${userId}`, {presentation});
+        
+            console.log(response.data);
+
+            // console.log(response.accessToken);
+
+            console.log(JSON.stringify(response.data))
+
+            // clear
+            setPresentation('');
+            // setPassword('')
+            // setConfirmPassword('')
+            navigate(`/profil/${userId}`);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
 
     return (
         <div className='form'>
             <h2>Modifier votre profil</h2>
-            <form className='profilUpdate-form'>
-                <label htmlFor="photo-user">Votre plus belle photo</label>
-                <input type="file" id="photo-user" />
+            <form className='profilUpdate-form' onSubmit={send}>
 
-                <label htmlFor="alias">Nom de Profil</label>
-                <input id="alias" type="text" placeholder={alias} onChange={(e)=>setAlias(e.target.value)}/>
 
                 <label htmlFor="presentation">Présentation</label>
-                <input id="presentation" type="text"  placeholder={presentation} onChange={(e)=>setPresentation(e.target.value)} />
+                <input id="presentation" type="text" placeholder={presentation} value={presentation} onChange={(e) => setPresentation(e.target.value)} />
 
-                <label htmlFor="photo-bike">Photo de votre moto</label>
-                <input type="file" id="photo-bike" />
+                {/* <label htmlFor="password">Mot de passe</label>
+                <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-                <label htmlFor="brand">Marque de votre moto</label>
-                <input id="brand" type="text" placeholder={brand} onChange={(e)=>setBrand(e.target.value)}/>
+                <label htmlFor="confirmPassword">Confirmez votre mot de passe</label>
+                <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /> */}
 
-                <label htmlFor="model">Modèle de votre moto</label>
-                <input id="model" type="text" placeholder={model} onChange={(e)=>setModel(e.target.value)}/>
-
-                <button className='form__btn-submit' onClick={handleOnSubmit} >Valider votre profil</button>
+                <button className='form__btn-submit' >Valider votre profil</button>
 
             </form>
         </div>

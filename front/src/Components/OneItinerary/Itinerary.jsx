@@ -4,6 +4,8 @@ import MyMap from "../Map/MyMap";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+import { FacebookShareButton, WhatsappShareButton, TwitterShareButton } from "react-share";
+import { FacebookIcon, WhatsappIcon, TwitterIcon } from "react-share";
 import { Carousel } from "react-responsive-carousel";
 import "./itinerary.scss";
 import "./carousel.scss";
@@ -11,6 +13,7 @@ import "./carousel.scss";
 import avatar from "../../assets/images/racer.png";
 
 const OneItinerary = ({
+  id,
   title,
   description,
   highway,
@@ -25,6 +28,7 @@ const OneItinerary = ({
   pictures,
   trace,
 }) => {
+  console.log('trace', trace);
   return (
     <>
       <MyMap
@@ -68,13 +72,43 @@ const OneItinerary = ({
             </div>
 
             <div className="itinerary__user">
-              <img
-                src={avatar}
-                alt="casque moto"
-                width="100px"
-                height="100px"
-              />
-              <h5>{user}</h5>
+              <div className="itinerary__user-profil">
+                <img
+                  src={avatar}
+                  alt="casque moto"
+                  width="100px"
+                  height="100px"
+                />
+                <h5>{user}</h5>
+              </div>
+              <div className="itinerary__user-share">
+                
+                <div className="icon">
+                  <FacebookShareButton
+                    url={`http://localhost:3001/itineraire/${id}`}
+                    className="Demo__some-network__share-button"
+                    title={title}
+                  >
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+                  <WhatsappShareButton
+                    url={`http://localhost:3001/itineraire/${id}`}
+                    className="Demo__some-network__share-button"
+                    title={title}
+                  >
+                    <WhatsappIcon size={32} round />
+                  </WhatsappShareButton>
+                  <TwitterShareButton
+                    url={`http://localhost:3001/itineraire/${id}`}
+                    className="Demo__some-network__share-button"
+                    title={title}
+                  >
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                </div>
+                <p>Partager cette balade</p>
+              </div>
+
             </div>
           </div>
         </div>

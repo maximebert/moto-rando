@@ -87,15 +87,17 @@ const userController = {
 
   // Méthode de mise à jour d'un utilisateur
   async update(req, res) {
+    console.log(req.body);
     const {
       id,
     } = req.params;
     const savedUser = req.body;
-    const salt = await bcrypt.genSalt(10);
-    savedUser.password = await bcrypt.hash(req.body.password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // savedUser.password = await bcrypt.hash(req.body.password, salt);
     const user = await userMapper.update(id, savedUser);
-    delete user.password;
-    return res.json(user).status(200);
+    // delete user.password;
+    console.log(user);
+    return res.status(200).json(user);
   },
 
   // Méthode de suppression d'un utilisateur

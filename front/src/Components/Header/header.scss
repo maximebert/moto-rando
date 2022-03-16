@@ -88,8 +88,14 @@
             }
         }
     }
+  .icon{
+    margin: 30px 5px;
+    font-size: 3rem;
+  }
   .pseudo{
     margin: 30px;
+    display: flex;
+    align-items: center;
   }
   .btn__logout{
     cursor: pointer;

@@ -17,7 +17,7 @@ router.post('/connexion', connectController.connexion);
 // Routes de récupération, de mise à jour ou de suppression d'1 utilisateur
 router.route('/:id')
   .get(validate(userSchema, 'query'), controllerHandler(userController.findOne))
-  .patch(validate(userSchema, 'body'), controllerHandler(userController.update))
+  .patch(controllerHandler(userController.update))
   .delete(validate(userSchema, 'query'), controllerHandler(userController.delete));
 
 // Route d'inscription
