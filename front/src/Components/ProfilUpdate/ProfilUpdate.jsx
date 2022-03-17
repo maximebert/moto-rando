@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "../ProfilUpdate/profilUpdate.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const ProfilUpdate = ({ pseudo, userId }) => {
+import "../ProfilUpdate/profilUpdate.scss";
+
+
+const ProfilUpdate = ({ userId }) => {
   const [presentation, setPresentation] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
 
   console.log(userId);
 
@@ -22,15 +22,10 @@ const ProfilUpdate = ({ pseudo, userId }) => {
       );
 
       console.log(response.data);
-
-      // console.log(response.accessToken);
-
       console.log(JSON.stringify(response.data));
 
       // clear
       setPresentation("");
-      // setPassword('')
-      // setConfirmPassword('')
       navigate(`/profil/${userId}`);
     } catch (err) {
       console.log(err);
@@ -49,12 +44,6 @@ const ProfilUpdate = ({ pseudo, userId }) => {
           value={presentation}
           onChange={(e) => setPresentation(e.target.value)}
         />
-
-        {/* <label htmlFor="password">Mot de passe</label>
-                <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
-                <label htmlFor="confirmPassword">Confirmez votre mot de passe</label>
-                <input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /> */}
 
         <button className="form__btn-submit">Valider votre profil</button>
       </form>

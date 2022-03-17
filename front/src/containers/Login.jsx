@@ -1,8 +1,10 @@
 import React from "react";
-import Login from "../Components/Login/Login";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import Login from "../Components/Login/Login";
 import { actionSubmitLogin, actionUpdateLoginInput } from "../action/user";
+
 const LoginContainer = () => {
   const dispatch = useDispatch();
 

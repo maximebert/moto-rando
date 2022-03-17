@@ -2,10 +2,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../Profil/user.scss";
-import avatar from "../../assets/images/racer.png";
 
+import avatar from "../../assets/images/racer.png";
 import { BsPen } from "react-icons/bs";
+import "../Profil/user.scss";
+
 
 const User = ({ id, alias, email, presentation }) => {
   return (

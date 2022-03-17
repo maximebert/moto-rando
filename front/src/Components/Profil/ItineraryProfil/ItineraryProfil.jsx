@@ -1,6 +1,8 @@
 import React from "react";
-import AliceCarousel from "react-alice-carousel";
+
 import Card from "./cardItineraryProfil/Card";
+
+import AliceCarousel from "react-alice-carousel";
 
 const responsive = {
   0: { items: 1 },

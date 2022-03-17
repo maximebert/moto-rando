@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "../../../api/axios";
 import { useNavigate } from "react-router-dom";
 
-import "./itineraryForm.scss";
 import apiAxios from "../../../request";
 
-const ADD_ITINERARY = "/itineraires";
+import "./itineraryForm.scss";
 
+
+const ADD_ITINERARY = "/itineraires";
+// C'est pour créer un itinéraire
 const RegistrationItinerary = ({ userId }) => {
   const [title, setTitle] = useState("");
   const [hour, setHour] = useState();
@@ -21,9 +23,7 @@ const RegistrationItinerary = ({ userId }) => {
   const [district, setDistrict] = useState([]);
 
   const navigate = useNavigate();
-  // const handleOnSubmit =(event)=>{
-  //     event.preventDefault()
-  // }
+
   const handleChangeDistrict = (event) => {
     setValueDistrict(event.target.value);
   };
@@ -59,8 +59,6 @@ const RegistrationItinerary = ({ userId }) => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(response.data);
-
-      // console.log(response.accessToken);
 
       console.log(JSON.stringify(response.data));
 

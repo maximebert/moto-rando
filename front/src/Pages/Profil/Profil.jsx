@@ -21,6 +21,7 @@ const Profil = () => {
   const params = useParams();
 
   useEffect(() => {
+    // requete pour afficher les infos du profil par l'id
     apiAxios.get(`/profil/${params.id}`).then(({ data }) => {
       setProfilID(data);
       setMotorbikeID(data);

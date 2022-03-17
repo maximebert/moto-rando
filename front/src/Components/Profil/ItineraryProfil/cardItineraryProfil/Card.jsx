@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./card.scss";
 
 const CardProfil = ({ title, pictures }) => {
+  // c'est les balades créées par l'utlisateur
   return (
     <div className="card-profil">
       <div className="card-header-profil">

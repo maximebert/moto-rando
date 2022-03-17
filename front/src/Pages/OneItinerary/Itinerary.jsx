@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+
 import Itinerary from "../../Components/OneItinerary/Itinerary";
 import apiAxios from "../../request";
 
@@ -10,10 +11,11 @@ const OneItinerary = () => {
   const [itineraryID, setItineraryID] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const userLogged = useSelector((state) => state.user.id);
-
+// Params est un hook de react on s'en sert pour récupérer des routes paramétrées
   const params = useParams();
   // console.log(params);
   useEffect(() => {
+    // c'était notre 1iere requete qui n'affichait pas les données. Elle était trop rapide
     // const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
     // setItineraryID(response.data);
     // setIsLoading(false);
@@ -24,14 +26,13 @@ const OneItinerary = () => {
   }, [params.id]);
   console.log(itineraryID);
 
-  // console.log(itineraryID.districts[0].district_latitude);
   return (
     <div>
+      {/* Si le isLoading est à faux, que l'utilisateur est connecté on affiche l'itinéraire*/}
       {!isLoading && itineraryID && userLogged ? (
         <>
           {console.log(itineraryID)}
           <Itinerary
-            // map={itineraryID.pictures[0].pic_link}// tracé
             id={itineraryID.itinerary_id}
             title={itineraryID.itinerary_title}
             description={itineraryID.itinerary_description}
