@@ -13,24 +13,11 @@ const RegistrationUser = () => {
   const errRef = useRef();
 
   const [alias, setAlias] = useState("");
-
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
-
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-  // useEffect(() => {
-  //     setValidName(USER_REGEX.test(user));
-  // }, [user])
-
-  // useEffect(() => {
-  //     setValidPwd(PWD_REGEX.test(pwd));
-  //     setValidMatch(pwd === matchPwd);
-  // }, [pwd, matchPwd])
 
   useEffect(() => {
     userRef.current.focus();
@@ -38,13 +25,7 @@ const RegistrationUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // // if button enabled with JS hack
-    // const v1 = USER_REGEX.test(user);
-    // const v2 = PWD_REGEX.test(pwd);
-    // if (!v1 || !v2) {
-    //     setErrMsg("Invalid Entry");
-    //     return;
-    // }
+
 
     try {
       const response = await axios.post(REGISTER_URL, {

@@ -1,10 +1,11 @@
 // import react
 import React from "react";
-import "./registration.scss";
 //component
 import RegistrationUser from "../../Components/Registration/User/RegistrationUser";
 // import style
 import "../Registration/registration.scss";
+import "./registration.scss";
+
 
 const Registration = () => {
   return (

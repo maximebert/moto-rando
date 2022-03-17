@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import { MapContainer, GeoJSON, TileLayer, Marker } from "react-leaflet";
 // import itinerary from "";
 import "leaflet/dist/leaflet.css";
-import axios from "axios";
 
 const MyMap = ({ zoom, latitude, longitude, trace }) => {
   const [mapData, setMapData] = useState("");

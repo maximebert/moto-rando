@@ -1,5 +1,5 @@
 import React from "react";
-import "./team.scss";
+
 import { Link } from "@mui/material";
 
 import Alban from "../../assets/images/Alban.webp";
@@ -7,6 +7,9 @@ import Elodie from "../../assets/images/Elodie.webp";
 import Maxime from "../../assets/images/Maxime.webp";
 import Karine from "../../assets/images/Karine.webp";
 import Yann from "../../assets/images/Yann.webp";
+
+import "./team.scss";
+
 
 import {
   TiSocialFacebookCircular,

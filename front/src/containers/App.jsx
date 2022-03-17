@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import App from "../Components/App/App";
 import { useDispatch } from "react-redux";
+
+import App from "../Components/App/App";
 import { actionAppMount } from "../action/system";
 
 const AppContainer = () => {

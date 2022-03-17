@@ -1,12 +1,14 @@
 import React from "react";
+
 import CheckboxProton from "../checkBox/CheckboxProton";
 import SliderProton from "../sliderInput/SliderProton";
+import FilterListCurve from "../filterListCurve/FilterListCurve";
+
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FilterListCurve from "../filterListCurve/FilterListCurve";
 
 const ratingList = [
   {
@@ -35,7 +37,7 @@ const ratingList = [
     label: "5🏍️",
   },
 ];
-
+// c'est toutes les props qu'on avait passer au composant inputFilterItinerary, on les repasse ici sous forme d'objet (destructuré)
 const FilterPanel = ({
   selectedDistance,
   changeDistance,
@@ -43,7 +45,6 @@ const FilterPanel = ({
   changeChecked,
   selectedRating,
   changeRating,
-  data,
 }) => (
   <div>
     <div className="input-group">

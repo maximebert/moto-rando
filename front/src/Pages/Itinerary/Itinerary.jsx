@@ -24,6 +24,7 @@ const Itinerary = () => {
         <InputFilterItinerary data={itinerary} />
       </div>
       <div className="itinerary_list-right">
+        {/* Si le isLoadding est est false et que tu trouves 1 itinéraires alors tu envoie les données dans Mapbox */}
         {!isLoading && itinerary && <MapBox mapData={itinerary} />}
       </div>
     </div>

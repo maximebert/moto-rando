@@ -3,23 +3,30 @@ import { Routes, Route } from "react-router-dom";
 // route
 import Home from "../../Pages/Home/Home";
 import Registration from "../../Pages/Registration/Registration";
-import Profil from "../../containers/Profil";
 import Team from "../../Pages/Team/Team";
 import Contact from "../../Pages/Contact/Contact";
-import Footer from "../Footer/Footer";
 import Itinerary from "../../Pages/Itinerary/Itinerary";
-import LoginContainer from "../../containers/Login";
-import LegalNotice from "../Footer/LegalNotice/LegalNotice";
-import HeaderContainer from "../../containers/Header";
 import OneItinerary from "../../Pages/OneItinerary/Itinerary";
+import Profil from "../../containers/Profil";
+import LoginContainer from "../../containers/Login";
+import HeaderContainer from "../../containers/Header";
 import RegistrationItinerary from "../../containers/RegistrationItinerary";
-
+import UpdateProfil from "../../containers/UpdateProfil";
+import Footer from "../Footer/Footer";
 import Error from "../Error/Error";
+import LegalNotice from "../Footer/LegalNotice/LegalNotice";
+
+
+
+
+
+
+
+
 
 // styles
 import "../../Styles/index.scss";
 import "./app.scss";
-import UpdateProfil from "../../containers/UpdateProfil";
 
 function App() {
   return (

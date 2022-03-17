@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Input from "./input/Input";
-import "./login.scss";
 import { Link } from "react-router-dom";
+
+import Input from "./input/Input";
+
+import "./login.scss";
 
 const Login = ({
   email,

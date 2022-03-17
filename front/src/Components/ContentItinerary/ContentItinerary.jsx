@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import Itinerary from "../Itinerary/Itinerary";
-import "react-alice-carousel/lib/alice-carousel.css";
+
 import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./contentItinerary.scss";
 
 const responsive = {
@@ -27,10 +29,11 @@ const ContentItinerary = ({ itineraryList }) => {
           {
             //ici on va boucler pour récupérer une liste d'itinéraire
             itineraryList
+            // le slice + reverse est pour dire qu'a chaque nouvel itinéraire il vient se placer en premier
               .slice(0)
               .reverse()
               .map((itinerary) => (
-                //c'est les infos que l'on a besoin pour afficher un itinéraire
+                //On rappelle un composant Itinerary, c'est les infos que l'on a besoin pour afficher un itinéraire,
                 <Itinerary
                   key={itinerary.itinerary_id}
                   map={itinerary.pictures[0].pic_link}

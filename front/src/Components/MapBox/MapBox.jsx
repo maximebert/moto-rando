@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./mapBox.scss";
-import axios from "axios";
 
 const latt = 47;
 const long = 2;
@@ -32,6 +33,7 @@ const MapBox = ({ mapData }) => {
 
   console.log(mapBoxData);
   return (
+    // c'est la carte de france avec tous les points on boucle sur toutes les régions
     <>
       <MapContainer
         className="map"
@@ -60,7 +62,6 @@ const MapBox = ({ mapData }) => {
             </Marker>
           ))}
         </>
-        }
       </MapContainer>
     </>
   );

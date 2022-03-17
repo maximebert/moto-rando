@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import logo from "../../assets/images/logo-white.png";
-import "./header.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { GiFullMotorcycleHelmet } from "react-icons/gi";
 import { FiLogOut } from "react-icons/fi";
+import "./header.scss";
+
 
 const Header = ({ isLogged, handleLogout, pseudo, id }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,6 +45,7 @@ const Header = ({ isLogged, handleLogout, pseudo, id }) => {
   };
 
   return (
+
     <header className="header">
       <div className="header__content">
         <NavLink to="/">
