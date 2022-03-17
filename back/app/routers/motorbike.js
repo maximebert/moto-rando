@@ -11,6 +11,8 @@ const router = express.Router();
 
 // Routes de récupération de tous les motos et d'ajout d'une moto
 router.route('/')
+// une fois que la requete arrive ici elle "passe" par la validitation,
+// si celle ci est validé on va au controller correspondant ici motorbikeController
   .get(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findAll))
   .post(validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.new));
 
