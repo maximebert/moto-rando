@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node ./back/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "resetdb": "psql -U omoto -d omoto -f ./bdd/reset_db.sql"
   },
   "keywords": [],
   "author": "",

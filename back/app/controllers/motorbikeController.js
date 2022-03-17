@@ -10,7 +10,7 @@ const motorbikeController = {
   },
 
   // Méthode daffichage de toutes les motos
-  async findAll(req, res) {
+  async findAll(_, res) {
     const motorbike = await motorbikeMapper.findAll();
     return res.status(200).json(motorbike);
   },
