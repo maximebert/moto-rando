@@ -1,0 +1,7 @@
+%syntax-version=1.0.0
+%project=motorando
+
+initdb 2022-02-25T07:51:54Z maximebert <maximebertinelli@gmail.com> # creation des tables
+durationChange 2022-03-04T12:55:41Z Karine Bauch <karine.bauch.web@gmail.com> # modification of duration format - 2 colulns for hour and minutes instead of one for interval
+addDistrict 2022-03-08T20:04:02Z maximebert <maximebertinelli@gmail.com> # ajout table disctrict dans la bdd
+traceDatattype 2022-03-14T14:18:06Z Karine Bauch <karine.bauch.web@gmail.com> # modify trace data type from json to text

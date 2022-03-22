@@ -1,0 +1,47 @@
+@import 'src/Styles/vars';
+
+.legalNotices{
+    max-width: 1000px;
+    margin: 100px auto;
+    &-title{
+      margin: 50px auto;
+      font-weight: bold;
+      font-size: 1.5rem;
+  }
+  h4{
+    text-align: center;
+    color: $blue;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 50px 0;
+  }
+  h5{
+    text-align: left;
+    color: $blue;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 50px 0;
+  }
+  h6{
+    text-align: left;
+    color: $blue;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+
+  p{
+    margin: 20px;
+    color: $grey;
+  }
+  li{
+    list-style: inside;
+  }
+  span {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+}

@@ -1,0 +1,17 @@
+@import 'src/Styles/vars';
+
+.itinerary_list{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   
+   &-left{
+     overflow: hidden;
+      width: 800px;
+      margin-top: 50px;
+   }
+   &-right{
+      margin: 30px 0;
+      width: 800px;
+   }
+}

@@ -1,0 +1,83 @@
+@import 'src/Styles/vars';
+
+.itinerary__title{
+  text-align: center;
+  margin: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.important{
+  color: red;
+}
+
+.container__card{
+  .empty span{
+    color: $yellow;
+    text-align: center;
+    background-color: $grey;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 50px;
+  }
+}
+
+button{
+  width: 180px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  &:hover{
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.filter-btn{
+  margin: 20px 0;
+  &-changeFilter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    p{
+      font-size: 0.8rem;
+      span{
+        color: red;
+      }
+    }
+    button{
+      margin: 5px;
+      .active{
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.input-group{
+  margin: 20px 30px;
+  p{
+    font-weight: bold;
+  }
+  .MuiButtonBase-root{
+    display: flex;
+  }
+  .MuiTypography-root{
+    margin-left: 10px;
+  }
+}
+
+.label{
+  margin: 10px 0;
+  font-weight: bold;
+}
+.label-range{
+  margin: 50px 0;
+  font-weight: bold;
+}

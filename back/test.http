@@ -1,0 +1,176 @@
+### page d'accueil du site (doit renvoyer 6 itinéraires "random")
+GET http://localhost:3000
+
+### connexion
+POST http://localhost:3000/profil/connexion
+content-type: application/json
+
+{
+    "email": "jeanjean@gmail.com",
+    "password": "jeanjean"
+}
+###################################################################################################################
+### ITINERAIRES
+
+### liste de tout les itinéraires
+GET http://localhost:3000/itineraires
+
+### affiche un itinéraire
+GET http://localhost:3000/itineraires/2
+
+
+### ajout itinéraire
+POST http://localhost:3000/itineraires
+content-type: application/json
+
+{
+    "title": "Baux de Provence",
+    "description": "venez aux baux de provence cest splendide",
+    "hour": 2,
+    "minute": 30,
+    "highway": false,
+    "kilometer": 20,
+    "curve": 3,
+    "trace": "blabla",
+    "user_id": 1,
+    "district_id" : 11
+
+}
+
+### modif itinéraire (fonctionne uniquement si on modifie la durée avec)
+PATCH  http://localhost:3000/itineraires/21
+content-type: application/json
+
+{
+    "title": "Baux de Provence",
+    "hour": 1,
+    "minute": 25
+}
+
+### supprimer un itinéraire
+DELETE http://localhost:3000/itineraires/11
+
+###################################################################################################################
+### REGIONS
+
+### liste de tout les régions
+GET http://localhost:3000/regions
+
+### affiche une région
+GET http://localhost:3000/regions/10
+
+
+###################################################################################################################
+### USERS
+
+### rechercher un profil avec son id
+GET http://localhost:3000/profil/7
+
+### ajout d'un profil
+POST http://localhost:3000/profil/inscription
+content-type: application/json
+
+{
+    "alias": "jeanjean",
+    "email": "jeanjean@gmail.com",
+    "password": "jeanjean",
+    "confirmPassword": "jeanjean",
+    "presentation": "bonjour je suis maxime"
+}
+
+### modifier d'un profil
+PATCH http://localhost:3000/profil/3
+content-type: application/json
+
+{
+    "alias": "max",
+    "password": "js4life",
+    "confirmPassword": "js4life",
+    "presentation": "bonjour je suis norbert alias bebert"
+}
+
+### supprimer un profil avec son id
+DELETE http://localhost:3000/profil/7
+
+
+###################################################################################################################
+### MOTOS
+
+### voir liste des motos
+GET http://localhost:3000/motos
+
+### voir une moto
+GET http://localhost:3000/motos/7
+
+### ajout moto
+POST http://localhost:3000/motos
+content-type: application/json
+
+{
+    "brand": "ducati",
+    "model": "monster",
+    "description": "un plaisir italien",
+    "user_id": 1
+}
+
+### modif moto
+PATCH  http://localhost:3000/motos/7
+content-type: application/json
+
+{
+    "brand": "suzuki",
+    "model": "gsx1000",
+    "description": "vroom vroom",
+    "user_id": 1
+}
+
+### supprimer une moto
+DELETE http://localhost:3000/motos/7
+
+###################################################################################################################
+### PHOTOS
+
+### voir toutes les photos
+GET http://localhost:3000/images
+
+### voir une photo
+GET http://localhost:3000/images/1
+
+### ajout photo
+POST http://localhost:3000/images
+content-type: application/json
+
+{
+    "title": "suzuki",
+    "description": "gsx1000",
+    "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
+    "user_id": 1,
+    "motorbike_id": 1,
+    "itinerary_id": 1
+}
+
+### modif photo
+PATCH  http://localhost:3000/images/10
+content-type: application/json
+
+{
+    "title": "suzuki",
+    "description": "gsx1000",
+    "link": "https://www.permispratique.com/photo/gal/pic/gal-6955913.jpg?v=1516024224",
+    "user_id": 1,
+    "motorbike_id": 1,
+    "itinerary_id": 1
+}
+
+### supprimer une image
+DELETE http://localhost:3000/images/10
+
+###################################################################################################################
+### ERREURS
+
+### profil inexistant
+GET http://localhost:3000/profil/60
+
+### itineraire inexistant
+GET http://localhost:3000/itineraires/60
+

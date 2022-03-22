@@ -1,0 +1,35 @@
+@import 'src/Styles/vars';
+
+.home{
+    display: flex;
+    align-items: center;
+    height: 500px;
+    background-size: cover;
+    background: linear-gradient(rgba(114, 114, 114, 0.44), rgba(217, 217, 217, 0.05)), url('../../assets/images/photo2.jpg');
+    background-size:cover;
+    background-position:center;
+    padding: 30px;
+    margin-bottom: 50px;
+
+    &__header{
+        color: #fff;
+        margin: auto auto;
+        max-width: 500px;
+        background-color: rgba(7, 7, 7, 0.38);
+        padding: 50px 20px;
+        text-align: center;
+
+        &-title{
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+        }
+        &-link{
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            &:hover{
+                background-color: $blue;
+                transition: 0.3s ease all;
+            }
+        }
+    }
+}

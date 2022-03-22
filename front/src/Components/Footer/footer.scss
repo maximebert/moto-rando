@@ -1,0 +1,12 @@
+@use 'src/Styles/vars';
+
+.footer{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    background-color: vars.$grey;
+    margin-top: auto;
+
+}

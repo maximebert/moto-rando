@@ -1,0 +1,40 @@
+@import 'src/Styles/vars';
+
+.bike{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0px 10px 30px 10px;
+
+  &-container{
+    display: flex;
+    flex-direction: column;
+    img{
+      width: 65%;
+      margin: 0 auto;
+    }
+    span{
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .bike-infos{
+      margin: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 5px 50px;
+      border-radius: 10px;
+      border-bottom: 4px solid $yellow;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .profil-update-bike{
+    background-color: $yellow;
+    color: #000;
+    border: none;
+    margin: 20px auto;
+    padding: 10px 50px;
+    width: 300px;
+  }
+}

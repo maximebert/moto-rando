@@ -1,0 +1,54 @@
+@import 'src/Styles/vars';
+
+.form{
+   max-width: 500px;
+   margin: 0 auto;
+   padding: 0 50px;
+      h2{
+         margin: 50px auto;
+         font-weight: bold;
+         font-size: 1.5rem;
+      }
+   .itinerary-form{
+      display: flex;
+      flex-direction: column;
+      padding: 0 50px;
+
+      input:not([type="checkbox"]), textarea{
+         width: 100%;
+         margin: 20px 0;
+         padding: 10px;
+         border-radius: 5px;
+         border: 1px solid $blue;
+         font-family: 'Poppins', sans-serif;
+      }
+
+      .form-select{
+        border: 1px solid $blue;
+        border-radius: 5px;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        background-color: white;
+        margin: 20px 0;
+      }
+
+        .form__btn-submit{
+            display: block;
+            margin: 20px auto 100px auto;
+            border: 1px solid $blue;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-family: 'Poppins', sans-serif;
+            color: $grey;
+            text-transform: uppercase;
+               &:hover{
+               background-color: $blue;
+               color: #fff;
+               transition: 0.3s;
+               }
+            }
+   }
+}

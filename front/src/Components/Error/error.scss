@@ -1,0 +1,13 @@
+.error{
+   img{
+    width: 100%;
+   }
+}
+@media screen and (max-width: 500px) {
+  .error{
+    img{
+    height: 100vh;
+    object-fit: cover;
+   }
+  }
+}
