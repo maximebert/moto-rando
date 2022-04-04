@@ -6,8 +6,8 @@ POST http://localhost:3000/profil/connexion
 content-type: application/json
 
 {
-    "email": "jeanjean@gmail.com",
-    "password": "jeanjean"
+    "email": "zakk13200@gmail.com",
+    "password": "maxime"
 }
 ###################################################################################################################
 ### ITINERAIRES
