@@ -11,14 +11,9 @@ const OneItinerary = () => {
   const [itineraryID, setItineraryID] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const userLogged = useSelector((state) => state.user.id);
-// Params est un hook de react on s'en sert pour récupérer des routes paramétrées
+
   const params = useParams();
-  // console.log(params);
   useEffect(() => {
-    // c'était notre 1iere requete qui n'affichait pas les données. Elle était trop rapide
-    // const response = await axios.get(`http://localhost:3000/itineraires/${params.id}`);
-    // setItineraryID(response.data);
-    // setIsLoading(false);
     apiAxios.get(`/itineraires/${params.id}`).then(({ data }) => {
       setItineraryID(data);
       setIsLoading(false);

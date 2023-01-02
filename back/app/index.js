@@ -19,7 +19,6 @@ app.use(
     createParentPath: true,
   }),
 );
-// pour "lire" des json
 app.use(express.json());
 
 // TODO : Levée de la restriction des Cors à configurer dans ce cas on accepte tout

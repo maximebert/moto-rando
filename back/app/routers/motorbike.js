@@ -16,7 +16,7 @@ router.route('/')
   .get(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findAll))
   .post(validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.new));
 
-// Routes de récupération, de mise à jour ou de suppression d'1 moto
+// Routes de récupération, de mise à jour ou de suppression d'une moto
 router.route('/:id')
   .get(validate(motorbikeSchema, 'query'), controllerHandler(motorbikeController.findOne))
   .patch(validate(motorbikeSchema, 'body'), controllerHandler(motorbikeController.update))

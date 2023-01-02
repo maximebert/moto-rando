@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-
+// styles
+import "../../Styles/index.scss";
+import "./app.scss";
 // route
 import Home from "../../Pages/Home/Home";
 import Registration from "../../Pages/Registration/Registration";
@@ -17,17 +19,6 @@ import Error from "../Error/Error";
 import LegalNotice from "../Footer/LegalNotice/LegalNotice";
 
 
-
-
-
-
-
-
-
-// styles
-import "../../Styles/index.scss";
-import "./app.scss";
-
 function App() {
   return (
     <div className="App">
@@ -43,8 +34,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="*" element={<Error />} />
-        {/* route privee */}
 
+        {/* route privee */}
         <Route
           path="/profil/:id/nouveau-itineraire"
           element={<RegistrationItinerary />}

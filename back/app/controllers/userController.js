@@ -41,6 +41,7 @@ const userController = {
       const hashedPassword = encryptedPassword;
 
       const newUser = await userMapper.create(alias, email, hashedPassword, presentation);
+      delete newUser.password;
       return res.status(201).json(newUser);
     } catch (err) {
       return res.status(500).send(err.message);

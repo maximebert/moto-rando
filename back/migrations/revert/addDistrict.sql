@@ -9,4 +9,3 @@ DROP TABLE "district" ;
 
 COMMIT;
 
-
